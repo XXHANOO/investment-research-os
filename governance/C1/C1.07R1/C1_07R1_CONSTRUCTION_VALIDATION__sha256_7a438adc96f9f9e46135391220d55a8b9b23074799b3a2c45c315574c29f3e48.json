@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "C1_OPEN_010_preserved_closed": true,
+    "exact_r5_selected_targets_rehashed": true,
+    "inherited_authority_C1_001_545_gapless": true,
+    "inherited_authority_overlaps": 0,
+    "inherited_r5_schema_vectors_passed": 112,
+    "inherited_r5_schema_vectors_total": 112,
+    "json_schema_draft_2020_12_meta_validation": "PASS",
+    "new_acceptance_C1_546_570_all_mapped": true,
+    "new_acceptance_C1_546_570_count": 25,
+    "new_executable_semantic_vectors_passed": 20,
+    "new_executable_semantic_vectors_total": 20,
+    "production_implementation_created": false,
+    "r5_acceptance_C1_338_545_byte_identical": true
+  },
+  "generated_at_utc": "2026-08-23T19:13:56Z",
+  "schema_version": "1.0.0",
+  "semantic_execution_results": [
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-546"},
+    {"actual_error_code": "PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN","actual_valid": false,"expected_error_code": "PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-547"},
+    {"actual_error_code": "PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN","actual_valid": false,"expected_error_code": "PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-548"},
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-549"},
+    {"actual_error_code": "CONTRACT_PARENT_INSTRUMENT_REFERENCE_MISMATCH","actual_valid": false,"expected_error_code": "CONTRACT_PARENT_INSTRUMENT_REFERENCE_MISMATCH","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-550"},
+    {"actual_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","actual_valid": false,"expected_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-551"},
+    {"actual_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","actual_valid": false,"expected_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-552"},
+    {"actual_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","actual_valid": false,"expected_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-553"},
+    {"actual_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","actual_valid": false,"expected_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-554"},
+    {"actual_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","actual_valid": false,"expected_error_code": "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-555"},
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-556"},
+    {"actual_error_code": "CONTRACT_INSTRUMENT_REPARENT_FORBIDDEN","actual_valid": false,"expected_error_code": "CONTRACT_INSTRUMENT_REPARENT_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-557"},
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-558"},
+    {"actual_error_code": "LISTING_REPARENT_FORBIDDEN","actual_valid": false,"expected_error_code": "LISTING_REPARENT_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-559"},
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-560"},
+    {"actual_error_code": "CANONICAL_ID_REUSE_FORBIDDEN","actual_valid": false,"expected_error_code": "CANONICAL_ID_REUSE_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-561"},
+    {"actual_error_code": "CURRENT_ANCHOR_NOT_HISTORICAL_EVIDENCE","actual_valid": false,"expected_error_code": "CURRENT_ANCHOR_NOT_HISTORICAL_EVIDENCE","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-562"},
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-563"},
+    {"actual_error_code": "DUPLICATE_CONTRACT_VENUE_ADMISSION","actual_valid": false,"expected_error_code": "DUPLICATE_CONTRACT_VENUE_ADMISSION","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-564"},
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-565"}
+  ],
+  "stage": "C1.07R1"
+}

@@ -1,0 +1,34 @@
+schema_version: 1.0.0
+stage: C0-FR2.1 Canonical Artifact Binding & Persistence Repair
+generated_at_utc: '2026-08-17T21:50:59.640643+00:00'
+canonical_resolution_policy:
+  identity_rule: HASHED_CONTENT_IS_IDENTITY
+  authority_rule: CONTENT_ADDRESSED_BINDING_IS_AUTHORITY
+  path_rule: MUTABLE_PATH_IS_NON_AUTHORITATIVE_PROJECTION
+  failure_mode: FAIL_CLOSED
+  integrity_error: CANONICAL_ARTIFACT_INTEGRITY_ERROR
+  consumer_rule: Consumers MUST resolve logical artifacts through this binding, verify authoritative_sha256 before parsing/using
+    content, and MUST NOT treat projection_path as canonical authority.
+bindings:
+  C0_ARCHITECTURE_EVIDENCE_LEDGER:
+    artifact_type: machine_governance_ledger
+    logical_name: C0_ARCHITECTURE_EVIDENCE_LEDGER
+    authoritative_path: C0_ARCHITECTURE_EVIDENCE_LEDGER__sha256_abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155.yaml
+    authoritative_sha256: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+    source_snapshot_path: C0_ARCHITECTURE_EVIDENCE_LEDGER_FR2_RESTORED.yaml
+    source_snapshot_sha256: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+    projection_path: C0_ARCHITECTURE_EVIDENCE_LEDGER.yaml
+    projection_authority: NON_AUTHORITATIVE
+    projection_policy: If projection_path is explicitly consumed, its SHA-256 MUST equal authoritative_sha256; otherwise fail
+      closed with CANONICAL_ARTIFACT_INTEGRITY_ERROR. Canonical resolution itself uses authoritative_path and is not redirected
+      by projection contents.
+    expected_semantic_state:
+      schema_version: 1.4.0-FR2
+      decisions: 45
+      sources: 17
+      acceptance_reverse_coverage: 70/70
+      required_source_presence:
+      - FINCEPT_ARCH
+      forbidden_source_presence:
+      - FINCEPT_HEAD
+      - NAUTILUS_HEAD

@@ -1,0 +1,72 @@
+schema_version: 1.0.0
+status: APPROVAL_READY
+generated_at_utc: '2026-08-17T22:37:39.534388+00:00'
+architecture: C0 Architecture v4
+candidate_version: 4.1-FR3
+review_verdict: PASS
+freeze_state: NOT_FROZEN
+c1_authorization: NOT_GRANTED
+approval_gate: EXPLICIT_USER_APPROVAL_OF_THIS_EXACT_MANIFEST_SHA
+root_of_trust:
+  manifest_role: HIGHER_LEVEL_TRUST_ROOT_FOR_C0_FREEZE
+  trusted_binding_sha256: 30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751
+  trusted_verifier_sha256: 4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d
+  authoritative_ledger_sha256: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+  authoritative_candidate_sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+immutability_rule: Any mutation of an artifact listed under approval_artifacts invalidates this manifest and requires a new
+  final review, new manifest, and new explicit user approval.
+approval_artifacts:
+- logical_role: C0_SPECIFICATION_CANDIDATE
+  path: C0_FINAL_CANDIDATE__sha256_9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f.md
+  sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+- logical_role: CANDIDATE_SELECTION
+  path: C0_FR3_CANDIDATE_SELECTION.yaml
+  sha256: 96d4eb181e028300f456a947a8ad56d7f50064da7c83f63613fa666e4fef2089
+- logical_role: ACCEPTANCE_CATALOG
+  path: C0_ACCEPTANCE_TEST_CATALOG.md
+  sha256: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
+- logical_role: ARCHITECTURE_EVIDENCE_LEDGER
+  path: C0_ARCHITECTURE_EVIDENCE_LEDGER__sha256_abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155.yaml
+  sha256: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+- logical_role: CANONICAL_BINDING
+  path: C0_CANONICAL_ARTIFACT_BINDINGS__sha256_30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751.yaml
+  sha256: 30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751
+- logical_role: CANONICAL_BINDING_VERIFIER
+  path: C0_CANONICAL_BINDING_VERIFY__sha256_4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d.py
+  sha256: 4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d
+- logical_role: FR3_METADATA_RECHECK_REPORT
+  path: C0-FR3_METADATA_REGRESSION_RECHECK_REPORT.md
+  sha256: 3600c4b5ce528cbfe5692a820cb72ec797ee3b976dcbe5d02c3a0a354e10e71f
+- logical_role: FR3_METADATA_RECHECK_MACHINE
+  path: C0-FR3_METADATA_REGRESSION_RECHECK.yaml
+  sha256: a290098421c7ac742b20e9e015eedd4125d7b23bf17a953961278b6ec8fb902f
+- logical_role: FR2_2_ROOT_OF_TRUST_RECHECK_REPORT
+  path: C0-FR2.2_ROOT_OF_TRUST_RECHECK_REPORT.md
+  sha256: b9a9364486bc99500c8a6539fa780741e3f5b85eb9051a4995ac7b37d96b04d5
+- logical_role: LATEST_FRESH_REMOTE_SOURCE_PIN_RECHECK
+  path: C0-FR2.1_REMOTE_SOURCE_PIN_RECHECK.yaml
+  sha256: 74a4742c99445134c1ed0aef197251545eb38401983db5e96250120f92d4c879
+- logical_role: SHORT_REFRESHED_FINAL_FREEZE_REVIEW
+  path: C0_SHORT_REFRESHED_FINAL_FREEZE_REVIEW_REPORT.md
+  sha256: 69840ebbac762d578e77412f73ea8ecc483a1cfcc09b43da74e60fef41d80aff
+- logical_role: FREEZE_SEAL_PROTOCOL
+  path: C0_FREEZE_SEAL_PROTOCOL.md
+  sha256: 6f2ea276cc4cb0ada97bf3211cbc399454aebd329d5d3028343a8adcdc885707
+verification_summary:
+  short_refreshed_final_freeze_review: PASS
+  fr3_metadata_regression_recheck: PASS
+  fr2_2_root_of_trust_recheck: PASS
+  ledger_decisions: 45
+  source_records: 17
+  acceptance_reverse_coverage: 70/70
+  latest_fresh_remote_source_pins: 17/17 PASS
+  remaining_technical_blockers: 0
+  remaining_governance_blockers_before_user_approval: 0
+post_approval_transaction:
+  protocol_path: C0_FREEZE_SEAL_PROTOCOL.md
+  protocol_sha256: 6f2ea276cc4cb0ada97bf3211cbc399454aebd329d5d3028343a8adcdc885707
+  frozen_output_path: C0_FROZEN.md
+  frozen_output_required_sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  seal_output_path: C0_FREEZE_SEAL.yaml
+  must_not_modify_approval_artifacts: true
+  c1_authorization_only_after_seal: true

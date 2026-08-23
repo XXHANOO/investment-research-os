@@ -1,0 +1,68 @@
+schema_version: 1.0.0-r5-candidate
+stage: C1.06R5
+generated_at_utc: '2026-08-23T18:34:47Z'
+coverage: C1-001..C1-534
+segments:
+- stage: C1.00R1.1
+  range: C1-001..C1-034
+  count: 34
+  artifact: C1_ACCEPTANCE_CATALOG
+  sha256: b2d7b8e8587d0db116f2349b2a0b63309268ec336e43651f76ab1a4f73063a54
+  availability: EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.01R1
+  range: C1-035..C1-072
+  count: 38
+  artifact: C1_01R1_ACCEPTANCE_TEST_DELTA
+  sha256: 010863078e2d080561ecf37d221bc3d2c395a95d42d31e6079748f2bd56e2b0a
+  availability: EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.02R1
+  range: C1-073..C1-124
+  count: 52
+  artifact: C1_02R1_ACCEPTANCE_TEST_DELTA
+  sha256: c5d2c3099444894cf928867f8648bd10c218f7d9d3582b168da5f6002ee64cf3
+  availability: EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.03R1
+  range: C1-125..C1-193
+  count: 69
+  artifact: C1_03R1_ACCEPTANCE_TEST_DELTA
+  sha256: 0ae5a811c7a5291670c3bc44dcddd5fd853d69323e3a025c0c4256f6401bd6b8
+  availability: EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.04R1
+  range: C1-194..C1-256
+  count: 63
+  artifact: C1_04R1_ACCEPTANCE_TEST_DELTA
+  sha256: ae7f3bd26822206d58707c7d3b44266f5221282262c9ca3e4b8f41868c8bd790
+  availability: LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.05R1
+  range: C1-257..C1-337
+  count: 81
+  artifact: C1_05R1_ACCEPTANCE_TEST_DELTA
+  sha256: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+  availability: LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.06
+  range: C1-338..C1-430
+  count: 93
+  artifact: C1_06_ACCEPTANCE_TEST_DELTA
+  sha256: d32b0fed76d2d9c0aa4c949901fde4aba164b7f925d446e1cae61bd14409328d
+  availability: LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.06R1
+  range: C1-431..C1-486
+  count: 56
+  artifact: C1_06R1_ACCEPTANCE_TEST_DELTA
+  sha256: cea15a5831808bff203970b045c48a509f6f28a0070cb69263c0473049f68007
+  availability: LOCAL_CONTENT_ADDRESSED
+- stage: C1.06R2
+  range: C1-487..C1-523
+  count: 37
+  artifact: C1_06R2_ACCEPTANCE_TEST_DELTA__sha256_890db4e143025bff9ff6bad4268d2232fa6f57ce68369335a9ebd8d548c19926.md
+  sha256: 890db4e143025bff9ff6bad4268d2232fa6f57ce68369335a9ebd8d548c19926
+  availability: BUNDLED_EXACT_PARENT
+- stage: C1.06R4
+  range: C1-524..C1-534
+  count: 11
+  artifact: C1_06R4_ACCEPTANCE_TEST_DELTA__sha256_5f78ead46bee98e7353e8a116ff24760e5e46d8b0fdf45fb71e541c717ca2685.md
+  sha256: 5f78ead46bee98e7353e8a116ff24760e5e46d8b0fdf45fb71e541c717ca2685
+  availability: BUNDLED_EXACT_PARENT
+total_count: 534
+gaps: 0
+overlaps: 0

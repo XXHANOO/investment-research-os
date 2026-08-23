@@ -1,0 +1,49 @@
+schema_version: 1.0.0
+audit: C0 GitHub Synchronization Audit
+generated_at_utc: '2026-08-23T19:42:01Z'
+repository: XXHANOO/investment-research-os
+branch: main
+verdict: NOT_FULLY_SYNCHRONIZED
+local_authoritative_root:
+  C0_FROZEN.md:
+    sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+    git_blob_sha1: cb20a303110c44a2e9d306bb11eee635799f98a4
+    bytes: 62331
+    lines: 2244
+    remote_main: MISSING
+  C0_FREEZE_SEAL.yaml:
+    sha256: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+    git_blob_sha1: 69627f1dd9c2a0e60c38d954a6f05759cfdae195
+    bytes: 1492
+    remote_main: EXACT_GIT_BLOB_MATCH
+  local_c0_root_commit: 38b8d09a926a94c5c7beecf067766935ff69f71a
+  local_c0_annotated_tag_ref: c0-frozen
+  local_c0_tag_object: a5697d493c2995dce72a6610500e6f2c634b90d4
+  remote_c0_tag_ref: MISSING
+freeze_seal_referenced_artifacts:
+  approval_ready_freeze_manifest:
+    sha256: 3b9f7546b097d9d5867bf937a1bc4be77178d8d251a1987f0a098f4762a86968
+    exact_bytes_in_current_runtime: false
+  approved_final_candidate:
+    sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+    exact_bytes_in_current_runtime: true
+    represented_by: C0_FROZEN.md
+  acceptance_catalog:
+    sha256: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
+    exact_bytes_in_current_runtime: false
+  authoritative_ledger:
+    sha256: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+    exact_bytes_in_current_runtime: false
+  trusted_binding:
+    sha256: 30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751
+    exact_bytes_in_current_runtime: false
+  trusted_verifier:
+    sha256: 4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d
+    exact_bytes_in_current_runtime: false
+required_actions_for_full_sync:
+- Push exact C0_FROZEN.md bytes to governance/C0/C0_FROZEN.md.
+- Recreate/push the c0-frozen tag/ref if exact remote historical tagging is required.
+- Recover the original exact bytes for the approval-ready freeze manifest, acceptance
+  catalog, authoritative ledger, trusted binding, and trusted verifier before claiming
+  a complete C0 evidence-package mirror.
+- Do not regenerate missing historical evidence files from prose or hashes.

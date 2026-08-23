@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "C1RT_B01_B02_B03_preserved_closed": true,
+    "C1_OPEN_010_preserved_closed": true,
+    "exact_r1_selected_targets_rehashed": true,
+    "inherited_authority_C1_001_570_gapless": true,
+    "inherited_authority_overlaps": 0,
+    "inherited_machine_vectors_passed": 112,
+    "inherited_machine_vectors_total": 112,
+    "inherited_r1_executable_semantic_vectors_passed": 20,
+    "inherited_r1_executable_semantic_vectors_total": 20,
+    "json_schema_draft_2020_12_meta_validation": "PASS",
+    "new_acceptance_C1_571_585_count": 15,
+    "new_acceptance_all_mapped": true,
+    "new_r2_executable_semantic_vectors_passed": 10,
+    "new_r2_executable_semantic_vectors_total": 10,
+    "production_implementation_created": false,
+    "r1_acceptance_C1_338_570_byte_identical": true
+  },
+  "generated_at_utc": "2026-08-23T19:38:29Z",
+  "new_semantic_execution_results": [
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-571"},
+    {"actual_error_code": "LISTING_VENUE_REPARENT_FORBIDDEN","actual_valid": false,"expected_error_code": "LISTING_VENUE_REPARENT_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-572"},
+    {"actual_error_code": "LISTING_REPARENT_FORBIDDEN","actual_valid": false,"expected_error_code": "LISTING_REPARENT_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-573"},
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-574"},
+    {"actual_error_code": "CANONICAL_ID_REUSE_FORBIDDEN","actual_valid": false,"expected_error_code": "CANONICAL_ID_REUSE_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-575"},
+    {"actual_error_code": "LISTING_VENUE_TRANSFER_INSTRUMENT_MISMATCH","actual_valid": false,"expected_error_code": "LISTING_VENUE_TRANSFER_INSTRUMENT_MISMATCH","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-576"},
+    {"actual_error_code": "LISTING_VENUE_TRANSFER_SAME_VENUE_FORBIDDEN","actual_valid": false,"expected_error_code": "LISTING_VENUE_TRANSFER_SAME_VENUE_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-577"},
+    {"actual_error_code": "LISTING_VENUE_TRANSFER_PACKAGE_INVALID","actual_valid": false,"expected_error_code": "LISTING_VENUE_TRANSFER_PACKAGE_INVALID","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-578"},
+    {"actual_error_code": null,"actual_valid": true,"expected_error_code": null,"expected_valid": true,"input_schema_valid": true,"pass": true,"test_id": "C1-579"},
+    {"actual_error_code": "LISTING_VENUE_REPARENT_FORBIDDEN","actual_valid": false,"expected_error_code": "LISTING_VENUE_REPARENT_FORBIDDEN","expected_valid": false,"input_schema_valid": true,"pass": true,"test_id": "C1-580"}
+  ],
+  "schema_version": "1.0.0",
+  "stage": "C1.07R2"
+}

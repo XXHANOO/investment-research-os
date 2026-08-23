@@ -1,0 +1,42 @@
+schema_version: 1.0.0
+stage: C1.07R2 — Listing Venue Continuity & Transfer Invariant Repair
+generated_at_utc: '2026-08-23T19:38:29Z'
+verdict: CANDIDATE_CONSTRUCTION_COMPLETE
+blockers:
+  C1RT-B01: CLOSED_PRESERVED
+  C1RT-B02: CLOSED_PRESERVED
+  C1RT-B03: CLOSED_PRESERVED
+  C1RT-B04: ADDRESSED_NOT_CLOSED
+C1_OPEN_010: CLOSED
+C1_07: FAIL_PENDING_R2_RECHECK
+C1_overall_freeze_eligible: false
+production_implementation: NOT_AUTHORIZED
+next_gate: C1.07R2 Independent Regression Re-Check
+selected:
+  candidate:
+    path: C1_07R2_SCHEMA_CONTRACT_TEST_CANDIDATE__sha256_e61a41063b3582e9c8136ac7b0e9c4ea46d0425ee0d0c3f5eb4e508ea025f479.md
+    sha256: e61a41063b3582e9c8136ac7b0e9c4ea46d0425ee0d0c3f5eb4e508ea025f479
+  machine_schema:
+    path: C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json
+    sha256: 927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4
+  registry:
+    path: C1_07R2_SCHEMA_REGISTRY_CANDIDATE__sha256_fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a.yaml
+    sha256: fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a
+  decision_ledger:
+    path: C1_07R2_EVIDENCE_DECISION_LEDGER__sha256_ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486.yaml
+    sha256: ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486
+  acceptance_delta:
+    path: C1_07R2_ACCEPTANCE_TEST_DELTA__sha256_ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78.md
+    sha256: ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78
+  contract_tests:
+    path: C1_07R2_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247.yaml
+    sha256: a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247
+  inherited_regression_authority:
+    path: C1_07R2_INHERITED_REGRESSION_AUTHORITY__sha256_36efef7e92db05aae576c98f1987f5333378e14009a515067acc2dd292365e60.yaml
+    sha256: 36efef7e92db05aae576c98f1987f5333378e14009a515067acc2dd292365e60
+  repair_diffs:
+    path: C1_07R2_REPAIR_DIFFS__sha256_31681a57cab36554bed36789b74afb82b629eb0ee190339032e24175c427b379.md
+    sha256: 31681a57cab36554bed36789b74afb82b629eb0ee190339032e24175c427b379
+  construction_validation:
+    path: C1_07R2_CONSTRUCTION_VALIDATION__sha256_30bf2d4ac23a11e5243d002ebbf8578825b4286aa16810ca3befe5d2b8adb628.json
+    sha256: 30bf2d4ac23a11e5243d002ebbf8578825b4286aa16810ca3befe5d2b8adb628

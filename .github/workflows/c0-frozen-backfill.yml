@@ -6,12 +6,15 @@ on:
     paths:
       - '.c0-recovery/C0_FROZEN.part*.b64'
       - '.github/workflows/c0-frozen-backfill.yml'
+  issues:
+    types: [opened]
 
 permissions:
   contents: write
 
 jobs:
   reconstruct:
+    if: github.event_name == 'push' || github.event.issue.title == 'C0 exact frozen-spec backfill trigger'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +26,7 @@ jobs:
           parts=(.c0-recovery/C0_FROZEN.part*.b64)
           if [ "${#parts[@]}" -ne 7 ]; then
             echo "Waiting for all 7 exact base64 chunks; currently ${#parts[@]}."
-            exit 0
+            exit 1
           fi
           mkdir -p governance/C0
           cat "${parts[@]}" | base64 --decode > governance/C0/C0_FROZEN.md

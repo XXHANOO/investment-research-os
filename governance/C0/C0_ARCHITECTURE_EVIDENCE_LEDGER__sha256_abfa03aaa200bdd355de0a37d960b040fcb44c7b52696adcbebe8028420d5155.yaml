@@ -1,0 +1,878 @@
+schema_version: 1.4.0-FR2
+status: RESTORED_CANDIDATE_FOR_C0_FR2_INTEGRITY_RECHECK
+generated_at_utc: '2026-08-17T20:59:31.970637+00:00'
+architecture_candidate: C0 4.1-FR1
+freeze_state: NOT_FROZEN
+classification_values:
+- VERIFIED
+- ADAPTED
+- INFERRED
+- ASPIRATIONAL
+evidence_strength_order:
+- EXECUTABLE_CONTRACT_TEST
+- SOURCE_IMPLEMENTATION
+- MACHINE_READABLE_SCHEMA
+- REPOSITORY_ARCHITECTURE_SPEC
+- OFFICIAL_TECHNICAL_DOCUMENTATION
+- README
+- ISSUE_OR_DISCUSSION
+- BLOG
+source_role_vocabulary:
+- CONTRACT_AUTHORITY
+- SUPPORTING
+- INSPIRATION
+reasoning_basis_vocabulary:
+- DIRECT_ADOPTION
+- SOURCE_AUDIT
+- MULTI_SOURCE_ADAPTATION
+- ARCHITECTURE_SYNTHESIS
+- NEGATIVE_EVIDENCE
+- SECURITY_INFERENCE
+- DOMAIN_SAFETY_SYNTHESIS
+- GOVERNANCE_SYNTHESIS
+- QUANT_RESEARCH_SYNTHESIS
+schema_contract:
+  required_decision_fields:
+  - decision_id
+  - statement
+  - decision_classification
+  - strongest_evidence_strength
+  - reasoning_basis
+  - evidence_refs
+  - our_adaptation
+  - risks
+  - required_tests
+  strength_null_rule: strongest_evidence_strength may be null only when external evidence_refs is empty; null is not evidence.
+  source_ref_rule: every evidence_ref resolves to source_catalog; repository evidence pins repository+commit+exact path+blob_sha.
+  remote_pin_rule: C0-060 resolves repository+commit+path against the remote repository and compares the returned blob identity
+    to blob_sha.
+  source_role_rule: source_role is independent of evidence strength and limits authority scope.
+  bidirectional_test_coverage_rule: Every Ledger required_test must resolve to C0_ACCEPTANCE_TEST_CATALOG.md, and every C0
+    acceptance obligation must be referenced by at least one Ledger decision before freeze.
+notes:
+- Decision classification describes OUR architecture decision, not the source itself.
+- Freeze status is separate from VERIFIED/ADAPTED/INFERRED/ASPIRATIONAL classification.
+- INFERRED critical decisions are allowed only when stated honestly and covered by explicit tests.
+- Source role/authority scope is independent of evidence strength; code-level evidence from an INSPIRATION source does not
+  grant Contract Authority.
+- Unpinned Nautilus placeholder evidence remains excluded from the load-bearing machine Ledger until an exact source-level
+  re-pin is performed.
+- Fincept architecture evidence is pinned specifically to docs/ARCHITECTURE.md at commit cc342e... with remote blob 030e5847...
+  and is used only within that file's authority scope.
+- 'FR2 restoration note: this Ledger was reconstructed from the active older Ledger plus the validated R2V.1/R2V.2 stage specifications
+  and FR1 17/17 remote source manifest. It intentionally receives a NEW SHA-256 rather than pretending to recover the historical
+  6d8314... bytes.'
+source_catalog:
+  LEAN_SYMBOL:
+    project: QuantConnect LEAN
+    repository: QuantConnect/Lean
+    commit: d865a40b28c105d0c4d47453086c8f8f86e853e3
+    file: Common/Symbol.cs
+    blob_sha: 5e70c0f7a649d817b9f2c9728c788e6ea516a388
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Symbol combines a stable SID with Value as the current ticker; SID is constant over the security lifetime.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: stable instrument/security identity within audited LEAN Symbol semantics
+    authority_rank: A
+  LEAN_BROKERAGE:
+    project: QuantConnect LEAN
+    repository: QuantConnect/Lean
+    commit: d865a40b28c105d0c4d47453086c8f8f86e853e3
+    file: Common/Brokerages/DefaultBrokerageModel.cs
+    blob_sha: f4a5b893f822a291b7ce987435e497ed826c31aa
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Brokerage model exposes order submission/update/execution checks and broker-specific fill/leverage behavior;
+      execution checks are used to emulate brokerage behavior in backtest/paper.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: brokerage admission/fill/leverage domain reality within audited LEAN brokerage model semantics
+    authority_rank: A
+  QLIB_PIT:
+    project: Microsoft Qlib
+    repository: microsoft/qlib
+    commit: 79633dd9506ea689e5400dea0197717b5b3d74b7
+    file: qlib/data/data.py
+    blob_sha: aba75c0b1ab1bbe16e65961ca32fe27eef9e82f4
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: PIT financial provider selects revision records before cur_time and returns period values as-of that time.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: revision-aware point-in-time data semantics only
+    authority_rank: A
+  QLIB_RECORDER:
+    project: Microsoft Qlib
+    repository: microsoft/qlib
+    commit: 79633dd9506ea689e5400dea0197717b5b3d74b7
+    file: qlib/workflow/recorder.py
+    blob_sha: 5fd99c0769fce2d349ac44d918fe2a04de41908e
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Recorder models experiment/run identity, SCHEDULED/RUNNING/FINISHED/FAILED states, parameters, metrics, artifacts
+      and tags.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: experiment/run recorder semantics only
+    authority_rank: A
+  OPENBB_FETCHER:
+    project: OpenBB
+    repository: OpenBB-finance/OpenBB
+    commit: 3e071fcc2cd9f891cac6040ae60296dba76dab46
+    file: openbb_platform/core/openbb_core/provider/abstract/fetcher.py
+    blob_sha: d2a868c41e50b7d9f925673899725cbc9f2b6c56
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Typed provider Fetcher implements transform_query → extract_data/aextract_data → transform_data and includes
+      tests of each stage.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: provider abstraction and transformation-pipeline semantics only
+    authority_rank: A
+  AIHF_DATA_PROTOCOL:
+    project: ai-hedge-fund
+    repository: virattt/ai-hedge-fund
+    commit: eff8a7320fcf0b473b135690fa1a5b0d9b022a83
+    file: hedge_fund/data/protocol.py
+    blob_sha: f1fe630bd0a8319953d92a7e0371ec9b44572657
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: DataClient contract states empty/None means genuine absence, infrastructure failures must raise, and financial
+      metrics must be point-in-time by public filing date.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: provider failure/no-data and filing-date PIT contract semantics only
+    authority_rank: A
+  AIHF_DATA_TESTS:
+    project: ai-hedge-fund
+    repository: virattt/ai-hedge-fund
+    commit: eff8a7320fcf0b473b135690fa1a5b0d9b022a83
+    file: hedge_fund/data/test_client_contract.py
+    blob_sha: 8c9f7d3b2b8de82e10e520df6ac847ed46174ad3
+    evidence_type: EXECUTABLE_CONTRACT_TEST
+    observation: Tests pin fail-loud 500/401/network/429 behavior, distinguish 404 no-data, require filing_date_lte instead
+      of report_period_lte, and fail loud across pagination.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: executable provider/PIT contract behavior within audited tests only
+    authority_rank: A
+  TEMPORAL_ARCH:
+    project: Temporal
+    repository: temporalio/temporal
+    commit: b4238b3319f6ee9098c492fb331c508d586af891
+    file: docs/architecture/README.md
+    blob_sha: fe736fd49b7f9386601b0f9d3f61e49432473782
+    evidence_type: REPOSITORY_ARCHITECTURE_SPEC
+    observation: Durable workflows use append-only event history/replay; workflow code is deterministic/no-side-effect and
+      activities must be idempotent or non-retryable.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: durable workflow/activity/replay semantics only; not a required dependency
+    authority_rank: A
+  OPENLINEAGE_SPEC:
+    project: OpenLineage
+    repository: OpenLineage/OpenLineage
+    commit: d50103a5ef531744bd4e552800bb4179a3e8ee73
+    file: spec/OpenLineage.md
+    blob_sha: 5697414fd9283770e61a695a6a1c36b4e656b939
+    evidence_type: OFFICIAL_TECHNICAL_DOCUMENTATION
+    observation: Run/Job/Dataset/Facet lineage model records START and terminal events, run IDs, inputs/outputs, source location/version
+      such as git SHA, and data-quality/version facets.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: lineage/run/job/dataset provenance semantics only
+    authority_rank: A
+  MCP_SCHEMA:
+    project: Model Context Protocol
+    repository: modelcontextprotocol/modelcontextprotocol
+    commit: 4df2d6b6e3588efb46e7542d98498e5c630a0a86
+    file: schema/2026-07-28/schema.ts
+    blob_sha: 9b55feeb412bc3ae877f2eac10b5c01ba29a2eed
+    evidence_type: MACHINE_READABLE_SCHEMA
+    observation: Versioned protocol schema defines typed capabilities/content/tool-related structures and human-in-the-loop
+      sampling semantics; MCP metadata is not itself our authorization policy.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: tool/protocol/schema shape only; annotations are not authorization
+    authority_rank: A
+  RDAGENT_QUANT:
+    project: Microsoft RD-Agent
+    repository: microsoft/RD-Agent
+    commit: 6762f84f9bc0f5c6486c50a00e128a57ac6c3683
+    file: rdagent/scenarios/qlib/proposal/quant_proposal.py
+    blob_sha: b61ce4c0ee74a61154d5a08797aa16412801b2fe
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Quant hypothesis generation consumes historical experiment/feedback state and may use prior metrics via a
+      controller to choose future research actions.
+    source_role: INSPIRATION
+    authority_scope: iterative research/hypothesis-feedback mechanics only; cannot alone define Frozen Contract
+    authority_rank: C
+  TRADINGAGENTS_REFLECTION:
+    project: TradingAgents
+    repository: TauricResearch/TradingAgents
+    commit: a33fd4c0f134485a43553a2c23a63cb14adbd88f
+    file: tradingagents/graph/reflection.py
+    blob_sha: 0685941fe6609ea2b1d93a18b49873f07f435af2
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Reflector reviews realized raw/alpha return, which thesis element held/failed, and writes a concrete future
+      lesson.
+    source_role: INSPIRATION
+    authority_scope: experience-reflection feasibility only; cannot alone define Frozen Contract
+    authority_rank: C
+  TRADINGAGENTS_MEMORY:
+    project: TradingAgents
+    repository: TauricResearch/TradingAgents
+    commit: a33fd4c0f134485a43553a2c23a63cb14adbd88f
+    file: tradingagents/agents/utils/memory.py
+    blob_sha: ff9e94579bfcf256712c6daf0fd4d0fbbb9290c1
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Append-only decision/reflection log stores pending outcomes, resolves them, and reinjects prior resolved
+      lessons into future context.
+    source_role: INSPIRATION
+    authority_scope: memory reinjection feasibility/negative lesson only
+    authority_rank: C
+  FINMEM_REFLECTION:
+    project: FinMem
+    repository: pipiku915/FinMem-LLM-StockTrading
+    commit: be814aa47970de9bf2fdd6a1d5a60ae5cf361b46
+    file: puppy/reflection.py
+    blob_sha: d2fbc22209c561145732bafa0d010427e9da00fc
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Reflection logic distinguishes train vs test modes; training context may include future_record while test-time
+      investment context does not.
+    source_role: INSPIRATION
+    authority_scope: train/test reflection separation inspiration only
+    authority_rank: C
+  AIB_FINANCIAL_RIGOR:
+    project: AI Berkshire
+    repository: xbtlin/ai-berkshire
+    commit: 515fe5ed8c9f914cd1d779734caf679770d89b48
+    file: tools/financial_rigor.py
+    blob_sha: b2c5232f07440d15c9119c2e82ac7cf202ff9b5d
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Deterministic decimal-based financial calculations verify market cap and valuation metrics and perform explicit
+      cross-source consistency checks.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: deterministic financial calculation/cross-check patterns within audited scope
+    authority_rank: A
+  AIB_REPORT_AUDIT:
+    project: AI Berkshire
+    repository: xbtlin/ai-berkshire
+    commit: 515fe5ed8c9f914cd1d779734caf679770d89b48
+    file: tools/report_audit.py
+    blob_sha: a775970c34571bd0abcf9acd1fa74ddcc326b028
+    evidence_type: SOURCE_IMPLEMENTATION
+    observation: Report audit extracts financial data points and applies sampled verification/release logic, providing a concrete
+      audit-gate pattern.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: research audit/release-check patterns within audited scope
+    authority_rank: A
+  FINCEPT_ARCH:
+    project: FinceptTerminal
+    repository: Fincept-Corporation/FinceptTerminal
+    commit: cc342e3367a586e24c6f5a7c85a41599bdd77be0
+    file: docs/ARCHITECTURE.md
+    blob_sha: 030e584797fb322976d491791d1bf295cff3c9f8
+    evidence_type: REPOSITORY_ARCHITECTURE_SPEC
+    observation: Pinned architecture specification describes FinceptTerminal as a modular monolith with explicit dependency
+      direction and separated application/data/adapters/infrastructure responsibilities. C0 uses this only for architecture-boundary
+      adaptation.
+    source_role: CONTRACT_AUTHORITY
+    authority_scope: modular-monolith/dependency-boundary patterns within the pinned architecture specification only
+    authority_rank: A
+decisions:
+- decision_id: C0.INV-01
+  statement: Ticker/provider symbol is not canonical identity; stable Entity/Instrument/Listing/Contract identity is required.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: SOURCE_AUDIT
+  evidence_refs:
+  - LEAN_SYMBOL
+  our_adaptation: Generalize LEAN's stable SID/current ticker separation into multi-level investment-domain identity.
+  risks:
+  - Incorrect corporate-action/symbol-history mapping if identity granularity is poorly designed.
+  required_tests:
+  - C0-001
+- decision_id: C0.INV-02
+  statement: Time-sensitive historical reads require explicit HISTORICAL mode and as_of; CURRENT is explicit.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: EXECUTABLE_CONTRACT_TEST
+  reasoning_basis: MULTI_SOURCE_ADAPTATION
+  evidence_refs:
+  - AIHF_DATA_TESTS
+  - QLIB_PIT
+  our_adaptation: Generalize filing-date/cur_time PIT practice to all time-sensitive investment-domain reads.
+  risks:
+  - Over-scoping as_of to static reference data would create noisy interfaces; C0 scopes to time-sensitive semantics.
+  required_tests:
+  - C0-002
+  - C0-003
+- decision_id: C0.INV-03
+  statement: Knowledge availability, not period end alone, governs PIT visibility.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: EXECUTABLE_CONTRACT_TEST
+  reasoning_basis: MULTI_SOURCE_ADAPTATION
+  evidence_refs:
+  - AIHF_DATA_TESTS
+  - QLIB_PIT
+  our_adaptation: Use supported available_from semantics with explicit precision/basis rather than assuming exact market-knowledge
+    timestamps.
+  risks:
+  - Provider metadata may be date-only or uncertain; conservative availability is required.
+  required_tests:
+  - C0-004
+  - C0-005
+- decision_id: C0.INV-04
+  statement: Revisions are append-preserved and historically queryable.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: SOURCE_AUDIT
+  evidence_refs:
+  - QLIB_PIT
+  our_adaptation: Apply revision-aware PIT semantics beyond Qlib financial fields to all revisable canonical facts.
+  risks:
+  - Storage growth; migration complexity; need clear supersession semantics.
+  required_tests:
+  - C0-006
+  - C0-007
+- decision_id: C0.INV-05
+  statement: Provider failure is distinct from domain NO_DATA.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: EXECUTABLE_CONTRACT_TEST
+  reasoning_basis: MULTI_SOURCE_ADAPTATION
+  evidence_refs:
+  - AIHF_DATA_PROTOCOL
+  - AIHF_DATA_TESTS
+  our_adaptation: Separate operation_status, data_outcome, degradations and typed errors.
+  risks:
+  - Provider APIs differ on 404/no-data semantics; C2 certification must define endpoint-specific behavior.
+  required_tests:
+  - C0-008
+  - C0-009
+  - C0-010
+  - C0-011
+- decision_id: C0.INV-06
+  statement: Data quality/truth state is represented on orthogonal axes, not a single flat enum.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: ARCHITECTURE_SYNTHESIS
+  evidence_refs:
+  - AIHF_DATA_PROTOCOL
+  our_adaptation: Split origin, delivery, freshness, verification and temporal safety to avoid impossible enum combinations.
+  risks:
+  - Schema complexity; lower contracts must avoid excessive optional fields.
+  required_tests:
+  - C0-012
+  - C0-013
+- decision_id: C0.INV-07
+  statement: Provider-native payloads pass through a canonical normalization boundary.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: SOURCE_AUDIT
+  evidence_refs:
+  - OPENBB_FETCHER
+  our_adaptation: Adopt typed provider transform/extract/transform separation while adding our own provenance/PIT/source-fitness
+    rules.
+  risks:
+  - Over-normalization can discard provider-specific detail; preserve raw/provenance separately.
+  required_tests:
+  - C0-014
+- decision_id: C0.INV-08
+  statement: Reports are projections, not sources of truth.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: ARCHITECTURE_SYNTHESIS
+  evidence_refs:
+  - TRADINGAGENTS_MEMORY
+  our_adaptation: Use structured repositories for state; rendering is one-way unless explicit structured write is invoked.
+  risks:
+  - Convenience pressure may cause Markdown state drift.
+  required_tests:
+  - C0-015
+- decision_id: C0.INV-09
+  statement: Agent/page count does not establish evidence independence; lineage/root-source dependence does.
+  decision_classification: INFERRED
+  strongest_evidence_strength: OFFICIAL_TECHNICAL_DOCUMENTATION
+  reasoning_basis: ARCHITECTURE_SYNTHESIS
+  evidence_refs:
+  - OPENLINEAGE_SPEC
+  our_adaptation: Adapt lineage semantics to claim/evidence independence with root_source_id/source_claim_id/derivation links.
+  risks:
+  - Root identity resolution is imperfect for syndicated/repackaged sources.
+  required_tests:
+  - C0-016
+  - C0-017
+- decision_id: C0.INV-10
+  statement: Skills/client adapters cannot be the only canonical home of financial business logic.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: SOURCE_AUDIT
+  evidence_refs:
+  - AIB_FINANCIAL_RIGOR
+  our_adaptation: Keep formulas/policy/risk/PIT in deterministic/versioned contracts while Skills orchestrate.
+  risks:
+  - Adapter convenience can reintroduce hidden policy copies.
+  required_tests:
+  - C0-018
+- decision_id: C0.INV-11
+  statement: Material policy has one canonical versioned source.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: NEGATIVE_EVIDENCE
+  evidence_refs:
+  - AIB_FINANCIAL_RIGOR
+  our_adaptation: Institutionalize policy_id/version references and detect duplicated threshold drift.
+  risks:
+  - Static detection cannot catch every semantic duplicate; conformance tests are also needed.
+  required_tests:
+  - C0-019
+  - C0-020
+- decision_id: C0.INV-12
+  statement: LLM recommendations cannot override deterministic risk/order controls.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: SOURCE_AUDIT
+  evidence_refs:
+  - LEAN_BROKERAGE
+  our_adaptation: LLM remains research/decision-intent layer; deterministic risk and broker admission are authoritative.
+  risks:
+  - Risk model bugs remain possible; deterministic does not mean correct.
+  required_tests:
+  - C0-021
+- decision_id: C0.INV-13
+  statement: Every external side effect declares retry/idempotency/timeout/cancellation semantics.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: REPOSITORY_ARCHITECTURE_SPEC
+  reasoning_basis: SOURCE_AUDIT
+  evidence_refs:
+  - TEMPORAL_ARCH
+  our_adaptation: Use Temporal-like semantic discipline without requiring Temporal infrastructure.
+  risks:
+  - Some effects are inherently non-idempotent; explicit at-most-once/compensation is required.
+  required_tests:
+  - C0-022
+  - C0-023
+- decision_id: C0.INV-14
+  statement: Material transformations have run/input/output/code/policy lineage.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: MULTI_SOURCE_ADAPTATION
+  evidence_refs:
+  - OPENLINEAGE_SPEC
+  - QLIB_RECORDER
+  our_adaptation: Use OpenLineage-style run/data provenance adapted to investment evidence and decision runs.
+  risks:
+  - Lineage can become verbose; define materiality and structured references.
+  required_tests:
+  - C0-024
+  - C0-025
+- decision_id: C0.INV-15
+  statement: Research/candidates cannot self-promote to Production; LIVE is disabled by default.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: ARCHITECTURE_SYNTHESIS
+  evidence_refs:
+  - RDAGENT_QUANT
+  - LEAN_BROKERAGE
+  our_adaptation: Separate research generation from promotion authority and live capability.
+  risks:
+  - Excessive human gating may slow research; only Production/risk/canonical changes require strict authority.
+  required_tests:
+  - C0-026
+  - C0-027
+- decision_id: C0.INV-16
+  statement: SIM/PAPER/LIVE share canonical domain semantics while execution adapters may differ.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: SOURCE_AUDIT
+  evidence_refs:
+  - LEAN_BROKERAGE
+  our_adaptation: Preserve one strategy/risk/order semantic model while permitting realistic environment mechanics.
+  risks:
+  - False parity if simulator ignores venue costs/fills; C10 must model differences explicitly.
+  required_tests:
+  - C0-028
+- decision_id: C0.INV-17
+  statement: Critical financial arithmetic is deterministic and independently verifiable.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: SOURCE_AUDIT
+  evidence_refs:
+  - AIB_FINANCIAL_RIGOR
+  our_adaptation: Use deterministic calculators for load-bearing arithmetic; evidence quality remains separate.
+  risks:
+  - Correct arithmetic on bad inputs can still be wrong.
+  required_tests:
+  - C0-029
+- decision_id: C0.INV-18
+  statement: Load-bearing facts/assumptions receive 100% validation before release.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: MULTI_SOURCE_ADAPTATION
+  evidence_refs:
+  - AIB_REPORT_AUDIT
+  - AIB_FINANCIAL_RIGOR
+  our_adaptation: Upgrade sampled report auditing to dependency-graph-driven full validation for load-bearing inputs.
+  risks:
+  - Dependency graph may miss qualitative load-bearing claims; audit allows explicit analyst designation too.
+  required_tests:
+  - C0-030
+- decision_id: C0.INV-19
+  statement: Unvalidated learning artifacts cannot alter Production behavior, including through memory/context.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: NEGATIVE_EVIDENCE
+  evidence_refs:
+  - TRADINGAGENTS_REFLECTION
+  - TRADINGAGENTS_MEMORY
+  our_adaptation: Split Research Memory from Production Memory because direct reinjection of reflections is behavior change.
+  risks:
+  - Promotion criteria must avoid making Production Memory stale or overly conservative.
+  required_tests:
+  - C0-031
+  - C0-058
+- decision_id: C0.INV-20
+  statement: Raw PnL is not decision ground truth.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: ARCHITECTURE_SYNTHESIS
+  evidence_refs:
+  - TRADINGAGENTS_REFLECTION
+  our_adaptation: Retain realized/alpha outcome but require attribution/process/horizon context before learning validation.
+  risks:
+  - Attribution models themselves are imperfect; do not turn attribution into unquestioned truth.
+  required_tests:
+  - C0-032
+  - C0-033
+- decision_id: C0.INV-21
+  statement: Learning artifacts are PIT-bound and cannot be backdated before dependencies/materialization/promotion.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: MULTI_SOURCE_ADAPTATION
+  evidence_refs:
+  - FINMEM_REFLECTION
+  - QLIB_PIT
+  - RDAGENT_QUANT
+  our_adaptation: Apply PIT semantics to derived learning artifacts and Production Memory effective time.
+  risks:
+  - Materialization clocks/timezones must be consistent; C4/C8 define exact schema.
+  required_tests:
+  - C0-034
+  - C0-035
+  - C0-036
+- decision_id: C0.INV-22
+  statement: Evaluation exposed to candidate generation is no longer untouched holdout.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: MULTI_SOURCE_ADAPTATION
+  evidence_refs:
+  - RDAGENT_QUANT
+  our_adaptation: Track evaluation exposure and adaptive trial counts; preserve SEALED_OOS/FORWARD_PAPER evidence.
+  risks:
+  - Finite data can make sealed evaluation expensive; policy should allocate carefully.
+  required_tests:
+  - C0-037
+  - C0-038
+  - C0-064
+  - C0-065
+- decision_id: C0.INV-23
+  statement: Production behavior is versioned as a complete ReleaseBundle.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: ARCHITECTURE_SYNTHESIS
+  evidence_refs:
+  - QLIB_RECORDER
+  - OPENLINEAGE_SPEC
+  our_adaptation: Combine strategy/model/workflow/prompt/policy/risk/memory/provider/tool/code versions into one rollback
+    unit.
+  risks:
+  - Bundle compatibility/migrations require schema governance.
+  required_tests:
+  - C0-039
+  - C0-040
+- decision_id: C0.INV-24
+  statement: External provider/tool/web/document content is untrusted data and cannot become control authority.
+  decision_classification: INFERRED
+  strongest_evidence_strength: MACHINE_READABLE_SCHEMA
+  reasoning_basis: SECURITY_INFERENCE
+  evidence_refs:
+  - MCP_SCHEMA
+  our_adaptation: Create explicit Data Plane → Control Plane trust boundary; capability/policy comes only from authorized
+    control channels.
+  risks:
+  - Prompt-injection defenses are defense-in-depth, not perfect semantic isolation.
+  required_tests:
+  - C0-041
+  - C0-042
+  - C0-057
+- decision_id: C0.INV-25
+  statement: Material numeric/time values explicitly carry unit/currency/scale/precision/timezone semantics.
+  decision_classification: INFERRED
+  strongest_evidence_strength: EXECUTABLE_CONTRACT_TEST
+  reasoning_basis: DOMAIN_SAFETY_SYNTHESIS
+  evidence_refs:
+  - AIB_FINANCIAL_RIGOR
+  - AIHF_DATA_TESTS
+  our_adaptation: Prevent silent currency/unit/time precision errors at canonical schema level.
+  risks:
+  - Provider/source units may be inconsistent; normalization must preserve raw basis and conversion lineage.
+  required_tests:
+  - C0-043
+  - C0-044
+  - C0-045
+- decision_id: C0.DEC-01
+  statement: A run-level DecisionRunRecord/RunArtifactBundle is required in addition to ReleaseBundle.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: ARCHITECTURE_SYNTHESIS
+  evidence_refs:
+  - OPENLINEAGE_SPEC
+  - QLIB_RECORDER
+  our_adaptation: ReleaseBundle identifies configuration; RunRecord preserves actual inputs/tool/model outputs and lineage
+    for audit reconstruction.
+  risks:
+  - Protected artifact storage may contain sensitive content and requires access controls.
+  required_tests:
+  - C0-046
+  - C0-048
+  - C0-063
+  - C0-066
+  - C0-067
+- decision_id: C0.DEC-02
+  statement: Reproducibility levels distinguish exact deterministic replay, configuration replay, and audit reconstruction.
+  decision_classification: INFERRED
+  strongest_evidence_strength: OFFICIAL_TECHNICAL_DOCUMENTATION
+  reasoning_basis: ARCHITECTURE_SYNTHESIS
+  evidence_refs:
+  - OPENLINEAGE_SPEC
+  our_adaptation: Avoid false claims that hosted/stochastic LLM calls are bit-for-bit reproducible.
+  risks:
+  - Provider model aliases/fingerprints may be unavailable; audit reconstruction must preserve original outputs.
+  required_tests:
+  - C0-047
+  - C0-048
+- decision_id: C0.DEC-03
+  statement: Secure ingestion precedes immutable raw persistence.
+  decision_classification: INFERRED
+  strongest_evidence_strength: OFFICIAL_TECHNICAL_DOCUMENTATION
+  reasoning_basis: SECURITY_INFERENCE
+  evidence_refs:
+  - OPENLINEAGE_SPEC
+  our_adaptation: Scan/classify/redact/quarantine secrets, PII and licensed content before creating Permitted RawArtifact.
+  risks:
+  - Scanning can miss sensitive content; retention/access controls remain necessary.
+  required_tests:
+  - C0-049
+  - C0-050
+- decision_id: C0.DEC-04
+  statement: Source quality is claim-type fitness, not one global first-party ranking.
+  decision_classification: INFERRED
+  strongest_evidence_strength: EXECUTABLE_CONTRACT_TEST
+  reasoning_basis: DOMAIN_SAFETY_SYNTHESIS
+  evidence_refs:
+  - AIHF_DATA_TESTS
+  - AIB_FINANCIAL_RIGOR
+  our_adaptation: Choose authority relative to claim type; first-party proves what issuer said but not every objective claim.
+  risks:
+  - Fitness matrix must be maintained and may differ by jurisdiction/asset class.
+  required_tests:
+  - C0-051
+- decision_id: C0.DEC-05
+  statement: Initial physical architecture is modular monolith with ports/adapters; logical planes are not services.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: SOURCE_AUDIT
+  evidence_refs:
+  - OPENBB_FETCHER
+  - FINCEPT_ARCH
+  our_adaptation: Borrow bounded responsibilities/provider ports while avoiding premature distributed infrastructure.
+  risks:
+  - Monolith can still become tightly coupled if dependency tests are absent.
+  required_tests:
+  - C0-052
+- decision_id: C0.DEC-06
+  statement: C11 owns persistence implementation semantics while C8/C9/C10/C12 retain domain semantic ownership.
+  decision_classification: INFERRED
+  strongest_evidence_strength: OFFICIAL_TECHNICAL_DOCUMENTATION
+  reasoning_basis: ARCHITECTURE_SYNTHESIS
+  evidence_refs:
+  - OPENLINEAGE_SPEC
+  our_adaptation: Avoid persistence silos/cycles by making repositories an overlay behind ports.
+  risks:
+  - Repository schemas must evolve with domain contracts through migrations.
+  required_tests:
+  - C0-053
+- decision_id: C0.DEC-07
+  statement: ReflectionRecord is INFERRED by default and cannot directly become VerifiedFact.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: NEGATIVE_EVIDENCE
+  evidence_refs:
+  - TRADINGAGENTS_REFLECTION
+  our_adaptation: Treat self-critique as a hypothesis/lesson generator rather than factual authority.
+  risks:
+  - Some reflections contain true factual references; those require separate evidence linkage.
+  required_tests:
+  - C0-054
+- decision_id: C0.DEC-08
+  statement: Counterfactuals are labeled EXACT_REPLAY, MODEL_BASED, or SPECULATIVE.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: QUANT_RESEARCH_SYNTHESIS
+  evidence_refs:
+  - RDAGENT_QUANT
+  our_adaptation: Separate mechanically recomputable alternatives from modeled market-impact/causal scenarios.
+  risks:
+  - Counterfactual model error can still bias learning.
+  required_tests:
+  - C0-055
+- decision_id: C0.DEC-09
+  statement: Private user/account/portfolio/thesis state remains private by default and public artifacts use redaction/synthetic
+    fixtures.
+  decision_classification: INFERRED
+  strongest_evidence_strength: null
+  reasoning_basis: SECURITY_INFERENCE
+  evidence_refs: []
+  our_adaptation: Treat privacy boundary as architectural, not a UI convention.
+  risks:
+  - Local file permissions and exports must be tested.
+  required_tests:
+  - C0-056
+- decision_id: C0.DEC-10
+  statement: Research-generated executable Strategy/Model/tool/code artifacts must execute inside a mandatory least-privilege
+    Research Sandbox; lower policies may grant scoped capabilities only within the sandbox and cannot waive the boundary.
+  decision_classification: INFERRED
+  strongest_evidence_strength: null
+  reasoning_basis: SECURITY_INFERENCE
+  evidence_refs: []
+  our_adaptation: Make LEARN != DEPLOY enforceable at execution time, not only at promotion time.
+  risks:
+  - Without sandbox isolation, research candidate code could reach broker credentials, private state, network destinations,
+    or external side effects before promotion.
+  required_tests:
+  - C0-058
+- decision_id: C0.DEC-11
+  statement: Untrusted external data cannot originate, expand, redirect, retarget, or replace side-effect intent even when
+    a trusted workflow already holds a write/trade/destructive capability.
+  decision_classification: INFERRED
+  strongest_evidence_strength: null
+  reasoning_basis: SECURITY_INFERENCE
+  evidence_refs: []
+  our_adaptation: Add trusted-intent binding to close confused-deputy prompt-injection paths.
+  risks:
+  - Capability checks alone do not stop hostile content from exploiting an already-authorized deputy.
+  required_tests:
+  - C0-057
+- decision_id: C0.DEC-12
+  statement: Historical LLM-assisted evaluation must classify model-side temporal contamination and cannot claim strong causal
+    PIT/OOS labels when future parametric knowledge is uncontrolled.
+  decision_classification: INFERRED
+  strongest_evidence_strength: null
+  reasoning_basis: QUANT_RESEARCH_SYNTHESIS
+  evidence_refs: []
+  our_adaptation: Extend PIT from external data availability to the model's own possible future-knowledge contamination.
+  risks:
+  - A temporally filtered dataset can still produce hindsight-contaminated AI decisions if the model already knows later events.
+  required_tests:
+  - C0-064
+- decision_id: C0.DEC-13
+  statement: Promotion from adaptive strategy/model/hypothesis search requires an experiment-family-appropriate anti-overfitting/adaptive-search
+    control and recorded method/version; unadjusted best-of-N performance is insufficient.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: QUANT_RESEARCH_SYNTHESIS
+  evidence_refs:
+  - RDAGENT_QUANT
+  our_adaptation: Use iterative-research evidence as proof that adaptive candidate generation exists, then impose a stricter
+    project-specific promotion control against search overfitting.
+  risks:
+  - Repeated adaptive search can manufacture apparently excellent OOS results by chance.
+  required_tests:
+  - C0-065
+- decision_id: C0.DEC-14
+  statement: Decision-time PortfolioSnapshot must be both economically effective and causally available by DecisionRecord.as_of.
+  decision_classification: ADAPTED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: MULTI_SOURCE_ADAPTATION
+  evidence_refs:
+  - QLIB_PIT
+  - LEAN_BROKERAGE
+  our_adaptation: Apply point-in-time availability discipline to broker/reconciled portfolio state as well as market/fundamental
+    data.
+  risks:
+  - A backfilled or later-reconciled portfolio snapshot can leak future holdings/state into historical decisions.
+  required_tests:
+  - C0-068
+- decision_id: C0.DEC-15
+  statement: Architecture Evidence Ledger governance is machine-conformant and bidirectionally mapped to the frozen C0 acceptance
+    catalog.
+  decision_classification: INFERRED
+  strongest_evidence_strength: OFFICIAL_TECHNICAL_DOCUMENTATION
+  reasoning_basis: GOVERNANCE_SYNTHESIS
+  evidence_refs:
+  - OPENLINEAGE_SPEC
+  our_adaptation: Adapt machine-readable lineage/schema discipline into architecture-governance metadata and require two-way
+    Decision↔Acceptance coverage so a frozen semantic cannot exist outside machine governance.
+  risks:
+  - One-way validation can leave acceptance obligations with no classified architecture decision.
+  - Schema drift or unmapped obligations can create a false freeze-ready state.
+  required_tests:
+  - C0-059
+- decision_id: C0.DEC-16
+  statement: Load-bearing repository evidence must be remotely resolved by repository + commit + exact path, match the recorded
+    blob identity, and carry an explicit source role and authority scope.
+  decision_classification: INFERRED
+  strongest_evidence_strength: null
+  reasoning_basis: GOVERNANCE_SYNTHESIS
+  evidence_refs: []
+  our_adaptation: Treat source identity as a reproducibility contract rather than a syntactic metadata field; machine verification
+    must detect stale, guessed, or mismatched pins.
+  risks:
+  - A non-empty but incorrect blob SHA can make evidence non-reproducible.
+  - Evidence strength can be confused with Contract Authority unless source role/scope are explicit.
+  required_tests:
+  - C0-060
+- decision_id: C0.DEC-17
+  statement: C8 may produce research candidates and evaluation results but cannot issue authoritative ValidationRecord, PromotionDecision,
+    or ReleaseBundle state; that authority belongs exclusively to C12.
+  decision_classification: INFERRED
+  strongest_evidence_strength: null
+  reasoning_basis: GOVERNANCE_SYNTHESIS
+  evidence_refs: []
+  our_adaptation: Separate the subsystem that proposes/learns from the subsystem that validates/promotes/releases so self-improvement
+    cannot become self-authorization.
+  risks:
+  - If C8 can authoritatively promote its own output, LEARN != DEPLOY collapses.
+  - Persistence of a promotion record in C11 must not be mistaken for promotion authority.
+  required_tests:
+  - C0-061
+- decision_id: C0.DEC-18
+  statement: Lower contracts, policies, workflows, and runtime configuration cannot weaken C0 constitutional authority; any
+    relaxation requires formal C0 revision/migration.
+  decision_classification: INFERRED
+  strongest_evidence_strength: null
+  reasoning_basis: GOVERNANCE_SYNTHESIS
+  evidence_refs: []
+  our_adaptation: 'Make the contract hierarchy non-circular: lower-level mechanics may implement C0 but cannot redefine the
+    authority that validates them.'
+  risks:
+  - A lower contract could otherwise create a constitutional override loophole.
+  - Policy configuration could silently weaken human/live/risk/architecture approval boundaries.
+  required_tests:
+  - C0-062
+- decision_id: C0.DEC-19
+  statement: Qualitative analyst/LLM confidence is not calibrated probability; calibrated numeric probability requires defined
+    model, calibration, and provenance identity.
+  decision_classification: INFERRED
+  strongest_evidence_strength: null
+  reasoning_basis: DOMAIN_SAFETY_SYNTHESIS
+  evidence_refs: []
+  our_adaptation: Prevent rhetorically precise LLM/analyst confidence from being presented as statistically calibrated forecasting
+    output.
+  risks:
+  - Users may over-trust numerical precision that has no calibration evidence.
+  - Decision thresholds may misuse subjective confidence as model probability.
+  required_tests:
+  - C0-069
+- decision_id: C0.DEC-20
+  statement: Promoted lessons remain evidence-linked, contradiction-aware, regime/time scoped, versioned, and non-destructively
+    supersedable rather than silently becoming global evergreen Production truth.
+  decision_classification: INFERRED
+  strongest_evidence_strength: SOURCE_IMPLEMENTATION
+  reasoning_basis: MULTI_SOURCE_ADAPTATION
+  evidence_refs:
+  - TRADINGAGENTS_MEMORY
+  - RDAGENT_QUANT
+  our_adaptation: Use observed iterative memory/research feedback patterns as feasibility evidence, then impose a stricter
+    Production lesson-scope and supersession contract.
+  risks:
+  - A noisy single episode or transient regime can be over-generalized.
+  - Contradictory later evidence can be lost if lessons are overwritten rather than superseded.
+  required_tests:
+  - C0-070

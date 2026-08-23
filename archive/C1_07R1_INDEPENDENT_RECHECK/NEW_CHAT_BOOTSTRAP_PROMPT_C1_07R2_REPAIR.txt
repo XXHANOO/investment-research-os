@@ -1,0 +1,19 @@
+Execute C1.07R2 — Listing Venue Continuity & Transfer Invariant Repair.
+
+Authoritative state:
+- C0 FROZEN.
+- C1.01R1–C1.05R1 PASS.
+- C1.06R5 Independent Regression Re-Check PASS.
+- C1.OPEN-010 CLOSED.
+- C1.07R1 Independent Regression Re-Check closed C1RT-B01/B02/B03 but FAILED with one new blocker:
+  C1RT-B04 — the same ListingID can change venue_ref across versions without a terminate/create/successor transfer package.
+
+Repair narrowly:
+1. same ListingID must keep both instrument_ref and venue_ref immutable;
+2. add LISTING_VENUE_REPARENT_FORBIDDEN;
+3. materialize cross-canonical-Venue transfer as distinct old/new ListingIDs with same InstrumentID, old termination, new creation, and PREDECESSOR_OF old→new;
+4. preserve same-canonical-Venue tier/segment continuity;
+5. preserve all prior closures and ownership boundaries;
+6. no production implementation.
+
+Stop after construction for C1.07R2 Independent Regression Re-Check.

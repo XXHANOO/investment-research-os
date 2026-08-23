@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "C1_self_frozen": false,
+    "approval_ready_manifest_byte_identical": true,
+    "final_r2_selection_byte_identical": true,
+    "freeze_candidate_byte_identical": true,
+    "missing_repair_diffs_hash_match": true,
+    "missing_repair_diffs_now_present": true,
+    "nested_final_r2_selected_targets_complete": true,
+    "production_implementation_created": false,
+    "semantic_changes": false
+  },
+  "generated_at_utc": "2026-08-23T20:19:51Z",
+  "schema_version": "1.0.0",
+  "stage": "C1.08R1"
+}

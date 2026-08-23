@@ -1,0 +1,44 @@
+schema_version: 1.0.0
+stage: C1.07R2 Independent Regression Re-Check
+generated_at_utc: '2026-08-23T19:52:54Z'
+verdict: PASS
+read_only_review: true
+integrity:
+  selected_r2:
+    passed: 9
+    total: 9
+  exact_parent_r1:
+    passed: 8
+    total: 8
+  governing_r1_recheck:
+    passed: 3
+    total: 3
+  handoff_manifest:
+    passed: 27
+    total: 27
+  json_schema_draft_2020_12: PASS
+  machine_vectors:
+    passed: 112
+    total: 112
+  executable_semantic_vectors:
+    passed: 30
+    total: 30
+  authority_C1_001_570:
+    gapless: true
+    overlaps: 0
+  C1_571_585:
+    contiguous: true
+    all_mapped: true
+blockers:
+  C1RT-B01: CLOSED
+  C1RT-B02: CLOSED
+  C1RT-B03: CLOSED
+  C1RT-B04: CLOSED
+new_load_bearing_blockers: []
+governance:
+  C1_OPEN_010: CLOSED_UNCHANGED
+  C1_07: PASS_AFTER_C1_07R2
+  C1_freeze_candidate_eligible: true
+  C1_08: AUTHORIZED
+  production_implementation: NOT_AUTHORIZED
+  next_exact_stage: C1.08 — Freeze Candidate & Independent Freeze Review

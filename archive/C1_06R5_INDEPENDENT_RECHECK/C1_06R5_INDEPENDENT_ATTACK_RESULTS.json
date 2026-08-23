@@ -1,0 +1,193 @@
+{
+  "blocker_recheck": {
+    "C1SCHEMA-B01": "CLOSED",
+    "C1SCHEMA-B02": "CLOSED",
+    "C1SCHEMA-B03": "CLOSED",
+    "C1SCHEMA-B04": "CLOSED",
+    "C1SCHEMA-B05": "CLOSED",
+    "C1SCHEMA-B06": "CLOSED",
+    "C1SCHEMA-B07": {
+      "direct_attacks": [
+        {
+          "actual_valid": true,
+          "expected": "LISTING",
+          "expected_valid": true,
+          "mode": "CURRENT_ONLY",
+          "pass": true,
+          "target": "LISTING"
+        },
+        {
+          "actual_valid": false,
+          "expected": "LISTING",
+          "expected_valid": false,
+          "mode": "CURRENT_ONLY",
+          "pass": true,
+          "target": "CONTRACT"
+        },
+        {
+          "actual_valid": false,
+          "expected": "CONTRACT",
+          "expected_valid": false,
+          "mode": "CURRENT_ONLY",
+          "pass": true,
+          "target": "LISTING"
+        },
+        {
+          "actual_valid": true,
+          "expected": "CONTRACT",
+          "expected_valid": true,
+          "mode": "CURRENT_ONLY",
+          "pass": true,
+          "target": "CONTRACT"
+        },
+        {
+          "actual_valid": true,
+          "expected": "LISTING",
+          "expected_valid": true,
+          "mode": "TEMPORAL",
+          "pass": true,
+          "target": "LISTING"
+        },
+        {
+          "actual_valid": false,
+          "expected": "LISTING",
+          "expected_valid": false,
+          "mode": "TEMPORAL",
+          "pass": true,
+          "target": "CONTRACT"
+        },
+        {
+          "actual_valid": false,
+          "expected": "CONTRACT",
+          "expected_valid": false,
+          "mode": "TEMPORAL",
+          "pass": true,
+          "target": "LISTING"
+        },
+        {
+          "actual_valid": true,
+          "expected": "CONTRACT",
+          "expected_valid": true,
+          "mode": "TEMPORAL",
+          "pass": true,
+          "target": "CONTRACT"
+        }
+      ],
+      "omission_semantically_rejected_by_C1_543": true,
+      "omitted_binding_machine_valid": true,
+      "semantic_vectors_present": true,
+      "status": "CLOSED"
+    }
+  },
+  "generated_at_utc": "2026-08-23T18:46:44Z",
+  "integrity": {
+    "candidate_selection_sha256": "789c8afa3d54b87a96ab5f31e568f9c918c24c38bac2d0d89aaae2f1946ed4b8",
+    "exact_parent_r4": {
+      "acceptance": {
+        "actual": "5f78ead46bee98e7353e8a116ff24760e5e46d8b0fdf45fb71e541c717ca2685",
+        "expected": "5f78ead46bee98e7353e8a116ff24760e5e46d8b0fdf45fb71e541c717ca2685",
+        "match": true,
+        "path": "C1_06R4_ACCEPTANCE_TEST_DELTA__sha256_5f78ead46bee98e7353e8a116ff24760e5e46d8b0fdf45fb71e541c717ca2685.md"
+      },
+      "candidate": {
+        "actual": "47545711223ec80569be45dc933474b19d263d95d249fcf8861e7ab370c2e725",
+        "expected": "47545711223ec80569be45dc933474b19d263d95d249fcf8861e7ab370c2e725",
+        "match": true,
+        "path": "C1_06R4_SCHEMA_CONTRACT_TEST_CANDIDATE__sha256_47545711223ec80569be45dc933474b19d263d95d249fcf8861e7ab370c2e725.md"
+      },
+      "contract_tests": {
+        "actual": "e55a8c7341083189bef7e37fb0e1cec26231168b885e62a7ab4766d5b69bcc04",
+        "expected": "e55a8c7341083189bef7e37fb0e1cec26231168b885e62a7ab4766d5b69bcc04",
+        "match": true,
+        "path": "C1_06R4_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_e55a8c7341083189bef7e37fb0e1cec26231168b885e62a7ab4766d5b69bcc04.yaml"
+      },
+      "inherited_authority": {
+        "actual": "4d96f520025ff6014b126da3b3b6d7cc189a91904726f42fa58489380f10c7ca",
+        "expected": "4d96f520025ff6014b126da3b3b6d7cc189a91904726f42fa58489380f10c7ca",
+        "match": true,
+        "path": "C1_06R4_INHERITED_REGRESSION_AUTHORITY__sha256_4d96f520025ff6014b126da3b3b6d7cc189a91904726f42fa58489380f10c7ca.yaml"
+      },
+      "machine_schema": {
+        "actual": "48ecdff49cec2dbfce91a8f81e97ce7f9a0c94f23168384b9fd7aefd451251cd",
+        "expected": "48ecdff49cec2dbfce91a8f81e97ce7f9a0c94f23168384b9fd7aefd451251cd",
+        "match": true,
+        "path": "C1_06R4_MACHINE_SCHEMA_CANDIDATE__sha256_48ecdff49cec2dbfce91a8f81e97ce7f9a0c94f23168384b9fd7aefd451251cd.json"
+      },
+      "selection": {
+        "actual": "4d8cbc343bd516357b284b764db1b6a9ae1db6bccc0456bcbd2f2d9c3fb4c923",
+        "expected": "4d8cbc343bd516357b284b764db1b6a9ae1db6bccc0456bcbd2f2d9c3fb4c923",
+        "match": true,
+        "path": "C1_06R4_CANDIDATE_SELECTION__sha256_4d8cbc343bd516357b284b764db1b6a9ae1db6bccc0456bcbd2f2d9c3fb4c923.yaml"
+      }
+    },
+    "package_manifest_passed": 25,
+    "package_manifest_total": 25,
+    "selected_targets": {
+      "acceptance_delta": {
+        "actual": "f9c45176128cd5c76cff3f86434af3678982caf7b54f98680d7d614cd727d919",
+        "expected": "f9c45176128cd5c76cff3f86434af3678982caf7b54f98680d7d614cd727d919",
+        "match": true,
+        "path": "C1_06R5_ACCEPTANCE_TEST_DELTA__sha256_f9c45176128cd5c76cff3f86434af3678982caf7b54f98680d7d614cd727d919.md"
+      },
+      "candidate": {
+        "actual": "dc702d87637c3c0195e711584af4c550f811e1bc9afc40f65a43c5c0919d2066",
+        "expected": "dc702d87637c3c0195e711584af4c550f811e1bc9afc40f65a43c5c0919d2066",
+        "match": true,
+        "path": "C1_06R5_SCHEMA_CONTRACT_TEST_CANDIDATE__sha256_dc702d87637c3c0195e711584af4c550f811e1bc9afc40f65a43c5c0919d2066.md"
+      },
+      "construction_validation": {
+        "actual": "ac190fb336508e5236be3ded1a8e1e1b10c99fd39d26700d766b2a908afc7749",
+        "expected": "ac190fb336508e5236be3ded1a8e1e1b10c99fd39d26700d766b2a908afc7749",
+        "match": true,
+        "path": "C1_06R5_CONSTRUCTION_VALIDATION__sha256_ac190fb336508e5236be3ded1a8e1e1b10c99fd39d26700d766b2a908afc7749.json"
+      },
+      "contract_tests": {
+        "actual": "0fddd2de9d4f6c1df2abd4c40f734a26c249ad94c3c14a6517685c096aab18c5",
+        "expected": "0fddd2de9d4f6c1df2abd4c40f734a26c249ad94c3c14a6517685c096aab18c5",
+        "match": true,
+        "path": "C1_06R5_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_0fddd2de9d4f6c1df2abd4c40f734a26c249ad94c3c14a6517685c096aab18c5.yaml"
+      },
+      "decision_ledger": {
+        "actual": "7d60cb76324c015209a1b5c00622483b04effab69ca9a919f7c27650e57b4d4c",
+        "expected": "7d60cb76324c015209a1b5c00622483b04effab69ca9a919f7c27650e57b4d4c",
+        "match": true,
+        "path": "C1_06R5_EVIDENCE_DECISION_LEDGER__sha256_7d60cb76324c015209a1b5c00622483b04effab69ca9a919f7c27650e57b4d4c.yaml"
+      },
+      "inherited_regression_authority": {
+        "actual": "25826d6376fb8df9ee49e921eba74c6facb48123404aa3f8edcb00e40a50b53f",
+        "expected": "25826d6376fb8df9ee49e921eba74c6facb48123404aa3f8edcb00e40a50b53f",
+        "match": true,
+        "path": "C1_06R5_INHERITED_REGRESSION_AUTHORITY__sha256_25826d6376fb8df9ee49e921eba74c6facb48123404aa3f8edcb00e40a50b53f.yaml"
+      },
+      "machine_schema": {
+        "actual": "027878d3eaf9f52806d9667847c1ba196cd53f1a21ea12cbf2fd0dbb12fc15b9",
+        "expected": "027878d3eaf9f52806d9667847c1ba196cd53f1a21ea12cbf2fd0dbb12fc15b9",
+        "match": true,
+        "path": "C1_06R5_MACHINE_SCHEMA_CANDIDATE__sha256_027878d3eaf9f52806d9667847c1ba196cd53f1a21ea12cbf2fd0dbb12fc15b9.json"
+      },
+      "registry": {
+        "actual": "cf3db4aead3d06edc19008e5cb05476fb3384ae3a12af30212991ca5f3c53d1f",
+        "expected": "cf3db4aead3d06edc19008e5cb05476fb3384ae3a12af30212991ca5f3c53d1f",
+        "match": true,
+        "path": "C1_06R5_SCHEMA_REGISTRY_CANDIDATE__sha256_cf3db4aead3d06edc19008e5cb05476fb3384ae3a12af30212991ca5f3c53d1f.yaml"
+      }
+    }
+  },
+  "new_blockers": [],
+  "regression": {
+    "authority_C1_001_534_gapless": true,
+    "authority_C1_001_534_unique": true,
+    "decision_ids_unique": true,
+    "new_C1_535_545_all_mapped": true,
+    "new_C1_535_545_contiguous": true,
+    "r4_acceptance_C1_338_534_preserved": true
+  },
+  "schema_execution": {
+    "draft_2020_12": "PASS",
+    "r4_inherited_schema_vectors_passed": 104,
+    "r4_inherited_schema_vectors_total": 104,
+    "schema_vectors_passed": 112,
+    "schema_vectors_total": 112
+  },
+  "verdict": "PASS"
+}

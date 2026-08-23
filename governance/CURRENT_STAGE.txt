@@ -1,0 +1,3 @@
+C1.06R5 — Query Expected-Target Binding Repair
+NEXT GATE: C1.06R5 Independent Regression Re-Check
+PRODUCTION IMPLEMENTATION: NOT AUTHORIZED

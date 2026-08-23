@@ -1,0 +1,40 @@
+schema_version: 1.0.0
+stage: C1.08R1 Independent Freeze Review Re-Check
+generated_at_utc: '2026-08-23T20:24:33Z'
+verdict: PASS
+integrity:
+  repaired_package_manifest:
+    passed: 44
+    total: 44
+  review_selection:
+    passed: 10
+    total: 10
+  approval_manifest_targets:
+    passed: 18
+    total: 18
+  nested_final_r2_selection:
+    passed: 9
+    total: 9
+  json_schema_draft_2020_12: PASS
+  machine_vectors:
+    passed: 112
+    total: 112
+  acceptance_authority:
+    range: C1-001..C1-585
+    gaps: 0
+    overlaps: 0
+  C0_root_exact: true
+blockers:
+  C1_OPEN_010: CLOSED
+  C1RT_B01: CLOSED
+  C1RT_B02: CLOSED
+  C1RT_B03: CLOSED
+  C1RT_B04: CLOSED
+  C1FREEZE_B01: CLOSED
+new_load_bearing_blockers: []
+freeze:
+  C1: FROZEN
+  freeze_seal:
+    path: C1_FREEZE_SEAL__sha256_438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5.yaml
+    sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+  production_implementation: NOT_AUTHORIZED

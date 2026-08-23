@@ -1,0 +1,41 @@
+schema_version: 1.0.0
+stage: C1.06R5 Independent Regression Re-Check
+generated_at_utc: '2026-08-23T18:46:44Z'
+verdict: PASS
+integrity:
+  selected_targets_passed: 8
+  selected_targets_total: 8
+  package_manifest_passed: 25
+  package_manifest_total: 25
+  exact_parent_r4_passed: 6
+  exact_parent_r4_total: 6
+validation:
+  json_schema_draft_2020_12: PASS
+  schema_vectors:
+    passed: 112
+    total: 112
+  r4_inherited_schema_vectors:
+    passed: 104
+    total: 104
+regression:
+  C1_338_534_acceptance_preserved: true
+  C1_535_545_contiguous: true
+  C1_535_545_all_mapped: true
+  decision_ids_unique: true
+  C1_001_534_authority_gapless: true
+  C1_001_534_authority_unique: true
+blockers:
+  C1SCHEMA-B01: CLOSED
+  C1SCHEMA-B02: CLOSED
+  C1SCHEMA-B03: CLOSED
+  C1SCHEMA-B04: CLOSED
+  C1SCHEMA-B05: CLOSED
+  C1SCHEMA-B06: CLOSED
+  C1SCHEMA-B07: CLOSED
+new_load_bearing_blockers: []
+C1_OPEN_010: CLOSED
+C1_06_gate: PASS
+authorization:
+  C1_07_independent_red_team_audit: AUTHORIZED
+  production_implementation: NOT_AUTHORIZED
+next_stage: C1.07 — Independent C1 Red-Team Audit

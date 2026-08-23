@@ -1,0 +1,25 @@
+schema_version: 1.0.0
+project: Investment Research OS
+generated_at_utc: '2026-08-23T19:04:28Z'
+stage_state:
+  C0: FROZEN
+  C1_01R1: PASS
+  C1_02R1: PASS
+  C1_03R1: PASS
+  C1_04R1: PASS
+  C1_05R1: PASS
+  C1_06R5_independent_recheck: PASS
+  C1_OPEN_010: CLOSED
+  C1_07: FAIL_WITH_THREE_LOAD_BEARING_BLOCKERS
+  C1_overall_freeze_eligible: false
+  production_implementation_authorized: false
+open_load_bearing_blockers:
+- C1RT-B01
+- C1RT-B02
+- C1RT-B03
+non_blocking_hardenings:
+- C1RT-H01
+- C1RT-H02
+next_exact_stage: C1.07R1 — Canonical Parent Invariants & Successor-Graph Integrity
+  Repair
+exact_r5_selection_sha256: 789c8afa3d54b87a96ab5f31e568f9c918c24c38bac2d0d89aaae2f1946ed4b8

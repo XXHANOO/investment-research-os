@@ -1,0 +1,40 @@
+name: C0 Frozen Backfill
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.c0-recovery/C0_FROZEN.part*.b64'
+      - '.github/workflows/c0-frozen-backfill.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct exact C0_FROZEN.md when all chunks exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          parts=(.c0-recovery/C0_FROZEN.part*.b64)
+          if [ "${#parts[@]}" -ne 7 ]; then
+            echo "Waiting for all 7 exact base64 chunks; currently ${#parts[@]}."
+            exit 0
+          fi
+          mkdir -p governance/C0
+          cat "${parts[@]}" | base64 --decode > governance/C0/C0_FROZEN.md
+          echo '9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f  governance/C0/C0_FROZEN.md' | sha256sum -c -
+          git config user.name 'C0 archival recovery'
+          git config user.email '190334876+XXHANOO@users.noreply.github.com'
+          git add governance/C0/C0_FROZEN.md
+          git rm -f .c0-recovery/C0_FROZEN.part*.b64
+          if git diff --cached --quiet; then
+            echo 'No change required.'
+            exit 0
+          fi
+          git commit -m 'archive(C0): restore exact frozen specification'
+          git push

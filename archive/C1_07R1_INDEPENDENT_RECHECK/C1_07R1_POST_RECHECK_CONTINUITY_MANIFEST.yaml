@@ -1,0 +1,22 @@
+schema_version: 1.0.0
+project: Investment Research OS
+generated_at_utc: '2026-08-23T19:28:51Z'
+governance:
+  C0: FROZEN
+  C1_01R1: PASS
+  C1_02R1: PASS
+  C1_03R1: PASS
+  C1_04R1: PASS
+  C1_05R1: PASS
+  C1_06R5_independent_recheck: PASS
+  C1_OPEN_010: CLOSED
+  C1_07R1_independent_recheck: FAIL_WITH_ONE_NEW_LOAD_BEARING_BLOCKER
+  C1RT_B01: CLOSED
+  C1RT_B02: CLOSED
+  C1RT_B03: CLOSED
+  C1RT_B04: OPEN
+  C1_overall_freeze_eligible: false
+  C1_08: NOT_AUTHORIZED
+  production_implementation_authorized: false
+  next_exact_stage: C1.07R2 — Listing Venue Continuity & Transfer Invariant Repair
+r1_selection_sha256: e0d9a54c3f050aa4b30f5efd885fdf9d45a018166e2fbdee2811abd2df5b9ec4

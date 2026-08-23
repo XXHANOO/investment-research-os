@@ -1,0 +1,141 @@
+{
+  "blockers": [
+    {
+      "attack": {
+        "IdentityEffectAssertion_self_loop_schema_valid": true,
+        "SuccessorEffect_self_loop_schema_valid": true,
+        "distinct_successor_control_valid": true,
+        "explicit_self_loop_semantic_hook_present": false
+      },
+      "category": "IDENTITY_GRAPH_INTEGRITY",
+      "id": "C1RT-B01",
+      "impact": "A canonical object can be serialized as its own predecessor/successor, creating an invalid identity graph while satisfying the final integrated schema.",
+      "inherited_authority": "C1-028 forbids predecessor/successor self-loops unless explicitly allowed by relation type.",
+      "required_repair": [
+        "Require predecessor and successor canonical refs to be distinct for ADD_SUCCESSOR_RELATION / PREDECESSOR_OF.",
+        "If JSON Schema cannot compare the two refs, add an explicit named semantic validator contract.",
+        "Add positive distinct-endpoint and negative self-loop adversarial vectors.",
+        "Materialize inherited C1-028 in the final integrated C1 regression surface."
+      ],
+      "severity": "LOAD_BEARING_BLOCKER",
+      "title": "Predecessor/successor self-loop invariant is not materialized in the integrated R5 contract"
+    },
+    {
+      "attack": {
+        "ContractRecord_pointing_to_same_instrument_ref_schema_valid": true,
+        "derivative_InstrumentRecord_schema_valid": true,
+        "equity_InstrumentRecord_schema_valid": true,
+        "explicit_contract_parent_kind_semantic_hook_present": false
+      },
+      "category": "CANONICAL_PARENT_KIND",
+      "id": "C1RT-B02",
+      "impact": "The final integrated contract can accept a ContractRecord whose referenced InstrumentRecord is an equity, debt, fund, depositary receipt, or index rather than a derivative product.",
+      "inherited_authority": "C1.01R1 DEC-031 / C1-063 require every ContractID to have exactly one parent DERIVATIVE_PRODUCT InstrumentID.",
+      "required_repair": [
+        "Add a cross-record semantic validator that resolves parent_instrument_ref to the exact InstrumentRecord and requires instrument_kind=DERIVATIVE_PRODUCT.",
+        "Keep exactly-one parent cardinality.",
+        "Add one valid DERIVATIVE_PRODUCT control and negative non-derivative-parent vectors.",
+        "Do not import C11 persistence internals; the rule is C1 identity semantics."
+      ],
+      "severity": "LOAD_BEARING_BLOCKER",
+      "title": "ContractRecord does not enforce that its parent Instrument is DERIVATIVE_PRODUCT"
+    },
+    {
+      "attack": {
+        "error_codes_present_but_not_validator": [
+          "CONTRACT_INSTRUMENT_REPARENT_FORBIDDEN",
+          "LISTING_REPARENT_FORBIDDEN"
+        ],
+        "explicit_reparent_semantic_hook_present": false,
+        "same_ContractID_snapshot_parent_A_schema_valid": true,
+        "same_ContractID_snapshot_parent_B_schema_valid": true,
+        "same_ListingID_snapshot_parent_A_schema_valid": true,
+        "same_ListingID_snapshot_parent_B_schema_valid": true
+      },
+      "category": "CANONICAL_PARENT_IMMUTABILITY",
+      "id": "C1RT-B03",
+      "impact": "Two individually valid records can move the same canonical ContractID or ListingID to a different Instrument parent without any final integrated semantic validator rejecting the transition.",
+      "inherited_authority": "C1.01R1 DEC-031 / C1-064 forbid Listing/Contract Instrument-parent reassignment; replacement must use explicit termination/successor semantics.",
+      "required_repair": [
+        "Add a cross-version semantic validator: same ContractID cannot change parent_instrument_ref.",
+        "Add a cross-version semantic validator: same ListingID cannot change instrument_ref.",
+        "Require explicit termination/create/successor semantics when identity genuinely changes.",
+        "Add adversarial two-snapshot reparent vectors for both Listing and Contract."
+      ],
+      "severity": "LOAD_BEARING_BLOCKER",
+      "title": "Listing/Contract parent reassignment prohibition is represented only as error vocabulary, not an executable integrated invariant"
+    }
+  ],
+  "gate": {
+    "C1_06_local_gate_historical_status": "PASS",
+    "C1_07": "FAIL",
+    "C1_OPEN_010": "CLOSED_AND_NOT_REOPENED",
+    "C1_freeze_eligible": false,
+    "downstream_stage_after_C1_07": "NOT_AUTHORIZED_EXCEPT_C1_07R1_REPAIR",
+    "next_exact_stage": "C1.07R1 — Canonical Parent Invariants & Successor-Graph Integrity Repair",
+    "production_implementation": "NOT_AUTHORIZED"
+  },
+  "generated_at_utc": "2026-08-23T19:04:28Z",
+  "hardenings": [
+    {
+      "detail": "The schema can serialize CURRENT graph results with reconstructability=PIT_SAFE when their load-bearing dependencies are PIT-safe. Preserve the already-passed rule that a CURRENT resolution anchor is not itself historical PIT evidence and historical consumers must use HISTORICAL reconstruction unless C4 proves equivalence.",
+      "id": "C1RT-H01",
+      "observed": {
+        "current_query_REQUIRE_PIT_SAFE_structurally_valid": null,
+        "current_result_PIT_SAFE_structurally_valid": true
+      },
+      "status": "NON_BLOCKING",
+      "title": "Clarify CURRENT result PIT_SAFE wording"
+    },
+    {
+      "detail": "C1.01R1 already classified temporal duplicate/uniqueness formalization as a hardening. C1 should state the semantic uniqueness rule at a C4-defined temporal state while leaving persistence/idempotent coalescing to C11.",
+      "id": "C1RT-H02",
+      "observed": {
+        "explicit_duplicate_admission_semantic_hook_present_in_R5_vectors": false
+      },
+      "status": "NON_BLOCKING",
+      "title": "Make ContractVenueAdmission active-state uniqueness executable before final C1 freeze"
+    }
+  ],
+  "integrity": {
+    "authority_C1_001_534_gapless": true,
+    "authority_C1_001_534_no_overlap": true,
+    "authority_segments": [
+      {"availability":"EXTERNAL_CONTENT_ADDRESSED","computed_count":34,"count_match":true,"declared_count":34,"range":"C1-001..C1-034","sha256":"b2d7b8e8587d0db116f2349b2a0b63309268ec336e43651f76ab1a4f73063a54","stage":"C1.00R1.1"},
+      {"availability":"EXTERNAL_CONTENT_ADDRESSED","computed_count":38,"count_match":true,"declared_count":38,"range":"C1-035..C1-072","sha256":"010863078e2d080561ecf37d221bc3d2c395a95d42d31e6079748f2bd56e2b0a","stage":"C1.01R1"},
+      {"availability":"EXTERNAL_CONTENT_ADDRESSED","computed_count":52,"count_match":true,"declared_count":52,"range":"C1-073..C1-124","sha256":"c5d2c3099444894cf928867f8648bd10c218f7d9d3582b168da5f6002ee64cf3","stage":"C1.02R1"},
+      {"availability":"EXTERNAL_CONTENT_ADDRESSED","computed_count":69,"count_match":true,"declared_count":69,"range":"C1-125..C1-193","sha256":"0ae5a811c7a5291670c3bc44dcddd5fd853d69323e3a025c0c4256f6401bd6b8","stage":"C1.03R1"},
+      {"availability":"LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED","computed_count":63,"count_match":true,"declared_count":63,"range":"C1-194..C1-256","sha256":"ae7f3bd26822206d58707c7d3b44266f5221282262c9ca3e4b8f41868c8bd790","stage":"C1.04R1"},
+      {"availability":"LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED","computed_count":81,"count_match":true,"declared_count":81,"range":"C1-257..C1-337","sha256":"bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83","stage":"C1.05R1"},
+      {"availability":"LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED","computed_count":93,"count_match":true,"declared_count":93,"range":"C1-338..C1-430","sha256":"d32b0fed76d2d9c0aa4c949901fde4aba164b7f925d446e1cae61bd14409328d","stage":"C1.06"},
+      {"availability":"LOCAL_CONTENT_ADDRESSED","computed_count":56,"count_match":true,"declared_count":56,"range":"C1-431..C1-486","sha256":"cea15a5831808bff203970b045c48a509f6f28a0070cb69263c0473049f68007","stage":"C1.06R1"},
+      {"availability":"BUNDLED_EXACT_PARENT","computed_count":37,"count_match":true,"declared_count":37,"range":"C1-487..C1-523","sha256":"890db4e143025bff9ff6bad4268d2232fa6f57ce68369335a9ebd8d548c19926","stage":"C1.06R2"},
+      {"availability":"BUNDLED_EXACT_PARENT","computed_count":11,"count_match":true,"declared_count":11,"range":"C1-524..C1-534","sha256":"5f78ead46bee98e7353e8a116ff24760e5e46d8b0fdf45fb71e541c717ca2685","stage":"C1.06R4"}
+    ],
+    "decision_ids_unique": true,
+    "exact_r4_parent_bindings_passed": 6,
+    "exact_r4_parent_bindings_total": 6,
+    "handoff_manifest_passed": 32,
+    "handoff_manifest_total": 32,
+    "json_schema_draft_2020_12": "PASS",
+    "r5_C1_535_545_all_mapped": true,
+    "r5_C1_535_545_contiguous": true,
+    "schema_vectors_passed": 112,
+    "schema_vectors_total": 112,
+    "selected_r5_targets_passed": 8,
+    "selected_r5_targets_total": 8
+  },
+  "new_blocker_count": 3,
+  "previously_closed_surface_smoke": {
+    "C1-431": {"actual_valid": false,"expected_valid": false,"pass": true,"present": true},
+    "C1-487": {"actual_valid": false,"expected_valid": false,"pass": true,"present": true},
+    "C1-506": {"actual_valid": false,"expected_valid": false,"pass": true,"present": true},
+    "C1-524": {"actual_valid": false,"expected_valid": false,"pass": true,"present": true},
+    "C1-536": {"actual_valid": false,"expected_valid": false,"pass": true,"present": true},
+    "C1-540": {"actual_valid": false,"expected_valid": false,"pass": true,"present": true}
+  },
+  "read_only_review": true,
+  "schema_version": "1.0.0",
+  "stage": "C1.07 — Independent C1 Red-Team Audit",
+  "verdict": "FAIL_WITH_THREE_LOAD_BEARING_BLOCKERS"
+}

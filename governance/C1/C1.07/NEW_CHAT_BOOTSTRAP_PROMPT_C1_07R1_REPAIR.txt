@@ -1,0 +1,15 @@
+Execute C1.07R1 — Canonical Parent Invariants & Successor-Graph Integrity Repair.
+
+Authoritative starting state:
+- C0 FROZEN.
+- C1.01R1 through C1.05R1 PASS.
+- C1.06R5 Independent Regression Re-Check PASS.
+- C1.OPEN-010 CLOSED.
+- C1.07 whole-C1 red-team audit FAILED with exactly three load-bearing integration blockers:
+  1. C1RT-B01 predecessor/successor self-loop invariant is not materialized.
+  2. C1RT-B02 ContractRecord parent Instrument kind is not bound to DERIVATIVE_PRODUCT.
+  3. C1RT-B03 Listing/Contract parent reassignment prohibition is not materialized as an executable cross-version invariant.
+
+Repair the final integrated schema/semantic-test surface narrowly. Do not redesign passed parent contracts. Preserve all previously closed C1.06 blockers and C1.OPEN-010. Do not implement production code.
+
+After construction, stop for C1.07R1 Independent Regression Re-Check.

@@ -1,0 +1,53 @@
+schema_version: 1.0.0
+stage: C1.07 — Independent C1 Red-Team Audit
+generated_at_utc: '2026-08-23T19:04:28Z'
+verdict: FAIL_WITH_THREE_LOAD_BEARING_BLOCKERS
+read_only_review: true
+integrity:
+  selected_r5_targets:
+    passed: 8
+    total: 8
+  handoff_manifest:
+    passed: 32
+    total: 32
+  exact_r4_parents:
+    passed: 6
+    total: 6
+  json_schema_draft_2020_12: PASS
+  schema_vectors:
+    passed: 112
+    total: 112
+  inherited_authority_C1_001_534:
+    gapless: true
+    overlaps: 0
+  r5_new_C1_535_545:
+    contiguous: true
+    all_mapped: true
+load_bearing_blockers:
+- id: C1RT-B01
+  category: IDENTITY_GRAPH_INTEGRITY
+  title: Predecessor/successor self-loop invariant is not materialized in the integrated
+    R5 contract
+- id: C1RT-B02
+  category: CANONICAL_PARENT_KIND
+  title: ContractRecord does not enforce that its parent Instrument is DERIVATIVE_PRODUCT
+- id: C1RT-B03
+  category: CANONICAL_PARENT_IMMUTABILITY
+  title: Listing/Contract parent reassignment prohibition is represented only as error
+    vocabulary, not an executable integrated invariant
+non_blocking_hardenings:
+- id: C1RT-H01
+  title: Clarify CURRENT result PIT_SAFE wording
+- id: C1RT-H02
+  title: Make ContractVenueAdmission active-state uniqueness executable before final
+    C1 freeze
+governance:
+  C1_06_historical_gate: PASS_UNCHANGED
+  C1_OPEN_010: CLOSED_UNCHANGED
+  C1_07: FAIL
+  C1_overall_freeze_eligible: false
+  C1_08_or_other_downstream: NOT_AUTHORIZED
+  production_implementation: NOT_AUTHORIZED
+  next_exact_stage: C1.07R1 — Canonical Parent Invariants & Successor-Graph Integrity
+    Repair
+  repair_scope: FINAL_INTEGRATED_SCHEMA_AND_SEMANTIC_TEST_MATERIALIZATION_ONLY; DO_NOT_REDESIGN_PASSED_PARENT_CONTRACTS

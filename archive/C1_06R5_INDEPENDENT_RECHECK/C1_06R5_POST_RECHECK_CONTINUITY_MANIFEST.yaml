@@ -1,0 +1,22 @@
+schema_version: 1.0.0
+project: Investment Research OS
+generated_at_utc: '2026-08-23T18:46:44Z'
+governance:
+  C1_06R5_independent_recheck: PASS
+  C1_OPEN_010: CLOSED
+  C1_06_gate: PASS
+  C1_07: AUTHORIZED
+  production_implementation_authorized: false
+  next_stage: C1.07 — Independent C1 Red-Team Audit
+closed_blockers:
+- C1SCHEMA-B01
+- C1SCHEMA-B02
+- C1SCHEMA-B03
+- C1SCHEMA-B04
+- C1SCHEMA-B05
+- C1SCHEMA-B06
+- C1SCHEMA-B07
+- C1TEST-B01
+- C1TEST-B02
+- C1GOV-B01
+r5_selection_sha256: 789c8afa3d54b87a96ab5f31e568f9c918c24c38bac2d0d89aaae2f1946ed4b8

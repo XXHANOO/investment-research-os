@@ -1,0 +1,27 @@
+schema_version: 1.0.0
+stage: C1.08R1 — Freeze Review Package Completeness Repair
+generated_at_utc: '2026-08-23T20:19:51Z'
+status: PACKAGE_REPAIR_COMPLETE_NOT_REVIEWED
+blocker: C1FREEZE-B01
+repair:
+  missing_nested_target_key: repair_diffs
+  path: C1_07R2_REPAIR_DIFFS__sha256_31681a57cab36554bed36789b74afb82b629eb0ee190339032e24175c427b379.md
+  sha256: 31681a57cab36554bed36789b74afb82b629eb0ee190339032e24175c427b379
+  action: COPIED_EXACT_CONTENT_ADDRESSED_BYTES_INTO_REVIEW_PACKAGE
+preserved:
+  freeze_candidate:
+    path: C1_08_FREEZE_CANDIDATE__sha256_e9f7446fad39a3fbe4c204129a95e9255353addeb7893e76465c93f9c7be4db9.md
+    sha256: e9f7446fad39a3fbe4c204129a95e9255353addeb7893e76465c93f9c7be4db9
+  approval_ready_freeze_manifest:
+    path: C1_08_APPROVAL_READY_FREEZE_MANIFEST__sha256_74a169c75d52125edfe6f5a9d125186530bac332ba66a942db44ec779242faf7.yaml
+    sha256: 74a169c75d52125edfe6f5a9d125186530bac332ba66a942db44ec779242faf7
+  final_r2_selection:
+    path: C1_07R2_CANDIDATE_SELECTION__sha256_def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231.yaml
+    sha256: def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231
+nested_final_r2_selection:
+  passed: 9
+  total: 9
+semantic_changes: false
+C1_frozen: false
+production_implementation: NOT_AUTHORIZED
+next_gate: C1.08R1 Independent Freeze Review Re-Check

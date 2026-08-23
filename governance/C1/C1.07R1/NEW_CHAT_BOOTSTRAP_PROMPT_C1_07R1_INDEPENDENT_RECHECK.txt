@@ -1,0 +1,22 @@
+Execute C1.07R1 Independent Regression Re-Check.
+
+Read C1_07R1_CANDIDATE_SELECTION first and independently rehash every selected target.
+
+Mandatory:
+- Draft 2020-12 meta-validation;
+- re-run all 112 inherited R5 schema vectors;
+- independently implement/re-run C1.SEM.SUCCESSOR_DISTINCT_ENDPOINTS;
+- independently implement/re-run C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT;
+- independently implement/re-run C1.SEM.CONTRACT_PARENT_IMMUTABLE;
+- independently implement/re-run C1.SEM.LISTING_PARENT_IMMUTABLE;
+- independently implement/re-run C1.SEM.CANONICAL_REPLACEMENT_PACKAGE;
+- verify H01/H02 ownership boundaries;
+- re-attack all previously closed C1SCHEMA-B01..B07;
+- verify regression authority and decision traceability;
+- search for new load-bearing blockers.
+
+Only if the review fully passes:
+- close C1RT-B01/B02/B03;
+- mark C1.07 PASS / C1 freeze-eligible according to the roadmap;
+- authorize only the exact next governance stage;
+- production implementation remains NOT AUTHORIZED unless a later explicit gate says otherwise.

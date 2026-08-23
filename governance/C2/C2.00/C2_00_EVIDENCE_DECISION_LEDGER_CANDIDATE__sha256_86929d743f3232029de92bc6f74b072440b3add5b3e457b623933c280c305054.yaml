@@ -1,0 +1,481 @@
+schema_version: 0.1.0-C2-00
+status: CANDIDATE_FOR_C2_00_INDEPENDENT_SCOPE_REVIEW
+generated_at_utc: '2026-08-23T22:15:59Z'
+production_implementation: NOT_AUTHORIZED
+independent_review_status: NOT_PERFORMED
+governance_authorization:
+  stage_plan_snapshot_sha256: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+  user_adoption_status: ADOPTED_IN_CURRENT_CHAT_AS_C2_WORKFLOW_NOT_FROZEN_PARENT_AUTHORITY
+  authorized_construction: C2.00_ONLY
+  explicitly_not_authorized:
+  - C2.01_OR_LATER
+  - PRODUCTION_PROVIDER_ADAPTERS
+  - WRITE_EXTERNAL
+  - PAPER_TRADE
+  - LIVE_TRADE
+  - SELF_APPROVAL
+  - SELF_FREEZE
+classification_values:
+- VERIFIED
+- ADAPTED
+- INFERRED
+- ASPIRATIONAL
+source_role_vocabulary:
+- CONTRACT_AUTHORITY
+- SUPPORTING
+- INSPIRATION
+source_catalog:
+  C0_FROZEN:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Frozen C2 responsibility map; provider failure/data axes; normalization boundary; secure raw
+      ingestion; source-fitness/ports/trust boundaries
+    path: C0_FROZEN.md
+    sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+    evidence_type: LOCAL_FROZEN_ARTIFACT
+  C0_ACCEPTANCE_CATALOG:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Exact C0 provider/security/governance acceptance obligations inherited by C2
+    path: C0_ACCEPTANCE_TEST_CATALOG.md
+    sha256: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
+    evidence_type: LOCAL_FROZEN_ARTIFACT
+  C1_FREEZE_SEAL:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Frozen C1 state and exact C1 downstream authority
+    path: C1_FREEZE_SEAL__sha256_438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5.yaml
+    sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+    evidence_type: LOCAL_FROZEN_ARTIFACT
+  C1_05R1_INTERFACE:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Exact frozen C1.05R1 provider-normalization interface requirements on C2
+    path: C1_05R1_PROVIDER_NORMALIZATION_INTERFACE_CANDIDATE__sha256_71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63.md
+    sha256: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+    evidence_type: LOCAL_CONTENT_ADDRESSED_ARTIFACT
+  C1_05R1_REGISTRY:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Exact C1.05R1 provider outcome, completeness, foreign-reference stability and replay-lineage
+      boundary
+    path: C1_05R1_PROVIDER_NORMALIZATION_REGISTRY_CANDIDATE__sha256_422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b.yaml
+    sha256: 422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b
+    evidence_type: LOCAL_CONTENT_ADDRESSED_ARTIFACT
+  C1_05R1_ACCEPTANCE:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Exact C1.05R1 regression obligations including foreign ref stability, completeness stability,
+      replay and degradation lineage
+    path: C1_05R1_ACCEPTANCE_TEST_DELTA__sha256_bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83.md
+    sha256: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+    evidence_type: LOCAL_CONTENT_ADDRESSED_ARTIFACT
+  C2_START_AUTHORITY:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Curated C2 start responsibility, must-not-absorb boundaries, inherited C0 tests/forbidden patterns
+      and non-negotiable C1.05 semantics
+    path: C2_START_AUTHORITY_MANIFEST.yaml
+    sha256: 316a17cda14058322999095036951647824a69bd0037e78b7eea810f6a76062d
+    evidence_type: LOCAL_HANDOFF_AUTHORITY
+  C2_HANDOFF:
+    role: CONTRACT_AUTHORITY
+    authority_scope: C2.00 construction rules, no-adapter/no-vendor-selection constraints and independent-review
+      stop gate
+    path: PROJECT_HANDOFF_C2_START.md
+    sha256: 85e94ae4156279576e6e52518179fdf44392bfddd63946dbdc17cf938a44457b
+    evidence_type: LOCAL_HANDOFF_AUTHORITY
+  C2_STAGE_PLAN:
+    role: SUPPORTING
+    authority_scope: Exact stage sequence adopted by user for C2 workflow; not inherited frozen C0/C1 semantic authority
+    path: C2_PROPOSED_STAGE_PLAN.yaml
+    sha256: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+    evidence_type: LOCAL_ADOPTED_WORKFLOW_SNAPSHOT
+open_questions:
+- question_id: C2.OPEN-001
+  status: OPEN
+  target_stage: C2.01
+  question: Exact provider capability taxonomy and granularity.
+- question_id: C2.OPEN-002
+  status: OPEN
+  target_stage: C2.01
+  question: Exact endpoint semantic/profile and provider-field semantic binding record model.
+- question_id: C2.OPEN-003
+  status: OPEN
+  target_stage: C2.01
+  question: Exact snapshot-stable representation/versioning of provider semantic and capability references.
+- question_id: C2.OPEN-004
+  status: OPEN
+  target_stage: C2.02
+  question: Detailed structured provider failure/error taxonomy beneath operation status.
+- question_id: C2.OPEN-005
+  status: OPEN
+  target_stage: C2.02
+  question: Operation-specific legality and consistency constraints for PRESENT/NO_DATA/PARTIAL.
+- question_id: C2.OPEN-006
+  status: OPEN
+  target_stage: C2.03
+  question: Route eligibility, selection, retry, fallback and provider-originated degradation semantics.
+- question_id: C2.OPEN-007
+  status: OPEN
+  target_stage: C2.03/C2.06
+  question: Exact seam between C2 provider retry/fallback and C3 quota/backoff/cache state.
+- question_id: C2.OPEN-008
+  status: OPEN
+  target_stage: C2.04
+  question: Exact credentials/private-state/secure-ingress boundary and secret indirection mechanics.
+- question_id: C2.OPEN-009
+  status: OPEN
+  target_stage: C2.05
+  question: Provider certification states, evidence requirements and invalidation rules.
+- question_id: C2.OPEN-010
+  status: OPEN
+  target_stage: C2.05
+  question: Completeness/coverage scope language and methodology sufficient for absence/uniqueness dependencies.
+- question_id: C2.OPEN-011
+  status: OPEN
+  target_stage: C2.05/C2.06
+  question: Certification/coverage temporal validity interface without redefining C4 available_from/revision semantics.
+- question_id: C2.OPEN-012
+  status: OPEN
+  target_stage: C2.06
+  question: Exact opaque interfaces with C1/C3/C4/C5 including degradation and replay dependencies.
+- question_id: C2.OPEN-013
+  status: OPEN
+  target_stage: C2.06
+  question: Exact C2-to-C11 permitted-raw/repository handoff without semantic-ownership transfer.
+- question_id: C2.OPEN-014
+  status: OPEN
+  target_stage: C2.07
+  question: C2 machine schema, validators and executable contract-test vectors.
+- question_id: C2.OPEN-015
+  status: OPEN_NON_SEMANTIC_CONFIGURATION
+  target_stage: POST_CONTRACT_CONFIGURATION_OR_ADR
+  question: Concrete provider/vendor enablement and operational priority; C2.00 must not choose it.
+decisions:
+- decision_id: C2.DEC-001
+  decision_status: ADOPTED_CANDIDATE
+  statement: 'C2 is limited to Provider / Source Router / Provider Certification: provider capabilities, routing,
+    certification, credentials boundary and typed provider outcomes.'
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C2_START_AUTHORITY
+  required_tests:
+  - C2-003
+- decision_id: C2.DEC-002
+  decision_status: ADOPTED_CANDIDATE
+  statement: C2 must preserve ownership separation from C1 canonical identity, C3 cache/quota/freshness/coalescing/LKG,
+    C4 exact PIT/revision/available_from, C5 evidence/source-fitness/verification/conflict, and C11 persistence.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C2_START_AUTHORITY
+  - C1_05R1_INTERFACE
+  required_tests:
+  - C2-004
+  - C2-005
+  - C2-006
+  - C2-007
+  - C2-008
+  - C2-034
+  - C2-038
+- decision_id: C2.DEC-003
+  decision_status: ADOPTED_CANDIDATE
+  statement: C2 credentials/provider access do not grant C6 capability/policy authority, C7 orchestration authority,
+    or C12 validation/release authority; C2 cannot authorize external/PAPER/LIVE side effects or self-release.
+  classification: INFERRED
+  reasoning_basis: BOUNDARY_SYNTHESIS
+  evidence_refs:
+  - C0_FROZEN
+  - C2_HANDOFF
+  required_tests:
+  - C2-009
+  - C2-036
+  - C2-037
+- decision_id: C2.DEC-004
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider, underlying source, and endpoint/operation surface are distinct vocabulary concepts; a provider
+    may redistribute material from another source and endpoint semantics are operation-scoped.
+  classification: INFERRED
+  reasoning_basis: VOCABULARY_SYNTHESIS
+  evidence_refs:
+  - C0_FROZEN
+  - C1_05R1_INTERFACE
+  required_tests:
+  - C2-010
+- decision_id: C2.DEC-005
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider capability is C2-owned semantic state in a Provider Registry concept and is not established
+    merely by mutable README/marketing claims.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C2_START_AUTHORITY
+  required_tests:
+  - C2-011
+- decision_id: C2.DEC-006
+  decision_status: ADOPTED_CANDIDATE
+  statement: Load-bearing provider profile, field semantic, capability, and completeness references consumed by
+    C1 must resolve to snapshot-stable semantic state.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_FROZEN_INTERFACE
+  evidence_refs:
+  - C1_05R1_INTERFACE
+  - C1_05R1_REGISTRY
+  - C1_05R1_ACCEPTANCE
+  required_tests:
+  - C2-012
+  - C2-013
+  - C2-014
+  - C2-015
+- decision_id: C2.DEC-007
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider operation status and provider data outcome are orthogonal axes; top-level status is SUCCESS/FAILED/CANCELLED
+    and successful data outcome may be PRESENT/NO_DATA/PARTIAL where endpoint semantics permit.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE_CATALOG
+  - C1_05R1_INTERFACE
+  required_tests:
+  - C2-016
+  - C2-031
+- decision_id: C2.DEC-008
+  decision_status: ADOPTED_CANDIDATE
+  statement: Authentication/authorization/network/server/rate-limit-exhaustion and analogous infrastructure failures
+    remain typed machine-detectable failures and cannot be converted to empty/NO_DATA or text-only status.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE_CATALOG
+  - C2_START_AUTHORITY
+  required_tests:
+  - C2-017
+  - C2-018
+  - C2-039
+- decision_id: C2.DEC-009
+  decision_status: ADOPTED_CANDIDATE
+  statement: SUCCESS+NO_DATA means a successful provider operation returned no observations under certified endpoint
+    semantics; it does not automatically prove C1 NO_MATCH.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_FROZEN_INTERFACE
+  evidence_refs:
+  - C1_05R1_INTERFACE
+  - C1_05R1_REGISTRY
+  required_tests:
+  - C2-019
+- decision_id: C2.DEC-010
+  decision_status: ADOPTED_CANDIDATE
+  statement: SUCCESS+PARTIAL may carry valid observations, but missing records cannot prove absence or uniqueness.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_FROZEN_INTERFACE
+  evidence_refs:
+  - C1_05R1_INTERFACE
+  - C1_05R1_REGISTRY
+  required_tests:
+  - C2-020
+- decision_id: C2.DEC-011
+  decision_status: ADOPTED_CANDIDATE
+  statement: Load-bearing exact absence or uniqueness requires a scope-compatible, snapshot-stable C2 completeness/coverage
+    dependency.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_FROZEN_INTERFACE
+  evidence_refs:
+  - C1_05R1_INTERFACE
+  - C1_05R1_REGISTRY
+  - C1_05R1_ACCEPTANCE
+  required_tests:
+  - C2-021
+- decision_id: C2.DEC-012
+  decision_status: ADOPTED_CANDIDATE
+  statement: A positive exact mapping does not automatically require universe-wide enumeration when its exactness
+    does not depend on absence.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_FROZEN_INTERFACE
+  evidence_refs:
+  - C1_05R1_INTERFACE
+  - C1_05R1_REGISTRY
+  required_tests:
+  - C2-022
+- decision_id: C2.DEC-013
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider-native/raw payload remains outside canonical domain truth; validation/normalization boundaries
+    must mediate downstream C1 candidate material and core domain may not directly import provider infrastructure.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE_CATALOG
+  - C1_05R1_INTERFACE
+  required_tests:
+  - C2-023
+  - C2-040
+- decision_id: C2.DEC-014
+  decision_status: ADOPTED_CANDIDATE
+  statement: C2 owns the routing decision concept, but exact route eligibility/priority/retry/fallback algorithms
+    and concrete vendor selection remain unresolved after C2.00.
+  classification: INFERRED
+  reasoning_basis: SCOPE_DEFERMENT
+  evidence_refs:
+  - C0_FROZEN
+  - C2_STAGE_PLAN
+  - C2_HANDOFF
+  required_tests:
+  - C2-024
+  - C2-033
+- decision_id: C2.DEC-015
+  decision_status: ADOPTED_CANDIDATE
+  statement: Material provider/route fallback or degradation provenance cannot be erased; C2-originated route degradation
+    remains distinct from C3-owned cache/stale/LKG semantics.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_FROZEN_INTERFACE
+  evidence_refs:
+  - C1_05R1_INTERFACE
+  - C1_05R1_REGISTRY
+  - C1_05R1_ACCEPTANCE
+  - C0_FROZEN
+  required_tests:
+  - C2-025
+  - C2-026
+- decision_id: C2.DEC-016
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider credentials/private state cross a C2 secure credential boundary and must not enter public
+    repository/package/example material; credential possession is not side-effect authority.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C2_START_AUTHORITY
+  required_tests:
+  - C2-027
+  - C2-037
+- decision_id: C2.DEC-017
+  decision_status: ADOPTED_CANDIDATE
+  statement: External response must pass secure-ingress security/privacy/licensing/retention checks before it is
+    admitted to immutable permitted-raw storage; C11 owns persistence implementation.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE_CATALOG
+  - C2_START_AUTHORITY
+  required_tests:
+  - C2-028
+  - C2-042
+  - C2-008
+- decision_id: C2.DEC-018
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider/web/tool content is untrusted data and cannot grant capabilities, change control policy, or
+    originate/redirect a side-effect objective through an already granted capability.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE_CATALOG
+  - C2_START_AUTHORITY
+  required_tests:
+  - C2-029
+  - C2-037
+- decision_id: C2.DEC-019
+  decision_status: ADOPTED_CANDIDATE
+  statement: C2 must preserve load-bearing provider-operation/semantic/capability/completeness and material degradation
+    dependencies needed for C1 replay-critical lineage.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_FROZEN_INTERFACE
+  evidence_refs:
+  - C1_05R1_INTERFACE
+  - C1_05R1_REGISTRY
+  - C1_05R1_ACCEPTANCE
+  required_tests:
+  - C2-030
+- decision_id: C2.DEC-020
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider operation/data, C1 normalization/resolution, C3 cache/freshness/LKG, C4 PIT, and C5 verification/conflict
+    are orthogonal semantic axes.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C1_05R1_INTERFACE
+  required_tests:
+  - C2-031
+- decision_id: C2.DEC-021
+  decision_status: ADOPTED_CANDIDATE
+  statement: C2.00 is scope/authority/vocabulary only; detailed capability, outcome, routing, credentials, certification,
+    cross-contract schema and machine-test questions remain explicitly OPEN for later stages.
+  classification: VERIFIED
+  reasoning_basis: ADOPTED_STAGE_PLAN_SCOPE
+  evidence_refs:
+  - C2_STAGE_PLAN
+  - C2_HANDOFF
+  required_tests:
+  - C2-032
+  - C2-033
+  - C2-034
+- decision_id: C2.DEC-022
+  decision_status: ADOPTED_CANDIDATE
+  statement: The exact C2 proposed stage-plan snapshot was explicitly adopted by the user as workflow authority
+    in the current chat, but remains distinct from frozen C0/C1 contract authority and is not retroactively mutated.
+  classification: VERIFIED
+  reasoning_basis: CURRENT_USER_CONTROL_GATE
+  evidence_refs:
+  - C2_STAGE_PLAN
+  - C2_HANDOFF
+  required_tests:
+  - C2-001
+- decision_id: C2.DEC-023
+  decision_status: ADOPTED_CANDIDATE
+  statement: Production provider adapters, provider/vendor semantic selection, and external/PAPER/LIVE side effects
+    remain unauthorized after C2.00 construction.
+  classification: VERIFIED
+  reasoning_basis: USER_STAGE_AUTHORIZATION
+  evidence_refs:
+  - C2_HANDOFF
+  - C2_START_AUTHORITY
+  required_tests:
+  - C2-002
+  - C2-024
+  - C2-033
+  - C2-037
+- decision_id: C2.DEC-024
+  decision_status: ADOPTED_CANDIDATE
+  statement: C2.00 governance artifacts require bidirectional decision-to-acceptance coverage and stop at independent
+    scope review without self-approval.
+  classification: INFERRED
+  reasoning_basis: GOVERNANCE_CONTINUITY
+  evidence_refs:
+  - C0_FROZEN
+  - C2_HANDOFF
+  required_tests:
+  - C2-035
+  - C2-036
+- decision_id: C2.DEC-025
+  decision_status: ADOPTED_CANDIDATE
+  statement: FAILED or CANCELLED provider operations are non-successful upstream states and frozen C1.05R1 requires
+    normalization NOT_RUN; neither may be transformed into canonical absence.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_FROZEN_INTERFACE
+  evidence_refs:
+  - C1_05R1_INTERFACE
+  - C1_05R1_REGISTRY
+  required_tests:
+  - C2-043
+- decision_id: C2.DEC-026
+  decision_status: ADOPTED_CANDIDATE
+  statement: Any load-bearing repository evidence introduced by C2 must preserve C0-060 exact repository+commit+path/blob
+    pinning and explicit role/authority scope; mutable or mismatched evidence pins cannot support a load-bearing
+    C2 decision.
+  classification: VERIFIED
+  reasoning_basis: DIRECT_PARENT_AUTHORITY
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE_CATALOG
+  required_tests:
+  - C2-041
+acceptance_coverage:
+  range: C2-001..C2-043
+  obligation_count: 43
+  mapped_count: 43
+  unmapped_count: 0
+  decision_count: 26
+  decisions_without_tests: 0
+  bidirectional_mapping_required: true

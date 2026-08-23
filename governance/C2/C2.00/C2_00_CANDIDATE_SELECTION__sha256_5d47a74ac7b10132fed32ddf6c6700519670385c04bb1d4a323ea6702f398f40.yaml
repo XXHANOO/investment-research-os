@@ -1,0 +1,53 @@
+schema_version: 1.0.0-C2-00
+project: Investment Research OS
+stage: C2.00
+status: CANDIDATE_SELECTION_FOR_INDEPENDENT_SCOPE_REVIEW
+generated_at_utc: '2026-08-23T22:15:59Z'
+authority_state:
+  C0: FROZEN
+  C1: FROZEN
+  C2_00: CONSTRUCTED_CANDIDATE_NOT_REVIEWED
+  production_implementation: NOT_AUTHORIZED
+  adopted_stage_plan_sha256: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+  adopted_stage_plan_authority_class: USER_ADOPTED_WORKFLOW_NOT_INHERITED_FROZEN_AUTHORITY
+parent_hashes:
+  C0_FROZEN: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  C0_FREEZE_SEAL: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+  C0_ACCEPTANCE_CATALOG: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
+  C0_EVIDENCE_LEDGER: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+  C1_FREEZE_SEAL: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+  C1_FINAL_MACHINE_SCHEMA: 927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4
+  C1_05R1_INTERFACE: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  C1_05R1_REGISTRY: 422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b
+  C1_05R1_LEDGER: 47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031
+  C1_05R1_ACCEPTANCE: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+  C2_START_AUTHORITY: 316a17cda14058322999095036951647824a69bd0037e78b7eea810f6a76062d
+  C2_STAGE_PLAN: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+  C2_HANDOFF: 85e94ae4156279576e6e52518179fdf44392bfddd63946dbdc17cf938a44457b
+  C2_PACKAGE_MANIFEST: a32ad7602ce0fe524969c7962a5028857f471ba3a3882ddd94a787ac55c656d9
+review_targets:
+  scope_authority_vocabulary_candidate:
+    path: C2_00_SCOPE_AUTHORITY_VOCABULARY_CANDIDATE__sha256_b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7.md
+    sha256: b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7
+  acceptance_test_catalog_candidate:
+    path: C2_00_ACCEPTANCE_TEST_CATALOG_CANDIDATE__sha256_0e505f15eb4a13b43705c7349b81223b10d84eab4e1437f3d47a3c629f532189.md
+    sha256: 0e505f15eb4a13b43705c7349b81223b10d84eab4e1437f3d47a3c629f532189
+  evidence_decision_ledger_candidate:
+    path: C2_00_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_86929d743f3232029de92bc6f74b072440b3add5b3e457b623933c280c305054.yaml
+    sha256: 86929d743f3232029de92bc6f74b072440b3add5b3e457b623933c280c305054
+construction_checks:
+  parent_hashes_reverified: true
+  decision_ids_unique: true
+  acceptance_ids_unique: true
+  acceptance_obligations: 43
+  mapped_acceptance_obligations: 43
+  unmapped_acceptance_obligations: 0
+  decisions: 26
+  decisions_without_tests: 0
+  bidirectional_mapping_programmatic_check: PASS
+  production_code_created: false
+  provider_vendor_selected_as_canonical: false
+  parent_artifacts_modified: false
+next_gate: C2.00 Independent Scope Review
+next_stage_authorized: false
+self_approval: false

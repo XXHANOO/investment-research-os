@@ -1,0 +1,45 @@
+{
+  "generated_at_utc": "2026-08-23T22:15:59Z",
+  "status": "C2_00_CONSTRUCTION_COMPLETE_CANDIDATE_ONLY",
+  "independent_review": "NOT_PERFORMED",
+  "next_gate": "C2.00 Independent Scope Review",
+  "production_implementation": "NOT_AUTHORIZED",
+  "artifacts": {
+    "scope": {
+      "file": "C2_00_SCOPE_AUTHORITY_VOCABULARY_CANDIDATE__sha256_b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7.md",
+      "sha256": "b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7"
+    },
+    "catalog": {
+      "file": "C2_00_ACCEPTANCE_TEST_CATALOG_CANDIDATE__sha256_0e505f15eb4a13b43705c7349b81223b10d84eab4e1437f3d47a3c629f532189.md",
+      "sha256": "0e505f15eb4a13b43705c7349b81223b10d84eab4e1437f3d47a3c629f532189"
+    },
+    "ledger": {
+      "file": "C2_00_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_86929d743f3232029de92bc6f74b072440b3add5b3e457b623933c280c305054.yaml",
+      "sha256": "86929d743f3232029de92bc6f74b072440b3add5b3e457b623933c280c305054"
+    },
+    "selection": {
+      "file": "C2_00_CANDIDATE_SELECTION__sha256_5d47a74ac7b10132fed32ddf6c6700519670385c04bb1d4a323ea6702f398f40.yaml",
+      "sha256": "5d47a74ac7b10132fed32ddf6c6700519670385c04bb1d4a323ea6702f398f40"
+    },
+    "stage_report": {
+      "file": "C2_00_STAGE_REPORT__sha256_369603be7adb9730c5af71bcc6a1d85d4b805702bff3b985d46478eb8f9559cc.md",
+      "sha256": "369603be7adb9730c5af71bcc6a1d85d4b805702bff3b985d46478eb8f9559cc"
+    },
+    "review_manifest": {
+      "file": "C2_00_REVIEW_PACKAGE_MANIFEST__sha256_f62e9a040de8b2058d0b9590f11ac148965fb411057beae773e3c4beacf0586e.yaml",
+      "sha256": "f62e9a040de8b2058d0b9590f11ac148965fb411057beae773e3c4beacf0586e"
+    },
+    "review_zip": {
+      "file": "C2_00_INDEPENDENT_SCOPE_REVIEW_PACKAGE.zip",
+      "sha256": "52434849c1499336e7a9dc8e1eef3e5ec618eec8302b51e39d6e17bb91a95c52"
+    }
+  },
+  "counts": {
+    "decisions": 26,
+    "open_questions": 15,
+    "acceptance_obligations": 43,
+    "unmapped": 0
+  },
+  "parent_continuity": "REHASHED_MATCH",
+  "self_approved": false
+}

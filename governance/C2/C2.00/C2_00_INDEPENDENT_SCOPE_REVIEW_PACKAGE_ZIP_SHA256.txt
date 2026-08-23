@@ -1,0 +1,3 @@
+C2_00_INDEPENDENT_SCOPE_REVIEW_PACKAGE.zip
+sha256:52434849c1499336e7a9dc8e1eef3e5ec618eec8302b51e39d6e17bb91a95c52
+note: convenience review package; authoritative text/YAML/JSON members are archived individually under governance/C2/C2.00

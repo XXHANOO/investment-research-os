@@ -41,3 +41,5 @@ jobs:
           fi
           git commit -m 'archive(C0): restore exact frozen specification'
           git push
+
+# retrigger after Actions permissions enabled

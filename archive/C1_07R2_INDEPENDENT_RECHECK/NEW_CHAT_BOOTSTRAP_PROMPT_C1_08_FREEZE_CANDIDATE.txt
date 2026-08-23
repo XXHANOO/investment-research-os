@@ -1,0 +1,13 @@
+Execute C1.08 — Freeze Candidate & Independent Freeze Review preparation.
+
+Starting state:
+C0 FROZEN.
+C1.01R1–C1.05R1 PASS.
+C1.06R5 independent re-check PASS.
+C1.OPEN-010 CLOSED.
+C1.07 PASS_AFTER_C1_07R2.
+C1RT-B01/B02/B03/B04 CLOSED.
+C1 is freeze-candidate eligible but NOT frozen.
+Production implementation NOT AUTHORIZED.
+
+Construct a content-addressed C1 freeze candidate and approval-ready freeze manifest from the exact passed authority chain. Preserve external-content-addressed parent limitations honestly. Do not self-freeze C1. Stop for independent freeze review.

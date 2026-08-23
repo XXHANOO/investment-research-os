@@ -1,0 +1,71 @@
+name: C0 Archive Bundle Recovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.c0-archive-recovery/C0_ARCHIVE_BUNDLE.part*.b64'
+      - '.github/workflows/c0-archive-bundle-recovery.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reconstruct and verify exact C0 archive bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          parts=(.c0-archive-recovery/C0_ARCHIVE_BUNDLE.part*.b64)
+          if [ "${#parts[@]}" -ne 16 ]; then
+            echo "Expected 16 exact bundle chunks; found ${#parts[@]}" >&2
+            exit 1
+          fi
+          cat "${parts[@]}" | base64 --decode > /tmp/c0-complete-archive.bundle
+          echo '1b6b43055fb39f4171085f20dafd6004b05b5b797d7b4c0dfbdbadde818d3266  /tmp/c0-complete-archive.bundle' | sha256sum -c -
+          git bundle verify /tmp/c0-complete-archive.bundle
+          git fetch /tmp/c0-complete-archive.bundle \
+            refs/heads/c0-archive-complete:refs/remotes/c0-archive/c0-archive-complete \
+            refs/tags/c0-frozen:refs/tags/c0-frozen
+      - name: Restore and verify canonical C0 authority
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive_ref=refs/remotes/c0-archive/c0-archive-complete
+          git checkout "$archive_ref" -- \
+            governance/C0/C0_FROZEN.md \
+            governance/C0/C0_FREEZE_SEAL.yaml \
+            governance/C0/C0_ACCEPTANCE_TEST_CATALOG.md \
+            governance/C0/C0_APPROVAL_READY_FREEZE_MANIFEST__sha256_3b9f7546b097d9d5867bf937a1bc4be77178d8d251a1987f0a098f4762a86968.yaml \
+            governance/C0/C0_ARCHITECTURE_EVIDENCE_LEDGER__sha256_abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155.yaml \
+            governance/C0/C0_CANONICAL_ARTIFACT_BINDINGS__sha256_30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751.yaml \
+            governance/C0/C0_CANONICAL_BINDING_VERIFY__sha256_4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d.py
+          echo '9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f  governance/C0/C0_FROZEN.md' | sha256sum -c -
+          echo 'eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2  governance/C0/C0_FREEZE_SEAL.yaml' | sha256sum -c -
+          echo '8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c  governance/C0/C0_ACCEPTANCE_TEST_CATALOG.md' | sha256sum -c -
+          echo '3b9f7546b097d9d5867bf937a1bc4be77178d8d251a1987f0a098f4762a86968  governance/C0/C0_APPROVAL_READY_FREEZE_MANIFEST__sha256_3b9f7546b097d9d5867bf937a1bc4be77178d8d251a1987f0a098f4762a86968.yaml' | sha256sum -c -
+          echo 'abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155  governance/C0/C0_ARCHITECTURE_EVIDENCE_LEDGER__sha256_abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155.yaml' | sha256sum -c -
+          echo '30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751  governance/C0/C0_CANONICAL_ARTIFACT_BINDINGS__sha256_30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751.yaml' | sha256sum -c -
+          echo '4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d  governance/C0/C0_CANONICAL_BINDING_VERIFY__sha256_4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d.py' | sha256sum -c -
+      - name: Commit canonical archive and clean temporary recovery machinery
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'C0 archival recovery'
+          git config user.email '190334876+XXHANOO@users.noreply.github.com'
+          git rm -rf --ignore-unmatch .c0-recovery .c0-archive-recovery
+          git rm -f --ignore-unmatch .github/workflows/c0-frozen-backfill.yml
+          git rm -f --ignore-unmatch .github/workflows/c0-archive-bundle-recovery.yml
+          git add governance/C0
+          if ! git diff --cached --quiet; then
+            git commit -m 'archive(C0): complete canonical freeze authority mirror'
+            git push origin HEAD:main
+          fi
+          git push origin refs/tags/c0-frozen

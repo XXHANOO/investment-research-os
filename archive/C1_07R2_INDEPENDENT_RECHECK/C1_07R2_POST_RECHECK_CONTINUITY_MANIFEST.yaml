@@ -1,0 +1,24 @@
+schema_version: 1.0.0
+project: Investment Research OS
+generated_at_utc: '2026-08-23T19:52:54Z'
+governance:
+  C0: FROZEN
+  C1_01R1: PASS
+  C1_02R1: PASS
+  C1_03R1: PASS
+  C1_04R1: PASS
+  C1_05R1: PASS
+  C1_06R5_independent_recheck: PASS
+  C1_OPEN_010: CLOSED
+  C1_07R2_independent_recheck: PASS
+  C1_07: PASS_AFTER_C1_07R2
+  C1RT_B01: CLOSED
+  C1RT_B02: CLOSED
+  C1RT_B03: CLOSED
+  C1RT_B04: CLOSED
+  C1_freeze_candidate_eligible: true
+  C1_frozen: false
+  C1_08: AUTHORIZED
+  production_implementation_authorized: false
+  next_exact_stage: C1.08 — Freeze Candidate & Independent Freeze Review
+r2_selection_sha256: def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231

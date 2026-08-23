@@ -1,0 +1,75 @@
+schema_version: 1.0.0
+stage: C1.08
+generated_at_utc: '2026-08-23T20:02:40Z'
+status: APPROVAL_READY_FREEZE_MANIFEST_NOT_APPROVED
+candidate:
+  path: C1_08_FREEZE_CANDIDATE__sha256_e9f7446fad39a3fbe4c204129a95e9255353addeb7893e76465c93f9c7be4db9.md
+  sha256: e9f7446fad39a3fbe4c204129a95e9255353addeb7893e76465c93f9c7be4db9
+final_integrated_artifacts:
+  machine_schema:
+    path: C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json
+    sha256: 927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4
+  schema_registry:
+    path: C1_07R2_SCHEMA_REGISTRY_CANDIDATE__sha256_fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a.yaml
+    sha256: fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a
+  historical_decision_ledger:
+    path: C1_07R2_EVIDENCE_DECISION_LEDGER__sha256_ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486.yaml
+    sha256: ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486
+  acceptance_delta:
+    path: C1_07R2_ACCEPTANCE_TEST_DELTA__sha256_ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78.md
+    sha256: ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78
+  contract_tests:
+    path: C1_07R2_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247.yaml
+    sha256: a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247
+  r2_candidate:
+    path: C1_07R2_SCHEMA_CONTRACT_TEST_CANDIDATE__sha256_e61a41063b3582e9c8136ac7b0e9c4ea46d0425ee0d0c3f5eb4e508ea025f479.md
+    sha256: e61a41063b3582e9c8136ac7b0e9c4ea46d0425ee0d0c3f5eb4e508ea025f479
+  r2_selection:
+    path: C1_07R2_CANDIDATE_SELECTION__sha256_def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231.yaml
+    sha256: def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231
+freeze_support:
+  acceptance_authority:
+    path: C1_08_FREEZE_ACCEPTANCE_AUTHORITY__sha256_82991dbf5da9c1ef200ff8c801067edd128dfd0733c69c9f99e615ee5f39907c.yaml
+    sha256: 82991dbf5da9c1ef200ff8c801067edd128dfd0733c69c9f99e615ee5f39907c
+  governance_closure_ledger:
+    path: C1_08_FREEZE_GOVERNANCE_CLOSURE_LEDGER__sha256_24f59e4e9fa416bc3aaf8dfb2bc6c4531136d566f5104acbeea7f9283c131a38.yaml
+    sha256: 24f59e4e9fa416bc3aaf8dfb2bc6c4531136d566f5104acbeea7f9283c131a38
+  external_dependency_disclosure:
+    path: C1_08_EXTERNAL_DEPENDENCY_DISCLOSURE__sha256_04ca9e0a0fa4abba91e60d93ca5fbe1f4fdbe9506af0f156dc06983bc93f3392.yaml
+    sha256: 04ca9e0a0fa4abba91e60d93ca5fbe1f4fdbe9506af0f156dc06983bc93f3392
+  construction_validation:
+    path: C1_08_FREEZE_CANDIDATE_CONSTRUCTION_VALIDATION__sha256_0a64ca74c13a50b2f95169314d6b2636de9bc906bb060783ea87b8a013c55012.json
+    sha256: 0a64ca74c13a50b2f95169314d6b2636de9bc906bb060783ea87b8a013c55012
+independent_pass_evidence:
+  red_team_closure:
+    path: C1_07_FINAL_RED_TEAM_CLOSURE.md
+    sha256: c2dd19d2d9ea96a1412a139ef0a40cb29bfff1fbceed8c7c299df59fc6194fc2
+  final_recheck_report:
+    path: C1_07R2_INDEPENDENT_REGRESSION_RECHECK_REPORT.md
+    sha256: f525baf4309eb6a8ab41c8f31b84e9a6fe587a5bf075f80c926a78169d50ec1c
+  final_recheck_result:
+    path: C1_07R2_INDEPENDENT_REGRESSION_RECHECK_RESULT.yaml
+    sha256: c44551fd1be84ded341157d3b1563841c9a163bea4c039e31c45e344a545731a
+  final_recheck_attacks:
+    path: C1_07R2_INDEPENDENT_ATTACK_RESULTS.json
+    sha256: a5eeb5baefb7d9f23b4561be1af163081606a5b3fc39e3020a542266df2628ba
+root_of_trust:
+  C0_FROZEN:
+    path: C0_FROZEN.md
+    sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  C0_FREEZE_SEAL:
+    path: C0_FREEZE_SEAL.yaml
+    sha256: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+freeze_conditions:
+  independent_review_required: true
+  independent_review_must_rehash_manifest_targets: true
+  independent_review_must_reexecute_final_schema_vectors: true
+  independent_review_must_verify_C1_001_585_authority: true
+  independent_review_must_verify_all_open_blockers_closed: true
+  independent_review_must_verify_external_dependency_disclosure: true
+  self_approval_forbidden: true
+current_governance:
+  C1_freeze_candidate_eligible: true
+  C1_frozen: false
+  production_implementation: NOT_AUTHORIZED
+  next_gate: C1.08 Independent Freeze Review

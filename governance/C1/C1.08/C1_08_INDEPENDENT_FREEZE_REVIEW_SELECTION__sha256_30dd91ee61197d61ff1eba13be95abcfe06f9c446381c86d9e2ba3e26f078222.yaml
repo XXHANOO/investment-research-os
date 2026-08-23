@@ -1,0 +1,38 @@
+schema_version: 1.0.0
+stage: C1.08
+generated_at_utc: '2026-08-23T20:02:40Z'
+status: SELECTED_FOR_INDEPENDENT_FREEZE_REVIEW
+freeze_candidate:
+  path: C1_08_FREEZE_CANDIDATE__sha256_e9f7446fad39a3fbe4c204129a95e9255353addeb7893e76465c93f9c7be4db9.md
+  sha256: e9f7446fad39a3fbe4c204129a95e9255353addeb7893e76465c93f9c7be4db9
+approval_ready_manifest:
+  path: C1_08_APPROVAL_READY_FREEZE_MANIFEST__sha256_74a169c75d52125edfe6f5a9d125186530bac332ba66a942db44ec779242faf7.yaml
+  sha256: 74a169c75d52125edfe6f5a9d125186530bac332ba66a942db44ec779242faf7
+acceptance_authority:
+  path: C1_08_FREEZE_ACCEPTANCE_AUTHORITY__sha256_82991dbf5da9c1ef200ff8c801067edd128dfd0733c69c9f99e615ee5f39907c.yaml
+  sha256: 82991dbf5da9c1ef200ff8c801067edd128dfd0733c69c9f99e615ee5f39907c
+governance_closure_ledger:
+  path: C1_08_FREEZE_GOVERNANCE_CLOSURE_LEDGER__sha256_24f59e4e9fa416bc3aaf8dfb2bc6c4531136d566f5104acbeea7f9283c131a38.yaml
+  sha256: 24f59e4e9fa416bc3aaf8dfb2bc6c4531136d566f5104acbeea7f9283c131a38
+external_dependency_disclosure:
+  path: C1_08_EXTERNAL_DEPENDENCY_DISCLOSURE__sha256_04ca9e0a0fa4abba91e60d93ca5fbe1f4fdbe9506af0f156dc06983bc93f3392.yaml
+  sha256: 04ca9e0a0fa4abba91e60d93ca5fbe1f4fdbe9506af0f156dc06983bc93f3392
+construction_validation:
+  path: C1_08_FREEZE_CANDIDATE_CONSTRUCTION_VALIDATION__sha256_0a64ca74c13a50b2f95169314d6b2636de9bc906bb060783ea87b8a013c55012.json
+  sha256: 0a64ca74c13a50b2f95169314d6b2636de9bc906bb060783ea87b8a013c55012
+final_r2_selection:
+  path: C1_07R2_CANDIDATE_SELECTION__sha256_def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231.yaml
+  sha256: def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231
+final_r2_recheck_result:
+  path: C1_07R2_INDEPENDENT_REGRESSION_RECHECK_RESULT.yaml
+  sha256: c44551fd1be84ded341157d3b1563841c9a163bea4c039e31c45e344a545731a
+root_C0:
+  C0_FROZEN:
+    path: C0_FROZEN.md
+    sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  C0_FREEZE_SEAL:
+    path: C0_FREEZE_SEAL.yaml
+    sha256: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+gate: C1.08 Independent Freeze Review
+C1_frozen: false
+production_implementation: NOT_AUTHORIZED

@@ -1,0 +1,31 @@
+schema_version: 1.0.0
+project: Investment Research OS
+generated_at_utc: '2026-08-23T20:02:40Z'
+governance:
+  C0: FROZEN
+  C1_01R1: PASS
+  C1_02R1: PASS
+  C1_03R1: PASS
+  C1_04R1: PASS
+  C1_05R1: PASS
+  C1_06R5_independent_recheck: PASS
+  C1_OPEN_010: CLOSED
+  C1_07: PASS_AFTER_C1_07R2
+  C1RT_B01: CLOSED
+  C1RT_B02: CLOSED
+  C1RT_B03: CLOSED
+  C1RT_B04: CLOSED
+  C1_08: FREEZE_CANDIDATE_CONSTRUCTION_COMPLETE
+  C1_freeze_candidate_eligible: true
+  C1_frozen: false
+  production_implementation_authorized: false
+  next_gate: C1.08 Independent Freeze Review
+freeze_candidate:
+  path: C1_08_FREEZE_CANDIDATE__sha256_e9f7446fad39a3fbe4c204129a95e9255353addeb7893e76465c93f9c7be4db9.md
+  sha256: e9f7446fad39a3fbe4c204129a95e9255353addeb7893e76465c93f9c7be4db9
+approval_ready_manifest:
+  path: C1_08_APPROVAL_READY_FREEZE_MANIFEST__sha256_74a169c75d52125edfe6f5a9d125186530bac332ba66a942db44ec779242faf7.yaml
+  sha256: 74a169c75d52125edfe6f5a9d125186530bac332ba66a942db44ec779242faf7
+review_selection:
+  path: C1_08_INDEPENDENT_FREEZE_REVIEW_SELECTION__sha256_30dd91ee61197d61ff1eba13be95abcfe06f9c446381c86d9e2ba3e26f078222.yaml
+  sha256: 30dd91ee61197d61ff1eba13be95abcfe06f9c446381c86d9e2ba3e26f078222

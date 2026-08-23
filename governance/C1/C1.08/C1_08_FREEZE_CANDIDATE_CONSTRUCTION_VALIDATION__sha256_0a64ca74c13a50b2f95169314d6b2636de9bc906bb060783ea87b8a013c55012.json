@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "C0_freeze_seal_exact_bytes_available": true,
+    "C0_frozen_exact_bytes_available": true,
+    "C1RT_B01_closed": true,
+    "C1RT_B02_closed": true,
+    "C1RT_B03_closed": true,
+    "C1RT_B04_closed": true,
+    "C1_OPEN_010_closed": true,
+    "acceptance_authority_C1_001_585_gapless": true,
+    "acceptance_authority_C1_001_585_overlaps": 0,
+    "candidate_self_freeze": false,
+    "exact_r2_selected_targets_rehashed": true,
+    "external_historical_byte_limitations_disclosed": true,
+    "production_implementation_created": false,
+    "r2_independent_recheck_verdict": "PASS",
+    "r2_machine_vectors_passed": 112,
+    "r2_machine_vectors_total": 112,
+    "r2_schema_draft_2020_12_meta_validation": "PASS"
+  },
+  "generated_at_utc": "2026-08-23T20:02:40Z",
+  "schema_version": "1.0.0",
+  "stage": "C1.08",
+  "status": "FREEZE_CANDIDATE_CONSTRUCTION_VALIDATION"
+}

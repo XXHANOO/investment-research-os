@@ -1,0 +1,37 @@
+schema_version: 1.0.0
+stage: C1.08
+generated_at_utc: '2026-08-23T20:02:40Z'
+status: FREEZE_CANDIDATE_CLOSURE_LEDGER
+historical_decision_ledger:
+  path: C1_07R2_EVIDENCE_DECISION_LEDGER__sha256_ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486.yaml
+  sha256: ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486
+  note: Historical C1.07R2 construction ledger is preserved unchanged.
+independent_closures:
+- item: C1.OPEN-010
+  status: CLOSED
+  evidence_ref: C1_07R2_INDEPENDENT_REGRESSION_RECHECK_RESULT.yaml
+- item: C1RT-B01
+  status: CLOSED
+  evidence_ref: C1_07_FINAL_RED_TEAM_CLOSURE.md
+- item: C1RT-B02
+  status: CLOSED
+  evidence_ref: C1_07_FINAL_RED_TEAM_CLOSURE.md
+- item: C1RT-B03
+  status: CLOSED
+  evidence_ref: C1_07_FINAL_RED_TEAM_CLOSURE.md
+- item: C1RT-B04
+  status: CLOSED
+  evidence_ref: C1_07R2_INDEPENDENT_REGRESSION_RECHECK_RESULT.yaml
+stage_gates:
+  C1_01R1: PASS
+  C1_02R1: PASS
+  C1_03R1: PASS
+  C1_04R1: PASS
+  C1_05R1: PASS
+  C1_06R5_independent_recheck: PASS
+  C1_07: PASS_AFTER_C1_07R2
+  C1_freeze_candidate_eligible: true
+  C1_frozen: false
+  production_implementation_authorized: false
+freeze_rule: Only an independent C1.08 freeze review may convert this candidate into
+  FROZEN.

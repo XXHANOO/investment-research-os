@@ -1,0 +1,51 @@
+schema_version: 1.0.0
+stage: C1.08
+generated_at_utc: '2026-08-23T20:02:40Z'
+status: EXTERNAL_CONTENT_ADDRESSED_DEPENDENCY_DISCLOSURE
+c0_root:
+  C0_FROZEN:
+    sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+    availability: BUNDLED_EXACT_IN_FREEZE_REVIEW_PACKAGE
+  C0_FREEZE_SEAL:
+    sha256: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+    availability: BUNDLED_EXACT_IN_FREEZE_REVIEW_PACKAGE
+  seal_pinned_historical_evidence:
+    approval_ready_freeze_manifest: 3b9f7546b097d9d5867bf937a1bc4be77178d8d251a1987f0a098f4762a86968
+    acceptance_catalog: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
+    authoritative_ledger: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+    trusted_binding: 30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751
+    trusted_verifier: 4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d
+    availability: HASH_PINNED_ORIGINAL_BYTES_NOT_AVAILABLE_IN_CURRENT_RUNTIME
+c1_acceptance_external_segments:
+- stage: C1.00R1.1
+  range: C1-001..C1-034
+  sha256: b2d7b8e8587d0db116f2349b2a0b63309268ec336e43651f76ab1a4f73063a54
+  availability: EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.01R1
+  range: C1-035..C1-072
+  sha256: 010863078e2d080561ecf37d221bc3d2c395a95d42d31e6079748f2bd56e2b0a
+  availability: EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.02R1
+  range: C1-073..C1-124
+  sha256: c5d2c3099444894cf928867f8648bd10c218f7d9d3582b168da5f6002ee64cf3
+  availability: EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.03R1
+  range: C1-125..C1-193
+  sha256: 0ae5a811c7a5291670c3bc44dcddd5fd853d69323e3a025c0c4256f6401bd6b8
+  availability: EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.04R1
+  range: C1-194..C1-256
+  sha256: ae7f3bd26822206d58707c7d3b44266f5221282262c9ca3e4b8f41868c8bd790
+  availability: LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.05R1
+  range: C1-257..C1-337
+  sha256: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+  availability: LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED
+- stage: C1.06
+  range: C1-338..C1-430
+  sha256: d32b0fed76d2d9c0aa4c949901fde4aba164b7f925d446e1cae61bd14409328d
+  availability: LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED
+repository_mirroring:
+  C0_github_sync: PARTIAL_NOT_COMPLETE
+  note: Repository mirroring is archival state, not a semantic C1 freeze blocker. Missing historical bytes must never be regenerated from hashes.
+freeze_review_requirement: Independent review must distinguish semantic authority completeness from physical byte availability of historical external dependencies.

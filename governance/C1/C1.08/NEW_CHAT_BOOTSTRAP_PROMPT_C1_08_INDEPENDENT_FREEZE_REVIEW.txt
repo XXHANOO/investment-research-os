@@ -1,0 +1,7 @@
+Execute C1.08 Independent Freeze Review.
+
+Start with C1_08_INDEPENDENT_FREEZE_REVIEW_SELECTION and the approval-ready freeze manifest. Independently rehash every selected target and manifest target, validate the final Draft-2020-12 schema, re-run all 112 machine vectors, verify C1.07R2 PASS/red-team closure, verify C1-001..C1-585 authority, verify all C1 blockers are closed, and inspect external-content-addressed dependency disclosures and C0 root bytes.
+
+Actively attack stale-parent selection, hash substitution, circular manifests, omitted load-bearing artifacts, self-approval, and false claims of historical byte availability.
+
+Only an independent PASS may freeze C1. Production implementation remains NOT AUTHORIZED unless a later explicit gate says otherwise.

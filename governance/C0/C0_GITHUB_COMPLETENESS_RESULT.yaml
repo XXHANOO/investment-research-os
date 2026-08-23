@@ -1,0 +1,56 @@
+schema_version: 1.0.0
+generated_at_utc: '2026-08-23T22:01:08Z'
+repository: XXHANOO/investment-research-os
+branch: main
+governance:
+  C0: FROZEN
+  C1: FROZEN
+  production_implementation_authorized: false
+canonical_files:
+  passed: 7
+  total: 7
+  details:
+  - path: governance/C0/C0_FROZEN.md
+    sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+    git_blob_sha1: cb20a303110c44a2e9d306bb11eee635799f98a4
+    remote: EXACT_MATCH
+  - path: governance/C0/C0_FREEZE_SEAL.yaml
+    sha256: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+    git_blob_sha1: 69627f1dd9c2a0e60c38d954a6f05759cfdae195
+    remote: EXACT_MATCH
+  - path: governance/C0/C0_ACCEPTANCE_TEST_CATALOG.md
+    sha256: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
+    git_blob_sha1: b23fc9e9fe13d11af922af1f1f49cdad622a9cb0
+    remote: EXACT_MATCH
+  - path: governance/C0/C0_APPROVAL_READY_FREEZE_MANIFEST__sha256_3b9f7546b097d9d5867bf937a1bc4be77178d8d251a1987f0a098f4762a86968.yaml
+    sha256: 3b9f7546b097d9d5867bf937a1bc4be77178d8d251a1987f0a098f4762a86968
+    git_blob_sha1: 74e37f8a039e08f2fc4adea3c3cad291e7b345ef
+    remote: EXACT_MATCH
+  - path: governance/C0/C0_ARCHITECTURE_EVIDENCE_LEDGER__sha256_abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155.yaml
+    sha256: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+    git_blob_sha1: e48a6b255ba85451b70abb750c8e47982f0e55b5
+    remote: EXACT_MATCH
+  - path: governance/C0/C0_CANONICAL_ARTIFACT_BINDINGS__sha256_30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751.yaml
+    sha256: 30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751
+    git_blob_sha1: b2782265e1ac6f1ca27c3bfe59d6c98c2a56a787
+    remote: EXACT_MATCH
+  - path: governance/C0/C0_CANONICAL_BINDING_VERIFY__sha256_4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d.py
+    sha256: 4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d
+    git_blob_sha1: 0e824d4101d72db5bcb248f2c36889593bc90c07
+    remote: EXACT_MATCH
+archive_commit: 41b0cb3549ca1d697a6341626df92614f72637c1
+archive_commit_message: 'archive(C0): complete canonical freeze authority mirror'
+historical_topology:
+  tag: c0-frozen
+  tag_resolves: true
+  target_commit: 38b8d09a926a94c5c7beecf067766935ff69f71a
+  compare_to_expected_root: IDENTICAL_0_AHEAD_0_BEHIND
+  local_original_annotated_tag_object: a5697d493c2995dce72a6610500e6f2c634b90d4
+  annotation_object_direct_remote_api_check: NOT_EXPOSED_BY_AVAILABLE_CONNECTOR
+  restoration_method: exact git bundle containing refs/tags/c0-frozen, fetched and pushed without tag recreation
+temporary_recovery_cleanup:
+  .c0-recovery: ABSENT
+  .c0-archive-recovery: ABSENT
+  .github/workflows/c0-frozen-backfill.yml: ABSENT
+  .github/workflows/c0-archive-bundle-recovery.yml: ABSENT
+verdict: C0_GITHUB_CANONICAL_ARCHIVE_COMPLETE

@@ -1,0 +1,47 @@
+schema_version: 1.0.0
+stage: C1.07R1 Independent Regression Re-Check
+generated_at_utc: '2026-08-23T19:28:51Z'
+verdict: FAIL_WITH_ONE_NEW_LOAD_BEARING_BLOCKER
+read_only_review: true
+integrity:
+  selected_r1_targets:
+    passed: 9
+    total: 9
+  exact_r5_parents:
+    passed: 8
+    total: 8
+  governing_c1_07_audit:
+    passed: 3
+    total: 3
+  handoff_manifest:
+    passed: 27
+    total: 27
+  json_schema_draft_2020_12: PASS
+  schema_vectors:
+    passed: 112
+    total: 112
+  new_semantic_vectors:
+    passed: 20
+    total: 20
+  inherited_authority_C1_001_545:
+    gapless: true
+    overlaps: 0
+  C1_546_570:
+    contiguous: true
+    all_mapped: true
+blockers:
+  C1RT-B01: CLOSED
+  C1RT-B02: CLOSED
+  C1RT-B03: CLOSED
+  C1RT-B04: OPEN_LISTING_VENUE_REPARENT_BYPASS
+hardenings:
+  C1RT-H01: MATERIALIZED_AND_RECHECKED
+  C1RT-H02: MATERIALIZED_AND_RECHECKED
+governance:
+  C1_OPEN_010: CLOSED_UNCHANGED
+  C1_06_historical_gate: PASS_UNCHANGED
+  C1_07: FAIL
+  C1_overall_freeze_eligible: false
+  C1_08: NOT_AUTHORIZED
+  production_implementation: NOT_AUTHORIZED
+  next_exact_stage: C1.07R2 — Listing Venue Continuity & Transfer Invariant Repair

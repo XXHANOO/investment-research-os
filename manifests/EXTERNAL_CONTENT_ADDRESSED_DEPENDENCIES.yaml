@@ -1,0 +1,49 @@
+schema_version: 1.0.0
+purpose: Exact project artifacts referenced by the trusted C1 chain but not physically available in the current runtime at repository bootstrap.
+policy: Do not reconstruct or silently substitute these bytes. Import only when exact original files are available and their SHA-256 matches.
+artifacts:
+  - stage: C1.00R1.1
+    name: C1_ACCEPTANCE_CATALOG
+    sha256: b2d7b8e8587d0db116f2349b2a0b63309268ec336e43651f76ab1a4f73063a54
+  - stage: C1.01R1
+    name: C1_01R1_IDENTITY_KERNEL_CANDIDATE
+    sha256: 057303229ec7d169a19519edea256ce15f5a2dc92e654e820abddd9040c5b782
+  - stage: C1.01R1
+    name: C1_01R1_EVIDENCE_LEDGER
+    sha256: f8e2eee915af669d82c80f195c7259551664aca1182ff445dec32331fad5b650
+  - stage: C1.01R1
+    name: C1_01R1_ACCEPTANCE_TEST_DELTA
+    sha256: 010863078e2d080561ecf37d221bc3d2c395a95d42d31e6079748f2bd56e2b0a
+  - stage: C1.01R1
+    name: C1_01R1_CANDIDATE_SELECTION
+    sha256: 84d0f0dc1936bf6e348f78135d9b1f962382729910aefcad953a7860068592c2
+  - stage: C1.01R1
+    name: C1_01R1_INDEPENDENT_RECHECK
+    sha256: ee0052a28f96fd9e9115f3f8736ea6035daf3a0b9b860460247d4d5fdd0cfba9
+  - stage: C1.02R1
+    name: C1_02R1_IDENTIFIER_SYMBOL_MAPPING_CANDIDATE
+    sha256: dc5f2ec1295cf3afb9c8b585b3deca5f413de37db1a2d6c179a9e17f613531fb
+  - stage: C1.02R1
+    name: C1_02R1_SCHEME_REGISTRY_CANDIDATE
+    sha256: 281e57b503e3e262c771f0364a3f41efeec7ec1c0b9407b80e94d65504182db2
+  - stage: C1.02R1
+    name: C1_02R1_EVIDENCE_LEDGER
+    sha256: c6ec5f1bb6ad1c65d3213a266b34439a6fe15240212255a43cbb68068bcbdec8
+  - stage: C1.02R1
+    name: C1_02R1_ACCEPTANCE_TEST_DELTA
+    sha256: c5d2c3099444894cf928867f8648bd10c218f7d9d3582b168da5f6002ee64cf3
+  - stage: C1.03R1
+    name: C1_03R1_CORPORATE_ACTION_IDENTITY_EFFECTS_CANDIDATE
+    sha256: ea017504558532cce5e24929047cfbb94055f0a3cc25d80b3b1844216ea6b860
+  - stage: C1.03R1
+    name: C1_03R1_IDENTITY_EFFECT_TAXONOMY_CANDIDATE
+    sha256: 1751f1d2735187794059c9601adfffc1efa99d09f45f0f396f225eea96d1e716
+  - stage: C1.03R1
+    name: C1_03R1_EVIDENCE_LEDGER
+    sha256: 921aff3682e5772323632cd6b4709db5ea51d99aae5571ef6d13a3ac8d5e4299
+  - stage: C1.03R1
+    name: C1_03R1_ACCEPTANCE_TEST_DELTA
+    sha256: 0ae5a811c7a5291670c3bc44dcddd5fd853d69323e3a025c0c4256f6401bd6b8
+  - stage: C1.03R1
+    name: C1_03R1_INDEPENDENT_RECHECK
+    sha256: ce06a8629d3d238a341ab61b4a117db0ebe336a88b4c83d7232aaa5eef63e388

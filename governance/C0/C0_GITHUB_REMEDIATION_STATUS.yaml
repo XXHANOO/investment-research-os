@@ -1,38 +1,30 @@
 schema_version: 1.0.0
-generated_at_utc: '2026-08-23T20:49:17Z'
+generated_at_utc: '2026-08-23T22:01:08Z'
 repository: XXHANOO/investment-research-os
 branch: main
 governance:
   C0: FROZEN
   C1: FROZEN
   production_implementation_authorized: false
-C0_root:
-  C0_FROZEN.md:
-    local_exact_sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
-    expected_git_blob_sha1: cb20a303110c44a2e9d306bb11eee635799f98a4
-    remote_final_path_status: MISSING_AT_LAST_LIVE_FETCH
-    recovery_status: EXACT_BASE64_CHUNKS_STAGED_7_OF_7
-  C0_FREEZE_SEAL.yaml:
-    local_exact_sha256: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
-    remote_status: EXACT_MATCH_PREVIOUSLY_VERIFIED
-remote_recovery:
-  workflow: .github/workflows/c0-frozen-backfill.yml
-  chunks:
-  - .c0-recovery/C0_FROZEN.part00.b64
-  - .c0-recovery/C0_FROZEN.part01.b64
-  - .c0-recovery/C0_FROZEN.part02.b64
-  - .c0-recovery/C0_FROZEN.part03.b64
-  - .c0-recovery/C0_FROZEN.part04.b64
-  - .c0-recovery/C0_FROZEN.part05.b64
-  - .c0-recovery/C0_FROZEN.part06.b64
-  trigger_issue: 1
-  workflow_execution_observed: false
-  note: All exact chunks were staged, but the expected reconstruction commit has not appeared. Do not call C0_FROZEN remotely restored until its Git blob SHA is verified as cb20a303110c44a2e9d306bb11eee635799f98a4.
-remaining_full_C0_archive_gaps:
-  approval_ready_freeze_manifest: 3b9f7546b097d9d5867bf937a1bc4be77178d8d251a1987f0a098f4762a86968
-  acceptance_catalog: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
-  authoritative_ledger: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
-  canonical_binding: 30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751
-  canonical_binding_verifier: 4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d
-  remote_c0_frozen_tag: MISSING_PREVIOUSLY_VERIFIED
-verdict: C0_GITHUB_MIRROR_STILL_PARTIAL
+remediation:
+  status: COMPLETE
+  archive_commit: 41b0cb3549ca1d697a6341626df92614f72637c1
+  canonical_files_exact: 7/7
+  C0_FROZEN:
+    sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+    git_blob_sha1: cb20a303110c44a2e9d306bb11eee635799f98a4
+    remote_status: EXACT_MATCH
+  authoritative_ledger:
+    sha256: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+    git_blob_sha1: e48a6b255ba85451b70abb750c8e47982f0e55b5
+    remote_status: EXACT_MATCH
+  c0_frozen_tag:
+    status: RESTORED
+    target_commit: 38b8d09a926a94c5c7beecf067766935ff69f71a
+    target_compare: IDENTICAL_0_AHEAD_0_BEHIND
+    restoration_method: EXACT_GIT_BUNDLE_REF_PUSH
+  temporary_recovery_machinery: REMOVED
+final_audit:
+  report: governance/C0/C0_GITHUB_COMPLETENESS_REPORT.md
+  result: governance/C0/C0_GITHUB_COMPLETENESS_RESULT.yaml
+verdict: C0_GITHUB_CANONICAL_ARCHIVE_COMPLETE

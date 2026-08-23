@@ -1,0 +1,13 @@
+Execute C1.07 — Independent C1 Red-Team Audit.
+
+Authoritative starting state:
+- C0 FROZEN.
+- C1.01R1 through C1.05R1 PASS.
+- C1.06R5 Independent Regression Re-Check PASS.
+- C1.OPEN-010 CLOSED.
+- C1SCHEMA-B01..B07 CLOSED.
+- C1TEST-B01/B02 CLOSED.
+- C1GOV-B01 CLOSED.
+- Production implementation NOT AUTHORIZED.
+
+This is a whole-C1 independent red-team audit. Reconstruct the passed content-addressed authority chain, attack cross-contract inconsistencies and leakage, and issue PASS only if no load-bearing blocker remains. Do not implement production code.

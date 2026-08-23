@@ -1,0 +1,19 @@
+schema_version: 1.0.0
+generated_at_utc: '2026-08-23T22:02:31Z'
+status: C2_NEW_CHAT_HANDOFF_FINALIZED
+authoritative_start:
+  C0: FROZEN
+  C0_github_canonical_archive: COMPLETE
+  C0_canonical_files_exact: 7/7
+  C0_archive_commit: 41b0cb3549ca1d697a6341626df92614f72637c1
+  C0_final_remediation_status_commit: 90d9d5188d65bfbfc82874198c3403d8310f8d8b
+  C0_tag: c0-frozen
+  C0_tag_target: 38b8d09a926a94c5c7beecf067766935ff69f71a
+  C1: FROZEN
+  C1_freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+  C2: NOT_STARTED
+  production_implementation: NOT_AUTHORIZED
+C2_stage_plan: PROPOSED_NOT_FROZEN
+recommended_first_stage: C2.00 — Scope / Authority / Vocabulary Candidate
+instruction: New chat must verify package hashes and distinguish frozen C0/C1 authority
+  from the proposed C2 stage plan before any C2.00 construction.

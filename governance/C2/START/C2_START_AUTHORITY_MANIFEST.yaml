@@ -1,0 +1,81 @@
+schema_version: 1.0.0
+project: Investment Research OS
+generated_at_utc: '2026-08-23T21:18:15Z'
+handoff_status: READY_FOR_NEW_CHAT_C2_NOT_STARTED
+frozen_parents:
+  C0:
+    status: FROZEN
+    C0_FROZEN_sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+    C0_FREEZE_SEAL_sha256: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+    approval_ready_manifest_sha256: 3b9f7546b097d9d5867bf937a1bc4be77178d8d251a1987f0a098f4762a86968
+    acceptance_catalog_sha256: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
+    authoritative_ledger_sha256: abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155
+    canonical_binding_sha256: 30add44b5dddb64f89c3729aebd70865322f273bd680c215da0c2cf4cc8fd751
+    canonical_binding_verifier_sha256: 4dc4bbdc67ded3737109e0db2f259277a07154fdfc8cb49941b56c410bba5f4d
+  C1:
+    status: FROZEN
+    freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+    final_machine_schema_sha256: 927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4
+    final_candidate_sha256: e9f7446fad39a3fbe4c204129a95e9255353addeb7893e76465c93f9c7be4db9
+    approval_ready_freeze_manifest_sha256: 74a169c75d52125edfe6f5a9d125186530bac332ba66a942db44ec779242faf7
+C2_C0_authority:
+  responsibility: Provider / Source Router / Provider Certification
+  owns:
+  - provider capabilities
+  - provider/source routing
+  - provider certification
+  - credentials boundary
+  - typed provider outcomes
+  must_not_absorb:
+    C1: canonical identity / symbol-to-identity semantics
+    C3: cache / quota / freshness / coalescing / last-known-good semantics
+    C4: exact temporal / PIT / revision / available_from semantics
+    C5: evidence / source fitness / verification / conflict semantics
+    C11: persistence semantics
+  C0_required_acceptance:
+  - C0-008
+  - C0-009
+  - C0-010
+  - C0-011
+  - C0-014
+  - C0-049
+  - C0-050
+  - C0-051
+  - C0-052
+  - C0-057
+  - C0-060
+  critical_forbidden_patterns:
+  - F-04 provider failure converted to empty/no-data
+  - F-06 flat status enum collapsing orthogonal state axes
+  - F-13 failure represented only by natural-language text
+  - F-19 secrets/private state committed to public artifacts
+  - F-20 external response persisted immutably before secure-ingestion checks
+  - F-25 external content granting capabilities or changing control policy
+  - F-33 external data redirecting side-effect intent
+C1_05_frozen_interface:
+  candidate_sha256: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  registry_sha256: 422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b
+  ledger_sha256: 47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031
+  acceptance_sha256: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+  non_negotiable_semantics:
+  - Load-bearing C2 semantic/capability/completeness refs used by C1 must resolve
+    to immutable/version-addressed/content-addressed/or otherwise snapshot-stable
+    semantic state.
+  - Materialized normalized candidates/results must retain replay-critical lineage.
+  - Fallback/degradation provenance that materially changes source semantics must
+    not be erased.
+  - FAILED/CANCELLED => normalization NOT_RUN; infrastructure failure must not masquerade
+    as NO_DATA.
+  - SUCCESS+NO_DATA means successful provider operation returned no observations under
+    certified endpoint semantics; it does not automatically prove C1 NO_MATCH.
+  - SUCCESS+PARTIAL may normalize valid records, but missing records cannot prove
+    absence or uniqueness.
+  - Load-bearing exact absence/uniqueness requires a matching completeness/coverage
+    dependency.
+  - Provider/data/normalization/resolution/PIT/verification axes remain orthogonal.
+  - Positive exact mapping may remain valid without universe-wide enumeration when
+    exactness does not depend on absence.
+start_gate:
+  recommended_first_stage: C2.00 — Scope / Authority / Vocabulary Candidate
+  status: PROPOSED_FOR_USER_ADOPTION_NOT_YET_CONSTRUCTED
+  production_implementation: NOT_AUTHORIZED

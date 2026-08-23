@@ -1,0 +1,39 @@
+schema_version: 1.0.0
+project: Investment Research OS
+generated_at_utc: '2026-08-23T21:18:15Z'
+status: PROPOSED_NOT_FROZEN_NOT_YET_ADOPTED
+contract: C2 — Provider / Source Router / Provider Certification
+proposed_stages:
+- stage: C2.00
+  name: Scope / Authority / Vocabulary Candidate
+  gate: Independent Scope Review
+- stage: C2.01
+  name: Provider Capability & Endpoint Semantic Registry
+  gate: Independent Capability Review
+- stage: C2.02
+  name: Typed Provider Operation / Data Outcome Contract
+  gate: Independent Outcome-Semantics Review
+- stage: C2.03
+  name: Routing / Fallback / Degradation Semantics
+  gate: Independent Routing Review
+- stage: C2.04
+  name: Credentials / Private-State / Secure Ingress Boundary
+  gate: Independent Security-Boundary Review
+- stage: C2.05
+  name: Provider Certification / Completeness / Coverage Attestations
+  gate: Independent Certification Review
+- stage: C2.06
+  name: Interfaces with C1 / C3 / C4 / C5
+  gate: Independent Cross-Contract Review
+- stage: C2.07
+  name: Machine Schema & Contract-Test Candidate
+  gate: Independent Regression Review
+- stage: C2.08
+  name: Independent Whole-C2 Red-Team Audit
+  gate: Red-Team PASS required
+- stage: C2.09
+  name: Freeze Candidate & Independent Freeze Review
+  gate: Independent freeze seal
+note: This stage sequence is a proposed governance plan for adoption at C2 start.
+  It is not inherited C0/C1 authority and must not be described as frozen until explicitly
+  adopted.

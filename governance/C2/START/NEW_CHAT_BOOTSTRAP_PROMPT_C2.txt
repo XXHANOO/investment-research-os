@@ -1,0 +1,30 @@
+We are continuing the Investment Research OS governance project in a NEW chat at the C1→C2 boundary.
+
+Read the attached C2 handoff package before doing any construction.
+
+Authoritative starting state:
+- C0 = FROZEN.
+- C1 = FROZEN.
+- C1 Freeze Seal SHA-256 = 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5.
+- C2 has NOT started.
+- Production implementation is NOT AUTHORIZED.
+
+Your role is C2 contract architect, provider-boundary reviewer, PIT/provenance interface reviewer, and independent stage auditor.
+
+C0 freezes C2 responsibility as Provider / Source Router / Provider Certification: provider capabilities, routing, certification, credentials boundary, typed provider outcomes.
+
+Preserve the frozen boundaries:
+- C1 owns canonical identity.
+- C3 owns cache/quota/freshness/coalescing/LKG.
+- C4 owns exact PIT/revision/available_from.
+- C5 owns evidence/source fitness/verification/conflict.
+- C11 owns persistence.
+
+The exact frozen C1.05R1 interface to C2 is bundled and is non-negotiable.
+
+A proposed C2 stage plan is bundled. It is PROPOSED, not inherited frozen authority. First verify all parent/package hashes and explicitly distinguish frozen authority from the proposed plan.
+
+Recommended first stage, after explicit adoption/authorization:
+C2.00 — Scope / Authority / Vocabulary Candidate.
+
+Do not implement production provider adapters. Do not self-approve. Stop after C2.00 construction for independent review.

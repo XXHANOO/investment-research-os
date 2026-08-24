@@ -1,0 +1,56 @@
+name: C2.03R1 exact-byte candidate sync
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Reconstruct and verify exact candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/c203r1
+          cat .c2-03r1-sync/chunk*.b64 | base64 -d > /tmp/c203r1/payload.tar.gz
+          echo 'b77ce121f42e3df4cb1d501c89d44124477d90114e9b8a469a291b01bd1e4b7e  /tmp/c203r1/payload.tar.gz' | sha256sum -c -
+          test "$(tar -tzf /tmp/c203r1/payload.tar.gz | wc -l | tr -d ' ')" = "11"
+          tar -xzf /tmp/c203r1/payload.tar.gz -C /tmp/c203r1
+          for f in /tmp/c203r1/C2_03R1_*__sha256_*.*; do
+            b="$(basename "$f")"
+            expected="$(printf '%s' "$b" | sed -E 's/.*__sha256_([0-9a-f]{64})\..*/\1/')"
+            test "${#expected}" = "64"
+            actual="$(sha256sum "$f" | awk '{print $1}')"
+            test "$actual" = "$expected"
+          done
+          rm -rf governance/C2/C2.03R1
+          mkdir -p governance/C2/C2.03R1
+          cp /tmp/c203r1/C2_03R1_*__sha256_*.* governance/C2/C2.03R1/
+          test "$(find governance/C2/C2.03R1 -maxdepth 1 -type f | wc -l | tr -d ' ')" = "11"
+          for f in governance/C2/C2.03R1/*; do
+            b="$(basename "$f")"
+            expected="$(printf '%s' "$b" | sed -E 's/.*__sha256_([0-9a-f]{64})\..*/\1/')"
+            actual="$(sha256sum "$f" | awk '{print $1}')"
+            test "$actual" = "$expected"
+          done
+      - name: Commit canonical candidate and remove transport
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .c2-03r1-sync
+          rm -f .github/workflows/c2-03r1-exact-sync.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m 'governance(C2.03R1): materialize exact scoped repair candidate'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}

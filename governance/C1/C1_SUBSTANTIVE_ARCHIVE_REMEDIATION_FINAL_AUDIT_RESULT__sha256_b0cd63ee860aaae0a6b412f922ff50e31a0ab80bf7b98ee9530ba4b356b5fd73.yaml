@@ -1,0 +1,18 @@
+schema_version: 1.0.0-C1-remediation-final-main-audit
+project: Investment Research OS
+status: PASS
+audit_scope: FINAL_MAIN_RETAINED_FROZEN_SUBSTANTIVE_SURFACE
+restoration_merge_commit: 512c4156e787d30e8dee1d3038c3bbb9bb63c589
+audited_main_head: c776e411be599ae5922d3b08b25457bd2a8c17cf
+checked_artifact_count: 11
+exact_git_blob_matches: 11
+mismatches: 0
+c1_freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+freeze_seal_git_blob: 42e1cbf696e9e552f1d920a6eedec1618a285ea2
+semantic_authority_changed: false
+freeze_authority_changed: false
+temporary_transport_absent: true
+temporary_workflows_absent: true
+cleanup_diff_only_temporary_workflows: true
+historical_external_dependencies: PRESERVED_AS_ORIGINALLY_DISCLOSED_NOT_REGENERATED
+archive_status: RETAINED_FROZEN_LOAD_BEARING_SUBSTANTIVE_SURFACE_COMPLETE

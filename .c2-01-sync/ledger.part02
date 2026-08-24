@@ -1,0 +1,110 @@
+    persistence before security admission.
+  authority_scope: C2.01
+  evidence_refs:
+  - C0-049
+  required_acceptance_tests:
+  - C2-076
+- id: C2.DEC-060
+  title: Vendor neutrality
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.01 registry defines no concrete provider instances or priority/configuration.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-015
+  required_acceptance_tests:
+  - C2-077
+- id: C2.DEC-061
+  title: No production adapter implementation
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.01 constructs contract artifacts only.
+  authority_scope: C2.01
+  evidence_refs:
+  - stage authorization
+  required_acceptance_tests:
+  - C2-078
+- id: C2.DEC-062
+  title: Candidate close OPEN-001
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: OPEN-001 is candidate-closed by the C2.01 taxonomy/granularity model
+    pending independent review.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-001
+  required_acceptance_tests:
+  - C2-079
+- id: C2.DEC-063
+  title: Candidate close OPEN-002
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: OPEN-002 is candidate-closed by the C2.01 logical record and field-binding
+    model pending independent review.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-080
+- id: C2.DEC-064
+  title: Candidate close OPEN-003
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: OPEN-003 is candidate-closed by the C2.01 stable-ref/version/compatibility
+    model pending independent review.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-081
+- id: C2.DEC-065
+  title: Later-stage questions remain open
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: OPEN-004..015 are not silently resolved by C2.01.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.00 open-question discipline
+  required_acceptance_tests:
+  - C2-082
+- id: C2.DEC-066
+  title: Final machine schema deferred
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.07 owns final machine schema/canonicalization/validators; C2.01 defines
+    logical semantics only.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-014
+  required_acceptance_tests:
+  - C2-083
+open_items:
+  C2.OPEN-001:
+    state: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+    resolution_decisions:
+    - C2.DEC-027
+    - C2.DEC-028
+    - C2.DEC-045
+    - C2.DEC-062
+  C2.OPEN-002:
+    state: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+    resolution_decisions:
+    - C2.DEC-030
+    - C2.DEC-031
+    - C2.DEC-032
+    - C2.DEC-035
+    - C2.DEC-036
+    - C2.DEC-063
+  C2.OPEN-003:
+    state: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+    resolution_decisions:
+    - C2.DEC-040
+    - C2.DEC-041
+    - C2.DEC-042
+    - C2.DEC-043
+    - C2.DEC-044
+    - C2.DEC-045
+    - C2.DEC-046
+    - C2.DEC-047
+    - C2.DEC-048
+    - C2.DEC-049
+    - C2.DEC-064
+  C2.OPEN-004..015:
+    state: OPEN
+    note: untouched except boundary-preservation decisions; no later-stage semantic
+      resolution
+production_implementation: NOT_AUTHORIZED
+next_gate: C2.01 Independent Capability Review

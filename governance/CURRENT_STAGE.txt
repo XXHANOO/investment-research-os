@@ -1,13 +1,14 @@
 Project: Investment Research OS
 
-Current stage: C2.00 Independent Scope Review PASS
-Current gate: Explicit user authorization for C2.01 — Provider Capability & Endpoint Semantic Registry
+Current stage: C2.01 Independent Capability Review FAIL — REPAIR REQUIRED
+Current gate: Explicit authorization for C2.01R1 scoped repair, then Independent Capability Re-Check
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
 
 C1: FROZEN
 C1 Freeze Seal SHA-256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+C1 frozen authority navigation index: governance/C1/C1_FROZEN_INDEX.md (NON-AUTHORITATIVE)
 
 C2 stage plan: USER-ADOPTED WORKFLOW / NOT INHERITED FROZEN AUTHORITY
 Adopted C2 stage-plan SHA-256: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
@@ -15,10 +16,18 @@ Adopted C2 stage-plan SHA-256: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9
 C2.00 construction: COMPLETE AS CANDIDATE
 C2.00 Independent Scope Review: PASS
 C2.00 state: REVIEW_PASSED_NOT_FROZEN
-C2.01: NOT STARTED / NOT AUTHORIZED
+
+C2.01 construction: COMPLETE AS CANDIDATE
+C2.01 exact GitHub construction snapshot commit: 22c85cc54fcb0a25eb2fa87ec66ca0b7728c6fbe
+C2.01 Independent Capability Review: FAIL
+C2.01 state: REPAIR_REQUIRED / NOT_FROZEN
+C2.02: NOT STARTED / NOT AUTHORIZED
+
+C2CAP-B01: OPEN — stable-ref kind domain not closed over load-bearing refs
+C2CAP-B02: OPEN — response semantic compatibility closure under-specified
 
 Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
-C2.00 review report SHA-256: 4a9d85bc99a0190b4a970b0f22723b4f7914d43a262a77e91a232399b41dbdb0
-C2.00 review result SHA-256: 6f42d8b29f0b5c15bd7cea0a053938364ddc431bd654b8601001118189a10c96
+C2.01 review report SHA-256: a4aff388382966fcc36f5be33b7b622ea835bf0b08aa4519968864e96e8bff96
+C2.01 review result SHA-256: 53afb757e7f1f2ebeb1224b2ab2a6cd5a04a3f6954a3d79d197621664687170c

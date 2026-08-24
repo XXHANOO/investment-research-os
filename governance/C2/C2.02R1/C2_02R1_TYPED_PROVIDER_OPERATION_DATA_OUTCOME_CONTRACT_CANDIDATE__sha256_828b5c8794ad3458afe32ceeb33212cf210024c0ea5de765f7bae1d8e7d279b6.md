@@ -310,4 +310,4 @@ Only an Independent Outcome-Semantics Re-Check may close B01..B04 or pass C2.02.
 
 Next required gate: **Independent Outcome-Semantics Re-Check**.
 
-C2.03 remains `NOT STARTED / NOT AUTHORIZED`. Production implementation and external/PAPER/LIVE side effects remain `NOT_AUTHORIZED`.
+C2.03 remains `NOT STARTED / NOT AUTHORIZED`. Production implementation and external/PAPER/LIVE side effects remain `NOT AUTHORIZED`.

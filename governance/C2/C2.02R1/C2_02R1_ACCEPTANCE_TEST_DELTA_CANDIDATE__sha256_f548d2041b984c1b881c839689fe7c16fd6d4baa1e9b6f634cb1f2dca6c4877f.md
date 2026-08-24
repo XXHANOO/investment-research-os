@@ -151,3 +151,4 @@ Decision refs: `C2.DEC-120`
 No routing, credentials, completeness methodology, cross-wire implementation, provider selection, or production adapter semantics are introduced.
 
 Decision refs: `C2.DEC-121`
+

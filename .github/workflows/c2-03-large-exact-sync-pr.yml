@@ -1,0 +1,60 @@
+name: C2.03 large exact-byte sync PR
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.c2-03-large-sync/**'
+      - '.github/workflows/c2-03-large-exact-sync-pr.yml'
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  materialize:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'governance/c2-03-large-exact-sync'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Reconstruct, verify, and materialize exact large C2.03 artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          work=/tmp/c203
+          rm -rf "$work"
+          mkdir -p "$work/extracted" governance/C2/C2.03
+          cat .c2-03-large-sync/chunk*.b64 | tr -d '\n' | base64 -d > "$work/transport.tar.gz"
+          tar -xzf "$work/transport.tar.gz" -C "$work/extracted"
+          test "$(find "$work/extracted" -maxdepth 1 -type f | wc -l | tr -d ' ')" = "2"
+          for f in "$work"/extracted/*; do
+            bn=$(basename "$f")
+            expected=$(printf '%s' "$bn" | sed -n 's/.*__sha256_\([0-9a-f]\{64\}\)\..*/\1/p')
+            test -n "$expected"
+            test "$(sha256sum "$f" | awk '{print $1}')" = "$expected"
+            cp "$f" "governance/C2/C2.03/$bn"
+          done
+          for f in governance/C2/C2.03/*; do
+            bn=$(basename "$f")
+            case "$bn" in
+              C2_03_ACCEPTANCE_TEST_DELTA_CANDIDATE__sha256_*|C2_03_ROUTING_FALLBACK_DEGRADATION_SEMANTICS_CANDIDATE__sha256_*)
+                expected=$(printf '%s' "$bn" | sed -n 's/.*__sha256_\([0-9a-f]\{64\}\)\..*/\1/p')
+                test "$(sha256sum "$f" | awk '{print $1}')" = "$expected"
+                ;;
+            esac
+          done
+          rm -rf .c2-03-large-sync
+          rm -f .github/workflows/c2-03-large-exact-sync-pr.yml
+      - name: Commit exact materialized bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A governance/C2/C2.03 .c2-03-large-sync .github/workflows/c2-03-large-exact-sync-pr.yml
+          git commit -m 'governance(C2.03): materialize exact large candidate artifacts'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}

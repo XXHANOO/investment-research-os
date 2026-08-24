@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.04 CONSTRUCTION COMPLETE — CONSTRUCTED_CANDIDATE_NOT_FROZEN
-Current gate: C2.04 Independent Security-Boundary Review
+Current stage: C2.04 INDEPENDENT SECURITY-BOUNDARY REVIEW FAIL — C2.04 REPAIR_REQUIRED_NOT_FROZEN
+Current gate: Explicit user authorization for C2.04R1 scoped repair
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -26,8 +26,7 @@ C2.00 state: REVIEW_PASSED_NOT_FROZEN
 C2.01 original Independent Capability Review: FAIL
 C2.01R1 Independent Capability Re-Check: PASS
 C2.01 state after R1 re-check: REVIEW_PASSED_NOT_FROZEN
-C2CAP-B01: CLOSED
-C2CAP-B02: CLOSED
+C2CAP-B01..B02: CLOSED
 C2.OPEN-001..003: CLOSED_AT_C2_01_CONTRACT_LEVEL
 
 C2.02 original Independent Outcome-Semantics Review: FAIL
@@ -35,8 +34,7 @@ C2.02R1 Independent Outcome-Semantics Re-Check: FAIL
 C2.02R2 Independent Outcome-Semantics Re-Check: PASS
 C2.02 state after R2 re-check: REVIEW_PASSED_NOT_FROZEN
 C2OUT-B01..B04: CLOSED
-C2.OPEN-004: CLOSED_AT_C2_02_CONTRACT_LEVEL
-C2.OPEN-005: CLOSED_AT_C2_02_CONTRACT_LEVEL
+C2.OPEN-004..005: CLOSED_AT_C2_02_CONTRACT_LEVEL
 
 C2.03 original Independent Routing Review: FAIL
 C2.03R1 Independent Routing Re-Check: FAIL
@@ -49,53 +47,46 @@ C2.03R2 Independent Re-Check report SHA-256: 968db1fb83eca0e77c51a017ec12c5bcb5e
 C2.03R2 Independent Re-Check result SHA-256: f8db42b0dce59cb021dfa12f5913fb3f79918808d73f5fbc853656a8b7633d43
 
 C2.04 construction: COMPLETE AS CANDIDATE
-C2.04 state: CONSTRUCTED_CANDIDATE_NOT_FROZEN
-C2.04 Independent Security-Boundary Review: NOT PERFORMED
+C2.04 canonical GitHub archive: COMPLETE
+C2.04 canonical artifact count: 10
+C2.04 exact Git blob byte equivalence: 10/10 PASS
 C2.04 construction decisions: C2.DEC-213..C2.DEC-262 = 50
 C2.04 construction acceptance obligations: C2-289..C2-348 = 60
 C2.04 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_SECURITY_REVIEW
-C2.04 provider instances: 0
-C2.04 production adapters: 0
-C2.04 real secret values in candidate: 0
-C2.04 secret-store/KMS/vendor selections: 0
-
 C2.04 normative contract SHA-256: 198d194fbb3814676f1cb74aec5d56f19f8b1f9b081c6d77c16b4e66fd762cda
 C2.04 logical model SHA-256: 9d3609c775967fe374c1e1007828540d893852834bece09986148bf5a8aad5af
 C2.04 acceptance delta SHA-256: 2a0b24c0f9d67a03c565f16e2985d0a5ecbaaff090c4715b2b7ea9b8491c0b8a
 C2.04 evidence/decision ledger SHA-256: 719018dd73c1e80e9633d0468972e253dae4f77a3ffda75e1c0169c16c9aeac4
-C2.04 candidate selection SHA-256: 43ed6936cf36435303edd0a4df2847da1af10816d2b51e431b8885496eba60f4
-C2.04 construction summary SHA-256: 69008bf5827bf300b77b0a3fa003faca9ce96766913d69470413f49eb6e60dd8
-C2.04 construction validation SHA-256: 6a6c45ae2d9785a81f130b5142361d125ad40cb499962517d320f379200b176c
-C2.04 stage report SHA-256: afd19deeaeafd98ae9e10fa0c6ba953e4c8a2008dcc5652cab3c054f7619a55f
-C2.04 independent-security-review package manifest SHA-256: e3495ee44dd266fdaf9fbd2f5d9f3cb0f1e361f578c284b822fe8f9d512c5b28
-C2.04 ZIP pointer SHA-256: 5b09444eed4c7eb63e966026df1642397558f9f36b52c1c019fc9c7d61eb8e74
 
-C2.04 canonical GitHub archive commit: 8abaf5956b342780b85dc17fbb8ecf4142b12f8b
-C2.04 canonical GitHub tree: c3bb470c85f02eeebf7a222a8e2a46f7829a7ce7
-C2.04 canonical artifact count: 10
-C2.04 exact Git blob byte equivalence: 10/10 PASS
-C2.04 temporary materialize trigger on main: REMOVED
-C2.04 temporary materializer workflow on main: REMOVED
-C2.04 temporary .c2-04-sync transport on main: ABSENT
+C2.04 Independent Security-Boundary Review: FAIL
+C2.04 state after review: REPAIR_REQUIRED_NOT_FROZEN
+C2.04 acceptance review: 58/60 PASS; 2 FAIL
+C2.04 failed existing obligations: C2-313, C2-319
+C2SEC-B01: OPEN — redirect_forwarding_semantics required but semantically undefined
+C2SEC-B02: OPEN — private-state exact scope/subset/public-projection semantics not machine-closed
+C2SEC-B03: OPEN — secure-ingress assessment-bundle completeness/replay binding not closed
+C2SEC-B04: OPEN — operation-local credential lease lacks exact operation identity binding
+C2.04 Independent Review report SHA-256: 12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21
+C2.04 Independent Review result SHA-256: 4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78
 
-C2.04 reviewed-candidate semantic surface includes: stable content-addressed security refs; credential binding profiles distinct from operation-local opaque credential leases; credential possession/binding never granting C6 capability or PAPER/LIVE authority; provider/endpoint/capability credential binding; no cross-provider or cross-authority redirect credential forwarding without trusted rebind/admission; provider-bound private-state scope constrained to trusted authorized subset and not expandable/retargetable by provider content; secure-ingress state machine from ephemeral untrusted candidate through orthogonal secret/privacy/licensing/retention assessment to REJECT, QUARANTINE, REASSESS_REDACTED, or ADMIT; ADMIT split into PERMITTED_RAW versus EPHEMERAL_ONLY; deterministic precedence REJECT > QUARANTINE/INDETERMINATE > REDACT/REASSESS > ADMIT; redaction output requiring full re-assessment; quarantine/reject isolation from C1 normalization and NO_DATA; diagnostic sanitation without C2.02 outcome reclassification; ingress admission not implying C5 verification and ingress timestamps not implying C4 available_from.
-
-C2.OPEN-008: CANDIDATE_CLOSED_PENDING_INDEPENDENT_SECURITY_BOUNDARY_REVIEW
-C2.OPEN-009: OPEN_UNCHANGED
-C2.OPEN-010: OPEN_UNCHANGED
-C2.OPEN-011: OPEN_UNCHANGED
-C2.OPEN-012: OPEN_UNCHANGED
+C2.OPEN-008: NOT_CLOSED_REPAIR_REQUIRED
+C2.OPEN-009..012: OPEN_UNCHANGED
 C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
-C2.OPEN-014: OPEN_UNCHANGED
-C2.OPEN-015: OPEN_UNCHANGED
+C2.OPEN-014..015: OPEN_UNCHANGED
 
-C2.06 carried obligations: exact C2->C11 permitted-raw/quarantine wire handoff; C2/C3/C6/C7 admission/authorization references; reconcile frozen C1 OutcomeAxes serialization without changing C2 semantic ownership.
-C2.07 carried validator obligations: encode stable C2.04 security refs, closed security enums, credential binding constraints, private-state subset rules, secure-ingress decision precedence, redaction re-assessment, quarantine/reject isolation, permitted-raw versus ephemeral-only separation, sanitized diagnostics, wrong-kind/dangling/hash-mismatched refs, and fail-closed security-boundary validation.
+C2.04R1 required scope only:
+1. redirect-forwarding semantic closure;
+2. private-state exact scope/subset/public-projection semantics;
+3. secure-ingress assessment-bundle completeness and replay binding;
+4. credential-lease exact operation identity;
+5. corresponding acceptance additions/re-checks.
+
+C2.06 carried obligations: exact C2/C6/C7/C11 wire bindings; C2->C11 permitted-raw/quarantine handoff; frozen C1 OutcomeAxes reconciliation without changing C2 semantic ownership.
+C2.07 carried obligations: encode repaired closed security domains and fail-closed validation; budget termination must never convert non-terminal redaction/reassessment state to ADMIT.
 
 C2.05: NOT STARTED / NOT AUTHORIZED
-
 Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
 NEXT GATE:
-C2.04 Independent Security-Boundary Review.
+Explicit user authorization for C2.04R1 scoped repair -> C2.04R1 Independent Security-Boundary Re-Check.

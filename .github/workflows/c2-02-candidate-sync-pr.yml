@@ -1,0 +1,65 @@
+name: C2.02 candidate exact-byte sync PR
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'governance/c2-02-construction'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Reconstruct and verify C2.02 candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import base64, hashlib, io, tarfile, re
+
+          expected = {
+            'C2_02_ACCEPTANCE_TEST_DELTA_CANDIDATE__sha256_860fcc3681111624d1ad2a066ca1123d0519daa8a980ce724700d05a0c9343df.md',
+            'C2_02_CANDIDATE_SELECTION__sha256_b9e2dad68ba76517d10d97db0a582ad1193d07c25c01fcf49353b7c1fdcea27c.yaml',
+            'C2_02_CONSTRUCTION_SUMMARY__sha256_4ffa00509db502a283d16d817c4686e1c1f8193f9d696f76a7abd2692c93f76d.json',
+            'C2_02_CONSTRUCTION_VALIDATION__sha256_4889b0fcfa1ec78c39e2dfcbbc17255be2dc82bc19828285174e29073d56e439.json',
+            'C2_02_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_98f11a9f71535fedc1914d962381129e6ab13f84e9e5d3687551967a510f82f2.yaml',
+            'C2_02_INDEPENDENT_OUTCOME_SEMANTICS_REVIEW_PACKAGE_ZIP_POINTER__sha256_815bf6c9fd675f8be1128ba798b8589ce40c2764ba23be886c5d6d7319b0ca81.txt',
+            'C2_02_REVIEW_PACKAGE_MANIFEST__sha256_6755c7913da4e710f8b9b23eb3b4eeaf5d1161c2073c8e79b32b50a501ec789a.yaml',
+            'C2_02_STAGE_REPORT__sha256_ee838b8fcfedc385361b76f6c7e36a52a00f0c69f15505f5ee17a9e87e068226.md',
+            'C2_02_TYPED_PROVIDER_OPERATION_DATA_OUTCOME_CONTRACT_CANDIDATE__sha256_f524ff387be3fc58497c98ff7819980c38f5333b044c307a1abeebd3b648aacf.md',
+            'C2_02_TYPED_PROVIDER_OUTCOME_LOGICAL_MODEL_CANDIDATE__sha256_ebe80f4b159b282be8ad8b193b6c0c34fe893119b05eb64b5867845b1d4a9723.yaml',
+          }
+          chunks=sorted(Path('.c2-02-sync').glob('chunk*.b64'))
+          assert len(chunks)==3, len(chunks)
+          raw=base64.b64decode(''.join(p.read_text() for p in chunks))
+          with tarfile.open(fileobj=io.BytesIO(raw),mode='r:gz') as tf:
+            names=set(tf.getnames())
+            assert names==expected, f'inventory mismatch: {names ^ expected}'
+            out=Path('governance/C2/C2.02'); out.mkdir(parents=True,exist_ok=True)
+            for name in sorted(names):
+              assert '/' not in name and '..' not in name
+              data=tf.extractfile(name).read()
+              m=re.search(r'__sha256_([0-9a-f]{64})\.',name)
+              assert m, name
+              actual=hashlib.sha256(data).hexdigest()
+              assert actual==m.group(1), f'{name}: {actual} != {m.group(1)}'
+              dest=out/name; dest.write_bytes(data)
+              assert hashlib.sha256(dest.read_bytes()).hexdigest()==m.group(1)
+          PY
+      - name: Commit exact C2.02 candidate to PR branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -r .c2-02-sync
+          git add governance/C2/C2.02
+          git commit -m 'governance(C2.02): archive exact construction candidate'
+          git push origin HEAD:${GITHUB_HEAD_REF}

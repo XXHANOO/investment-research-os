@@ -1,0 +1,162 @@
+schema_version: 1.0.0-C2-04-security-boundary-candidate
+project: Investment Research OS
+stage: C2.04
+generated_at_utc: '2026-08-24T13:55:00Z'
+status: CANDIDATE_FOR_INDEPENDENT_SECURITY_BOUNDARY_REVIEW
+production_implementation: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED
+parent_pins:
+  c0_frozen: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  c0_acceptance: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
+  c1_freeze_seal: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+  c1_provider_normalization_interface: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  c2_00_scope: b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7
+  c2_01r1_registry_model: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+  c2_02r2_contract: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+  c2_03r2_contract: e04158428fc030ca72d297b2cb3fd4226dccaba0aa35224b14fc4de89e039b6b
+  c2_03r2_recheck_result: f8db42b0dce59cb021dfa12f5913fb3f79918808d73f5fbc853656a8b7633d43
+  workflow_plan: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+stable_security_ref_model:
+  authority: C2
+  required_fields:
+  - ref_kind
+  - logical_id
+  - semantic_revision
+  - content_sha256
+  ref_kinds:
+  - CREDENTIAL_BINDING_PROFILE
+  - PRIVATE_STATE_BINDING_PROFILE
+  - SECURE_INGRESS_SEMANTIC_PROFILE
+  floating_load_bearing_alias: false
+  wrong_kind: FAIL_CLOSED
+  dangling: FAIL_CLOSED
+  content_mismatch: FAIL_CLOSED
+  secret_value_allowed: false
+runtime_private_refs:
+  kinds:
+  - credential_handle_ref
+  - credential_version_ref
+  - private_state_handle_ref
+  - credential_lease_id
+  - ingress_event_id
+  - quarantine_ref
+  provider_usable_bearer_allowed: false
+  secret_derived_identifier_allowed: false
+  public_by_default: false
+  replay_requires_secret_bytes: false
+credential_binding_profile:
+  required:
+  - credential_binding_profile_ref
+  - provider_profile_ref
+  - allowed_endpoint_profile_refs
+  - allowed_capability_refs
+  - credential_class
+  - injection_channel
+  - secret_selector
+  - redirect_forwarding_semantics
+  - request_capture_redaction_required
+  - response_echo_scan_required
+  credential_class:
+  - API_KEY
+  - ACCESS_TOKEN
+  - SESSION_SECRET
+  - CLIENT_KEY_MATERIAL
+  - OPAQUE_PROVIDER_SECRET
+  injection_channel:
+  - AUTHORIZATION_HEADER
+  - OTHER_HEADER
+  - QUERY_PARAMETER
+  - REQUEST_BODY_FIELD
+  - COOKIE
+  - MUTUAL_TLS_PRIVATE_CHANNEL
+  - SDK_PRIVATE_CHANNEL
+  secret_selector_contains_value: false
+  credential_is_capability_grant: false
+credential_lease:
+  decision:
+  - READY
+  - BLOCKED
+  public_descriptor_forbidden_fields:
+  - secret_value
+  - secret_hash
+  - authorization_header_value
+  - cookie_value
+  - private_key_bytes
+  - bearer_token
+  - password
+  - refresh_token_bytes
+  blocked_reasons:
+  - MISSING_CREDENTIAL
+  - UNTRUSTED_CREDENTIAL_SOURCE
+  - BINDING_PROFILE_UNRESOLVED
+  - CREDENTIAL_CLASS_MISMATCH
+  - PROVIDER_BINDING_MISMATCH
+  - ENDPOINT_BINDING_MISMATCH
+  - CAPABILITY_BINDING_MISMATCH
+  - PRIVATE_STATE_AUTHORIZATION_MISSING
+  - SECRET_EXPOSURE_CONTROL_UNSATISFIED
+  - DESTINATION_REBIND_REQUIRED
+  - POLICY_REFERENCE_UNRESOLVED
+  - UNKNOWN_SECURITY_BLOCK
+  blocked_dispatch_allowed: false
+  secret_lifetime: MINIMUM_OPERATION_LOCAL_USE_WINDOW
+private_state_binding:
+  actual_scope_must_be_subset_of_authorized_scope: true
+  provider_payload_can_expand_scope: false
+  public_projection_default: REDACT_OR_EXCLUDE
+  credential_or_private_state_creates_route_eligibility: false
+secure_ingress:
+  assessment_axes:
+  - secret_constraint
+  - privacy_constraint
+  - licensing_constraint
+  - retention_constraint
+  constraint_enum:
+  - ALLOW
+  - REDACT_REQUIRED
+  - EPHEMERAL_ONLY
+  - QUARANTINE_REQUIRED
+  - REJECT_REQUIRED
+  - INDETERMINATE
+  decision_enum:
+  - ADMIT
+  - REASSESS_REDACTED
+  - QUARANTINE
+  - REJECT
+  admit_retention_mode:
+  - PERMITTED_RAW
+  - EPHEMERAL_ONLY
+  content_form:
+  - UNMODIFIED
+  - REDACTED
+  precedence:
+  - REJECT_REQUIRED -> REJECT
+  - QUARANTINE_REQUIRED or INDETERMINATE -> QUARANTINE
+  - REDACT_REQUIRED -> REASSESS_REDACTED
+  - otherwise ADMIT; EPHEMERAL_ONLY if any axis requires it else PERMITTED_RAW
+  redacted_candidate_full_reassessment_required: true
+  quarantine_is_permitted_raw: false
+  reject_is_no_data: false
+  ephemeral_only_persisted_raw_ref_allowed: false
+  permitted_raw_hash_basis: EXACT_ADMITTED_BYTES_ONLY
+sanitized_diagnostic_boundary:
+  secret_or_private_material_in_failure_text_allowed: false
+  unsafe_request_or_response_capture_persistence_allowed: false
+  sanitization_changes_c2_02_outcome: false
+ownership:
+  C1: validated observations/canonical identity; raw_payload_ref only to permitted
+    raw where present
+  C3: retry/quota/cache/freshness/coalescing/LKG
+  C4: PIT/revision/available_from
+  C5: source fitness/verification/conflict
+  C6: capability/trusted intent/destination-egress/policy authority
+  C7: orchestration/budgets/cancellation
+  C11: persistence implementation
+  C12: validation/promotion/release
+open_questions:
+  C2.OPEN-008: CANDIDATE_CLOSED_PENDING_INDEPENDENT_SECURITY_BOUNDARY_REVIEW
+  C2.OPEN-009..012: OPEN_UNCHANGED
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+  C2.OPEN-014..015: OPEN_UNCHANGED
+next_gate: C2.04 Independent Security-Boundary Review
+c2_05: NOT_AUTHORIZED

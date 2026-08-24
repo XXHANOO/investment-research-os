@@ -1,0 +1,40 @@
+schema_version: 1.0.0-C2-04-independent-security-review-package-manifest
+project: Investment Research OS
+stage: C2.04
+generated_at_utc: '2026-08-24T13:55:00Z'
+review_type: INDEPENDENT_SECURITY_BOUNDARY_REVIEW
+candidate_state: CONSTRUCTED_CANDIDATE_NOT_FROZEN
+artifacts:
+- name: C2_04_CREDENTIAL_PRIVATE_STATE_SECURE_INGRESS_CONTRACT_CANDIDATE__sha256_198d194fbb3814676f1cb74aec5d56f19f8b1f9b081c6d77c16b4e66fd762cda.md
+  sha256: 198d194fbb3814676f1cb74aec5d56f19f8b1f9b081c6d77c16b4e66fd762cda
+  role: normative_contract
+- name: C2_04_SECURITY_BOUNDARY_LOGICAL_MODEL_CANDIDATE__sha256_9d3609c775967fe374c1e1007828540d893852834bece09986148bf5a8aad5af.yaml
+  sha256: 9d3609c775967fe374c1e1007828540d893852834bece09986148bf5a8aad5af
+  role: logical_model
+- name: C2_04_ACCEPTANCE_TEST_DELTA_CANDIDATE__sha256_2a0b24c0f9d67a03c565f16e2985d0a5ecbaaff090c4715b2b7ea9b8491c0b8a.md
+  sha256: 2a0b24c0f9d67a03c565f16e2985d0a5ecbaaff090c4715b2b7ea9b8491c0b8a
+  role: acceptance_delta
+- name: C2_04_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_719018dd73c1e80e9633d0468972e253dae4f77a3ffda75e1c0169c16c9aeac4.yaml
+  sha256: 719018dd73c1e80e9633d0468972e253dae4f77a3ffda75e1c0169c16c9aeac4
+  role: decision_ledger
+- name: C2_04_CONSTRUCTION_VALIDATION__sha256_6a6c45ae2d9785a81f130b5142361d125ad40cb499962517d320f379200b176c.json
+  sha256: 6a6c45ae2d9785a81f130b5142361d125ad40cb499962517d320f379200b176c
+  role: construction_validation
+- name: C2_04_CONSTRUCTION_SUMMARY__sha256_69008bf5827bf300b77b0a3fa003faca9ce96766913d69470413f49eb6e60dd8.json
+  sha256: 69008bf5827bf300b77b0a3fa003faca9ce96766913d69470413f49eb6e60dd8
+  role: construction_summary
+- name: C2_04_CANDIDATE_SELECTION__sha256_43ed6936cf36435303edd0a4df2847da1af10816d2b51e431b8885496eba60f4.yaml
+  sha256: 43ed6936cf36435303edd0a4df2847da1af10816d2b51e431b8885496eba60f4
+  role: candidate_selection
+- name: C2_04_STAGE_REPORT__sha256_afd19deeaeafd98ae9e10fa0c6ba953e4c8a2008dcc5652cab3c054f7619a55f.md
+  sha256: afd19deeaeafd98ae9e10fa0c6ba953e4c8a2008dcc5652cab3c054f7619a55f
+  role: stage_report
+review_must_recheck:
+  decision_range: C2.DEC-213..C2.DEC-262
+  acceptance_range: C2-289..C2-348
+  bidirectional_decision_acceptance_coverage: true
+  open_008: true
+  open_013_remains_open: true
+  security_adversarial_vectors: true
+  no_self_approval: true
+next_gate: C2.04 Independent Security-Boundary Review

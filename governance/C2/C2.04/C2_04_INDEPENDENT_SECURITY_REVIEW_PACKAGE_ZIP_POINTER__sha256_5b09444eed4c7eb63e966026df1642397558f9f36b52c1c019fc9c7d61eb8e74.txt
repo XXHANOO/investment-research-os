@@ -1,0 +1,4 @@
+C2.04 Independent Security-Boundary Review convenience package
+local_artifact: C2_04_INDEPENDENT_SECURITY_BOUNDARY_REVIEW_PACKAGE.zip
+sha256: c4ec339d57aa665997a3db7357d978b2b0ceca40e27cd9e93e8456786c4865c7
+note: ZIP is a convenience transport only; canonical authority is the content-addressed member artifacts and review manifest.

@@ -1,0 +1,853 @@
+schema_version: 1.0.0-C2-04-security-decision-ledger
+project: Investment Research OS
+stage: C2.04
+generated_at_utc: '2026-08-24T13:55:00Z'
+status: CANDIDATE_PENDING_INDEPENDENT_SECURITY_BOUNDARY_REVIEW
+parent_pins:
+  c0_frozen: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  c0_acceptance: 8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c
+  c1_freeze_seal: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+  c1_provider_normalization_interface: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  c2_00_scope: b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7
+  c2_01r1_registry_model: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+  c2_02r2_contract: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+  c2_03r2_contract: e04158428fc030ca72d297b2cb3fd4226dccaba0aa35224b14fc4de89e039b6b
+  c2_03r2_recheck_result: f8db42b0dce59cb021dfa12f5913fb3f79918808d73f5fbc853656a8b7633d43
+  workflow_plan: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+decisions:
+- decision_id: C2.DEC-213
+  code: CREDENTIAL_MATERIAL_NON_PUBLIC
+  decision: Credential material is never public contract/repository/report state.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-289
+  - C2-339
+- decision_id: C2.DEC-214
+  code: CREDENTIAL_REF_DISTINCT_FROM_SECRET
+  decision: Credential references/handles are distinct from secret material.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-290
+  - C2-340
+- decision_id: C2.DEC-215
+  code: NO_SECRET_DERIVED_PUBLIC_ID
+  decision: Public/audit identities must not be derived from secret bytes.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-291
+  - C2-341
+- decision_id: C2.DEC-216
+  code: CREDENTIAL_NOT_CAPABILITY
+  decision: Credential possession/binding never grants C6 capability or side-effect
+    authority.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-292
+  - C2-342
+- decision_id: C2.DEC-217
+  code: C2_04_STABLE_SECURITY_REFS
+  decision: Load-bearing C2.04 semantic profiles use stable content-addressed C2 refs.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-293
+  - C2-343
+- decision_id: C2.DEC-218
+  code: C2_04_REF_KINDS_CLOSED
+  decision: C2.04 stable semantic ref kinds are credential binding, private-state
+    binding and secure-ingress semantic profile.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-294
+  - C2-344
+- decision_id: C2.DEC-219
+  code: RUNTIME_REFS_OPAQUE
+  decision: Runtime credential/private/quarantine refs are opaque, non-bearer and
+    private by default.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-295
+  - C2-345
+- decision_id: C2.DEC-220
+  code: REPLAY_WITHOUT_SECRET_BYTES
+  decision: Replay retains binding/version lineage but never requires historical secret
+    bytes.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-296
+  - C2-346
+- decision_id: C2.DEC-221
+  code: CREDENTIAL_BIND_TO_PROVIDER
+  decision: Credential binding is provider-profile scoped.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-297
+  - C2-347
+- decision_id: C2.DEC-222
+  code: CREDENTIAL_BIND_TO_ENDPOINT
+  decision: Credential binding is endpoint-profile scoped.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-298
+  - C2-348
+- decision_id: C2.DEC-223
+  code: CREDENTIAL_BIND_TO_CAPABILITY
+  decision: Credential binding is C2 capability scoped.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-299
+- decision_id: C2.DEC-224
+  code: CREDENTIAL_CLASS_CLOSED
+  decision: Credential classes use a closed contract vocabulary.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-300
+- decision_id: C2.DEC-225
+  code: INJECTION_CHANNEL_CLOSED
+  decision: Credential injection channels use a closed contract vocabulary.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-301
+- decision_id: C2.DEC-226
+  code: SECRET_SELECTOR_NO_VALUE
+  decision: Injection selector describes location, never secret value.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-302
+- decision_id: C2.DEC-227
+  code: OPERATION_LOCAL_LEASE
+  decision: Adapter-visible secret material is bounded by an operation-local lease.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-303
+- decision_id: C2.DEC-228
+  code: LEASE_PUBLIC_DESCRIPTOR_SANITIZED
+  decision: Credential lease audit descriptor contains no secret values/hashes.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-304
+- decision_id: C2.DEC-229
+  code: STRUCTURED_CREDENTIAL_BLOCK
+  decision: Credential preparation failure uses structured BLOCKED reasons.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-305
+- decision_id: C2.DEC-230
+  code: BLOCKED_MEANS_NO_DISPATCH
+  decision: BLOCKED credential preparation prohibits provider dispatch.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-306
+- decision_id: C2.DEC-231
+  code: TRUSTED_SECRET_SOURCE_ONLY
+  decision: Only trusted secret channels may supply credential material.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-307
+- decision_id: C2.DEC-232
+  code: EXTERNAL_CONTENT_NOT_CREDENTIAL_AUTHORITY
+  decision: Provider/web/tool/model content cannot become credential authority.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-308
+- decision_id: C2.DEC-233
+  code: NO_CROSS_PROVIDER_FORWARD
+  decision: Provider A credential cannot be forwarded to Provider B.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-309
+- decision_id: C2.DEC-234
+  code: REDIRECT_REBIND_REQUIRED
+  decision: Destination-authority-changing redirect cannot automatically receive credential;
+    rebind/admit first.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-310
+- decision_id: C2.DEC-235
+  code: REQUEST_CAPTURE_SANITIZED
+  decision: Credential-bearing request values must be sanitized before ordinary logging/audit.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-311
+- decision_id: C2.DEC-236
+  code: UNSANITIZABLE_REQUEST_NOT_PERSISTED
+  decision: If credential request capture cannot be sanitized, it is not persistable
+    as ordinary audit data.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-312
+- decision_id: C2.DEC-237
+  code: PRIVATE_STATE_PROVIDER_BOUND_ONLY
+  decision: C2.04 private-state semantics cover only provider-bound private input.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-313
+- decision_id: C2.DEC-238
+  code: PRIVATE_SCOPE_SUBSET
+  decision: Actual private-state scope must be a subset of trusted authorized scope.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-314
+- decision_id: C2.DEC-239
+  code: EXTERNAL_CONTENT_NO_PRIVATE_SCOPE_EXPANSION
+  decision: External content cannot expand private-state scope or retarget private
+    handles.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-315
+- decision_id: C2.DEC-240
+  code: PRIVATE_PUBLIC_PROJECTION_REDACTED
+  decision: Private state is redacted/excluded from public projections by default.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-316
+- decision_id: C2.DEC-241
+  code: INGRESS_BEFORE_PERMITTED_RAW
+  decision: Secure ingress precedes any Permitted RawArtifact status.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-317
+- decision_id: C2.DEC-242
+  code: INGRESS_POLICY_TRUSTED_ONLY
+  decision: Security/privacy/license/retention policy refs must come from trusted
+    control, never provider data.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-318
+- decision_id: C2.DEC-243
+  code: INGRESS_AXES_ORTHOGONAL
+  decision: Secret/privacy/licensing/retention constraints remain explicit axes.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-319
+- decision_id: C2.DEC-244
+  code: INGRESS_CONSTRAINT_CLOSED
+  decision: Ingress constraints use the closed ALLOW/REDACT/EPHEMERAL/QUARANTINE/REJECT/INDETERMINATE
+    vocabulary.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-320
+- decision_id: C2.DEC-245
+  code: INGRESS_DECISION_PRECEDENCE
+  decision: Ingress decision precedence is deterministic and total for a complete
+    assessment bundle.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-321
+- decision_id: C2.DEC-246
+  code: INDETERMINATE_FAIL_CLOSED
+  decision: Any indeterminate ingress axis cannot directly ADMIT and maps to QUARANTINE.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-322
+- decision_id: C2.DEC-247
+  code: REDACTION_REQUIRES_REASSESS
+  decision: Redaction output is a new ingress candidate requiring full re-assessment.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-323
+- decision_id: C2.DEC-248
+  code: REDACTION_RECORD_NO_REMOVED_VALUES
+  decision: Redaction lineage cannot contain removed secret/private plaintext or secret-derived
+    fingerprint.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-324
+- decision_id: C2.DEC-249
+  code: PERMITTED_RAW_HASH_ADMITTED_BYTES
+  decision: Permitted raw content hash is over exact admitted bytes only.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-325
+- decision_id: C2.DEC-250
+  code: C11_OWNS_STORAGE
+  decision: C11 owns permitted-raw/quarantine persistence implementation.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-326
+- decision_id: C2.DEC-251
+  code: PERMITTED_RAW_IMMUTABLE_IDENTITY
+  decision: Post-admission content change creates a new content identity; no overwrite.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-327
+- decision_id: C2.DEC-252
+  code: EPHEMERAL_ONLY_NO_RAW_PERSIST
+  decision: ADMIT+EPHEMERAL_ONLY forbids persisted Permitted RawArtifact/raw_payload_ref
+    for those bytes.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-328
+- decision_id: C2.DEC-253
+  code: EPHEMERAL_PROCESSING_POLICY_BOUND
+  decision: Ephemeral-only downstream processing requires trusted ingress policy permission.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-329
+- decision_id: C2.DEC-254
+  code: QUARANTINE_ISOLATED
+  decision: Quarantined content cannot enter C1 normalization or ordinary evidence.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-330
+- decision_id: C2.DEC-255
+  code: REJECT_NOT_NO_DATA
+  decision: Rejected content is not NO_DATA and cannot be silently classified as successful
+    absence.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-331
+- decision_id: C2.DEC-256
+  code: SANITIZED_FAILURE_DIAGNOSTICS
+  decision: C2.02 failure/audit diagnostics crossing ordinary boundaries must be secret/private
+    sanitized.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-332
+- decision_id: C2.DEC-257
+  code: SANITIZATION_DOES_NOT_RECLASSIFY_OUTCOME
+  decision: Diagnostic sanitation does not change C2.02 operation/data outcome.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-333
+- decision_id: C2.DEC-258
+  code: RAW_PAYLOAD_REF_PERMITTED_ONLY
+  decision: C1 raw_payload_ref, when present, must resolve only to permitted raw,
+    not quarantine/reject/ephemeral bytes.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-334
+- decision_id: C2.DEC-259
+  code: INGRESS_NOT_C5_VERIFICATION
+  decision: Secure ingress admission is not C5 verification/source fitness.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-335
+- decision_id: C2.DEC-260
+  code: INGRESS_NOT_C4_PIT
+  decision: Ingress/retrieval/security metadata does not define C4 available_from/PIT.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-336
+- decision_id: C2.DEC-261
+  code: NO_VENDOR_OR_SECRET_STORE_SELECTION
+  decision: C2.04 selects no vendor, secret store, KMS, OAuth library or persistence
+    technology.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-337
+- decision_id: C2.DEC-262
+  code: OPEN_008_CANDIDATE_CLOSURE
+  decision: C2.OPEN-008 is candidate-closed only pending independent security review;
+    C2.OPEN-013 remains for C2.06.
+  decision_classification: CONTRACT_SEMANTIC
+  strongest_evidence_strength: FROZEN_PARENT_OR_REVIEWED_PREDECESSOR
+  reasoning_basis: C0 secure-raw/private-state/untrusted-content invariants plus reviewed
+    C2.01-C2.03 ownership seams
+  evidence_refs:
+  - C0_FROZEN
+  - C0_ACCEPTANCE
+  - C2_00_SCOPE
+  - C2_01R1
+  - C2_02R2
+  - C2_03R2
+  required_tests:
+  - C2-338
+open_question_disposition:
+  C2.OPEN-008: CANDIDATE_CLOSED_PENDING_INDEPENDENT_SECURITY_BOUNDARY_REVIEW
+  C2.OPEN-009: OPEN_UNCHANGED
+  C2.OPEN-010: OPEN_UNCHANGED
+  C2.OPEN-011: OPEN_UNCHANGED
+  C2.OPEN-012: OPEN_UNCHANGED
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06
+  C2.OPEN-014: OPEN_UNCHANGED
+  C2.OPEN-015: OPEN_UNCHANGED

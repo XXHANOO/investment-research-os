@@ -1,0 +1,20 @@
+{
+  "project": "Investment Research OS",
+  "stage": "C2.04",
+  "generated_at_utc": "2026-08-24T13:55:00Z",
+  "construction": "COMPLETE_AS_CANDIDATE",
+  "decisions": {
+    "count": 50,
+    "range": "C2.DEC-213..C2.DEC-262"
+  },
+  "acceptance": {
+    "count": 60,
+    "range": "C2-289..C2-348"
+  },
+  "open_008": "CANDIDATE_CLOSED_PENDING_INDEPENDENT_SECURITY_BOUNDARY_REVIEW",
+  "open_013": "OPEN_UNCHANGED_C2_06",
+  "provider_instances": 0,
+  "production_adapters": 0,
+  "next_gate": "C2.04 Independent Security-Boundary Review",
+  "c2_05": "NOT_AUTHORIZED"
+}

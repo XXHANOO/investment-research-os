@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.01 Independent Capability Review FAIL — REPAIR REQUIRED
-Current gate: Explicit authorization for C2.01R1 scoped repair, then Independent Capability Re-Check
+Current stage: C2.01R1 scoped repair construction COMPLETE — INDEPENDENT RECHECK REQUIRED
+Current gate: C2.01R1 Independent Capability Re-Check
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -9,6 +9,7 @@ C0 GitHub canonical archive: COMPLETE
 C1: FROZEN
 C1 Freeze Seal SHA-256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
 C1 frozen authority navigation index: governance/C1/C1_FROZEN_INDEX.md (NON-AUTHORITATIVE)
+C1 GitHub substantive-archive completeness: UNDER REVIEW — final integrated load-bearing bytes are hash-pinned but some are not presently located in the repository; do not regenerate from hashes.
 
 C2 stage plan: USER-ADOPTED WORKFLOW / NOT INHERITED FROZEN AUTHORITY
 Adopted C2 stage-plan SHA-256: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
@@ -21,13 +22,23 @@ C2.01 construction: COMPLETE AS CANDIDATE
 C2.01 exact GitHub construction snapshot commit: 22c85cc54fcb0a25eb2fa87ec66ca0b7728c6fbe
 C2.01 Independent Capability Review: FAIL
 C2.01 state: REPAIR_REQUIRED / NOT_FROZEN
+
+C2.01R1 scoped repair construction: COMPLETE AS REPAIR CANDIDATE
+C2.01R1 GitHub repair snapshot commit: 3d0ce1d8a9b7f2804d3070355b1146e7a9a8b90f
+C2.01R1 Independent Capability Re-Check: NOT PERFORMED
+C2.01R1 state: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK / NOT_FROZEN
 C2.02: NOT STARTED / NOT AUTHORIZED
 
-C2CAP-B01: OPEN — stable-ref kind domain not closed over load-bearing refs
-C2CAP-B02: OPEN — response semantic compatibility closure under-specified
+C2CAP-B01: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+C2CAP-B02: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+C2.OPEN-003: REPAIRED_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+C2.OPEN-004..015: OPEN
 
 Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
-C2.01 review report SHA-256: a4aff388382966fcc36f5be33b7b622ea835bf0b08aa4519968864e96e8bff96
-C2.01 review result SHA-256: 53afb757e7f1f2ebeb1224b2ab2a6cd5a04a3f6954a3d79d197621664687170c
+C2.01R1 repaired registry candidate SHA-256: 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+C2.01R1 repaired registry model SHA-256: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+C2.01R1 repair acceptance delta SHA-256: a668005a868230ac869071e496eea9da8dd07383db76c61a00e65abc2fec6d73
+C2.01R1 repair decision ledger SHA-256: 16be0dcbb3853399d4a55af8fb15938ab88f1193a7d16d4bb7938f01e9409ace
+C2.01R1 Independent Capability Re-Check package ZIP SHA-256: 8c572c6bdf8f2ff318a39008a44860a05b0d745c65fc7790b6d56a62f11a1e59

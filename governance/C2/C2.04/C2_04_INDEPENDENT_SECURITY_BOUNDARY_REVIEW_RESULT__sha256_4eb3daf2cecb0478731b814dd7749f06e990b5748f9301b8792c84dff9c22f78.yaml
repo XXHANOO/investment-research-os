@@ -1,0 +1,55 @@
+schema_version: 1.0.0-C2-04-independent-security-boundary-review
+project: Investment Research OS
+stage: C2.04
+generated_at_utc: '2026-08-24T15:58:00Z'
+review_type: INDEPENDENT_SECURITY_BOUNDARY_REVIEW
+status: FAIL
+candidate_state: REPAIR_REQUIRED_NOT_FROZEN
+candidate_pins:
+  normative_contract: 198d194fbb3814676f1cb74aec5d56f19f8b1f9b081c6d77c16b4e66fd762cda
+  logical_model: 9d3609c775967fe374c1e1007828540d893852834bece09986148bf5a8aad5af
+  acceptance_delta: 2a0b24c0f9d67a03c565f16e2985d0a5ecbaaff090c4715b2b7ea9b8491c0b8a
+  decision_ledger: 719018dd73c1e80e9633d0468972e253dae4f77a3ffda75e1c0169c16c9aeac4
+acceptance_review:
+  range: C2-289..C2-348
+  total: 60
+  pass: 58
+  fail: 2
+  failed_ids:
+  - C2-313
+  - C2-319
+blockers:
+  C2SEC-B01:
+    status: OPEN
+    title: redirect_forwarding_semantics required but undefined
+    existing_acceptance_coverage: INSUFFICIENT_NEW_R1_COVERAGE_REQUIRED
+  C2SEC-B02:
+    status: OPEN
+    title: private-state exact scope/subset/public-projection semantics not machine-closed
+    failed_acceptance_ids:
+    - C2-313
+  C2SEC-B03:
+    status: OPEN
+    title: secure-ingress assessment-bundle completeness and replay binding not closed
+    failed_acceptance_ids:
+    - C2-319
+  C2SEC-B04:
+    status: OPEN
+    title: operation-local credential lease lacks exact operation identity binding
+    existing_acceptance_coverage: INSUFFICIENT_NEW_R1_COVERAGE_REQUIRED
+open_question_disposition:
+  C2.OPEN-008: NOT_CLOSED_REPAIR_REQUIRED
+  C2.OPEN-009..012: OPEN_UNCHANGED
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+  C2.OPEN-014..015: OPEN_UNCHANGED
+non_blocking_notes:
+- Redaction no-progress/cycle termination remains non-admitting and may be bounded
+  by C7; C2.07 must ensure budget termination cannot convert it to ADMIT.
+- C2.06 retains exact C2/C6/C7/C11 wire-binding obligations and C1 OutcomeAxes reconciliation.
+- C2.07 must encode repaired semantics; it must not invent them.
+next_gate: Explicit authorization for C2.04R1 scoped repair, then Independent Security-Boundary
+  Re-Check
+c2_05: NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED
+review_report_sha256: 12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21

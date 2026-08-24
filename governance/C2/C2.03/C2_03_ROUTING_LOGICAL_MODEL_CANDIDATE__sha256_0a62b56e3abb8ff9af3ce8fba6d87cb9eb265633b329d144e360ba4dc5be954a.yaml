@@ -1,0 +1,177 @@
+schema_version: 1.0.0-C2-03-routing-logical-model-candidate
+project: Investment Research OS
+stage: C2.03
+status: CANDIDATE_NOT_REVIEWED
+parent_pins:
+  C2_00_SCOPE: b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7
+  C2_01R1_CAPABILITY: 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+  C2_01R1_RECHECK: e780ab10b6ed6e6108cc6fafc53ce329827b6135764b993f7a785fdd46e37937
+  C2_02R2_OUTCOME: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+  C2_02R2_LOGICAL: 763a0c1995116a657621633bde6224df332287d76c7ce986066f2d493022d04d
+  C2_02R2_RECHECK_REPORT: 48eba8055fdec4be85eed5c06bd8b809e7716d937cc05cbbeb5078c7b219f509
+  C2_02R2_RECHECK_RESULT: 36d9048577fbaed39f1af1ae6352fe8de9fb803a55c59fadd05ee633597c34e5
+  C1_05R1_INTERFACE: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  C2_STAGE_PLAN: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+enums:
+  route_action:
+  - TERMINATE_WITH_ATTEMPT
+  - NOMINATE_SAME_ROUTE_REATTEMPT
+  - NOMINATE_NEXT_ROUTE
+  - YIELD_FOR_EXTERNAL_ADMISSION
+  - REQUIRE_EXPLICIT_REQUIREMENT_DOWNGRADE
+  - TERMINATE_EXHAUSTED
+  - TERMINATE_CANCELLED
+  route_continuation_class:
+  - SUCCESS_PRESENT
+  - SUCCESS_NO_DATA
+  - SUCCESS_PARTIAL
+  - FAILED
+  - CANCELLED
+  route_decision_reason:
+  - PRESENT_ACCEPTED
+  - GENUINE_NO_DATA_TERMINAL
+  - GENUINE_NO_DATA_CONTINUATION
+  - PARTIAL_ACCEPTED
+  - PARTIAL_CONTINUATION
+  - PROVIDER_FAILURE_REATTEMPT
+  - PROVIDER_FAILURE_CONTINUATION
+  - PROVIDER_FAILURE_EXHAUSTED
+  - EXTERNAL_ADMISSION_YIELD
+  - EXTERNAL_ADMISSION_CONTINUATION
+  - CANCELLED_PROPAGATION
+  - NO_ELIGIBLE_NEXT_ROUTE
+  - EXPLICIT_REQUIREMENT_DOWNGRADE
+  route_degradation_kind:
+  - REQUIREMENT_DOWNGRADE
+  - POLICY_PREFERENCE_TIER_DOWNGRADE
+  - PARTIAL_ACCEPTED_AS_TERMINAL
+  route_terminal_disposition:
+  - SELECTED_ATTEMPT
+  - EXHAUSTED
+  - CANCELLED
+  - YIELDED_EXTERNAL_ADMISSION
+  - REQUIREMENT_DOWNGRADE_REQUIRED
+  route_exhaustion_reason:
+  - NO_SEMANTICALLY_COMPATIBLE_CANDIDATE
+  - NO_ROUTE_POLICY_ELIGIBLE_CANDIDATE
+  - ALL_ELIGIBLE_CANDIDATES_CONSUMED
+  - NO_AUTHORIZED_DOWNGRADE
+records:
+  RouteCandidate:
+    required:
+    - route_candidate_id
+    - provider_capability_ref
+    - policy_preference_tier
+    - policy_preference_ordinal
+    optional:
+    - source_binding_ref
+  RouteDecisionInput:
+    required:
+    - route_request_id
+    - registry_snapshot_ref
+    - capability_requirement
+    - route_policy_snapshot_ref
+    - candidate_set_ref
+    - prior_route_attempt_refs
+    - prior_fallback_event_refs
+    - prior_route_degradation_refs
+    optional:
+    - trusted_authorization_refs
+  RoutePolicySnapshot:
+    required:
+    - route_policy_id
+    - semantic_revision
+    - continuation_rules
+    - external_gate_fallback_mode
+    optional: []
+  RouteAttemptRecord:
+    required:
+    - route_attempt_id
+    - route_request_id
+    - attempt_ordinal
+    - route_candidate_ref
+    - capability_requirement_ref_or_exact_value
+    - c2_provider_operation_outcome_ref
+    - route_action_after_attempt
+    - route_decision_reason
+    optional:
+    - external_admission_refs
+  FallbackEvent:
+    required:
+    - fallback_event_id
+    - from_route_candidate_ref
+    - to_route_candidate_ref
+    - route_decision_reason
+    - original_requirement_ref
+    - effective_requirement_ref
+    - route_policy_snapshot_ref
+    optional:
+    - triggering_attempt_ref
+  RouteDegradationRecord:
+    required:
+    - route_degradation_id
+    - degradation_kind
+    - route_request_id
+    - route_policy_snapshot_ref
+    optional:
+    - triggering_attempt_ref
+    - from_requirement_ref
+    - to_requirement_ref
+    - from_candidate_ref
+    - to_candidate_ref
+    - authorization_ref
+  RouteResolution:
+    required:
+    - route_request_id
+    - terminal_disposition
+    - route_policy_snapshot_ref
+    - candidate_set_ref
+    - attempt_refs
+    - fallback_event_refs
+    - route_degradation_refs
+    optional:
+    - selected_attempt_ref
+    - exhaustion_reason
+    - external_admission_refs
+    - original_requirement_ref
+    - effective_requirement_ref
+deterministic_ordering:
+  eligible_candidate_order:
+  - policy_preference_tier
+  - policy_preference_ordinal
+  - route_candidate_id
+  continuation_rule_order:
+  - rule_priority
+  - rule_id
+route_policy_defaults:
+  SUCCESS_PRESENT: TERMINATE_WITH_ATTEMPT
+  SUCCESS_NO_DATA: TERMINATE_WITH_ATTEMPT
+  SUCCESS_PARTIAL: TERMINATE_WITH_ATTEMPT
+  FAILED: TERMINATE_EXHAUSTED
+  CANCELLED: TERMINATE_CANCELLED
+  EXTERNAL_GATE_NOT_POSITIVE: YIELD_FOR_EXTERNAL_ADMISSION
+eligibility:
+  semantic: compatible(R,P,S) == true
+  policy: candidate in trusted inventory and permitted by pinned route policy
+  dispatch: external positive admission; representation deferred C2.06
+c2_c3_seam:
+  C2:
+  - next logical candidate
+  - same-route reattempt nomination
+  - fallback provenance
+  C3:
+  - attempt admission
+  - quota accounting
+  - backoff/timing
+  - cache/freshness/coalescing/LKG
+  C7:
+  - orchestration continuation
+  - budgets
+  - cancellation
+  - durable resume
+open_questions:
+  C2.OPEN-006: CANDIDATE_CLOSED_PENDING_INDEPENDENT_ROUTING_REVIEW
+  C2.OPEN-007: CANDIDATE_CLOSED_AT_C2_03_SEMANTIC_LEVEL_PENDING_INDEPENDENT_ROUTING_REVIEW_AND_C2_06_WIRE_BINDING
+  C2.OPEN-008..015: OPEN_UNCHANGED
+provider_instances: 0
+production_adapters: 0

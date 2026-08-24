@@ -1,0 +1,4 @@
+C2.03 Independent Routing Review convenience ZIP
+filename: C2_03_INDEPENDENT_ROUTING_REVIEW_PACKAGE.zip
+sha256: ae630b5f93b4637877f90e8e7908e623cc3fe4221a9e239c1cab2ee4470c8b0f
+status: convenience transport only; authoritative candidate artifacts are individually content-addressed

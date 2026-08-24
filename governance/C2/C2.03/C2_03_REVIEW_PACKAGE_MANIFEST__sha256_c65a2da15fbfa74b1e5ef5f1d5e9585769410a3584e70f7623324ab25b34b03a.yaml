@@ -1,0 +1,65 @@
+schema_version: 1.0.0-C2-03-review-package-manifest
+project: Investment Research OS
+stage: C2.03
+review_type: INDEPENDENT_ROUTING_REVIEW
+status: PACKAGE_CANDIDATE_NOT_REVIEWED
+entries:
+- path: C2_03_ROUTING_FALLBACK_DEGRADATION_SEMANTICS_CANDIDATE__sha256_ead5bad60bd6fd369c1165f0860ccb560fd20ae76586c59a3b7a082d275c1613.md
+  sha256: ead5bad60bd6fd369c1165f0860ccb560fd20ae76586c59a3b7a082d275c1613
+  size: 21733
+  role: C2.03 normative contract
+- path: C2_03_ROUTING_LOGICAL_MODEL_CANDIDATE__sha256_0a62b56e3abb8ff9af3ce8fba6d87cb9eb265633b329d144e360ba4dc5be954a.yaml
+  sha256: 0a62b56e3abb8ff9af3ce8fba6d87cb9eb265633b329d144e360ba4dc5be954a
+  size: 5294
+  role: C2.03 logical model
+- path: C2_03_ACCEPTANCE_TEST_DELTA_CANDIDATE__sha256_f3d2a0a942bdaf49f966c78abe038988832b9cfbdd24095b6740157244cda19f.md
+  sha256: f3d2a0a942bdaf49f966c78abe038988832b9cfbdd24095b6740157244cda19f
+  size: 14302
+  role: C2.03 acceptance delta
+- path: C2_03_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_3d1280c9ffe729809135e7506cad8740453efd17880adc7d124764536e9b4679.yaml
+  sha256: 3d1280c9ffe729809135e7506cad8740453efd17880adc7d124764536e9b4679
+  size: 10226
+  role: C2.03 decision ledger
+- path: C2_03_CANDIDATE_SELECTION__sha256_36482e829a8529943f76299fb9d267bb5db4008c6a0b536257c09dc024474017.yaml
+  sha256: 36482e829a8529943f76299fb9d267bb5db4008c6a0b536257c09dc024474017
+  size: 2273
+  role: C2.03 candidate selection
+- path: C2_03_STAGE_REPORT__sha256_320f27f028a8d13fe802c732f3fad5edd4bbaafb383db4ba818b97948f45a19d.md
+  sha256: 320f27f028a8d13fe802c732f3fad5edd4bbaafb383db4ba818b97948f45a19d
+  size: 2541
+  role: C2.03 stage report
+- path: C2_03_CONSTRUCTION_SUMMARY__sha256_13fb39c10084ac42f774e998c54b0233c7eef2f46462d4894886cebc283e55ae.json
+  sha256: 13fb39c10084ac42f774e998c54b0233c7eef2f46462d4894886cebc283e55ae
+  size: 307
+  role: C2.03 construction summary
+- path: C2_03_CONSTRUCTION_VALIDATION__sha256_5b6686f39bb3e62824dfc21db8f386b79e46ad2ffc04b055cb86580c6576207c.json
+  sha256: 5b6686f39bb3e62824dfc21db8f386b79e46ad2ffc04b055cb86580c6576207c
+  size: 520
+  role: C2.03 mechanical validation
+- external_pin: C2_00_SCOPE
+  sha256: b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7
+  role: parent authority/reference
+- external_pin: C2_01R1_CAPABILITY
+  sha256: 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+  role: parent authority/reference
+- external_pin: C2_01R1_RECHECK
+  sha256: e780ab10b6ed6e6108cc6fafc53ce329827b6135764b993f7a785fdd46e37937
+  role: parent authority/reference
+- external_pin: C2_02R2_OUTCOME
+  sha256: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+  role: parent authority/reference
+- external_pin: C2_02R2_LOGICAL
+  sha256: 763a0c1995116a657621633bde6224df332287d76c7ce986066f2d493022d04d
+  role: parent authority/reference
+- external_pin: C2_02R2_RECHECK_REPORT
+  sha256: 48eba8055fdec4be85eed5c06bd8b809e7716d937cc05cbbeb5078c7b219f509
+  role: parent authority/reference
+- external_pin: C2_02R2_RECHECK_RESULT
+  sha256: 36d9048577fbaed39f1af1ae6352fe8de9fb803a55c59fadd05ee633597c34e5
+  role: parent authority/reference
+- external_pin: C1_05R1_INTERFACE
+  sha256: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  role: parent authority/reference
+- external_pin: C2_STAGE_PLAN
+  sha256: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+  role: parent authority/reference

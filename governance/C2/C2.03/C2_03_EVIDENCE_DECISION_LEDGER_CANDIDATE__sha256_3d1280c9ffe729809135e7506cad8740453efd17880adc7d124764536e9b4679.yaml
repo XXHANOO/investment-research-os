@@ -1,0 +1,301 @@
+schema_version: 1.0.0-C2-03-decision-ledger-candidate
+project: Investment Research OS
+stage: C2.03
+status: CANDIDATE_NOT_REVIEWED
+decisions:
+- decision_id: C2.DEC-130
+  status: CANDIDATE
+  statement: Routing selects only capabilities that pass exact C2.01R1 compatibility
+    for the same pinned R and S.
+  acceptance_ids:
+  - C2-181
+- decision_id: C2.DEC-131
+  status: CANDIDATE
+  statement: Unknown, wrong-kind, dangling, hash-mismatched, or floating load-bearing
+    refs make semantic route eligibility false.
+  acceptance_ids:
+  - C2-182
+- decision_id: C2.DEC-132
+  status: CANDIDATE
+  statement: Operational route preference is never represented as C5 source fitness,
+    credibility, truth, or verification.
+  acceptance_ids:
+  - C2-183
+- decision_id: C2.DEC-133
+  status: CANDIDATE
+  statement: Route candidate ordering is deterministic by (preference_tier, preference_ordinal,
+    route_candidate_id).
+  acceptance_ids:
+  - C2-184
+- decision_id: C2.DEC-134
+  status: CANDIDATE
+  statement: Duplicate/non-unique route_candidate_id or unprovable ordering fails
+    closed rather than using local iteration order.
+  acceptance_ids:
+  - C2-185
+- decision_id: C2.DEC-135
+  status: CANDIDATE
+  statement: Concrete provider/vendor priority instances are absent from the C2.03
+    contract candidate.
+  acceptance_ids:
+  - C2-186
+- decision_id: C2.DEC-136
+  status: CANDIDATE
+  statement: Provider payload or untrusted content cannot add, remove, or reprioritize
+    route candidates.
+  acceptance_ids:
+  - C2-187
+- decision_id: C2.DEC-137
+  status: CANDIDATE
+  statement: Every dispatched route attempt has append-only ordered lineage and references
+    the exact C2.02 operation outcome.
+  acceptance_ids:
+  - C2-188
+- decision_id: C2.DEC-138
+  status: CANDIDATE
+  statement: A later successful attempt cannot erase or rewrite earlier FAILED attempts.
+  acceptance_ids:
+  - C2-189
+- decision_id: C2.DEC-139
+  status: CANDIDATE
+  statement: A later successful attempt cannot erase or rewrite earlier SUCCESS+NO_DATA
+    attempts.
+  acceptance_ids:
+  - C2-190
+- decision_id: C2.DEC-140
+  status: CANDIDATE
+  statement: A later successful attempt cannot erase or rewrite earlier SUCCESS+PARTIAL
+    attempts.
+  acceptance_ids:
+  - C2-191
+- decision_id: C2.DEC-141
+  status: CANDIDATE
+  statement: SUCCESS+NO_DATA continuation uses GENUINE_NO_DATA_CONTINUATION and does
+    not reclassify the attempt as FAILED.
+  acceptance_ids:
+  - C2-192
+- decision_id: C2.DEC-142
+  status: CANDIDATE
+  statement: SUCCESS+NO_DATA fallback does not prove C1 NO_MATCH or canonical absence.
+  acceptance_ids:
+  - C2-193
+- decision_id: C2.DEC-143
+  status: CANDIDATE
+  statement: SUCCESS+PARTIAL may terminate or continue only with original partiality
+    provenance preserved.
+  acceptance_ids:
+  - C2-194
+- decision_id: C2.DEC-144
+  status: CANDIDATE
+  statement: C2.03 performs no cross-provider union, deduplication, reconciliation,
+    verification, or corroboration.
+  acceptance_ids:
+  - C2-195
+- decision_id: C2.DEC-145
+  status: CANDIDATE
+  statement: FAILED may lead to same-route nomination, next-route nomination, or exhaustion
+    without converting failure to NO_DATA.
+  acceptance_ids:
+  - C2-196
+- decision_id: C2.DEC-146
+  status: CANDIDATE
+  statement: C2.02 diagnostic_retry_hint is diagnostic input only and does not itself
+    authorize or schedule retry.
+  acceptance_ids:
+  - C2-197
+- decision_id: C2.DEC-147
+  status: CANDIDATE
+  statement: CANCELLED terminates the current route request and cannot automatically
+    trigger fallback or same-route retry.
+  acceptance_ids:
+  - C2-198
+- decision_id: C2.DEC-148
+  status: CANDIDATE
+  statement: The C2.03 route action domain is closed and private adapter actions are
+    forbidden.
+  acceptance_ids:
+  - C2-199
+- decision_id: C2.DEC-149
+  status: CANDIDATE
+  statement: C2 same-route reattempt is a logical nomination, not C3 attempt admission.
+  acceptance_ids:
+  - C2-200
+- decision_id: C2.DEC-150
+  status: CANDIDATE
+  statement: C2 does not compute backoff time, sleep for retry, decrement quota, or
+    own C3 cache/freshness/coalescing/LKG.
+  acceptance_ids:
+  - C2-201
+- decision_id: C2.DEC-151
+  status: CANDIDATE
+  statement: Actual re-dispatch requires positive external admission under C3 plus
+    continued C7 authorization/budget.
+  acceptance_ids:
+  - C2-202
+- decision_id: C2.DEC-152
+  status: CANDIDATE
+  statement: Unresolved or non-positive external admission causes no dispatch and
+    remains distinct from provider FAILED/NO_DATA/PARTIAL.
+  acceptance_ids:
+  - C2-203
+- decision_id: C2.DEC-153
+  status: CANDIDATE
+  statement: Fallback triggered by external admission preserves the load-bearing external
+    gate provenance.
+  acceptance_ids:
+  - C2-204
+- decision_id: C2.DEC-154
+  status: CANDIDATE
+  statement: C2.03 semantic ownership closes the retry/quota seam while exact C3/C7
+    wire binding remains deferred to C2.06.
+  acceptance_ids:
+  - C2-205
+- decision_id: C2.DEC-155
+  status: CANDIDATE
+  statement: Every candidate-to-candidate transition emits a FallbackEvent with from/to
+    candidates, reason, requirement refs, and route-policy ref.
+  acceptance_ids:
+  - C2-206
+- decision_id: C2.DEC-156
+  status: CANDIDATE
+  statement: Equivalent fallback requires the same effective requirement and exact
+    C2.01 compatibility for that requirement.
+  acceptance_ids:
+  - C2-207
+- decision_id: C2.DEC-157
+  status: CANDIDATE
+  statement: Equivalent fallback is still replay-visible even when it creates no semantic-degradation
+    record.
+  acceptance_ids:
+  - C2-208
+- decision_id: C2.DEC-158
+  status: CANDIDATE
+  statement: A lower route preference tier is not automatically a lower-quality or
+    lower-fitness source claim.
+  acceptance_ids:
+  - C2-209
+- decision_id: C2.DEC-159
+  status: CANDIDATE
+  statement: Requirement downgrade never mutates R in place and requires a distinct
+    canonical R-prime.
+  acceptance_ids:
+  - C2-210
+- decision_id: C2.DEC-160
+  status: CANDIDATE
+  statement: Requirement downgrade requires trusted authorization, original-to-downgraded
+    linkage, compatibility proof for R-prime, and a degradation record.
+  acceptance_ids:
+  - C2-211
+- decision_id: C2.DEC-161
+  status: CANDIDATE
+  statement: Absent authorized R-prime, C2 may request an explicit downgrade but cannot
+    synthesize one from provider failure or content.
+  acceptance_ids:
+  - C2-212
+- decision_id: C2.DEC-162
+  status: CANDIDATE
+  statement: Route degradation kinds are closed to REQUIREMENT_DOWNGRADE, POLICY_PREFERENCE_TIER_DOWNGRADE,
+    and PARTIAL_ACCEPTED_AS_TERMINAL.
+  acceptance_ids:
+  - C2-213
+- decision_id: C2.DEC-163
+  status: CANDIDATE
+  statement: C3 stale/cache/LKG degradation is never relabeled as a C2 route-degradation
+    kind.
+  acceptance_ids:
+  - C2-214
+- decision_id: C2.DEC-164
+  status: CANDIDATE
+  statement: Material route degradation refs remain immutable and available for downstream
+    replay lineage.
+  acceptance_ids:
+  - C2-215
+- decision_id: C2.DEC-165
+  status: CANDIDATE
+  statement: Route-level terminal disposition remains orthogonal to C2.02 provider
+    operation/data outcomes.
+  acceptance_ids:
+  - C2-216
+- decision_id: C2.DEC-166
+  status: CANDIDATE
+  statement: EXHAUSTED is not provider NO_DATA, not provider FAILED, and not C1 NO_MATCH.
+  acceptance_ids:
+  - C2-217
+- decision_id: C2.DEC-167
+  status: CANDIDATE
+  statement: YIELDED_EXTERNAL_ADMISSION is not provider failure and performs no provider
+    dispatch.
+  acceptance_ids:
+  - C2-218
+- decision_id: C2.DEC-168
+  status: CANDIDATE
+  statement: REQUIREMENT_DOWNGRADE_REQUIRED cannot continue until a trusted explicit
+    R-prime is supplied/authorized.
+  acceptance_ids:
+  - C2-219
+- decision_id: C2.DEC-169
+  status: CANDIDATE
+  statement: Zero semantically compatible candidates is a route-level exhaustion reason
+    and never synthetic provider NO_DATA.
+  acceptance_ids:
+  - C2-220
+- decision_id: C2.DEC-170
+  status: CANDIDATE
+  statement: Replay lineage retains S, exact R/R-prime, route policy, candidate inventory/order
+    inputs, outcomes, external gates, fallback/degradation refs, and terminal disposition.
+  acceptance_ids:
+  - C2-221
+- decision_id: C2.DEC-171
+  status: CANDIDATE
+  statement: Successful fallback cannot be presented downstream as clean-primary provenance
+    when material fallback/degradation occurred.
+  acceptance_ids:
+  - C2-222
+- decision_id: C2.DEC-172
+  status: CANDIDATE
+  statement: Provider/native payloads and untrusted content cannot authorize requirement
+    downgrade, side-effect intent, C6 capability, C7 budget, or C3 admission changes.
+  acceptance_ids:
+  - C2-223
+- decision_id: C2.DEC-173
+  status: CANDIDATE
+  statement: C2.OPEN-006 is only candidate-closed pending Independent Routing Review;
+    no self-approval/freeze occurs.
+  acceptance_ids:
+  - C2-224
+- decision_id: C2.DEC-174
+  status: CANDIDATE
+  statement: C2.OPEN-007 is candidate-closed only at the C2.03 semantic level; C2.06
+    cross-contract wire binding remains explicitly open.
+  acceptance_ids:
+  - C2-225
+- decision_id: C2.DEC-175
+  status: CANDIDATE
+  statement: RoutePolicySnapshot continuation rules are content-addressed, have unique
+    rule_id, and resolve multiple matches deterministically by (rule_priority, rule_id).
+  acceptance_ids:
+  - C2-226
+- decision_id: C2.DEC-176
+  status: CANDIDATE
+  statement: No matching route-policy rule uses the closed fail-safe defaults; SUCCESS_PRESENT
+    and CANCELLED are not overridable.
+  acceptance_ids:
+  - C2-227
+- decision_id: C2.DEC-177
+  status: CANDIDATE
+  statement: NOMINATE_NEXT_ROUTE selects the first eligible unattempted candidate
+    under the current requirement; candidate revisit is only SAME_ROUTE_REATTEMPT.
+  acceptance_ids:
+  - C2-228
+- decision_id: C2.DEC-178
+  status: CANDIDATE
+  statement: SAME_ROUTE_REATTEMPT preserves the same candidate and same effective
+    requirement, creates a new attempt ordinal, and still requires external admission.
+  acceptance_ids:
+  - C2-229
+- decision_id: C2.DEC-179
+  status: CANDIDATE
+  statement: Higher numeric preference-tier fallback and terminal acceptance of PARTIAL
+    emit their deterministic route-degradation records without making C5 quality claims.
+  acceptance_ids:
+  - C2-230

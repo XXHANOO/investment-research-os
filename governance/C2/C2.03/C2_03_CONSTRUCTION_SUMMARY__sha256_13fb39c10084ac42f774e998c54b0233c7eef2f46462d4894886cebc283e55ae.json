@@ -1,0 +1,11 @@
+{
+  "project": "Investment Research OS",
+  "stage": "C2.03",
+  "status": "CONSTRUCTION_COMPLETE_AS_CANDIDATE",
+  "generated": "2026-08-24T10:49:00Z",
+  "decision_count": 50,
+  "acceptance_count": 50,
+  "provider_instances": 0,
+  "production_adapters": 0,
+  "next_gate": "C2.03 Independent Routing Review"
+}

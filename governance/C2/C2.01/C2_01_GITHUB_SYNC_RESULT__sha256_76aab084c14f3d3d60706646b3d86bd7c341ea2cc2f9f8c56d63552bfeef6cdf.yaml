@@ -1,0 +1,32 @@
+schema_version: 1.0.0-C2-01-github-sync
+project: Investment Research OS
+generated_date: '2026-08-23'
+repository: XXHANOO/investment-research-os
+branch: main
+status: PASS
+verdict: C2_01_GITHUB_PROGRESS_SYNCHRONIZED_REVIEW_REPAIR_REQUIRED
+construction_snapshot_commit: 22c85cc54fcb0a25eb2fa87ec66ca0b7728c6fbe
+review_state_commit: 6ebf6a54b9c43252fb46fd7510548d77f3295f50
+governance_state:
+  C0: FROZEN
+  C1: FROZEN
+  C2_00: INDEPENDENT_SCOPE_REVIEW_PASS_NOT_FROZEN
+  C2_01: INDEPENDENT_CAPABILITY_REVIEW_FAIL_REPAIR_REQUIRED
+  C2_02: NOT_AUTHORIZED
+  production_implementation: NOT_AUTHORIZED
+  external_side_effects: NOT_AUTHORIZED
+checks:
+  c1_frozen_index_non_authoritative: PASS
+  c2_01_construction_synced: PASS
+  exact_remote_git_blob_checks: PASS
+  temporary_reconstruction_machinery_removed: PASS
+  independent_review_synced: PASS
+  current_stage_pointer: PASS
+semantic_review:
+  status: FAIL
+  blockers:
+  - C2CAP-B01
+  - C2CAP-B02
+review_report_sha256: a4aff388382966fcc36f5be33b7b622ea835bf0b08aa4519968864e96e8bff96
+review_result_sha256: 53afb757e7f1f2ebeb1224b2ab2a6cd5a04a3f6954a3d79d197621664687170c
+next_gate: Explicit authorization for C2.01R1 scoped repair, then Independent Capability Re-Check

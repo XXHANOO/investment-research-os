@@ -1,0 +1,94 @@
+name: C1 lossless archival remediation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/c1-lossless-remediation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore exact C1 frozen substantive bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d .c1-remediation
+          python - <<'PY'
+          from pathlib import Path
+          import base64, hashlib, io, tarfile
+
+          chunks = sorted(Path('.c1-remediation').glob('chunk*.b64'))
+          assert len(chunks) == 9, f'expected 9 chunks, got {len(chunks)}'
+          b64 = ''.join(p.read_text() for p in chunks)
+          tgz = base64.b64decode(b64)
+          tar_sha = hashlib.sha256(tgz).hexdigest()
+          expected_tar_sha = '711abdba94f383c488f7be9647f383a6a70d9481c045f99eeb09fc9ca048af19'
+          assert tar_sha == expected_tar_sha, (tar_sha, expected_tar_sha)
+
+          targets = {
+            'C1_05R1_ACCEPTANCE_TEST_DELTA__sha256_bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83.md': ('governance/C1/C1.05R1/C1_05R1_ACCEPTANCE_TEST_DELTA__sha256_bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83.md','bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83'),
+            'C1_05R1_EVIDENCE_DECISION_LEDGER__sha256_47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031.yaml': ('governance/C1/C1.05R1/C1_05R1_EVIDENCE_DECISION_LEDGER__sha256_47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031.yaml','47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031'),
+            'C1_05R1_INDEPENDENT_REGRESSION_RECHECK_REPORT.md': ('governance/C1/C1.05R1/C1_05R1_INDEPENDENT_REGRESSION_RECHECK_REPORT.md','58a6b0b2782fc431c5d389e874f38b494c24363d4575c90d929cf11c81b0f751'),
+            'C1_05R1_PROVIDER_NORMALIZATION_INTERFACE_CANDIDATE__sha256_71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63.md': ('governance/C1/C1.05R1/C1_05R1_PROVIDER_NORMALIZATION_INTERFACE_CANDIDATE__sha256_71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63.md','71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63'),
+            'C1_05R1_PROVIDER_NORMALIZATION_REGISTRY_CANDIDATE__sha256_422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b.yaml': ('governance/C1/C1.05R1/C1_05R1_PROVIDER_NORMALIZATION_REGISTRY_CANDIDATE__sha256_422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b.yaml','422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b'),
+            'C1_07R2_ACCEPTANCE_TEST_DELTA__sha256_ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78.md': ('governance/C1/C1.07R2/C1_07R2_ACCEPTANCE_TEST_DELTA__sha256_ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78.md','ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78'),
+            'C1_07R2_CANDIDATE_SELECTION__sha256_def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231.yaml': ('governance/C1/C1.07R2/C1_07R2_CANDIDATE_SELECTION__sha256_def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231.yaml','def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231'),
+            'C1_07R2_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247.yaml': ('governance/C1/C1.07R2/C1_07R2_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247.yaml','a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247'),
+            'C1_07R2_EVIDENCE_DECISION_LEDGER__sha256_ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486.yaml': ('governance/C1/C1.07R2/C1_07R2_EVIDENCE_DECISION_LEDGER__sha256_ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486.yaml','ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486'),
+            'C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json': ('governance/C1/C1.07R2/C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json','927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4'),
+            'C1_07R2_SCHEMA_REGISTRY_CANDIDATE__sha256_fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a.yaml': ('governance/C1/C1.07R2/C1_07R2_SCHEMA_REGISTRY_CANDIDATE__sha256_fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a.yaml','fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a'),
+          }
+
+          restored=[]
+          with tarfile.open(fileobj=io.BytesIO(tgz), mode='r:gz') as tf:
+            names=set(tf.getnames())
+            assert names == set(targets), f'tar inventory mismatch: {names ^ set(targets)}'
+            for src,(dest,expected) in targets.items():
+              data=tf.extractfile(src).read()
+              actual=hashlib.sha256(data).hexdigest()
+              assert actual == expected, f'{src}: {actual} != {expected}'
+              p=Path(dest); p.parent.mkdir(parents=True, exist_ok=True); p.write_bytes(data)
+              post=hashlib.sha256(p.read_bytes()).hexdigest()
+              assert post == expected, f'post-write mismatch {dest}'
+              restored.append((dest,expected,len(data)))
+
+          out=Path('governance/C1/C1_SUBSTANTIVE_ARCHIVE_REMEDIATION_RESTORE_RESULT.yaml')
+          lines=[
+            'schema_version: 1.0.0-C1-lossless-archive-restore',
+            'project: Investment Research OS',
+            "status: PASS",
+            "operation: LOSSLESS_ARCHIVAL_MIRROR_ONLY",
+            "semantic_authority_changed: false",
+            "freeze_seal_changed: false",
+            "source_c2_handoff_zip_sha256: 705624f14422f0e0ce373c5a92f90cd67198050bfa2f1f96631c2cd75f4a1f95",
+            f"transport_tar_sha256: {tar_sha}",
+            f"restored_count: {len(restored)}",
+            'restored:'
+          ]
+          for dest,h,n in restored:
+            lines += [f"  - path: {dest}", f"    sha256: {h}", f"    bytes: {n}"]
+          lines += [
+            'historical_external_dependencies: PRESERVED_AS_ORIGINALLY_DISCLOSED_NOT_REGENERATED',
+            'c1_freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5'
+          ]
+          out.write_text('\n'.join(lines)+'\n')
+          PY
+      - name: Commit restored archive and remove temporary transport
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -r .c1-remediation
+          git rm .github/workflows/c1-lossless-remediation.yml
+          git add governance/C1/C1.05R1 governance/C1/C1.07R2 governance/C1/C1_SUBSTANTIVE_ARCHIVE_REMEDIATION_RESTORE_RESULT.yaml
+          git commit -m 'archive(C1): restore exact frozen substantive artifacts'
+          git push origin HEAD:main

@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.03R2 INDEPENDENT ROUTING RE-CHECK PASS — C2.03 REVIEW_PASSED_NOT_FROZEN
-Current gate: Explicit user authorization for C2.04 — Credentials / Private-State / Secure Ingress Boundary
+Current stage: C2.04 CONSTRUCTION COMPLETE — CONSTRUCTED_CANDIDATE_NOT_FROZEN
+Current gate: C2.04 Independent Security-Boundary Review
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -39,57 +39,63 @@ C2.OPEN-004: CLOSED_AT_C2_02_CONTRACT_LEVEL
 C2.OPEN-005: CLOSED_AT_C2_02_CONTRACT_LEVEL
 
 C2.03 original Independent Routing Review: FAIL
-C2.03R1 scoped repair construction: COMPLETE AS REPAIR CANDIDATE
 C2.03R1 Independent Routing Re-Check: FAIL
-C2.03R1 targeted acceptance re-check: 44/44 PASS at stated obligation scope
-C2.03R1 original failed obligations: C2-204 PASS; C2-221 PASS; C2-226 PASS; C2-227 PASS; C2-228 PASS_WITH_R1_ROUTESTATEKEY_INTERPRETATION
-C2.03R1 repair obligations: C2-231..C2-269 = 39/39 PASS
-C2.03R1 Independent Re-Check report SHA-256: 5aa29272f8241c4b839ed0371ad7276ea0879b87002eab4e2993b86d1ea9bd88
-C2.03R1 Independent Re-Check result SHA-256: 33309d8529289be727b1a994fa1fca04c508f9f2b71cff3684bddd5185c2e001
-
-C2.03R2 narrow repair construction: COMPLETE AS REPAIR CANDIDATE
 C2.03R2 Independent Routing Re-Check: PASS
 C2.03 state after R2 re-check: REVIEW_PASSED_NOT_FROZEN
-C2ROUTE-B01: CLOSED
-C2ROUTE-B02: CLOSED
-C2ROUTE-B03: CLOSED
-C2ROUTE-B04: CLOSED
+C2ROUTE-B01..B04: CLOSED
 C2.OPEN-006: CLOSED_AT_C2_03_CONTRACT_LEVEL
 C2.OPEN-007: CLOSED_AT_C2_03_SEMANTIC_LEVEL_PENDING_C2_06_WIRE_BINDING
-C2.OPEN-008..015: OPEN_UNCHANGED
-C2.03R2 repair decisions: C2.DEC-202..C2.DEC-212 (11)
-C2.03R2 repair acceptance obligations: C2-270..C2-288 = 19/19 PASS
-C2.03R2 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_RECHECK
 C2.03R2 Independent Re-Check report SHA-256: 968db1fb83eca0e77c51a017ec12c5bcb5e43440cd0a25a7e971b9c00f5ef11a
 C2.03R2 Independent Re-Check result SHA-256: f8db42b0dce59cb021dfa12f5913fb3f79918808d73f5fbc853656a8b7633d43
-C2.03R2 exact review archive merge commit: e1f5c9dcd82abca37ff7456ae64a255e1637c19d
-C2.03R2 exact review Git blob equivalence: 2/2 PASS
-C2.03R2 temporary review transport/workflow: REMOVED BEFORE MERGE
 
-C2.03R2 repaired normative contract SHA-256: e04158428fc030ca72d297b2cb3fd4226dccaba0aa35224b14fc4de89e039b6b
-C2.03R2 repaired logical model SHA-256: f001ce483a07eddf32fe3417ad2c42f41294b4e296b28d3c2045ea040358f833
-C2.03R2 repair acceptance delta SHA-256: 97e4f33abe498c85e69f5ff70b068272d1869b9ab255565ac3e9e848d5ba5914
-C2.03R2 repair decision ledger SHA-256: fb65306032ff1f39565684b645a2862ed244459a2586d6321a7e55ea188e42b0
-C2.03R2 repair diffs SHA-256: 81a9fbf5430cf08769580c1377a62f9becbae3e9e6d0a4cebf73960ac54256df
-C2.03R2 construction validation SHA-256: 1f1f2002fbaea05047627d5ae100b81eda710b8fc9c25519bc3b72032ada3287
-C2.03R2 candidate selection SHA-256: 8f2f1332313f221ef2e694d69c9d0f5ff1561a7ec13cca2258114b8cd1125974
-C2.03R2 construction summary SHA-256: 4e3deef3dc9ac7b8faf830ba9c65b1c67ee662b7d24c59e0428280518338ab13
-C2.03R2 stage report SHA-256: d270f1b3564a08054ab51a2412dbbbf68931b11f038426e4582914b452d4c474
-C2.03R2 re-check package manifest SHA-256: df9512317bd7543bd1d921a297c501b4c93cff76654459fb615aa4d97064aaec
-C2.03R2 ZIP pointer SHA-256: 3005588abefc9f7266c64858391b0dd468b466ee63870aae3992cbfa553a65e6
-C2.03R2 convenience re-check ZIP SHA-256: e080ab2c8263c0e13bf7342d1eda6ee1acd79418a04865085a838a920a3790ee
+C2.04 construction: COMPLETE AS CANDIDATE
+C2.04 state: CONSTRUCTED_CANDIDATE_NOT_FROZEN
+C2.04 Independent Security-Boundary Review: NOT PERFORMED
+C2.04 construction decisions: C2.DEC-213..C2.DEC-262 = 50
+C2.04 construction acceptance obligations: C2-289..C2-348 = 60
+C2.04 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_SECURITY_REVIEW
+C2.04 provider instances: 0
+C2.04 production adapters: 0
+C2.04 real secret values in candidate: 0
+C2.04 secret-store/KMS/vendor selections: 0
 
-C2.03R2 reviewed semantic rule: authorization is not activation. A present transition is validated first, ordinary current-R routing is computed independently, and R->R' activates only when current R is structurally exhausted and R' has a deterministic eligible unconsumed RouteStateKey. Current-R terminal and current-R progress actions take precedence over latent transition authority. Invalid present transition input fails closed. Identical pinned RouteDecisionInput plus retained lineage must reproduce the same transition path.
+C2.04 normative contract SHA-256: 198d194fbb3814676f1cb74aec5d56f19f8b1f9b081c6d77c16b4e66fd762cda
+C2.04 logical model SHA-256: 9d3609c775967fe374c1e1007828540d893852834bece09986148bf5a8aad5af
+C2.04 acceptance delta SHA-256: 2a0b24c0f9d67a03c565f16e2985d0a5ecbaaff090c4715b2b7ea9b8491c0b8a
+C2.04 evidence/decision ledger SHA-256: 719018dd73c1e80e9633d0468972e253dae4f77a3ffda75e1c0169c16c9aeac4
+C2.04 candidate selection SHA-256: 43ed6936cf36435303edd0a4df2847da1af10816d2b51e431b8885496eba60f4
+C2.04 construction summary SHA-256: 69008bf5827bf300b77b0a3fa003faca9ce96766913d69470413f49eb6e60dd8
+C2.04 construction validation SHA-256: 6a6c45ae2d9785a81f130b5142361d125ad40cb499962517d320f379200b176c
+C2.04 stage report SHA-256: afd19deeaeafd98ae9e10fa0c6ba953e4c8a2008dcc5652cab3c054f7619a55f
+C2.04 independent-security-review package manifest SHA-256: e3495ee44dd266fdaf9fbd2f5d9f3cb0f1e361f578c284b822fe8f9d512c5b28
+C2.04 ZIP pointer SHA-256: 5b09444eed4c7eb63e966026df1642397558f9f36b52c1c019fc9c7d61eb8e74
 
-Successor traceability correction: immutable C2.03R1 Stage Report states C2-231..C2-268 (39), while the actual R1 repair obligation range is C2-231..C2-269 (39). Historical R1 artifact remains unchanged.
+C2.04 canonical GitHub archive commit: 8abaf5956b342780b85dc17fbb8ecf4142b12f8b
+C2.04 canonical GitHub tree: c3bb470c85f02eeebf7a222a8e2a46f7829a7ce7
+C2.04 canonical artifact count: 10
+C2.04 exact Git blob byte equivalence: 10/10 PASS
+C2.04 temporary materialize trigger on main: REMOVED
+C2.04 temporary materializer workflow on main: REMOVED
+C2.04 temporary .c2-04-sync transport on main: ABSENT
 
-C2.06 carried obligations: bind C2/C3/C6/C7 route/admission/authorization references and reconcile frozen C1 OutcomeAxes serialization without changing C2 semantic ownership.
-C2.07 carried validator obligations: encode routing snapshot identity, permission semantics, exact continuation matching, external-admission lineage/consumption, RouteStateKey-scoped revisit semantics, R2 requirement-transition validation/activation/precedence, semantic compatibility, replay lineage, closed actions/reasons/degradation kinds, and fail-closed ref resolution. Invalid present AuthorizedRequirementTransitionInput must fail closed rather than be silently treated as absent.
+C2.04 reviewed-candidate semantic surface includes: stable content-addressed security refs; credential binding profiles distinct from operation-local opaque credential leases; credential possession/binding never granting C6 capability or PAPER/LIVE authority; provider/endpoint/capability credential binding; no cross-provider or cross-authority redirect credential forwarding without trusted rebind/admission; provider-bound private-state scope constrained to trusted authorized subset and not expandable/retargetable by provider content; secure-ingress state machine from ephemeral untrusted candidate through orthogonal secret/privacy/licensing/retention assessment to REJECT, QUARANTINE, REASSESS_REDACTED, or ADMIT; ADMIT split into PERMITTED_RAW versus EPHEMERAL_ONLY; deterministic precedence REJECT > QUARANTINE/INDETERMINATE > REDACT/REASSESS > ADMIT; redaction output requiring full re-assessment; quarantine/reject isolation from C1 normalization and NO_DATA; diagnostic sanitation without C2.02 outcome reclassification; ingress admission not implying C5 verification and ingress timestamps not implying C4 available_from.
 
-C2.04: NOT STARTED / NOT AUTHORIZED
+C2.OPEN-008: CANDIDATE_CLOSED_PENDING_INDEPENDENT_SECURITY_BOUNDARY_REVIEW
+C2.OPEN-009: OPEN_UNCHANGED
+C2.OPEN-010: OPEN_UNCHANGED
+C2.OPEN-011: OPEN_UNCHANGED
+C2.OPEN-012: OPEN_UNCHANGED
+C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+C2.OPEN-014: OPEN_UNCHANGED
+C2.OPEN-015: OPEN_UNCHANGED
+
+C2.06 carried obligations: exact C2->C11 permitted-raw/quarantine wire handoff; C2/C3/C6/C7 admission/authorization references; reconcile frozen C1 OutcomeAxes serialization without changing C2 semantic ownership.
+C2.07 carried validator obligations: encode stable C2.04 security refs, closed security enums, credential binding constraints, private-state subset rules, secure-ingress decision precedence, redaction re-assessment, quarantine/reject isolation, permitted-raw versus ephemeral-only separation, sanitized diagnostics, wrong-kind/dangling/hash-mismatched refs, and fail-closed security-boundary validation.
+
+C2.05: NOT STARTED / NOT AUTHORIZED
 
 Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
 NEXT GATE:
-Explicit user authorization for C2.04 — Credentials / Private-State / Secure Ingress Boundary.
+C2.04 Independent Security-Boundary Review.

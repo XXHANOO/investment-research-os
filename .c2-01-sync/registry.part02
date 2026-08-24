@@ -1,0 +1,146 @@
+ZERO_OR_ONE
+ONE
+COLLECTION
+PAGED_COLLECTION
+SERIES
+EVENT_COLLECTION
+DOCUMENT
+BULK_OBJECT
+STREAM
+```
+
+An endpoint semantic profile describes **what provider response elements mean**. It does not classify provider operation status/error families (C2.02), route eligibility/priority (C2.03), credentials (C2.04), completeness strength (C2.05), or current operational health.
+
+Endpoint URLs, SDK class names, credential names and transport-client implementation details are not load-bearing semantic fields in this contract. Adapter binding may refer to the semantic profile later, not vice versa.
+
+### 6.5 `ProviderCapabilityDefinition`
+
+```text
+ProviderCapabilityDefinition:
+  capability_id
+  semantic_revision
+  provider_profile_ref
+  endpoint_semantic_profile_ref
+  access_pattern_family
+  produced_observation_family_refs[]
+  accepted_query_semantic_refs[]
+  required_response_semantic_refs[]
+  semantic_feature_refs[]
+  compatibility_ruleset_ref
+  content_identity
+```
+
+A capability record MUST NOT encode:
+
+```text
+priority / preferred provider
+retry count / backoff / quota budget
+credential secret or private entitlement value
+current enabled/disabled health
+claim/source fitness
+verification/conflict strength
+PIT/reconstructability conclusion
+completeness/coverage certification strength
+production adapter class or executable code
+```
+
+## 7. Field-semantic Binding Model
+
+C2.01 resolves the C1-facing field-binding seam as follows:
+
+```text
+provider raw field selector
+    ↓
+C2 FieldSemanticDefinition (snapshot-stable)
+    ↓
+C1 NormalizationProfileDefinition.provider_field_semantic_refs[]
+    ↓
+C1 profile binds that provider semantic to a permitted C1 semantic slot
+```
+
+C2 describes the provider field. C1 decides whether and how that field can populate a C1 candidate assertion.
+
+Therefore C2 field semantics MUST NOT directly name an internal `EntityID`, `InstrumentID`, `ListingID` or `ContractID` as the meaning of a provider-native value. A provider-native “permanent ID” remains a provider identifier observation unless C1 independently resolves/adopts it.
+
+## 8. Capability Compatibility Model
+
+C2.01 defines compatibility as a deterministic semantic predicate over pinned records, not a fuzzy provider score.
+
+A capability requirement `R` is compatible with provider capability `P` only when **all** of the following hold under the same snapshot-stable registry state:
+
+```text
+1. R.access_pattern_family == P.access_pattern_family
+2. R.required_observation_families ⊆ P.produced_observation_family_refs
+3. R.required_query_semantics ⊆ P.accepted_query_semantic_refs
+4. R.required_response_semantics ⊆ P.required_response_semantic_refs or
+   are explicitly satisfied by P.endpoint_semantic_profile_ref
+5. every required semantic feature is explicitly provided by P.semantic_feature_refs
+6. every referenced semantic record resolves exactly and passes content-identity verification
+7. no required semantic constraint is answered by implicit provider-wide default or by guessing
+```
+
+If the compatibility predicate cannot be proven from pinned semantic records, the capability is **not eligible as semantically compatible**. C2.03 may later define routing among compatible capabilities; it may not weaken this semantic compatibility predicate.
+
+Compatibility does not mean:
+
+```text
+provider is online
+credentials are available
+quota is available
+route should be selected
+response will contain data
+response will be complete
+source is fit for a claim
+result is PIT-safe or verified
+```
+
+## 9. Endpoint Semantic Change Rules
+
+Any change that can alter interpretation of a request or observation requires a new semantic payload/ref. Examples include:
+
+```text
+provider-native identifier meaning changes
+query parameter meaning/default changes
+response record grouping changes
+field unit/scale/sign changes
+null/missing/sentinel meaning changes
+enum value meaning changes
+timestamp-role meaning changes
+pagination/truncation semantics change
+provider-native absence/partiality signal meaning changes
+observation-family mapping eligibility changes
+```
+
+A transport-only implementation change that provably does not alter any C2 semantic record may use a different adapter binding without rewriting the semantic profile. C2.07 will define exact validator/canonicalization machinery.
+
+## 10. Registry Snapshot Model
+
+The C2.01 registry is itself snapshot-stable.
+
+```text
+ProviderCapabilitySemanticRegistrySnapshot:
+  registry_id
+  semantic_revision
+  taxonomy_version
+  compatibility_ruleset_ref
+  provider_profile_refs[]
+  endpoint_profile_refs[]
+  field_semantic_refs[]
+  capability_refs[]
+  auxiliary_semantic_refs[]
+  content_identity
+```
+
+At C2.01 contract-construction time, the **provider-instance lists remain empty by design**. This stage freezes no Alpaca, Tushare, AKShare, Serper, Bocha, Exa, or other vendor as canonical/priority configuration. Concrete provider enablement remains `C2.OPEN-015` post-contract configuration/ADR work.
+
+The registry candidate therefore contains the normative taxonomy/record/compatibility model but no vendor selection.
+
+## 11. C1.05R1 Referential Compatibility
+
+C2.01 explicitly satisfies the frozen C1 requirements:
+
+| C1.05R1 ref | C2.01 semantic target |
+|---|---|
+| `provider_profile_ref` | `C2StableSemanticRef(ref_kind=PROVIDER_SEMANTIC_PROFILE)` |
+| `provider_field_semantic_refs[]` | `C2StableSemanticRef(ref_kind=FIELD_SEMANTIC)` |
+| `provider_capability_ref` | `C2StableSemanticRef(ref_kind=CAPABILITY_DEFINITION)` |

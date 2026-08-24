@@ -1,16 +1,15 @@
 name: C2.04 temporary exact materializer
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.c2-04-materialize-trigger'
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: write
 
 jobs:
   materialize:
+    if: github.event.issue.pull_request && github.event.issue.number == 12 && contains(github.event.comment.body, 'C2.04 EXACT MATERIALIZE')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -51,7 +50,6 @@ EOF
           done < /tmp/expected.txt
           rm -rf .c2-04-sync
           rm -f .github/workflows/c2-04-exact-sync.yml
-          rm -f .github/workflows/c2-04-base-materializer-temp.yml
 
       - name: Commit exact canonical candidate to staging branch
         shell: bash

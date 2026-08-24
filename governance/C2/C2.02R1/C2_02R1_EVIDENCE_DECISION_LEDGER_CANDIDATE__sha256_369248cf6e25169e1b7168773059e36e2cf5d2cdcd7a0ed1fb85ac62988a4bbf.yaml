@@ -1,0 +1,183 @@
+schema_version: 1.0.0-C2-02R1-repair-ledger
+project: Investment Research OS
+stage: C2.02R1
+generated_at_utc: '2026-08-24T08:36:46Z'
+status: SCOPED_REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+parent_review_result_sha256: 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+blocking_findings:
+  C2OUT-B01: ADDRESSED_NOT_CLOSED
+  C2OUT-B02: ADDRESSED_NOT_CLOSED
+  C2OUT-B03: ADDRESSED_NOT_CLOSED
+  C2OUT-B04: ADDRESSED_NOT_CLOSED
+decisions:
+- id: C2.DEC-108
+  title: Provisional-success terminalization
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Successful data conditions do not terminalize until required decode/semantic
+    validation completes; only pinned semantic conditions enter the terminal candidate
+    set
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-144
+  - C2-150
+- id: C2.DEC-109
+  title: Deterministic primary terminal selection
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Primary non-success cause uses lowest phase ordinal, then a fixed same-phase
+    class tie-break and closed tuple tie-break; secondary conditions remain replay-visible
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-145
+  - C2-146
+- id: C2.DEC-110
+  title: Compound-condition adversarial outcomes
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Same-phase explicit cancellation beats timeout; typed provider error
+    defeats provisional absence; required decode failure defeats partiality success
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-147
+  - C2-148
+  - C2-149
+- id: C2.DEC-111
+  title: Single terminal phase authority
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: operation_phase_terminal is the sole successor source of terminal phase;
+    duplicated legacy phases must equal it or fail closed
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-151
+  - C2-152
+- id: C2.DEC-112
+  title: Non-success admission zero
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: FAILED and CANCELLED have zero admitted observations; diagnostic/quarantined
+    bytes are not admitted
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-153
+  - C2-154
+  - C2-155
+- id: C2.DEC-113
+  title: Attempt response scope replay
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Every outcome retains attempted_response_semantic_refs under the same
+    pinned registry snapshot
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-156
+- id: C2.DEC-114
+  title: Partiality materiality predicate
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: WHOLE_ATTEMPT is material; RESPONSE_SEMANTIC_SET is material exactly
+    on non-empty intersection with attempted response scope
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-157
+  - C2-158
+  - C2-159
+- id: C2.DEC-115
+  title: Unresolved materiality fail-closed
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Unresolvable partiality scope becomes typed RESPONSE_SEMANTIC_INVALID
+    and material refs must be a subset of matched refs
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-160
+  - C2-161
+- id: C2.DEC-116
+  title: Successful classification order
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Material partiality precedes PRESENT/NO_DATA; if usable it yields PARTIAL,
+    otherwise FAILED
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-162
+- id: C2.DEC-117
+  title: Single retry diagnostic
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Top-level diagnostic_retry_hint is the sole authoritative retry advisory;
+    C3 remains policy owner
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-163
+- id: C2.DEC-118
+  title: Absence semantics wording boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Use pinned endpoint-profile-authorized absence semantics; never imply
+    C2.05 completeness certification
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-164
+- id: C2.DEC-119
+  title: C2.06 C1 wire seam obligation
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: C2.06 must losslessly reconcile C2.02 non-success semantics with frozen
+    C1 OutcomeAxes and surface incompatibility rather than invent NO_DATA
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-165
+- id: C2.DEC-120
+  title: Original failed obligations repair mapping
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: R1 directly addresses the six failed C2.02 acceptance obligations for
+    independent re-check
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-166
+- id: C2.DEC-121
+  title: Narrow repair boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: R1 introduces no C2.03+ or production authority
+  authority_scope: C2.02R1
+  evidence_refs:
+  - C2.02 Independent Review
+  - 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+  required_acceptance_tests:
+  - C2-167
+original_failed_acceptance_recheck_required:
+- C2-101
+- C2-113
+- C2-115
+- C2-123
+- C2-125
+- C2-141

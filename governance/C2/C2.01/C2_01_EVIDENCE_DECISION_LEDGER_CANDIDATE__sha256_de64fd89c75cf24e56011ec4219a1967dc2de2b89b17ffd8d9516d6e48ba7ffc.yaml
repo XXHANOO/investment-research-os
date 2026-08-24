@@ -1,0 +1,437 @@
+schema_version: 1.0.0-C2-01-decision-ledger-candidate
+project: Investment Research OS
+stage: C2.01
+generated_at_utc: '2026-08-24T01:11:00Z'
+status: CANDIDATE_NOT_REVIEWED_NOT_FROZEN
+parent_review: C2.00_INDEPENDENT_SCOPE_REVIEW_PASS
+decisions:
+- id: C2.DEC-027
+  title: Capability granularity
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: A capability is one semantic operation surface × access pattern × query
+    signature × produced observation-family set × response-semantic contract.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-001
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-044
+- id: C2.DEC-028
+  title: Vendor-neutral access-pattern taxonomy
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Use DIRECT_LOOKUP/SEARCH/ENUMERATION/SNAPSHOT_FETCH/WINDOWED_SERIES_FETCH/EVENT_COLLECTION_FETCH/DOCUMENT_DISCOVERY/DOCUMENT_RETRIEVAL/BULK_EXPORT/STREAM_SUBSCRIPTION
+    as provider-side access patterns.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-001
+  required_acceptance_tests:
+  - C2-045
+- id: C2.DEC-029
+  title: Static semantic capability boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Capability is not health, credentials, quota/cache, certification, routing
+    priority, PIT, source fitness, or side-effect authority.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.00 boundary
+  required_acceptance_tests:
+  - C2-046
+- id: C2.DEC-030
+  title: Mode-specific endpoint semantics
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Materially different request/response semantics require separate semantic
+    records/capabilities.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-047
+- id: C2.DEC-031
+  title: Explicit provider-wide semantic adoption
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider-wide semantic defaults are never implicit; endpoint profiles
+    explicitly pin adopted refs.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  - C1.05R1 replay
+  required_acceptance_tests:
+  - C2-048
+- id: C2.DEC-032
+  title: Field semantic record
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Field semantics explicitly capture provider selector, meaning, shape,
+    unit/scale, null/missing/sentinel, enum, timestamp role and grouping.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-049
+- id: C2.DEC-033
+  title: C1-facing observation-family continuity
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2 supports the exact C1.05R1 provider observation categories as interface
+    families.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1 §5
+  required_acceptance_tests:
+  - C2-050
+- id: C2.DEC-034
+  title: Additional provider observations remain non-canonical
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Additional C2 observation families remain provider-side and cannot mint
+    C1 identity.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1 identity firewall
+  required_acceptance_tests:
+  - C2-051
+- id: C2.DEC-035
+  title: Explicit request semantic profile
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Endpoint request semantics pin query slots, requirement/optionality/exclusion
+    and provider-native defaults.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-052
+- id: C2.DEC-036
+  title: Explicit response semantic profile
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Endpoint response semantics pin cardinality, grouping, fields, pagination
+    and provider-native absence/partiality signals.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-053
+- id: C2.DEC-037
+  title: Absence signal does not equal data outcome
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider-native absence signals are descriptive only in C2.01; C2.02
+    decides NO_DATA legality.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-005
+  required_acceptance_tests:
+  - C2-054
+- id: C2.DEC-038
+  title: Partiality signal does not equal data outcome
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider-native truncation/partiality signals are descriptive only in
+    C2.01; C2.02 decides PARTIAL legality.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-005
+  required_acceptance_tests:
+  - C2-055
+- id: C2.DEC-039
+  title: Pagination does not equal completeness
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Endpoint pagination/collection semantics do not certify exhaustive coverage.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-010
+  required_acceptance_tests:
+  - C2-056
+- id: C2.DEC-040
+  title: Stable semantic ref tuple
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Load-bearing C2 semantic ref requires authority/kind/logical_id/semantic_revision/content_sha256.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  - C1.05R1 §4.1
+  required_acceptance_tests:
+  - C2-057
+- id: C2.DEC-041
+  title: No load-bearing floating aliases
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: latest/current/mutable aliases cannot be persisted as load-bearing semantic
+    refs.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1 §4.1
+  required_acceptance_tests:
+  - C2-058
+- id: C2.DEC-042
+  title: Immutable supersession
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Semantic change creates a new ref and old refs remain replay-resolvable.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1 replay
+  required_acceptance_tests:
+  - C2-059
+- id: C2.DEC-043
+  title: Registry snapshot stability
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Registry snapshot pins all entry refs and is itself immutable/snapshot-stable.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-060
+- id: C2.DEC-044
+  title: Semantic change bump rule
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Changes to request/response/field/pagination/signal meaning require new
+    content identity.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-061
+- id: C2.DEC-045
+  title: Compatibility access-pattern exactness
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Capability compatibility requires exact access-pattern family match unless
+    later contract explicitly versions a compatibility relation; no implicit substitution.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-001
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-062
+- id: C2.DEC-046
+  title: Compatibility observation subset
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Required observation families must be explicitly provided.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-063
+- id: C2.DEC-047
+  title: Compatibility query subset
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Required query semantics must be explicitly accepted.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-064
+- id: C2.DEC-048
+  title: Compatibility response/features explicit
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Required response semantics/features must be explicitly satisfied by
+    pinned records.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-065
+- id: C2.DEC-049
+  title: Compatibility fails closed on unresolved refs
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Missing/content-mismatched semantic refs make compatibility unproven
+    and ineligible.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  - C0-060
+  required_acceptance_tests:
+  - C2-066
+- id: C2.DEC-050
+  title: Routing cannot weaken compatibility
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.03 routing may choose only from semantically compatible capabilities.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.03 boundary
+  required_acceptance_tests:
+  - C2-067
+- id: C2.DEC-051
+  title: C1 provider profile stable-ref mapping
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: provider_profile_ref maps to PROVIDER_SEMANTIC_PROFILE stable ref.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-068
+- id: C2.DEC-052
+  title: C1 field semantic stable-ref mapping
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: provider_field_semantic_refs[] map to FIELD_SEMANTIC stable refs.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-069
+- id: C2.DEC-053
+  title: C1 capability stable-ref mapping
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: provider_capability_ref maps to CAPABILITY_DEFINITION stable ref.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-070
+- id: C2.DEC-054
+  title: Completeness deferred with same stable-ref discipline
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: c2_completeness_refs[] are C2.05-owned but must obey stable-ref identity
+    later.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1
+  - C2.OPEN-010
+  required_acceptance_tests:
+  - C2-071
+- id: C2.DEC-055
+  title: C4 temporal boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider-native timestamp roles never become C4 available_from/revision/PIT-safe
+    semantics.
+  authority_scope: C2.01
+  evidence_refs:
+  - C4 boundary
+  required_acceptance_tests:
+  - C2-072
+- id: C2.DEC-056
+  title: C5 source-fitness boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Capability/endpoint records do not encode C5 verification/source-fitness/conflict
+    state.
+  authority_scope: C2.01
+  evidence_refs:
+  - C5 boundary
+  required_acceptance_tests:
+  - C2-073
+- id: C2.DEC-057
+  title: C3 state boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Capability/endpoint records do not encode C3 cache/quota/freshness/LKG
+    policy.
+  authority_scope: C2.01
+  evidence_refs:
+  - C3 boundary
+  required_acceptance_tests:
+  - C2-074
+- id: C2.DEC-058
+  title: C6/C7 authority boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Registry capabilities do not grant tool capabilities, trusted intent
+    or workflow authority.
+  authority_scope: C2.01
+  evidence_refs:
+  - C6/C7 boundary
+  required_acceptance_tests:
+  - C2-075
+- id: C2.DEC-059
+  title: Secure ingress boundary preserved
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Document/bulk retrieval semantics do not authorize immutable permitted-raw
+    persistence before security admission.
+  authority_scope: C2.01
+  evidence_refs:
+  - C0-049
+  required_acceptance_tests:
+  - C2-076
+- id: C2.DEC-060
+  title: Vendor neutrality
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.01 registry defines no concrete provider instances or priority/configuration.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-015
+  required_acceptance_tests:
+  - C2-077
+- id: C2.DEC-061
+  title: No production adapter implementation
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.01 constructs contract artifacts only.
+  authority_scope: C2.01
+  evidence_refs:
+  - stage authorization
+  required_acceptance_tests:
+  - C2-078
+- id: C2.DEC-062
+  title: Candidate close OPEN-001
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: OPEN-001 is candidate-closed by the C2.01 taxonomy/granularity model
+    pending independent review.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-001
+  required_acceptance_tests:
+  - C2-079
+- id: C2.DEC-063
+  title: Candidate close OPEN-002
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: OPEN-002 is candidate-closed by the C2.01 logical record and field-binding
+    model pending independent review.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-080
+- id: C2.DEC-064
+  title: Candidate close OPEN-003
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: OPEN-003 is candidate-closed by the C2.01 stable-ref/version/compatibility
+    model pending independent review.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-081
+- id: C2.DEC-065
+  title: Later-stage questions remain open
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: OPEN-004..015 are not silently resolved by C2.01.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.00 open-question discipline
+  required_acceptance_tests:
+  - C2-082
+- id: C2.DEC-066
+  title: Final machine schema deferred
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.07 owns final machine schema/canonicalization/validators; C2.01 defines
+    logical semantics only.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-014
+  required_acceptance_tests:
+  - C2-083
+open_items:
+  C2.OPEN-001:
+    state: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+    resolution_decisions:
+    - C2.DEC-027
+    - C2.DEC-028
+    - C2.DEC-045
+    - C2.DEC-062
+  C2.OPEN-002:
+    state: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+    resolution_decisions:
+    - C2.DEC-030
+    - C2.DEC-031
+    - C2.DEC-032
+    - C2.DEC-035
+    - C2.DEC-036
+    - C2.DEC-063
+  C2.OPEN-003:
+    state: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+    resolution_decisions:
+    - C2.DEC-040
+    - C2.DEC-041
+    - C2.DEC-042
+    - C2.DEC-043
+    - C2.DEC-044
+    - C2.DEC-045
+    - C2.DEC-046
+    - C2.DEC-047
+    - C2.DEC-048
+    - C2.DEC-049
+    - C2.DEC-064
+  C2.OPEN-004..015:
+    state: OPEN
+    note: untouched except boundary-preservation decisions; no later-stage semantic
+      resolution
+production_implementation: NOT_AUTHORIZED
+next_gate: C2.01 Independent Capability Review

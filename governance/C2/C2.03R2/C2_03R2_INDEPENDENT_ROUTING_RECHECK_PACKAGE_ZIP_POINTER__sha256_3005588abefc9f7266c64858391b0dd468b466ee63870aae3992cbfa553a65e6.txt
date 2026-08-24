@@ -1,0 +1,4 @@
+Convenience ZIP (non-authoritative)
+filename: C2_03R2_INDEPENDENT_ROUTING_RECHECK_PACKAGE.zip
+sha256: e080ab2c8263c0e13bf7342d1eda6ee1acd79418a04865085a838a920a3790ee
+manifest_sha256: df9512317bd7543bd1d921a297c501b4c93cff76654459fb615aa4d97064aaec

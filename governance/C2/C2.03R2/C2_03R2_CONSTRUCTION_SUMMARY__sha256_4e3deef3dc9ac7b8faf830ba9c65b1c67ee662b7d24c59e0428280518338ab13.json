@@ -1,0 +1,12 @@
+{
+  "acceptance": "C2-270..C2-288",
+  "acceptance_count": 19,
+  "construction": "COMPLETE_AS_REPAIR_CANDIDATE",
+  "decision_count": 11,
+  "decisions": "C2.DEC-202..C2.DEC-212",
+  "independent_recheck": "NOT_PERFORMED",
+  "production_adapters": 0,
+  "provider_instances": 0,
+  "residual_blocker": "C2ROUTE-B04",
+  "stage": "C2.03R2"
+}

@@ -1,0 +1,111 @@
+| `c2_completeness_refs[]` | Reserved for C2.05; MUST use the same stable-ref discipline |
+
+A capability definition pins its endpoint semantic profile and provider profile. If downstream replay load-bearing semantics depend on a field definition, the exact field-semantic refs remain separately retained as required by C1.05R1.
+
+C2.01 does not redefine the exact C1.06/C2.06 wire serialization.
+
+## 12. Provider-native Absence, Partiality and Pagination — Deliberate Boundary
+
+C2.01 may describe provider-native signals such as:
+
+```text
+empty collection token
+provider-declared not-found token
+truncation flag
+next-page cursor presence/absence
+provider result-count semantics
+field-level missing/sentinel representation
+```
+
+But C2.01 does **not** decide when those signals produce C2 `PRESENT`, `NO_DATA`, `PARTIAL`, `FAILED`, or `CANCELLED`. That is C2.02.
+
+Likewise, describing an endpoint as enumerable/paginated does not certify that it covered a required universe. C2.05 owns completeness/coverage attestations.
+
+## 13. Cross-contract Non-Absorption Rules
+
+C2.01 MUST preserve these seams:
+
+- **C1** — provider semantic refs may support normalization; C2 never mints canonical identity.
+- **C3** — capability records do not include TTL, cache key, freshness, quota scheduler, retry budget, coalescing or LKG selection.
+- **C4** — provider-native temporal filtering/timestamps are descriptive inputs only; no `available_from`, revision, visibility or PIT-safe conclusion.
+- **C5** — provider/source identity is not source fitness, claim verification, or conflict adjudication.
+- **C6/C7** — capability registry entries do not grant tools, trusted intent, workflow budgets or external-action authority.
+- **C11** — registry semantics do not choose persistence technology or authorize raw persistence before secure ingress.
+- **C12** — this candidate does not self-validate, self-freeze or self-release.
+
+## 14. Candidate Resolution of C2.00 Open Items
+
+### `C2.OPEN-001` — candidate closed
+
+**Question:** exact provider capability taxonomy and granularity.
+
+**Candidate resolution:** access-pattern taxonomy in §5 plus the one-surface/one-signature capability granularity rule in §4 and the exact `ProviderCapabilityDefinition` in §6.5.
+
+### `C2.OPEN-002` — candidate closed
+
+**Question:** exact endpoint-semantic/profile record and field-semantic binding model.
+
+**Candidate resolution:** `ProviderSemanticProfileDefinition`, `FieldSemanticDefinition`, `EndpointSemanticProfileDefinition`, `ProviderCapabilityDefinition`, and the C2-field → C1-profile binding model in §§6–7.
+
+### `C2.OPEN-003` — candidate closed
+
+**Question:** snapshot-stable capability compatibility and endpoint-semantic version representation.
+
+**Candidate resolution:** `C2StableSemanticRef` tuple, immutable registry snapshot model, explicit semantic-change rules, and deterministic compatibility predicate in §§6.1, 8–10.
+
+These are **candidate closures only** until Independent Capability Review passes.
+
+## 15. Still-Open Items
+
+The following remain explicitly unresolved and MUST NOT be inferred from C2.01:
+
+```text
+C2.OPEN-004 detailed provider failure/error families                    → C2.02
+C2.OPEN-005 legality/consistency rules for PRESENT/NO_DATA/PARTIAL      → C2.02
+C2.OPEN-006 route selection/retry/fallback/degradation                  → C2.03
+C2.OPEN-007 C2 retry vs C3 quota/backoff seam                           → C2.03/C2.06
+C2.OPEN-008 credential/private-state/secure-ingress mechanics           → C2.04
+C2.OPEN-009 certification states/evidence/invalidation                  → C2.05
+C2.OPEN-010 completeness/coverage methodology                           → C2.05
+C2.OPEN-011 certification temporal validity vs C4                       → C2.05/C2.06
+C2.OPEN-012 exact opaque cross-contract interfaces                      → C2.06
+C2.OPEN-013 C2→C11 permitted-raw handoff                                → C2.06
+C2.OPEN-014 final machine schema/validators/contract vectors            → C2.07
+C2.OPEN-015 concrete provider enablement/priority/configuration         → post-contract ADR/config
+```
+
+## 16. Hard Red Lines at C2.01
+
+Forbidden by this candidate:
+
+```text
+provider-level marketing claim used as endpoint capability truth
+one provider-global endpoint semantic profile covering materially different operations
+capability = current provider health/credential/quota/certification
+implicit/fuzzy semantic compatibility
+floating latest ref used as load-bearing provider semantic authority
+provider-wide defaults inherited without explicit stable ref
+provider-native field directly declared a canonical C1 ID
+provider-native timestamp declared C4 available_from/PIT-safe
+endpoint enumeration declared completeness proof
+provider-native empty response automatically declared C2 NO_DATA
+provider partiality signal automatically declared C2 PARTIAL
+route priority/retry/fallback algorithm
+credential storage or secret examples
+source-fitness/verification ranking
+production provider adapter implementation
+concrete provider priority selection
+PAPER/LIVE/external side-effect enablement
+self-approval / self-freeze
+```
+
+## 17. C2.01 Exit Gate
+
+Construction stops at:
+
+```text
+C2.01 Independent Capability Review
+```
+
+The independent reviewer must attack taxonomy granularity, semantic-ref stability, endpoint/profile/field binding, capability compatibility, parent-boundary leakage, C1.05R1 continuity, accidental C2.02/C2.03/C2.04/C2.05 preemption, vendor neutrality, and governance traceability.
+

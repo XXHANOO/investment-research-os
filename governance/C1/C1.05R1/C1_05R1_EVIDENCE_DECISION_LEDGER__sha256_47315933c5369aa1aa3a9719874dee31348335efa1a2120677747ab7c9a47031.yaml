@@ -1,0 +1,562 @@
+schema_version: 0.1.0-C1-05R1
+status: CANDIDATE_FOR_C1_05R1_INDEPENDENT_REGRESSION_RECHECK
+generated_at_utc: '2026-08-19T12:21:15.517079+00:00'
+parent_governance:
+  c0_frozen_sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  c0_freeze_seal_sha256: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+  c1_01r1_candidate_sha256: 057303229ec7d169a19519edea256ce15f5a2dc92e654e820abddd9040c5b782
+  c1_01r1_evidence_ledger_sha256: f8e2eee915af669d82c80f195c7259551664aca1182ff445dec32331fad5b650
+  c1_02r1_candidate_sha256: dc5f2ec1295cf3afb9c8b585b3deca5f413de37db1a2d6c179a9e17f613531fb
+  c1_02r1_registry_sha256: 281e57b503e3e262c771f0364a3f41efeec7ec1c0b9407b80e94d65504182db2
+  c1_02r1_evidence_ledger_sha256: c6ec5f1bb6ad1c65d3213a266b34439a6fe15240212255a43cbb68068bcbdec8
+  c1_03r1_candidate_sha256: ea017504558532cce5e24929047cfbb94055f0a3cc25d80b3b1844216ea6b860
+  c1_03r1_taxonomy_sha256: 1751f1d2735187794059c9601adfffc1efa99d09f45f0f396f225eea96d1e716
+  c1_03r1_evidence_ledger_sha256: 921aff3682e5772323632cd6b4709db5ea51d99aae5571ef6d13a3ac8d5e4299
+  c1_03r1_acceptance_delta_sha256: 0ae5a811c7a5291670c3bc44dcddd5fd853d69323e3a025c0c4256f6401bd6b8
+  c1_03r1_independent_recheck_sha256: ce06a8629d3d238a341ab61b4a117db0ebe336a88b4c83d7232aaa5eef63e388
+  c1_04r1_candidate_sha256: 9da9470cbb72ba4715c40fa9d7c1053f542381f0edf58b1f416a1c4be0d39118
+  c1_04r1_registry_sha256: 7f4eeebc50296125d70e4ee390dd3993035400d7735ec2eb9057b1e7564b00eb
+  c1_04r1_evidence_ledger_sha256: 1a4c76e2c73ed4225e4a87380855d244af71de053acf9369bc32d28c6508f6d9
+  c1_04r1_acceptance_delta_sha256: ae7f3bd26822206d58707c7d3b44266f5221282262c9ca3e4b8f41868c8bd790
+  c1_04r1_selection_sha256: 7554318a91f26abe1d633519f6f84cab4bb285a1122c49d9c5abff64246f4785
+  c1_04r1_independent_recheck_report_sha256: f63261e7c7ef27052e4e1a3ffea425506765ceafdabf84dada25d761ccd58850
+  c1_04r1_independent_recheck_result_sha256: 1c4c0c5956394362045335c81591ed454cd65d61eef934752900bf1ab783477b
+source_catalog:
+  C0_FROZEN:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Frozen canonical normalization boundary, provider failure/data-outcome separation, canonical IDs/symbol
+      separation, C2/C4/C5 ownership
+    path: C0_FROZEN.md
+    sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+    evidence_type: LOCAL_FROZEN_ARTIFACT
+  C1_01R1_KERNEL:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Canonical identity equivalence, Listing/Instrument and Contract/Instrument cardinalities, ContractVenueAdmission
+      model
+    path: C1_01R1_IDENTITY_KERNEL_CANDIDATE__sha256_057303229ec7d169a19519edea256ce15f5a2dc92e654e820abddd9040c5b782.md
+    sha256: 057303229ec7d169a19519edea256ce15f5a2dc92e654e820abddd9040c5b782
+    evidence_type: LOCAL_CONTENT_ADDRESSED_ARTIFACT
+  C1_02R1_MAPPING:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Identifier/symbol normalization, scheme/context/exactness profiles, ambiguity/conflict, provider-normalization
+      boundary and upstream failure semantics
+    path: C1_02R1_IDENTIFIER_SYMBOL_MAPPING_CANDIDATE__sha256_dc5f2ec1295cf3afb9c8b585b3deca5f413de37db1a2d6c179a9e17f613531fb.md
+    sha256: dc5f2ec1295cf3afb9c8b585b3deca5f413de37db1a2d6c179a9e17f613531fb
+    evidence_type: LOCAL_CONTENT_ADDRESSED_ARTIFACT
+  C1_03R1_CA:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Corporate-action identity-effect taxonomy, PROJECTED/REALIZED separation, relation endpoint typing and
+      admission invariants
+    path: C1_03R1_CORPORATE_ACTION_IDENTITY_EFFECTS_CANDIDATE__sha256_ea017504558532cce5e24929047cfbb94055f0a3cc25d80b3b1844216ea6b860.md
+    sha256: ea017504558532cce5e24929047cfbb94055f0a3cc25d80b3b1844216ea6b860
+    evidence_type: LOCAL_CONTENT_ADDRESSED_ARTIFACT
+  C1_04R1_TEMPORAL:
+    role: CONTRACT_AUTHORITY
+    authority_scope: C1/C4 opaque temporal interface, T knowledge cutoff vs S state point, available_from visibility, reconstructability
+      and no latest-value leakage
+    path: C1_04R1_TEMPORAL_PIT_INTERFACE_CANDIDATE__sha256_9da9470cbb72ba4715c40fa9d7c1053f542381f0edf58b1f416a1c4be0d39118.md
+    sha256: 9da9470cbb72ba4715c40fa9d7c1053f542381f0edf58b1f416a1c4be0d39118
+    evidence_type: LOCAL_CONTENT_ADDRESSED_ARTIFACT
+  C1_04R1_RECHECK:
+    role: CONTRACT_AUTHORITY
+    authority_scope: Independent PASS plus carry-forward requirement that historical exact identity may depend on provider/source
+      coverage and completeness where absence matters
+    path: C1_04R1_INDEPENDENT_REGRESSION_RECHECK_REPORT.md
+    sha256: f63261e7c7ef27052e4e1a3ffea425506765ceafdabf84dada25d761ccd58850
+    evidence_type: LOCAL_INDEPENDENT_REVIEW_ARTIFACT
+  OPENBB_FETCHER:
+    role: SUPPORTING
+    authority_scope: Pinned provider abstraction/transform pipeline only
+    repository: OpenBB-finance/OpenBB
+    commit: 3e071fcc2cd9f891cac6040ae60296dba76dab46
+    path: openbb_platform/core/openbb_core/provider/abstract/fetcher.py
+    blob_sha: d2a868c41e50b7d9f925673899725cbc9f2b6c56
+    evidence_type: PINNED_SOURCE_IMPLEMENTATION
+  AIHF_DATA_PROTOCOL:
+    role: SUPPORTING
+    authority_scope: Pinned fail-loud provider failure versus genuine empty data contract only
+    repository: virattt/ai-hedge-fund
+    commit: eff8a7320fcf0b473b135690fa1a5b0d9b022a83
+    path: hedge_fund/data/protocol.py
+    blob_sha: f1fe630bd0a8319953d92a7e0371ec9b44572657
+    evidence_type: PINNED_SOURCE_IMPLEMENTATION
+  AIHF_DATA_TESTS:
+    role: SUPPORTING
+    authority_scope: Pinned executable provider failure/pagination/PIT tests only
+    repository: virattt/ai-hedge-fund
+    commit: eff8a7320fcf0b473b135690fa1a5b0d9b022a83
+    path: hedge_fund/data/test_client_contract.py
+    blob_sha: 8c9f7d3b2b8de82e10e520df6ac847ed46174ad3
+    evidence_type: PINNED_EXECUTABLE_CONTRACT_TEST
+  C1_05_INDEPENDENT_REVIEW:
+    role: REPAIR_AUTHORITY
+    authority_scope: Independent review blockers C1PN-B01 and C1PN-B02 defining exact C1.05R1 repair scope
+    path: C1_05_INDEPENDENT_PROVIDER_NORMALIZATION_REVIEW_REPORT.md
+    sha256: 500e4162d330b89fcfd1e3e8bedc910b37ce1233c5969bd2777c44722559e324
+    evidence_type: LOCAL_INDEPENDENT_REVIEW_ARTIFACT
+still_open_questions:
+- question_id: C1.OPEN-010
+  target_stage: C1.06
+  statement: exact canonical ID/result/error/profile serialization remains unfrozen
+decisions:
+- decision_id: C1.DEC-107
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1 normalization begins only at a validated provider-observation boundary; raw provider payload/SDK objects remain
+    outside canonical C1 domain semantics.
+  classification: ADAPTED
+  reasoning_basis: FROZEN_NORMALIZATION_BOUNDARY
+  evidence_refs:
+  - C0_FROZEN
+  - OPENBB_FETCHER
+  required_tests:
+  - C1-257
+  - C1-258
+  - C1-321
+  - C1-330
+- decision_id: C1.DEC-108
+  decision_status: ADOPTED_CANDIDATE
+  statement: C2-owned provider routing, credentials, capability, certification and selected-provider semantics enter C1 only
+    through opaque references; C1.05 does not define or perform them.
+  classification: INFERRED
+  reasoning_basis: C1_C2_AUTHORITY_BOUNDARY
+  evidence_refs:
+  - C0_FROZEN
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-259
+  - C1-326
+- decision_id: C1.DEC-109
+  decision_status: ADOPTED_CANDIDATE
+  statement: Every C1 normalization operation is governed by an explicit immutable/version-addressed C1 normalization profile
+    that pins semantic field bindings and output assertion families while referencing C2 provider-field/capability semantics.
+  classification: INFERRED
+  reasoning_basis: VERSIONED_NORMALIZATION_GOVERNANCE
+  evidence_refs:
+  - C0_FROZEN
+  - C1_02R1_MAPPING
+  - OPENBB_FETCHER
+  required_tests:
+  - C1-260
+  - C1-261
+  - C1-262
+  - C1-314
+  - C1-315
+- decision_id: C1.DEC-110
+  decision_status: ADOPTED_CANDIDATE
+  statement: Raw values/source records are preserved or referencable; lexical/null/sentinel transformations are only those
+    explicitly authorized by the relevant C1.02 scheme/profile and provider semantic binding.
+  classification: ADAPTED
+  reasoning_basis: LOSS_AVOIDING_SCHEME_NORMALIZATION
+  evidence_refs:
+  - C0_FROZEN
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-263
+  - C1-264
+  - C1-266
+  - C1-317
+- decision_id: C1.DEC-111
+  decision_status: ADOPTED_CANDIDATE
+  statement: 'Scheme/context/target-kind semantics fail closed: lexical autodetection, popularity defaults and undeclared
+    contextual inference are forbidden.'
+  classification: ADAPTED
+  reasoning_basis: EXPLICIT_MAPPING_CONTEXT
+  evidence_refs:
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-265
+  - C1-267
+  - C1-268
+  - C1-323
+- decision_id: C1.DEC-112
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider-native symbol, object ID, display name or their combination cannot mint, merge or substitute a C1 canonical
+    ID; provider adapters may reference canonical targets only through C1-governed resolution.
+  classification: ADAPTED
+  reasoning_basis: CANONICAL_IDENTITY_NON_BYPASS
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-269
+  - C1-270
+  - C1-271
+  - C1-272
+- decision_id: C1.DEC-113
+  decision_status: ADOPTED_CANDIDATE
+  statement: Normalization emits only C1-approved typed assertion candidates and normalization success alone never promotes
+    candidate material into adopted/verified domain truth.
+  classification: INFERRED
+  reasoning_basis: CANDIDATE_VS_TRUTH_BOUNDARY
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_03R1_CA
+  required_tests:
+  - C1-273
+  - C1-274
+  - C1-324
+- decision_id: C1.DEC-114
+  decision_status: ADOPTED_CANDIDATE
+  statement: Identifier/symbol normalization preserves C1.02 RegisteredIdentifierAssignment/SymbolAssignment, grouping-only
+    and concrete-child exactness semantics.
+  classification: ADAPTED
+  reasoning_basis: MAPPING_PARENT_PRESERVATION
+  evidence_refs:
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-275
+  - C1-276
+  - C1-277
+- decision_id: C1.DEC-115
+  decision_status: ADOPTED_CANDIDATE
+  statement: Listing normalization preserves immutable Listing->Instrument parentage and delegates venue-transfer continuity
+    decisions to C1.03; provider field changes cannot reparent or decide continuity.
+  classification: INFERRED
+  reasoning_basis: LISTING_IDENTITY_PARENT_PRESERVATION
+  evidence_refs:
+  - C1_01R1_KERNEL
+  - C1_03R1_CA
+  required_tests:
+  - C1-278
+  - C1-279
+- decision_id: C1.DEC-116
+  decision_status: ADOPTED_CANDIDATE
+  statement: Contract normalization preserves one parent DERIVATIVE_PRODUCT InstrumentID and the multiply-listed ContractVenueAdmission
+    model; venue observations do not fragment one governed ContractID.
+  classification: INFERRED
+  reasoning_basis: DERIVATIVE_IDENTITY_PARENT_PRESERVATION
+  evidence_refs:
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  required_tests:
+  - C1-280
+  - C1-281
+  - C1-282
+- decision_id: C1.DEC-117
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider-native corporate-action class/status is external observation only; it cannot itself decide identity
+    effects, survivor/replacement identity, REALIZED state or active-graph mutation.
+  classification: INFERRED
+  reasoning_basis: EVENT_CLASS_NOT_IDENTITY_EFFECT
+  evidence_refs:
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  required_tests:
+  - C1-283
+  - C1-284
+  - C1-285
+  - C1-286
+- decision_id: C1.DEC-118
+  decision_status: ADOPTED_CANDIDATE
+  statement: Normalized relational/admission effects must obey C1.03R1 fixed endpoint kinds, roles, direction and relation
+    type; non-relational effects cannot smuggle secondary-edge semantics.
+  classification: ADAPTED
+  reasoning_basis: RELATION_TAXONOMY_PRESERVATION
+  evidence_refs:
+  - C1_03R1_CA
+  required_tests:
+  - C1-287
+  - C1-288
+- decision_id: C1.DEC-119
+  decision_status: ADOPTED_CANDIDATE
+  statement: C2 FAILED/CANCELLED operations remain machine failures/cancellations and C1 normalization is NOT_RUN; provider
+    infrastructure failures never collapse into successful empty/no-match results.
+  classification: ADAPTED
+  reasoning_basis: FROZEN_PROVIDER_FAILURE_SEPARATION
+  evidence_refs:
+  - C0_FROZEN
+  - C1_02R1_MAPPING
+  - AIHF_DATA_PROTOCOL
+  - AIHF_DATA_TESTS
+  required_tests:
+  - C1-289
+  - C1-290
+  - C1-291
+- decision_id: C1.DEC-120
+  decision_status: ADOPTED_CANDIDATE
+  statement: SUCCESS+NO_DATA represents no observations from that provider operation by default and is not sufficient for
+    canonical NO_MATCH without the relevant exhaustive-scope dependencies.
+  classification: INFERRED
+  reasoning_basis: EMPTY_OBSERVATION_NOT_GLOBAL_ABSENCE
+  evidence_refs:
+  - C0_FROZEN
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-292
+  - C1-293
+  - C1-327
+- decision_id: C1.DEC-121
+  decision_status: ADOPTED_CANDIDATE
+  statement: SUCCESS+PARTIAL, incomplete pagination, search/top-k behavior, or PRESENT rows from non-exhaustive endpoints
+    may produce candidates but cannot prove absence or uniqueness by omission.
+  classification: INFERRED
+  reasoning_basis: PARTIAL_AND_SEARCH_NON_EXHAUSTIVENESS
+  evidence_refs:
+  - C0_FROZEN
+  - AIHF_DATA_TESTS
+  required_tests:
+  - C1-294
+  - C1-295
+  - C1-296
+  - C1-297
+- decision_id: C1.DEC-122
+  decision_status: ADOPTED_CANDIDATE
+  statement: When exact NO_MATCH or unique resolution load-bearingly depends on the absence of competing assertions, C1 requires
+    opaque C2 coverage/completeness dependency references covering the relevant resolution scope.
+  classification: INFERRED
+  reasoning_basis: ABSENCE_REQUIRES_COVERAGE_DEPENDENCY
+  evidence_refs:
+  - C1_04R1_RECHECK
+  - C0_FROZEN
+  required_tests:
+  - C1-298
+  - C1-328
+- decision_id: C1.DEC-123
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1 only consumes C2 coverage/completeness certification handles and checks semantic scope compatibility; it cannot
+    author, upgrade or route provider certification.
+  classification: INFERRED
+  reasoning_basis: C2_CERTIFICATION_OWNERSHIP
+  evidence_refs:
+  - C0_FROZEN
+  - C1_04R1_RECHECK
+  required_tests:
+  - C1-299
+  - C1-300
+- decision_id: C1.DEC-124
+  decision_status: ADOPTED_CANDIDATE
+  statement: Historical exactness depending on provider/source history is capped by C4 temporal reconstructability and preserves
+    C1.04 knowledge-cutoff T versus state-point S semantics.
+  classification: INFERRED
+  reasoning_basis: PIT_COMPLETENESS_WEAKEST_LINK
+  evidence_refs:
+  - C1_04R1_TEMPORAL
+  - C1_04R1_RECHECK
+  required_tests:
+  - C1-301
+  - C1-329
+- decision_id: C1.DEC-125
+  decision_status: ADOPTED_CANDIDATE
+  statement: Normalization never creates authoritative available_from, effectivity, temporal precision or PIT strength from
+    provider timestamps; C4 temporal_ref and precision semantics remain opaque and authoritative.
+  classification: ADAPTED
+  reasoning_basis: C4_TEMPORAL_OWNERSHIP
+  evidence_refs:
+  - C0_FROZEN
+  - C1_04R1_TEMPORAL
+  required_tests:
+  - C1-302
+  - C1-303
+  - C1-304
+  - C1-305
+  - C1-324
+- decision_id: C1.DEC-126
+  decision_status: ADOPTED_CANDIDATE
+  statement: C5 evidence/provenance references remain opaque to C1.05; provider confidence/rank/quality values cannot become
+    verification strength or canonical identity certainty.
+  classification: INFERRED
+  reasoning_basis: C5_VERIFICATION_OWNERSHIP
+  evidence_refs:
+  - C0_FROZEN
+  - C1_02R1_MAPPING
+  - C1_04R1_TEMPORAL
+  required_tests:
+  - C1-306
+  - C1-307
+  - C1-324
+- decision_id: C1.DEC-127
+  decision_status: ADOPTED_CANDIDATE
+  statement: 'Structural ambiguity remains distinct from evidence conflict: missing/insufficient context yields context/ambiguity
+    outcomes, while incompatible assertions are preserved for the C5 conflict path.'
+  classification: ADAPTED
+  reasoning_basis: AMBIGUITY_CONFLICT_ORTHOGONALITY
+  evidence_refs:
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-308
+  - C1-310
+  - C1-311
+- decision_id: C1.DEC-128
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1 normalization cannot resolve conflicts by provider order, newest response, source count, LLM confidence or
+    other silent tie-breakers; all load-bearing candidates/provenance are preserved for adjudication.
+  classification: ADAPTED
+  reasoning_basis: NO_SILENT_CONFLICT_RECONCILIATION
+  evidence_refs:
+  - C1_02R1_MAPPING
+  - C0_FROZEN
+  required_tests:
+  - C1-308
+  - C1-309
+- decision_id: C1.DEC-129
+  decision_status: ADOPTED_CANDIDATE
+  statement: For the same validated semantic observation set, same normalization profile version and same parent C1 contract
+    versions, normalized candidate semantics are deterministic and independent of semantically irrelevant transport ordering.
+  classification: INFERRED
+  reasoning_basis: DETERMINISTIC_NORMALIZATION
+  evidence_refs:
+  - OPENBB_FETCHER
+  - C0_FROZEN
+  required_tests:
+  - C1-312
+  - C1-313
+- decision_id: C1.DEC-130
+  decision_status: ADOPTED_CANDIDATE
+  statement: Normalization profile changes and re-normalization are version-addressed; prior normalized lineage is preserved
+    and is never silently overwritten by latest-profile behavior.
+  classification: INFERRED
+  reasoning_basis: REPRODUCIBLE_PROFILE_EVOLUTION
+  evidence_refs:
+  - C0_FROZEN
+  - C1_04R1_TEMPORAL
+  required_tests:
+  - C1-314
+  - C1-315
+  - C1-316
+- decision_id: C1.DEC-131
+  decision_status: ADOPTED_CANDIDATE
+  statement: Unknown optional provider fields remain raw/provenance-only; required semantics that cannot be represented without
+    lossy coercion fail typed validation rather than polluting or weakening the canonical schema.
+  classification: INFERRED
+  reasoning_basis: LOSS_AND_SCHEMA_BOUNDARY
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  required_tests:
+  - C1-317
+  - C1-318
+- decision_id: C1.DEC-132
+  decision_status: ADOPTED_CANDIDATE
+  statement: Normalization exposes item-level and batch-level machine-distinguishable outcomes; invalid items cannot disappear
+    silently and mixed valid/invalid input becomes partial normalization with errors.
+  classification: INFERRED
+  reasoning_basis: FAIL_LOUD_BATCH_SEMANTICS
+  evidence_refs:
+  - C0_FROZEN
+  - AIHF_DATA_PROTOCOL
+  required_tests:
+  - C1-319
+  - C1-320
+- decision_id: C1.DEC-133
+  decision_status: ADOPTED_CANDIDATE
+  statement: Downstream C1 logic consumes normalized C1 assertion candidates only; retained raw/provider-native structure
+    is provenance/audit material, not an alternate domain API.
+  classification: ADAPTED
+  reasoning_basis: FROZEN_CANONICAL_CONSUMPTION
+  evidence_refs:
+  - C0_FROZEN
+  - OPENBB_FETCHER
+  required_tests:
+  - C1-321
+  - C1-330
+- decision_id: C1.DEC-134
+  decision_status: ADOPTED_CANDIDATE
+  statement: One provider source record may emit multiple normalized candidate assertions, but every emitted candidate preserves
+    source_record/source_group lineage so cross-field context and provenance are not lost.
+  classification: INFERRED
+  reasoning_basis: ONE_TO_MANY_PROVENANCE_PRESERVATION
+  evidence_refs:
+  - C0_FROZEN
+  required_tests:
+  - C1-322
+- decision_id: C1.DEC-135
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider-profile semantic conflicts are rejected/version-separated rather than resolved at runtime by choosing
+    one incompatible interpretation.
+  classification: INFERRED
+  reasoning_basis: PROFILE_SEMANTIC_SINGLE_MEANING
+  evidence_refs:
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-262
+  - C1-323
+- decision_id: C1.DEC-136
+  decision_status: ADOPTED_CANDIDATE
+  statement: Fallback/degradation metadata supplied by C2 remains visible through opaque provenance/degradation references;
+    C1 cannot erase fallback context while presenting normalized assertions.
+  classification: INFERRED
+  reasoning_basis: DEGRADATION_PROVENANCE_PRESERVATION
+  evidence_refs:
+  - C0_FROZEN
+  required_tests:
+  - C1-325
+- decision_id: C1.DEC-137
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1 normalization does not perform retry/provider selection/fallback; normalization failures return typed outcomes
+    to the owning C2/workflow layer.
+  classification: INFERRED
+  reasoning_basis: NO_ROUTING_IN_C1
+  evidence_refs:
+  - C0_FROZEN
+  required_tests:
+  - C1-326
+- decision_id: C1.DEC-138
+  decision_status: ADOPTED_CANDIDATE
+  statement: Canonical NO_MATCH/exact uniqueness is fail-closed when load-bearing completeness is absent or mismatched; the
+    result must remain explicitly non-exhaustive/unverified rather than guessed exact.
+  classification: INFERRED
+  reasoning_basis: EXACTNESS_REQUIRES_LOAD_BEARING_COMPLETENESS
+  evidence_refs:
+  - C1_04R1_RECHECK
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-292
+  - C1-293
+  - C1-298
+  - C1-300
+  - C1-327
+  - C1-328
+- decision_id: C1.DEC-139
+  decision_status: ADOPTED_R1_REPAIR_CANDIDATE
+  statement: Every load-bearing C2 provider semantic, capability, or completeness reference consumed by C1 normalization must
+    resolve to an immutable/version-addressed/content-addressed or otherwise snapshot-stable semantic state; floating/latest
+    references cannot support deterministic replay or load-bearing exact absence/uniqueness.
+  classification: REPAIR
+  reasoning_basis: C1PN-B01_REFERENTIAL_STABILITY
+  evidence_refs:
+  - C1_05_INDEPENDENT_REVIEW
+  - C0_FROZEN
+  - C1_04R1_TEMPORAL
+  required_tests:
+  - C1-331
+  - C1-332
+  - C1-333
+- decision_id: C1.DEC-140
+  decision_status: ADOPTED_R1_REPAIR_CANDIDATE
+  statement: Every materialized normalized candidate/result must retain sufficient immutable or snapshot-stable replay lineage
+    to identify validated input/source, exact normalization profile, exact parent C1 contracts, load-bearing foreign dependencies,
+    and partial outcome context when applicable.
+  classification: REPAIR
+  reasoning_basis: C1PN-B02_MANDATORY_REPLAY_LINEAGE
+  evidence_refs:
+  - C1_05_INDEPENDENT_REVIEW
+  - C0_FROZEN
+  required_tests:
+  - C1-334
+  - C1-335
+  - C1-336
+- decision_id: C1.DEC-141
+  decision_status: ADOPTED_R1_REPAIR_CANDIDATE
+  statement: When fallback, stale, last-known-good, or another degradation materially changes source/provenance semantics,
+    every materialized result must retain the applicable degradation/fallback reference and may not present the path as clean
+    primary-source provenance.
+  classification: REPAIR
+  reasoning_basis: C1PN-B02_DEGRADATION_LINEAGE_ALIGNMENT
+  evidence_refs:
+  - C1_05_INDEPENDENT_REVIEW
+  - C0_FROZEN
+  required_tests:
+  - C1-337
+acceptance_coverage:
+  legacy_range: C1-257..C1-330
+  legacy_count: 74
+  r1_added_range: C1-331..C1-337
+  r1_added_count: 7
+  combined_range: C1-257..C1-337
+  count: 81
+  mapped: 81
+  unmapped: 0
+  decision_count: 35

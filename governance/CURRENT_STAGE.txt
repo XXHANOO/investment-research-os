@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.02R1 SCOPED REPAIR CONSTRUCTION COMPLETE — INDEPENDENT RE-CHECK REQUIRED
-Current gate: C2.02R1 Independent Outcome-Semantics Re-Check
+Current stage: C2.02R1 INDEPENDENT OUTCOME-SEMANTICS RE-CHECK FAIL — C2.02R2 NARROW REPAIR REQUIRED
+Current gate: Explicit authorization for C2.02R2 narrow repair, then Independent Outcome-Semantics Re-Check
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -40,33 +40,30 @@ C2.02 Independent Review report SHA-256: 5626d1eb030c9132516458f38a81dd2753f3464
 C2.02 Independent Review result SHA-256: 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
 
 C2.02R1 scoped repair construction: COMPLETE AS REPAIR CANDIDATE
-C2.02R1 Independent Outcome-Semantics Re-Check: NOT PERFORMED
-C2.02 state: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK / NOT_FROZEN
-C2OUT-B01: ADDRESSED_NOT_CLOSED
-C2OUT-B02: ADDRESSED_NOT_CLOSED
-C2OUT-B03: ADDRESSED_NOT_CLOSED
-C2OUT-B04: ADDRESSED_NOT_CLOSED
-C2.OPEN-004: REPAIRED_CANDIDATE_PENDING_INDEPENDENT_RECHECK
-C2.OPEN-005: REPAIRED_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+C2.02R1 Independent Outcome-Semantics Re-Check: FAIL
+C2.02 state: REPAIR_REQUIRED_NOT_FROZEN
+C2OUT-B01: OPEN_AFTER_R1_RECHECK — same-phase multiple explicit cancellation candidates lack a total primary-origin rule
+C2OUT-B02: CLOSED
+C2OUT-B03: CLOSED
+C2OUT-B04: OPEN_AFTER_R1_RECHECK — attempted_response_semantic_refs lacks exact deterministic derivation
+C2.OPEN-004: NOT CLOSED — FURTHER NARROW REPAIR REQUIRED
+C2.OPEN-005: NOT CLOSED — FURTHER NARROW REPAIR REQUIRED
 C2.OPEN-006..015: OPEN_UNCHANGED
-C2.02R1 repair decisions: C2.DEC-108..C2.DEC-121 (14)
-C2.02R1 repair acceptance obligations: C2-144..C2-167 (24)
-C2.02 original failed obligations requiring re-check: C2-101, C2-113, C2-115, C2-123, C2-125, C2-141
-C2.02R1 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_RECHECK
-C2.02R1 GitHub candidate artifact count: 11
-C2.02R1 Git blob byte-equivalence against local candidate: 11/11
+C2.02 original failed obligations re-check: 6/6 PASS
+C2.02R1 repair acceptance re-check: 22 PASS / 2 FAIL of C2-144..C2-167
+C2.02R1 failed acceptance IDs: C2-145, C2-156
+C2.02R1 combined targeted re-check: 28 PASS / 2 FAIL of 30
+C2.02R1 Independent Re-Check report SHA-256: 0ad9f15e5c0f15b80136f737f2c8dceda318222813d1515622e29658e75ea4db
+C2.02R1 Independent Re-Check result SHA-256: af007a9b05e3a7129d662ae7b4845efdd146d7a0804448d733a251326facc9d6
+C2.02R1 repaired normative contract SHA-256: 828b5c8794ad3458afe32ceeb33212cf210024c0ea5de765f7bae1d8e7d279b6
+C2.02R1 repaired logical model SHA-256: 89d7905961776e47f637c6460bddda33067421328bdb205a30bc60d5901735dc
+C2.02R1 repair acceptance delta SHA-256: f548d2041b984c1b881c839689fe7c16fd6d4baa1e9b6f634cb1f2dca6c4877f
+C2.02R1 repair decision ledger SHA-256: 369248cf6e25169e1b7168773059e36e2cf5d2cdcd7a0ed1fb85ac62988a4bbf
 
 C2.03: NOT STARTED / NOT AUTHORIZED
 
 Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
-C2.02R1 repaired normative contract SHA-256: 828b5c8794ad3458afe32ceeb33212cf210024c0ea5de765f7bae1d8e7d279b6
-C2.02R1 repaired logical model SHA-256: 89d7905961776e47f637c6460bddda33067421328bdb205a30bc60d5901735dc
-C2.02R1 repair acceptance delta SHA-256: f548d2041b984c1b881c839689fe7c16fd6d4baa1e9b6f634cb1f2dca6c4877f
-C2.02R1 repair decision ledger SHA-256: 369248cf6e25169e1b7168773059e36e2cf5d2cdcd7a0ed1fb85ac62988a4bbf
-C2.02R1 candidate selection SHA-256: ee8c627ed65b96bed847fff52684eb1e272ee97bec00fe17e85494d45faaeb90
-C2.02R1 stage report SHA-256: 4b32eb50d30d962048d2a0b036fc51cf371d1853960cf8bdee6e4d4c0a6acc7d
-
 NEXT GATE:
-C2.02R1 Independent Outcome-Semantics Re-Check.
+Explicit user authorization for C2.02R2 narrow repair limited to total same-phase explicit-cancellation determinism and exact attempted_response_semantic_refs derivation, followed by Independent Outcome-Semantics Re-Check.

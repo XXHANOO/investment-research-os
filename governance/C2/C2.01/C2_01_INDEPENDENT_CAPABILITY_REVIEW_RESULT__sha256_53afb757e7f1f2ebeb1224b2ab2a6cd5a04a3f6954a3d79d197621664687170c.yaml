@@ -1,0 +1,58 @@
+schema_version: 1.0.0-C2-01-independent-capability-review
+project: Investment Research OS
+stage: C2.01
+review: Independent Capability Review
+generated_date: '2026-08-23'
+status: FAIL
+candidate_state: REPAIR_REQUIRED
+c2_01_frozen: false
+c2_02: NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED
+external_side_effects: NOT_AUTHORIZED
+review_package_sha256: 2294f6d577b4fda3b902d087640d604549d7517f36cdb329f25b26060bbacdb6
+github_synced_candidate_commit: 22c85cc54fcb0a25eb2fa87ec66ca0b7728c6fbe
+candidate_hashes:
+  registry_prose: 12e3ade1031d1e608ff31ebea0b58d9c8505ea36533e624f8a4af82f0794961a
+  registry_model: 85f580578722a7ce75d7a3e31929d58624d8e8ff1704c9f63c8c99600db3a589
+  acceptance_delta: 0324f84b81f6f46e08e557c7de95ee596b9cc2bcaf7a6e3c428e5c6550180566
+  decision_ledger: de64fd89c75cf24e56011ec4219a1967dc2de2b89b17ffd8d9516d6e48ba7ffc
+  candidate_selection: 1b358c2ebd2149367f0727fd9bbf211881863d67aa6625bdd3b661dce9cf64d2
+  construction_stage_report: f1757c936984250b126a8c1f40aa865cbe03ffc51c5f36a4a5a924ede2039e45
+checks:
+  parent_authority_continuity: PASS
+  c1_05r1_boundary_continuity: PASS
+  capability_granularity: PASS
+  access_pattern_taxonomy: PASS
+  field_semantic_c1_boundary: PASS
+  c4_temporal_boundary: PASS
+  absence_partiality_c2_02_boundary: PASS
+  pagination_completeness_c2_05_boundary: PASS
+  c3_c5_c6_c7_c11_boundaries: PASS
+  vendor_neutrality: PASS
+  production_boundary: PASS
+  stable_ref_type_closure: FAIL
+  deterministic_response_compatibility_closure: FAIL
+acceptance_review:
+  total: 40
+  pass: 36
+  fail: 4
+  failed_ids:
+  - C2-057
+  - C2-063
+  - C2-065
+  - C2-066
+blockers:
+- id: C2CAP-B01
+  severity: BLOCKER
+  title: Stable-ref kind domain is not closed over load-bearing references
+  repair_required: true
+- id: C2CAP-B02
+  severity: BLOCKER
+  title: Response semantic compatibility closure is under-specified
+  repair_required: true
+open_item_disposition:
+  C2.OPEN-001: NO_BLOCKER_FOUND_BUT_STAGE_NOT_PASSED
+  C2.OPEN-002: NO_BLOCKER_FOUND_BUT_STAGE_NOT_PASSED
+  C2.OPEN-003: NOT_CLOSED_BLOCKED_BY_C2CAP_B01_B02
+  C2.OPEN-004..015: OPEN_UNCHANGED
+next_gate: Explicit authorization for C2.01R1 scoped repair, then Independent Capability Re-Check

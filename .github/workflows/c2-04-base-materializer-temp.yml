@@ -1,22 +1,21 @@
-name: C2.04 temporary base materializer
+name: C2.04 temporary exact materializer
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
+  push:
+    branches: [main]
     paths:
-      - '.c2-04-sync/**'
+      - '.c2-04-materialize-trigger'
 
 permissions:
   contents: write
 
 jobs:
   materialize:
-    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: governance/c2-04-exact-sync-v2
           fetch-depth: 0
 
       - name: Reconstruct and verify exact C2.04 candidate
@@ -52,8 +51,9 @@ EOF
           done < /tmp/expected.txt
           rm -rf .c2-04-sync
           rm -f .github/workflows/c2-04-exact-sync.yml
+          rm -f .github/workflows/c2-04-base-materializer-temp.yml
 
-      - name: Commit exact canonical candidate to PR branch
+      - name: Commit exact canonical candidate to staging branch
         shell: bash
         run: |
           set -euo pipefail
@@ -62,4 +62,4 @@ EOF
           git add -A
           git diff --cached --quiet && exit 0
           git commit -m "governance(C2.04): archive exact security-boundary candidate"
-          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
+          git push origin HEAD:governance/c2-04-exact-sync-v2

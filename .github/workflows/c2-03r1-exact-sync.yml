@@ -22,7 +22,15 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/c203r1
-          cat .c2-03r1-sync/chunk*.b64 | base64 -d > /tmp/c203r1/payload.tar.gz
+          cat \
+            .c2-03r1-sync/chunk00_part0.b64 \
+            .c2-03r1-sync/chunk00_part1.b64 \
+            .c2-03r1-sync/chunk00_part2.b64 \
+            .c2-03r1-sync/chunk00_part3.b64 \
+            .c2-03r1-sync/chunk01.b64 \
+            .c2-03r1-sync/chunk02.b64 \
+            .c2-03r1-sync/chunk03.b64 \
+            | base64 -d > /tmp/c203r1/payload.tar.gz
           echo 'b77ce121f42e3df4cb1d501c89d44124477d90114e9b8a469a291b01bd1e4b7e  /tmp/c203r1/payload.tar.gz' | sha256sum -c -
           test "$(tar -tzf /tmp/c203r1/payload.tar.gz | wc -l | tr -d ' ')" = "11"
           tar -xzf /tmp/c203r1/payload.tar.gz -C /tmp/c203r1

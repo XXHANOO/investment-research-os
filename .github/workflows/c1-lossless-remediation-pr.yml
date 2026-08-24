@@ -1,0 +1,71 @@
+name: C1 lossless archival remediation PR
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Restore exact frozen C1 substantive bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import base64, hashlib, io, tarfile
+
+          chunks = sorted(Path('.c1-remediation').glob('chunk*.b64'))
+          assert len(chunks) == 9, f'expected 9 transport chunks, got {len(chunks)}'
+          tgz = base64.b64decode(''.join(p.read_text() for p in chunks))
+          expected_tar_sha = '711abdba94f383c488f7be9647f383a6a70d9481c045f99eeb09fc9ca048af19'
+          assert hashlib.sha256(tgz).hexdigest() == expected_tar_sha
+
+          targets = {
+            'C1_05R1_ACCEPTANCE_TEST_DELTA__sha256_bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83.md': ('C1.05R1','bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83'),
+            'C1_05R1_EVIDENCE_DECISION_LEDGER__sha256_47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031.yaml': ('C1.05R1','47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031'),
+            'C1_05R1_INDEPENDENT_REGRESSION_RECHECK_REPORT.md': ('C1.05R1','58a6b0b2782fc431c5d389e874f38b494c24363d4575c90d929cf11c81b0f751'),
+            'C1_05R1_PROVIDER_NORMALIZATION_INTERFACE_CANDIDATE__sha256_71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63.md': ('C1.05R1','71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63'),
+            'C1_05R1_PROVIDER_NORMALIZATION_REGISTRY_CANDIDATE__sha256_422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b.yaml': ('C1.05R1','422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b'),
+            'C1_07R2_ACCEPTANCE_TEST_DELTA__sha256_ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78.md': ('C1.07R2','ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78'),
+            'C1_07R2_CANDIDATE_SELECTION__sha256_def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231.yaml': ('C1.07R2','def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231'),
+            'C1_07R2_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247.yaml': ('C1.07R2','a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247'),
+            'C1_07R2_EVIDENCE_DECISION_LEDGER__sha256_ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486.yaml': ('C1.07R2','ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486'),
+            'C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json': ('C1.07R2','927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4'),
+            'C1_07R2_SCHEMA_REGISTRY_CANDIDATE__sha256_fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a.yaml': ('C1.07R2','fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a'),
+          }
+
+          with tarfile.open(fileobj=io.BytesIO(tgz), mode='r:gz') as tf:
+            assert set(tf.getnames()) == set(targets)
+            for name,(subdir,expected) in targets.items():
+              data=tf.extractfile(name).read()
+              actual=hashlib.sha256(data).hexdigest()
+              assert actual == expected, f'{name}: {actual} != {expected}'
+              dest=Path('governance/C1')/subdir/name
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              dest.write_bytes(data)
+              assert hashlib.sha256(dest.read_bytes()).hexdigest() == expected
+
+          result=Path('governance/C1/C1_SUBSTANTIVE_ARCHIVE_REMEDIATION_RESTORE_RESULT.yaml')
+          result.write_text('''schema_version: 1.0.0-C1-lossless-archive-restore\nproject: Investment Research OS\nstatus: PASS\noperation: LOSSLESS_ARCHIVAL_MIRROR_ONLY\nsemantic_authority_changed: false\nfreeze_seal_changed: false\nsource_c2_handoff_zip_sha256: 705624f14422f0e0ce373c5a92f90cd67198050bfa2f1f96631c2cd75f4a1f95\ntransport_tar_sha256: 711abdba94f383c488f7be9647f383a6a70d9481c045f99eeb09fc9ca048af19\nrestored_count: 11\nhistorical_external_dependencies: PRESERVED_AS_ORIGINALLY_DISCLOSED_NOT_REGENERATED\nc1_freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5\n''')
+          PY
+      - name: Commit restoration to PR branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -r .c1-remediation
+          git rm governance/C1/C1_REMEDIATION_PR_TRIGGER.md || true
+          git add governance/C1/C1.05R1 governance/C1/C1.07R2 governance/C1/C1_SUBSTANTIVE_ARCHIVE_REMEDIATION_RESTORE_RESULT.yaml
+          git commit -m 'archive(C1): restore exact frozen substantive artifacts'
+          git push origin HEAD:${GITHUB_HEAD_REF}

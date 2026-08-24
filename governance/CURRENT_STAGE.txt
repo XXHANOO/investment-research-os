@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.03R1 INDEPENDENT ROUTING RE-CHECK FAIL — C2.03R2 NARROW REPAIR REQUIRED
-Current gate: Explicit user authorization for C2.03R2 narrow repair, then Independent Routing Re-Check
+Current stage: C2.03R2 NARROW REPAIR CONSTRUCTION COMPLETE — INDEPENDENT ROUTING RE-CHECK REQUIRED
+Current gate: C2.03R2 Independent Routing Re-Check
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -41,32 +41,51 @@ C2.OPEN-005: CLOSED_AT_C2_02_CONTRACT_LEVEL
 C2.03 original Independent Routing Review: FAIL
 C2.03R1 scoped repair construction: COMPLETE AS REPAIR CANDIDATE
 C2.03R1 Independent Routing Re-Check: FAIL
-C2.03 state: REPAIR_REQUIRED_NOT_FROZEN
 C2.03R1 targeted acceptance re-check: 44/44 PASS at stated obligation scope
 C2.03R1 original failed obligations: C2-204 PASS; C2-221 PASS; C2-226 PASS; C2-227 PASS; C2-228 PASS_WITH_R1_ROUTESTATEKEY_INTERPRETATION
 C2.03R1 repair obligations: C2-231..C2-269 = 39/39 PASS
-C2ROUTE-B01: CLOSED
-C2ROUTE-B02: CLOSED
-C2ROUTE-B03: CLOSED
-C2ROUTE-B04: OPEN_AFTER_R1_RECHECK — AuthorizedRequirementTransitionInput activation/precedence relative to ordinary current-R continuation/default/exhaustion is under-specified
-C2.OPEN-006: NOT_CLOSED — R2_REQUIRED
-C2.OPEN-007: NOT_CLOSED — R2_REQUIRED_AT_C2_03_SEMANTIC_LEVEL
-C2.OPEN-008..015: OPEN_UNCHANGED
 C2.03R1 Independent Re-Check report SHA-256: 5aa29272f8241c4b839ed0371ad7276ea0879b87002eab4e2993b86d1ea9bd88
 C2.03R1 Independent Re-Check result SHA-256: 33309d8529289be727b1a994fa1fca04c508f9f2b71cff3684bddd5185c2e001
 
-C2.03R1 repaired normative contract SHA-256: 18273aced9f962a863a71a82dd538707dd68f3e234d240d4a1f8cd7d75c77fe5
-C2.03R1 repaired logical model SHA-256: 620ad5a56130861c730b2c042d0cd9a79f9f738f433242553f97ce68528af082
-C2.03R1 repair acceptance delta SHA-256: e57370c527bbc0a01a5be71b0946a9acc61305d29ab6a17362367e9a4c181167
-C2.03R1 repair decision ledger SHA-256: 4b010ebf02e0cdef28b60f5727781df4baaf0f0071febb78b1931d0ad7d32650
+C2.03R2 narrow repair construction: COMPLETE AS REPAIR CANDIDATE
+C2.03R2 Independent Routing Re-Check: NOT PERFORMED
+C2.03 state: R2_REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK / NOT_FROZEN
+C2ROUTE-B01: CLOSED_BY_R1_INDEPENDENT_RECHECK
+C2ROUTE-B02: CLOSED_BY_R1_INDEPENDENT_RECHECK
+C2ROUTE-B03: CLOSED_BY_R1_INDEPENDENT_RECHECK
+C2ROUTE-B04: ADDRESSED_NOT_CLOSED — deterministic AuthorizedRequirementTransitionInput activation/precedence candidate added; independent re-check required
+C2.OPEN-006: R2_REPAIRED_CANDIDATE_PENDING_INDEPENDENT_ROUTING_RECHECK
+C2.OPEN-007: R2_REPAIRED_CANDIDATE_AT_C2_03_SEMANTIC_LEVEL_PENDING_INDEPENDENT_ROUTING_RECHECK_AND_C2_06_WIRE_BINDING
+C2.OPEN-008..015: OPEN_UNCHANGED
+C2.03R2 repair decisions: C2.DEC-202..C2.DEC-212 (11)
+C2.03R2 repair acceptance obligations: C2-270..C2-288 (19)
+C2.03R2 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_RECHECK
+C2.03R2 provider instances: 0
+C2.03R2 production adapters: 0
+C2.03R2 GitHub candidate artifact count: 11
+C2.03R2 Git blob byte-equivalence against local candidate: 11/11 PASS
+C2.03R2 temporary transport/workflow: REMOVED BEFORE MERGE
+C2.03R2 exact candidate archive merge commit: 894b7a4272ed262f87791d0288b03826b4df2fc0
 
-C2.03R2 permissible repair scope:
-1. freeze deterministic transition-application predicate / precedence for a valid AuthorizedRequirementTransitionInput versus ordinary current-R continuation/default/exhaustion;
-2. add adversarial acceptance vectors for coexistence of a valid R->R' transition with current-R NEXT_ROUTE, SAME_ROUTE_REATTEMPT, terminal/default states, pre-attempt state, and no-current-R-candidate state;
-3. correct successor traceability for the immutable R1 Stage Report range typo (R1 report says C2-231..C2-268; actual range is C2-231..C2-269).
+C2.03R2 repaired normative contract SHA-256: e04158428fc030ca72d297b2cb3fd4226dccaba0aa35224b14fc4de89e039b6b
+C2.03R2 repaired logical model SHA-256: f001ce483a07eddf32fe3417ad2c42f41294b4e296b28d3c2045ea040358f833
+C2.03R2 repair acceptance delta SHA-256: 97e4f33abe498c85e69f5ff70b068272d1869b9ab255565ac3e9e848d5ba5914
+C2.03R2 repair decision ledger SHA-256: fb65306032ff1f39565684b645a2862ed244459a2586d6321a7e55ea188e42b0
+C2.03R2 repair diffs SHA-256: 81a9fbf5430cf08769580c1377a62f9becbae3e9e6d0a4cebf73960ac54256df
+C2.03R2 construction validation SHA-256: 1f1f2002fbaea05047627d5ae100b81eda710b8fc9c25519bc3b72032ada3287
+C2.03R2 candidate selection SHA-256: 8f2f1332313f221ef2e694d69c9d0f5ff1561a7ec13cca2258114b8cd1125974
+C2.03R2 construction summary SHA-256: 4e3deef3dc9ac7b8faf830ba9c65b1c67ee662b7d24c59e0428280518338ab13
+C2.03R2 stage report SHA-256: d270f1b3564a08054ab51a2412dbbbf68931b11f038426e4582914b452d4c474
+C2.03R2 re-check package manifest SHA-256: df9512317bd7543bd1d921a297c501b4c93cff76654459fb615aa4d97064aaec
+C2.03R2 ZIP pointer SHA-256: 3005588abefc9f7266c64858391b0dd468b466ee63870aae3992cbfa553a65e6
+C2.03R2 convenience re-check ZIP SHA-256: e080ab2c8263c0e13bf7342d1eda6ee1acd79418a04865085a838a920a3790ee
+
+C2.03R2 candidate semantic choice: authorization is not activation. A present transition is validated first, ordinary current-R routing is computed independently, and R->R' activates only when current R is structurally exhausted and R' has a deterministic eligible unconsumed RouteStateKey. Current-R terminal and current-R progress actions take precedence over latent transition authority. Invalid present transition input fails closed.
+
+Successor traceability correction: immutable C2.03R1 Stage Report states C2-231..C2-268 (39), while the actual R1 repair obligation range is C2-231..C2-269 (39). Historical R1 artifact remains unchanged.
 
 C2.06 carried obligations: bind C2/C3/C6/C7 route/admission/authorization references and reconcile frozen C1 OutcomeAxes serialization without changing C2 semantic ownership.
-C2.07 carried validator obligations: encode repaired routing snapshot identity, permission semantics, exact continuation matching, external-admission lineage/consumption, requirement-transition invariants and eventual R2 precedence, semantic compatibility, replay lineage, closed actions/reasons/degradation kinds, and fail-closed ref resolution.
+C2.07 carried validator obligations: encode routing snapshot identity, permission semantics, exact continuation matching, external-admission lineage/consumption, RouteStateKey-scoped revisit semantics, R2 requirement-transition activation/precedence, semantic compatibility, replay lineage, closed actions/reasons/degradation kinds, and fail-closed ref resolution.
 
 C2.04: NOT STARTED / NOT AUTHORIZED
 
@@ -74,4 +93,4 @@ Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
 NEXT GATE:
-Explicit user authorization for C2.03R2 narrow repair, followed by Independent Routing Re-Check.
+C2.03R2 Independent Routing Re-Check.

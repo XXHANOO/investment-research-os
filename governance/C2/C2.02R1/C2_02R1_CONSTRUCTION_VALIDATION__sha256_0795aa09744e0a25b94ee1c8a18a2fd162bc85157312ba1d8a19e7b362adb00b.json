@@ -1,0 +1,28 @@
+{
+  "acceptance_count": 24,
+  "acceptance_range": "C2-144..C2-167",
+  "acceptance_unique": true,
+  "bidirectional_mapping_complete": true,
+  "blockers_addressed_not_closed": [
+    "C2OUT-B01",
+    "C2OUT-B02",
+    "C2OUT-B03",
+    "C2OUT-B04"
+  ],
+  "c2_03": "NOT_AUTHORIZED",
+  "decision_count": 14,
+  "decision_range": "C2.DEC-108..C2.DEC-121",
+  "decision_unique": true,
+  "generated_at_utc": "2026-08-24T08:36:46Z",
+  "original_failed_acceptance_recheck_required": [
+    "C2-101",
+    "C2-113",
+    "C2-115",
+    "C2-123",
+    "C2-125",
+    "C2-141"
+  ],
+  "production_implementation": "NOT_AUTHORIZED",
+  "schema_version": "1.0.0-C2-02R1-construction-validation",
+  "status": "PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_RECHECK"
+}

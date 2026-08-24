@@ -2,6 +2,7 @@ name: C2.04 temporary base materializer
 
 on:
   pull_request:
+    types: [opened, reopened, synchronize]
     paths:
       - '.c2-04-sync/**'
 

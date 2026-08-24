@@ -1,0 +1,87 @@
+schema_version: 1.0.0-C2-03R2-decision-ledger-candidate
+project: Investment Research OS
+stage: C2.03R2
+status: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+parent_recheck_report_sha256: 5aa29272f8241c4b839ed0371ad7276ea0879b87002eab4e2993b86d1ea9bd88
+parent_recheck_result_sha256: 33309d8529289be727b1a994fa1fca04c508f9f2b71cff3684bddd5185c2e001
+decisions:
+- decision_id: C2.DEC-202
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Authorization of R-to-R-prime is distinct from activation; C2 uses fixed two-pass evaluation with ordinary current-R routing computed
+    first.
+  acceptance_ids:
+  - C2-270
+  - C2-271
+- decision_id: C2.DEC-203
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Ordinary current-R evaluation is classified into terminal, progress-available, or structural-exhaustion classes; terminal/progress
+    states take precedence over downgrade.
+  acceptance_ids:
+  - C2-272
+  - C2-273
+  - C2-274
+- decision_id: C2.DEC-204
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Structural exhaustion and transition_applicable are exact predicates over current-R eligible/unconsumed state, ordinary decision
+    class, valid transition identity, and R-prime eligibility.
+  acceptance_ids:
+  - C2-275
+  - C2-276
+- decision_id: C2.DEC-205
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Ordinary NEXT_ROUTE and SAME_ROUTE_REATTEMPT under R remain authoritative when executable, even if a valid authorized downgrade is
+    present.
+  acceptance_ids:
+  - C2-277
+  - C2-278
+- decision_id: C2.DEC-206
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Accepted terminal results and cancellation under R are never superseded by an authorized downgrade input.
+  acceptance_ids:
+  - C2-279
+  - C2-280
+- decision_id: C2.DEC-207
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: 'Pre-attempt precedence is deterministic: use R when selectable; apply valid R-to-R-prime only when R has no selectable route and
+    R-prime does.'
+  acceptance_ids:
+  - C2-281
+  - C2-282
+- decision_id: C2.DEC-208
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: An authorized downgrade supersedes only structural current-R exhaustion when R-prime has an eligible key; otherwise no transition
+    event occurs and ordinary exhaustion remains.
+  acceptance_ids:
+  - C2-283
+  - C2-284
+- decision_id: C2.DEC-209
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: A present invalid transition input fails closed and cannot be implementation-locally ignored.
+  acceptance_ids:
+  - C2-285
+- decision_id: C2.DEC-210
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Transition precedence is replay-semantic, never timing/order dependent; identical pinned state produces identical transition path.
+  acceptance_ids:
+  - C2-286
+- decision_id: C2.DEC-211
+  status: CANDIDATE
+  repair_surface: TRACEABILITY
+  statement: R2 successor traceability corrects the R1 Stage Report range typo without mutating the immutable R1 report.
+  acceptance_ids:
+  - C2-287
+- decision_id: C2.DEC-212
+  status: CANDIDATE
+  repair_surface: NON_REGRESSION
+  statement: R2 does not reopen or alter independently closed B01-B03 semantics; re-check includes narrow non-regression confirmation.
+  acceptance_ids:
+  - C2-288

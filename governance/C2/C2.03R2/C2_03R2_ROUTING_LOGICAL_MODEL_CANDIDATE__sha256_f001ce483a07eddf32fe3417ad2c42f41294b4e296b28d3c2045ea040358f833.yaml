@@ -1,0 +1,245 @@
+schema_version: 1.0.0-C2-03R2-routing-logical-model-candidate
+project: Investment Research OS
+stage: C2.03R2
+status: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+parent_pins:
+  C2_03_ORIGINAL_ROUTING: ead5bad60bd6fd369c1165f0860ccb560fd20ae76586c59a3b7a082d275c1613
+  C2_03_REVIEW_REPORT: 4852c1109ab0175715a282d125871a2cd3215097eb27ba854e1616f4a48c2a3a
+  C2_03_REVIEW_RESULT: d1a46f949f42612b963b742107ef9fd819b257821b5e4bbfa0d422d3f62618ba
+  C2_01R1_CAPABILITY: 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+  C2_02R2_OUTCOME: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+  C2_03R1_ROUTING: 18273aced9f962a863a71a82dd538707dd68f3e234d240d4a1f8cd7d75c77fe5
+  C2_03R1_RECHECK_REPORT: 5aa29272f8241c4b839ed0371ad7276ea0879b87002eab4e2993b86d1ea9bd88
+  C2_03R1_RECHECK_RESULT: 33309d8529289be727b1a994fa1fca04c508f9f2b71cff3684bddd5185c2e001
+routing_stable_ref:
+  tuple:
+  - authority
+  - ref_kind
+  - logical_id
+  - semantic_revision
+  - content_sha256
+  authority: C2
+  ref_kinds:
+  - ROUTE_CANDIDATE_SET
+  - ROUTE_POLICY_SNAPSHOT
+  content_digest: SHA256(RFC8785_JCS(normative_body))
+  equality: FULL_TUPLE
+  fail_closed: true
+enums:
+  candidate_permission_mode:
+  - ALL_IN_CANDIDATE_SET
+  - ALLOWLIST
+  route_action:
+  - TERMINATE_WITH_ATTEMPT
+  - NOMINATE_SAME_ROUTE_REATTEMPT
+  - NOMINATE_NEXT_ROUTE
+  - NOMINATE_CANDIDATE_UNDER_DOWNGRADED_REQUIREMENT
+  - YIELD_FOR_EXTERNAL_ADMISSION
+  - REQUIRE_EXPLICIT_REQUIREMENT_DOWNGRADE
+  - TERMINATE_EXHAUSTED
+  - TERMINATE_CANCELLED
+  external_gate_fallback_mode:
+  - YIELD
+  - NEXT_ROUTE
+  route_degradation_kind:
+  - REQUIREMENT_DOWNGRADE
+  - POLICY_PREFERENCE_TIER_DOWNGRADE
+  - PARTIAL_ACCEPTED_AS_TERMINAL
+records:
+  CandidateSetDefinition:
+    required:
+    - identity
+    - route_candidates
+    invariants:
+    - identity.ref_kind == ROUTE_CANDIDATE_SET
+    - unique route_candidate_id
+    - hash body after candidate canonicalization by route_candidate_id
+  RouteCandidate:
+    required:
+    - route_candidate_id
+    - provider_capability_ref
+    - policy_preference_tier
+    - policy_preference_ordinal
+    optional:
+    - source_binding_ref
+  RoutePolicySnapshot:
+    required:
+    - identity
+    - candidate_set_ref
+    - candidate_permission_mode
+    - permitted_route_candidate_ids
+    - continuation_rules
+    - external_gate_fallback_mode
+    invariants:
+    - identity.ref_kind == ROUTE_POLICY_SNAPSHOT
+    - candidate_set_ref exact full-tuple equality
+    - rule_id unique
+    - allowlist subset of bound candidate set
+  ContinuationRule:
+    required:
+    - rule_id
+    - rule_priority
+    - continuation_class
+    - action
+    optional:
+    - failure_family
+    - failure_code
+    - diagnostic_retry_hint
+  ExternalAdmissionBlockRecord:
+    required:
+    - external_admission_block_id
+    - route_request_id
+    - route_candidate_ref
+    - effective_requirement_identity
+    - external_admission_refs
+    - route_policy_snapshot_ref
+    - candidate_set_ref
+    - route_action_after_gate
+  FallbackEvent:
+    required:
+    - fallback_event_id
+    - from_route_candidate_ref
+    - to_route_candidate_ref
+    - route_decision_reason
+    - original_requirement_identity
+    - effective_requirement_identity
+    - route_policy_snapshot_ref
+    - candidate_set_ref
+    optional:
+    - triggering_attempt_ref
+    - triggering_external_admission_block_ref
+  AuthorizedRequirementTransitionInput:
+    required:
+    - from_requirement
+    - to_requirement
+    - authorization_ref
+  RequirementTransitionEvent:
+    required:
+    - requirement_transition_id
+    - route_request_id
+    - from_requirement_identity
+    - to_requirement_identity
+    - authorization_ref
+    - selected_route_candidate_ref
+    - candidate_set_ref
+    - route_policy_snapshot_ref
+    - route_degradation_ref
+  RouteAttemptRecord:
+    required:
+    - route_attempt_id
+    - route_request_id
+    - attempt_ordinal
+    - route_candidate_ref
+    - effective_requirement_identity
+    - capability_requirement_ref_or_exact_value
+    - c2_provider_operation_outcome_ref
+    - route_action_after_attempt
+    - route_decision_reason
+    optional:
+    - external_admission_refs
+  RouteResolution:
+    required:
+    - route_request_id
+    - terminal_disposition
+    - route_policy_snapshot_ref
+    - candidate_set_ref
+    - original_requirement_identity
+    - effective_requirement_identity
+    - attempt_refs
+    - external_admission_block_refs
+    - fallback_event_refs
+    - requirement_transition_refs
+    - route_degradation_refs
+    optional:
+    - selected_attempt_ref
+    - exhaustion_reason
+    - pending_route_candidate_ref
+    - unresolved_external_admission_refs
+  RouteDecisionInput:
+    required:
+    - route_request_id
+    - registry_snapshot_ref
+    - capability_requirement
+    - original_requirement_identity
+    - effective_requirement_identity
+    - route_policy_snapshot_ref
+    - candidate_set_ref
+    - prior_route_attempt_refs
+    - prior_external_admission_block_refs
+    - prior_fallback_event_refs
+    - prior_requirement_transition_refs
+    - prior_route_degradation_refs
+    optional:
+    - trusted_authorization_refs
+    - authorized_requirement_transition
+candidate_permission_predicate: candidate in exact bound set AND (mode==ALL_IN_CANDIDATE_SET OR (mode==ALLOWLIST AND id in
+  exact allowlist))
+continuation_rule_match:
+  class: exact equality
+  absent_qualifier: WILDCARD
+  present_qualifier: exact attempt-value equality
+  failure_code_requires_failure_family: true
+  qualifiers_only_for_FAILED: true
+  unknown_or_illegal: FAIL_CLOSED
+  tie_break:
+  - rule_priority
+  - rule_id
+route_state_key:
+- route_candidate_ref
+- effective_requirement_identity
+consumed_for_next_route:
+- dispatched attempt on exact RouteStateKey
+- external admission block on exact RouteStateKey with action NOMINATE_NEXT_ROUTE
+yield_semantics: does not consume RouteStateKey; preserves same pending candidate
+downgrade:
+  action: NOMINATE_CANDIDATE_UNDER_DOWNGRADED_REQUIREMENT
+  same_candidate_new_requirement_allowed: true
+  same_route_reattempt_requires_same_route_state_key: true
+  requires_transition_event: true
+  requires_requirement_degradation_record: true
+  max_authorized_transition_inputs_per_decision: 1
+blocker_status:
+  C2ROUTE-B01: CLOSED_BY_R1_INDEPENDENT_RECHECK
+  C2ROUTE-B02: CLOSED_BY_R1_INDEPENDENT_RECHECK
+  C2ROUTE-B03: CLOSED_BY_R1_INDEPENDENT_RECHECK
+  C2ROUTE-B04: ADDRESSED_NOT_CLOSED
+open_questions:
+  C2.OPEN-006: R2_REPAIRED_CANDIDATE_PENDING_INDEPENDENT_ROUTING_RECHECK
+  C2.OPEN-007: R2_REPAIRED_CANDIDATE_AT_C2_03_SEMANTIC_LEVEL_PENDING_INDEPENDENT_ROUTING_RECHECK_AND_C2_06_WIRE_BINDING
+  C2.OPEN-008..015: OPEN_UNCHANGED
+provider_instances: 0
+production_adapters: 0
+transition_precedence:
+  authorization_is_activation: false
+  evaluation_order:
+  - VALIDATE_PRESENT_TRANSITION_INPUT
+  - COMPUTE_ORDINARY_CURRENT_R_DECISION_WITH_TRANSITION_IGNORED
+  - CLASSIFY_CURRENT_R_DECISION
+  - APPLY_TRANSITION_ONLY_IF_PREDICATE_TRUE
+  current_r_classes:
+  - CURRENT_R_TERMINAL
+  - CURRENT_R_PROGRESS_AVAILABLE
+  - CURRENT_R_STRUCTURALLY_EXHAUSTED
+  terminal_cases:
+  - TERMINATE_WITH_ATTEMPT
+  - TERMINATE_CANCELLED
+  - policy/default terminal such as TERMINATE_EXHAUSTED or REQUIRE_EXPLICIT_REQUIREMENT_DOWNGRADE when selectable current-R
+    route still exists
+  progress_cases:
+  - INITIAL_ELIGIBLE_ROUTE_STATE
+  - NOMINATE_SAME_ROUTE_REATTEMPT
+  - NOMINATE_NEXT_ROUTE_WITH_SELECTED_CURRENT_R_KEY
+  - YIELD_FOR_EXTERNAL_ADMISSION
+  structural_exhaustion: not terminal; no executable current-R progress case; no eligible unconsumed current-R RouteStateKey
+    under pinned policy
+  predicate: valid_transition AND current_r_class==CURRENT_R_STRUCTURALLY_EXHAUSTED AND eligible_unconsumed_R_prime_key_exists
+  precedence:
+  - CURRENT_R_TERMINAL
+  - CURRENT_R_PROGRESS_AVAILABLE
+  - APPLICABLE_AUTHORIZED_REQUIREMENT_TRANSITION
+  - ORDINARY_CURRENT_R_EXHAUSTION_OR_DOWNGRADE_REQUIRED
+  invalid_present_transition: FAIL_CLOSED_ROUTE_INPUT_VALIDATION
+  valid_but_inapplicable_transition: NO_TRANSITION_EVENT; ordinary current-R decision remains
+  valid_transition_no_R_prime_candidate: NO_TRANSITION_EVENT; ordinary current-R exhausted decision remains
+  pre_attempt_semantics: transition applies only if no selectable current-R key and selectable R-prime key exists
+  replay: IDENTICAL_PINNED_INPUT_AND_LINEAGE_MUST_SELECT_IDENTICAL_PATH

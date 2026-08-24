@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.02 Independent Outcome-Semantics Review FAIL — REPAIR REQUIRED
-Current gate: Explicit authorization for C2.02R1 scoped repair, then Independent Outcome-Semantics Re-Check
+Current stage: C2.02R1 SCOPED REPAIR CONSTRUCTION COMPLETE — INDEPENDENT RE-CHECK REQUIRED
+Current gate: C2.02R1 Independent Outcome-Semantics Re-Check
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -15,7 +15,6 @@ C1 retained frozen load-bearing substantive byte equivalence: 11/11 PASS
 C1 retained frozen load-bearing substantive archive: COMPLETE
 C1 substantive development-readiness re-check: PASS
 C1 substantive development-readiness audit SHA-256: 81bf8c72b5381e5297b004bdc1b9ef9809db6492f80879b9d1d62f173dbaaf81
-C1 temporary remediation transport/workflows: REMOVED
 C1 historical external content-addressed dependencies: PRESERVED AS ORIGINALLY DISCLOSED / NOT REGENERATED
 C1 final archival remediation audit result SHA-256: b0cd63ee860aaae0a6b412f922ff50e31a0ab80bf7b98ee9530ba4b356b5fd73
 
@@ -26,41 +25,48 @@ C2.00 construction: COMPLETE AS CANDIDATE
 C2.00 Independent Scope Review: PASS
 C2.00 state: REVIEW_PASSED_NOT_FROZEN
 
-C2.01 original construction: COMPLETE AS CANDIDATE
 C2.01 original Independent Capability Review: FAIL
 C2.01R1 scoped repair construction: COMPLETE
 C2.01R1 Independent Capability Re-Check: PASS
 C2.01 state after R1 re-check: REVIEW_PASSED_NOT_FROZEN
 C2CAP-B01: CLOSED
 C2CAP-B02: CLOSED
-C2.OPEN-001: CLOSED_AT_C2_01_CONTRACT_LEVEL
-C2.OPEN-002: CLOSED_AT_C2_01_CONTRACT_LEVEL
-C2.OPEN-003: CLOSED_AT_C2_01_CONTRACT_LEVEL
+C2.OPEN-001..003: CLOSED_AT_C2_01_CONTRACT_LEVEL
 
-C2.02 construction: COMPLETE AS CANDIDATE
-C2.02 Independent Outcome-Semantics Review: FAIL
-C2.02 state: REPAIR_REQUIRED_NOT_FROZEN
-C2.OPEN-004: NOT CLOSED — REPAIR REQUIRED
-C2.OPEN-005: NOT CLOSED — REPAIR REQUIRED
-C2OUT-B01: OPEN — compound terminal-condition precedence is not deterministic
-C2OUT-B02: OPEN — terminal phase duplicated without coherence invariant
-C2OUT-B03: OPEN — non-success admitted-observation semantics under-specified
-C2OUT-B04: OPEN — material partiality lacks deterministic scope predicate
-C2.02 acceptance review: 44 PASS / 6 FAIL of C2-094..C2-143
-C2.02 failed acceptance IDs: C2-101, C2-113, C2-115, C2-123, C2-125, C2-141
+C2.02 original construction: COMPLETE AS CANDIDATE
+C2.02 original Independent Outcome-Semantics Review: FAIL
+C2.02 original failed acceptance IDs: C2-101, C2-113, C2-115, C2-123, C2-125, C2-141
 C2.02 Independent Review report SHA-256: 5626d1eb030c9132516458f38a81dd2753f34641b73bbb139b3a8f7cdf028cd1
 C2.02 Independent Review result SHA-256: 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
+
+C2.02R1 scoped repair construction: COMPLETE AS REPAIR CANDIDATE
+C2.02R1 Independent Outcome-Semantics Re-Check: NOT PERFORMED
+C2.02 state: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK / NOT_FROZEN
+C2OUT-B01: ADDRESSED_NOT_CLOSED
+C2OUT-B02: ADDRESSED_NOT_CLOSED
+C2OUT-B03: ADDRESSED_NOT_CLOSED
+C2OUT-B04: ADDRESSED_NOT_CLOSED
+C2.OPEN-004: REPAIRED_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+C2.OPEN-005: REPAIRED_CANDIDATE_PENDING_INDEPENDENT_RECHECK
 C2.OPEN-006..015: OPEN_UNCHANGED
+C2.02R1 repair decisions: C2.DEC-108..C2.DEC-121 (14)
+C2.02R1 repair acceptance obligations: C2-144..C2-167 (24)
+C2.02 original failed obligations requiring re-check: C2-101, C2-113, C2-115, C2-123, C2-125, C2-141
+C2.02R1 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_RECHECK
+C2.02R1 GitHub candidate artifact count: 11
+C2.02R1 Git blob byte-equivalence against local candidate: 11/11
 
 C2.03: NOT STARTED / NOT AUTHORIZED
 
 Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
-C2.02 normative contract candidate SHA-256: eb7636409e2dcdfe688a089c0dabceacd300ad8dee49febfbc6cdc149b96d7ef
-C2.02 logical model candidate SHA-256: 607d3839d66ab0cae9bf8192f38135dfdde05f112a1768d33360415cda229ed4
-C2.02 acceptance delta SHA-256: 2d8233a17fa2ad2afc0ff386e4975869d138bfafdf7025a17eb2be5556fb10ed
-C2.02 decision ledger SHA-256: 9a84cda469a79b9f807a45514744fd6b905fe88ca0607ef3fd25f2b6bcd0f5ae
+C2.02R1 repaired normative contract SHA-256: 828b5c8794ad3458afe32ceeb33212cf210024c0ea5de765f7bae1d8e7d279b6
+C2.02R1 repaired logical model SHA-256: 89d7905961776e47f637c6460bddda33067421328bdb205a30bc60d5901735dc
+C2.02R1 repair acceptance delta SHA-256: f548d2041b984c1b881c839689fe7c16fd6d4baa1e9b6f634cb1f2dca6c4877f
+C2.02R1 repair decision ledger SHA-256: 369248cf6e25169e1b7168773059e36e2cf5d2cdcd7a0ed1fb85ac62988a4bbf
+C2.02R1 candidate selection SHA-256: ee8c627ed65b96bed847fff52684eb1e272ee97bec00fe17e85494d45faaeb90
+C2.02R1 stage report SHA-256: 4b32eb50d30d962048d2a0b036fc51cf371d1853960cf8bdee6e4d4c0a6acc7d
 
 NEXT GATE:
-Explicit user authorization for C2.02R1 scoped repair of C2OUT-B01..B04, followed by Independent Outcome-Semantics Re-Check.
+C2.02R1 Independent Outcome-Semantics Re-Check.

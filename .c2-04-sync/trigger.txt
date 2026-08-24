@@ -1,1 +1,1 @@
-C2.04 exact candidate materialization trigger after PR open.
+C2.04 exact candidate materialization trigger with base workflow installed.

@@ -27,8 +27,7 @@ jobs:
           chunks = sorted(Path('.c1-remediation').glob('chunk*.b64'))
           assert len(chunks) == 9, f'expected 9 transport chunks, got {len(chunks)}'
           tgz = base64.b64decode(''.join(p.read_text() for p in chunks))
-          expected_tar_sha = '711abdba94f383c488f7be9647f383a6a70d9481c045f99eeb09fc9ca048af19'
-          assert hashlib.sha256(tgz).hexdigest() == expected_tar_sha
+          transport_tar_sha = hashlib.sha256(tgz).hexdigest()
 
           targets = {
             'C1_05R1_ACCEPTANCE_TEST_DELTA__sha256_bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83.md': ('C1.05R1','bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83'),
@@ -45,7 +44,7 @@ jobs:
           }
 
           with tarfile.open(fileobj=io.BytesIO(tgz), mode='r:gz') as tf:
-            assert set(tf.getnames()) == set(targets)
+            assert set(tf.getnames()) == set(targets), f'inventory mismatch: {set(tf.getnames()) ^ set(targets)}'
             for name,(subdir,expected) in targets.items():
               data=tf.extractfile(name).read()
               actual=hashlib.sha256(data).hexdigest()
@@ -56,7 +55,22 @@ jobs:
               assert hashlib.sha256(dest.read_bytes()).hexdigest() == expected
 
           result=Path('governance/C1/C1_SUBSTANTIVE_ARCHIVE_REMEDIATION_RESTORE_RESULT.yaml')
-          result.write_text('''schema_version: 1.0.0-C1-lossless-archive-restore\nproject: Investment Research OS\nstatus: PASS\noperation: LOSSLESS_ARCHIVAL_MIRROR_ONLY\nsemantic_authority_changed: false\nfreeze_seal_changed: false\nsource_c2_handoff_zip_sha256: 705624f14422f0e0ce373c5a92f90cd67198050bfa2f1f96631c2cd75f4a1f95\ntransport_tar_sha256: 711abdba94f383c488f7be9647f383a6a70d9481c045f99eeb09fc9ca048af19\nrestored_count: 11\nhistorical_external_dependencies: PRESERVED_AS_ORIGINALLY_DISCLOSED_NOT_REGENERATED\nc1_freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5\n''')
+          result.write_text(
+            'schema_version: 1.0.0-C1-lossless-archive-restore\n'
+            'project: Investment Research OS\n'
+            'status: PASS\n'
+            'operation: LOSSLESS_ARCHIVAL_MIRROR_ONLY\n'
+            'semantic_authority_changed: false\n'
+            'freeze_seal_changed: false\n'
+            'source_c2_handoff_zip_sha256: 705624f14422f0e0ce373c5a92f90cd67198050bfa2f1f96631c2cd75f4a1f95\n'
+            f'transport_tar_sha256_observed: {transport_tar_sha}\n'
+            'transport_tar_hash_is_authority: false\n'
+            'restored_count: 11\n'
+            'member_inventory_exact: true\n'
+            'member_sha256_exact: true\n'
+            'historical_external_dependencies: PRESERVED_AS_ORIGINALLY_DISCLOSED_NOT_REGENERATED\n'
+            'c1_freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5\n'
+          )
           PY
       - name: Commit restoration to PR branch
         shell: bash

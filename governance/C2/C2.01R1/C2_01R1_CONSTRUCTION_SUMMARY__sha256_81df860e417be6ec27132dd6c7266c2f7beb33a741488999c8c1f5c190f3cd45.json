@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0-C2-01R1-construction-summary",
+  "project": "Investment Research OS",
+  "stage": "C2.01R1",
+  "generated_at_utc": "2026-08-24T02:02:00Z",
+  "status": "CONSTRUCTION_COMPLETE_AS_REPAIR_CANDIDATE",
+  "predecessor_review": "FAIL_REPAIR_REQUIRED",
+  "repair_scope": [
+    "C2CAP-B01",
+    "C2CAP-B02"
+  ],
+  "blocker_state_after_construction": {
+    "C2CAP-B01": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK",
+    "C2CAP-B02": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK"
+  },
+  "open_item_state": {
+    "C2.OPEN-001": "PRIOR_REVIEW_NO_BLOCKER",
+    "C2.OPEN-002": "PRIOR_REVIEW_NO_BLOCKER",
+    "C2.OPEN-003": "REPAIRED_CANDIDATE_PENDING_INDEPENDENT_RECHECK",
+    "C2.OPEN-004..015": "OPEN_UNCHANGED"
+  },
+  "repair_decisions": 10,
+  "repair_acceptance_obligations": 10,
+  "acceptance_range": "C2-084..C2-093",
+  "predecessor_failed_acceptance_ids_to_recheck": [
+    "C2-057",
+    "C2-063",
+    "C2-065",
+    "C2-066"
+  ],
+  "production_implementation": "NOT_AUTHORIZED",
+  "c2_02": "NOT_AUTHORIZED",
+  "external_side_effects": "NOT_AUTHORIZED",
+  "self_approved": false,
+  "artifacts": {
+    "registry_prose_sha256": "2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95",
+    "registry_model_sha256": "0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a",
+    "acceptance_delta_sha256": "a668005a868230ac869071e496eea9da8dd07383db76c61a00e65abc2fec6d73",
+    "decision_ledger_sha256": "16be0dcbb3853399d4a55af8fb15938ab88f1193a7d16d4bb7938f01e9409ace",
+    "repair_diffs_sha256": "3114c4fc61a147507c65eed91abc2ae2a254ff31d2375a98d71a69fdeaf40ef7",
+    "construction_validation_sha256": "5ec248815125e889935ac741c2ebe306dffd15301a6883f59e26f8877bcf351c",
+    "candidate_selection_sha256": "906065e6ada74b0e39bdf75cb4d0f96daf2ee20981c4272f7bd9f31916856355"
+  },
+  "next_gate": "C2.01R1 Independent Capability Re-Check"
+}

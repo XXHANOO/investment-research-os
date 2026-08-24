@@ -1,0 +1,133 @@
+schema_version: 1.0.0-C2-01R1-decision-ledger-candidate
+project: Investment Research OS
+stage: C2.01R1
+generated_at_utc: '2026-08-24T02:02:00Z'
+status: REPAIR_CANDIDATE_NOT_RECHECKED_NOT_FROZEN
+repair_basis:
+  C2CAP-B01: OPEN_AT_ENTRY_ADDRESSED_NOT_CLOSED_BY_REPAIR_CONSTRUCTION
+  C2CAP-B02: OPEN_AT_ENTRY_ADDRESSED_NOT_CLOSED_BY_REPAIR_CONSTRUCTION
+  predecessor_candidate_sha256: 12e3ade1031d1e608ff31ebea0b58d9c8505ea36533e624f8a4af82f0794961a
+  review_report_sha256: a4aff388382966fcc36f5be33b7b622ea835bf0b08aa4519968864e96e8bff96
+  review_result_sha256: 53afb757e7f1f2ebeb1224b2ab2a6cd5a04a3f6954a3d79d197621664687170c
+decisions:
+- id: C2.DEC-067
+  title: Close stable-ref semantic kind domain
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Add explicit stable ref kinds for observation families, semantic features, provider-native identifier
+    namespaces, provider-native subject semantics, record grouping semantics and provider-native defaulting semantics.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2CAP-B01
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-084
+- id: C2.DEC-068
+  title: Slot-to-ref-kind contract
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Every load-bearing ref-bearing slot in the C2.01R1 logical model has an explicit permitted ref_kind
+    set; no untyped ref-bearing slot is allowed.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2CAP-B01
+  required_acceptance_tests:
+  - C2-085
+- id: C2.DEC-069
+  title: Reject unknown and wrong-kind refs
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Unknown kinds and known-but-wrong kinds are unresolved and rejected before compatibility evaluation.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2CAP-B01
+  - C2-057
+  - C2-066
+  required_acceptance_tests:
+  - C2-086
+- id: C2.DEC-070
+  title: Provider-native namespace/subject non-canonical boundary
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Identifier-namespace and subject-semantic refs remain typed provider semantics and never become C1
+    canonical identity/classes by fiat.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2CAP-B01
+  - C1 identity boundary
+  required_acceptance_tests:
+  - C2-087
+- id: C2.DEC-071
+  title: Typed capability requirement
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: CapabilityRequirement explicitly types observation, query, response and semantic-feature requirement
+    refs.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2CAP-B01
+  - C2CAP-B02
+  required_acceptance_tests:
+  - C2-088
+- id: C2.DEC-072
+  title: Exact response satisfaction closure
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: effective_response_semantic_refs(P,S) is the exact enumerated union of capability response refs and
+    one-hop endpoint response/grouping/field/pagination/signal refs.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2CAP-B02
+  - C2-065
+  required_acceptance_tests:
+  - C2-089
+- id: C2.DEC-073
+  title: One-hop no-inference response semantics
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Compatibility response closure does not recurse, auto-import provider-wide refs, or infer semantics
+    from provider names/docs/transport metadata.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2CAP-B02
+  required_acceptance_tests:
+  - C2-090
+- id: C2.DEC-074
+  title: Full stable-ref equality
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Compatibility set membership compares the full load-bearing stable-ref identity tuple including content
+    SHA-256.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2CAP-B02
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-091
+- id: C2.DEC-075
+  title: Fail-closed invalid-reference compatibility
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Dangling, unknown-kind, wrong-kind, content-mismatched, floating or private-extension refs make compatibility
+    false.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2CAP-B01
+  - C2CAP-B02
+  - C2-066
+  required_acceptance_tests:
+  - C2-092
+- id: C2.DEC-076
+  title: Repair governance stop rule
+  status: REPAIR_CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: C2.01R1 construction only addresses B01/B02; only an independent capability re-check may close blockers/OPEN-003
+    and authorize advancement.
+  authority_scope: C2.01R1
+  evidence_refs:
+  - C2 governance
+  - C2CAP-B01
+  - C2CAP-B02
+  required_acceptance_tests:
+  - C2-093
+predecessor_failed_acceptance_recheck:
+- C2-057
+- C2-063
+- C2-065
+- C2-066
+open_item_state:
+  C2.OPEN-001: PRIOR_INDEPENDENT_REVIEW_NO_BLOCKER
+  C2.OPEN-002: PRIOR_INDEPENDENT_REVIEW_NO_BLOCKER
+  C2.OPEN-003: REPAIRED_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-004..015: OPEN_UNCHANGED
+next_gate: C2.01R1 Independent Capability Re-Check

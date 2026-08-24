@@ -1,0 +1,381 @@
+schema_version: 1.0.0-C2-01R1-registry-repair-candidate
+project: Investment Research OS
+stage: C2.01R1
+generated_at_utc: '2026-08-24T02:02:00Z'
+status: REPAIR_CANDIDATE_FOR_INDEPENDENT_CAPABILITY_RECHECK
+production_implementation: NOT_AUTHORIZED
+wire_schema_status: LOGICAL_SEMANTIC_REGISTRY_ONLY_FINAL_SCHEMA_DEFERRED_C2_07
+stable_ref_model:
+  authority: C2
+  required_fields:
+  - ref_kind
+  - logical_id
+  - semantic_revision
+  - content_sha256
+  load_bearing_floating_alias_allowed: false
+  supersession: NEW_REF_OLD_REF_REMAINS_RESOLVABLE
+  ref_kinds:
+  - REGISTRY_SNAPSHOT
+  - PROVIDER_SEMANTIC_PROFILE
+  - ENDPOINT_SEMANTIC_PROFILE
+  - FIELD_SEMANTIC
+  - CAPABILITY_DEFINITION
+  - COMPATIBILITY_RULESET
+  - QUERY_SEMANTIC
+  - RESPONSE_SEMANTIC
+  - PAGINATION_SEMANTIC
+  - PROVIDER_NATIVE_SIGNAL_SEMANTIC
+  - OBSERVATION_FAMILY_SEMANTIC
+  - SEMANTIC_FEATURE
+  - PROVIDER_NATIVE_IDENTIFIER_NAMESPACE
+  - PROVIDER_NATIVE_SUBJECT_SEMANTIC
+  - RECORD_GROUPING_SEMANTIC
+  - PROVIDER_NATIVE_DEFAULTING_SEMANTIC
+  slot_kind_contract_required: true
+  unknown_kind_policy: REJECT
+  known_wrong_kind_policy: REJECT
+  dangling_ref_policy: UNRESOLVED_FAIL_CLOSED
+  content_mismatch_policy: UNRESOLVED_FAIL_CLOSED
+  identity_equality_fields:
+  - authority
+  - ref_kind
+  - logical_id
+  - semantic_revision
+  - content_sha256
+access_pattern_taxonomy:
+- id: DIRECT_LOOKUP
+  meaning: provider-native exact-key/tuple lookup
+  not_c1_exact_identity: true
+- id: SEARCH
+  meaning: provider-native ranked/fuzzy/text/criteria search
+  not_unique_canonical_match: true
+- id: ENUMERATION
+  meaning: traverse provider-declared collection under endpoint collection semantics
+  not_completeness_certification: true
+- id: SNAPSHOT_FETCH
+  meaning: provider request-boundary/current snapshot observation fetch
+  not_c4_pit: true
+- id: WINDOWED_SERIES_FETCH
+  meaning: provider-native range/window sequence fetch
+  not_c4_reconstructability: true
+- id: EVENT_COLLECTION_FETCH
+  meaning: provider-native event collection fetch
+  not_c1_identity_effect: true
+- id: DOCUMENT_DISCOVERY
+  meaning: provider-indexed document descriptor discovery
+  not_c5_source_fitness: true
+- id: DOCUMENT_RETRIEVAL
+  meaning: provider-identified document/content retrieval
+  secure_ingress_required_before_permitted_raw: true
+- id: BULK_EXPORT
+  meaning: provider-declared bulk dataset/export
+  not_completeness_certification: true
+- id: STREAM_SUBSCRIPTION
+  meaning: provider-pushed observation subscription
+  not_side_effect_authority: true
+c1_facing_observation_families:
+- IDENTITY_DESCRIPTOR_OBSERVATION
+- REGISTERED_IDENTIFIER_OBSERVATION
+- SYMBOL_OBSERVATION
+- LISTING_OBSERVATION
+- CONTRACT_OBSERVATION
+- CONTRACT_VENUE_ADMISSION_OBSERVATION
+- CORPORATE_ACTION_EVENT_OBSERVATION
+- CORPORATE_ACTION_RELATION_OBSERVATION
+- TERMS_OBSERVATION
+additional_provider_observation_families:
+- MARKET_OBSERVATION
+- FUNDAMENTAL_OBSERVATION
+- DOCUMENT_DESCRIPTOR_OBSERVATION
+- DOCUMENT_CONTENT_OBSERVATION
+- PROVIDER_REFERENCE_OBSERVATION
+logical_record_types:
+  ProviderSemanticProfileDefinition:
+    required:
+    - provider_profile_id
+    - semantic_revision
+    - provider_semantic_namespace
+    - adopted_provider_wide_semantic_refs
+    - provider_native_identifier_namespace_refs
+    - provider_native_subject_semantic_refs
+    - content_identity
+    forbidden:
+    - credentials
+    - routing_priority
+    - current_health
+    - quota_state
+    - c4_available_from
+    - c5_source_fitness
+    - completeness_certification
+  FieldSemanticDefinition:
+    required:
+    - field_semantic_id
+    - semantic_revision
+    - provider_profile_ref
+    - provider_native_selector
+    - provider_native_meaning
+    - value_shape
+    - unit_scale_semantics
+    - null_missing_sentinel_semantics
+    - enumeration_semantics
+    - provider_native_timestamp_role
+    - source_record_grouping_semantics
+    - content_identity
+    timestamp_roles:
+    - NOT_TEMPORAL
+    - PROVIDER_EVENT_TIME
+    - PROVIDER_OBSERVED_TIME
+    - PROVIDER_EFFECTIVE_TIME_CLAIM
+    - PROVIDER_PUBLISHED_TIME_CLAIM
+    - PROVIDER_RETRIEVAL_METADATA_TIME
+    - PROVIDER_OTHER_TIME
+    must_not_define:
+    - c4_available_from
+    - c4_pit_safe
+    - canonical_c1_id_by_fiat
+    - c2_data_outcome
+  EndpointSemanticProfileDefinition:
+    required:
+    - endpoint_profile_id
+    - semantic_revision
+    - provider_profile_ref
+    - endpoint_logical_id
+    - adopted_provider_wide_semantic_refs
+    - request_semantics
+    - response_semantics
+    - content_identity
+    response_cardinality:
+    - ZERO_OR_ONE
+    - ONE
+    - COLLECTION
+    - PAGED_COLLECTION
+    - SERIES
+    - EVENT_COLLECTION
+    - DOCUMENT
+    - BULK_OBJECT
+    - STREAM
+    must_not_define:
+    - typed_failure_taxonomy
+    - route_priority
+    - credential_secret
+    - completeness_strength
+    - current_health
+  ProviderCapabilityDefinition:
+    required:
+    - capability_id
+    - semantic_revision
+    - provider_profile_ref
+    - endpoint_semantic_profile_ref
+    - access_pattern_family
+    - produced_observation_family_refs
+    - accepted_query_semantic_refs
+    - required_response_semantic_refs
+    - semantic_feature_refs
+    - compatibility_ruleset_ref
+    - content_identity
+    forbidden:
+    - priority
+    - retry_backoff
+    - quota_budget
+    - credential_secret
+    - current_health
+    - source_fitness
+    - verification_strength
+    - pit_reconstructability
+    - completeness_strength
+    - adapter_executable
+  ProviderCapabilitySemanticRegistrySnapshot:
+    required:
+    - registry_id
+    - semantic_revision
+    - taxonomy_version
+    - compatibility_ruleset_ref
+    - provider_profile_refs
+    - endpoint_profile_refs
+    - field_semantic_refs
+    - capability_refs
+    - auxiliary_semantic_refs
+    - content_identity
+  CapabilityRequirement:
+    required:
+    - access_pattern_family
+    - required_observation_family_refs
+    - required_query_semantic_refs
+    - required_response_semantic_refs
+    - required_semantic_feature_refs
+    ref_kind_rules:
+      required_observation_family_refs:
+      - OBSERVATION_FAMILY_SEMANTIC
+      required_query_semantic_refs:
+      - QUERY_SEMANTIC
+      required_response_semantic_refs: &id001
+      - RESPONSE_SEMANTIC
+      - RECORD_GROUPING_SEMANTIC
+      - FIELD_SEMANTIC
+      - PAGINATION_SEMANTIC
+      - PROVIDER_NATIVE_SIGNAL_SEMANTIC
+      required_semantic_feature_refs:
+      - SEMANTIC_FEATURE
+compatibility_predicate:
+  registry_state: ONE_PINNED_PROVIDER_CAPABILITY_SEMANTIC_REGISTRY_SNAPSHOT
+  ref_equality: FULL_STABLE_REF_IDENTITY_TUPLE
+  effective_response_semantic_refs:
+    endpoint_resolution: EXACT_ONE_HOP_ENDPOINT_SEMANTIC_PROFILE
+    members:
+    - ProviderCapabilityDefinition.required_response_semantic_refs[]
+    - EndpointSemanticProfileDefinition.response_semantics.response_semantic_ref
+    - EndpointSemanticProfileDefinition.response_semantics.record_grouping_semantic_refs[]
+    - EndpointSemanticProfileDefinition.response_semantics.field_semantic_refs[]
+    - EndpointSemanticProfileDefinition.response_semantics.pagination_semantic_ref_if_present
+    - EndpointSemanticProfileDefinition.response_semantics.provider_native_absence_signal_refs[]
+    - EndpointSemanticProfileDefinition.response_semantics.provider_native_partiality_signal_refs[]
+    allowed_ref_kinds: *id001
+    dereference_depth: ONE_HOP_ONLY
+    provider_wide_auto_import: false
+    transitive_semantic_discovery: false
+    implicit_inference: false
+  clauses:
+  - access_pattern_family_exact_match
+  - typed_required_observation_refs_subset_of_produced
+  - typed_required_query_refs_subset_of_accepted
+  - typed_required_response_refs_subset_of_effective_response_semantic_refs
+  - typed_required_feature_refs_subset_of_explicit_semantic_feature_refs
+  - all_participating_refs_exact_kind_and_content_resolve_under_same_snapshot
+  - no_alias_private_extension_transitive_deref_provider_default_or_guessing
+  failure_conditions:
+  - UNKNOWN_REF_KIND
+  - WRONG_REF_KIND
+  - DANGLING_REF
+  - CONTENT_SHA256_MISMATCH
+  - FLOATING_ALIAS
+  - IMPLICIT_PROVIDER_WIDE_DEFAULT
+  - TRANSITIVE_DEREFERENCE
+  - PRIVATE_EXTENSION_KIND
+  - UNENUMERATED_RESPONSE_SATISFACTION_PATH
+compatibility_failure_policy: ANY_UNPROVEN_OR_INVALID_CONDITION_FALSE_FAIL_CLOSED
+semantic_change_requires_new_ref_for:
+- query_meaning_or_default
+- response_record_grouping
+- field_unit_scale_sign
+- null_missing_sentinel_meaning
+- enum_meaning
+- timestamp_role
+- pagination_or_truncation
+- absence_or_partiality_signal_meaning
+- observation_family_mapping_eligibility
+provider_instances: []
+provider_instance_policy: EMPTY_BY_DESIGN_C2_OPEN_015_REMAINS_UNRESOLVED
+c1_05_ref_mapping:
+  provider_profile_ref: PROVIDER_SEMANTIC_PROFILE
+  provider_field_semantic_refs[]: FIELD_SEMANTIC
+  provider_capability_ref: CAPABILITY_DEFINITION
+  c2_completeness_refs[]: RESERVED_C2_05_SAME_STABLE_REF_DISCIPLINE
+open_item_state:
+  C2.OPEN-001: PRIOR_REVIEW_NO_BLOCKER
+  C2.OPEN-002: PRIOR_REVIEW_NO_BLOCKER
+  C2.OPEN-003: REPAIRED_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-004..015: OPEN
+repair_basis:
+  predecessor_candidate_sha256: 12e3ade1031d1e608ff31ebea0b58d9c8505ea36533e624f8a4af82f0794961a
+  independent_review_report_sha256: a4aff388382966fcc36f5be33b7b622ea835bf0b08aa4519968864e96e8bff96
+  independent_review_result_sha256: 53afb757e7f1f2ebeb1224b2ab2a6cd5a04a3f6954a3d79d197621664687170c
+  blockers_addressed:
+  - C2CAP-B01
+  - C2CAP-B02
+  scope: ONLY_STABLE_REF_TYPE_CLOSURE_AND_RESPONSE_COMPATIBILITY_CLOSURE
+ref_field_kind_contract:
+  ProviderSemanticProfileDefinition.adopted_provider_wide_semantic_refs[]: &id002
+  - PROVIDER_NATIVE_IDENTIFIER_NAMESPACE
+  - PROVIDER_NATIVE_SUBJECT_SEMANTIC
+  - QUERY_SEMANTIC
+  - RESPONSE_SEMANTIC
+  - PAGINATION_SEMANTIC
+  - PROVIDER_NATIVE_SIGNAL_SEMANTIC
+  - OBSERVATION_FAMILY_SEMANTIC
+  - SEMANTIC_FEATURE
+  - RECORD_GROUPING_SEMANTIC
+  - PROVIDER_NATIVE_DEFAULTING_SEMANTIC
+  ProviderSemanticProfileDefinition.provider_native_identifier_namespace_refs[]:
+  - PROVIDER_NATIVE_IDENTIFIER_NAMESPACE
+  ProviderSemanticProfileDefinition.provider_native_subject_semantic_refs[]:
+  - PROVIDER_NATIVE_SUBJECT_SEMANTIC
+  FieldSemanticDefinition.provider_profile_ref:
+  - PROVIDER_SEMANTIC_PROFILE
+  EndpointSemanticProfileDefinition.provider_profile_ref:
+  - PROVIDER_SEMANTIC_PROFILE
+  EndpointSemanticProfileDefinition.adopted_provider_wide_semantic_refs[]: *id002
+  EndpointSemanticProfileDefinition.request_semantics.query_semantic_refs[]:
+  - QUERY_SEMANTIC
+  EndpointSemanticProfileDefinition.request_semantics.required_query_refs[]:
+  - QUERY_SEMANTIC
+  EndpointSemanticProfileDefinition.request_semantics.optional_query_refs[]:
+  - QUERY_SEMANTIC
+  EndpointSemanticProfileDefinition.request_semantics.mutually_exclusive_query_groups[].members[]:
+  - QUERY_SEMANTIC
+  EndpointSemanticProfileDefinition.request_semantics.provider_native_defaulting_semantic_refs[]:
+  - PROVIDER_NATIVE_DEFAULTING_SEMANTIC
+  EndpointSemanticProfileDefinition.response_semantics.response_semantic_ref:
+  - RESPONSE_SEMANTIC
+  EndpointSemanticProfileDefinition.response_semantics.record_grouping_semantic_refs[]:
+  - RECORD_GROUPING_SEMANTIC
+  EndpointSemanticProfileDefinition.response_semantics.field_semantic_refs[]:
+  - FIELD_SEMANTIC
+  EndpointSemanticProfileDefinition.response_semantics.pagination_semantic_ref:
+  - PAGINATION_SEMANTIC
+  EndpointSemanticProfileDefinition.response_semantics.provider_native_absence_signal_refs[]:
+  - PROVIDER_NATIVE_SIGNAL_SEMANTIC
+  EndpointSemanticProfileDefinition.response_semantics.provider_native_partiality_signal_refs[]:
+  - PROVIDER_NATIVE_SIGNAL_SEMANTIC
+  ProviderCapabilityDefinition.provider_profile_ref:
+  - PROVIDER_SEMANTIC_PROFILE
+  ProviderCapabilityDefinition.endpoint_semantic_profile_ref:
+  - ENDPOINT_SEMANTIC_PROFILE
+  ProviderCapabilityDefinition.produced_observation_family_refs[]:
+  - OBSERVATION_FAMILY_SEMANTIC
+  ProviderCapabilityDefinition.accepted_query_semantic_refs[]:
+  - QUERY_SEMANTIC
+  ProviderCapabilityDefinition.required_response_semantic_refs[]: *id001
+  ProviderCapabilityDefinition.semantic_feature_refs[]:
+  - SEMANTIC_FEATURE
+  ProviderCapabilityDefinition.compatibility_ruleset_ref:
+  - COMPATIBILITY_RULESET
+  CapabilityRequirement.required_observation_family_refs[]:
+  - OBSERVATION_FAMILY_SEMANTIC
+  CapabilityRequirement.required_query_semantic_refs[]:
+  - QUERY_SEMANTIC
+  CapabilityRequirement.required_response_semantic_refs[]: *id001
+  CapabilityRequirement.required_semantic_feature_refs[]:
+  - SEMANTIC_FEATURE
+  ProviderCapabilitySemanticRegistrySnapshot.compatibility_ruleset_ref:
+  - COMPATIBILITY_RULESET
+  ProviderCapabilitySemanticRegistrySnapshot.provider_profile_refs[]:
+  - PROVIDER_SEMANTIC_PROFILE
+  ProviderCapabilitySemanticRegistrySnapshot.endpoint_profile_refs[]:
+  - ENDPOINT_SEMANTIC_PROFILE
+  ProviderCapabilitySemanticRegistrySnapshot.field_semantic_refs[]:
+  - FIELD_SEMANTIC
+  ProviderCapabilitySemanticRegistrySnapshot.capability_refs[]:
+  - CAPABILITY_DEFINITION
+  ProviderCapabilitySemanticRegistrySnapshot.auxiliary_semantic_refs[]:
+  - QUERY_SEMANTIC
+  - RESPONSE_SEMANTIC
+  - PAGINATION_SEMANTIC
+  - PROVIDER_NATIVE_SIGNAL_SEMANTIC
+  - OBSERVATION_FAMILY_SEMANTIC
+  - SEMANTIC_FEATURE
+  - PROVIDER_NATIVE_IDENTIFIER_NAMESPACE
+  - PROVIDER_NATIVE_SUBJECT_SEMANTIC
+  - RECORD_GROUPING_SEMANTIC
+  - PROVIDER_NATIVE_DEFAULTING_SEMANTIC
+stable_ref_semantic_kinds:
+  OBSERVATION_FAMILY_SEMANTIC: provider-observation family definition; never C1 canonical identity
+  SEMANTIC_FEATURE: atomic provider-side capability semantic feature; not health/quality/routing
+  PROVIDER_NATIVE_IDENTIFIER_NAMESPACE: provider-side identifier namespace semantics; not canonical C1
+    identity
+  PROVIDER_NATIVE_SUBJECT_SEMANTIC: provider-side subject/object category semantics; not canonical C1
+    class
+  RECORD_GROUPING_SEMANTIC: provider response record/row/event grouping meaning
+  PROVIDER_NATIVE_DEFAULTING_SEMANTIC: provider query omission/default behavior; request semantics only
+blocker_state:
+  C2CAP-B01: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CAP-B02: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK

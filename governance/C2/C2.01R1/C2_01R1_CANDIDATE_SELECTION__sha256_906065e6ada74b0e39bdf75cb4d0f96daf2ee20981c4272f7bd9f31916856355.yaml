@@ -1,0 +1,73 @@
+schema_version: 1.0.0-C2-01R1-candidate-selection
+project: Investment Research OS
+stage: C2.01R1
+generated_at_utc: '2026-08-24T02:02:00Z'
+status: CANDIDATE_SELECTED_FOR_INDEPENDENT_CAPABILITY_RECHECK_NOT_APPROVED_NOT_FROZEN
+production_implementation: NOT_AUTHORIZED
+external_side_effects: NOT_AUTHORIZED
+repair_scope:
+- C2CAP-B01
+- C2CAP-B02
+predecessor:
+  c2_01_registry_candidate_sha256: 12e3ade1031d1e608ff31ebea0b58d9c8505ea36533e624f8a4af82f0794961a
+  c2_01_model_sha256: 85f580578722a7ce75d7a3e31929d58624d8e8ff1704c9f63c8c99600db3a589
+  c2_01_acceptance_delta_sha256: 0324f84b81f6f46e08e557c7de95ee596b9cc2bcaf7a6e3c428e5c6550180566
+  c2_01_decision_ledger_sha256: de64fd89c75cf24e56011ec4219a1967dc2de2b89b17ffd8d9516d6e48ba7ffc
+  independent_review_report_sha256: a4aff388382966fcc36f5be33b7b622ea835bf0b08aa4519968864e96e8bff96
+  independent_review_result_sha256: 53afb757e7f1f2ebeb1224b2ab2a6cd5a04a3f6954a3d79d197621664687170c
+  github_construction_snapshot_commit: 22c85cc54fcb0a25eb2fa87ec66ca0b7728c6fbe
+review_targets:
+  integrated_registry_prose:
+    path: C2_01R1_PROVIDER_CAPABILITY_ENDPOINT_SEMANTIC_REGISTRY_CANDIDATE__sha256_2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95.md
+    sha256: 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+  integrated_registry_model:
+    path: C2_01R1_CAPABILITY_SEMANTIC_REGISTRY_MODEL_CANDIDATE__sha256_0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a.yaml
+    sha256: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+  repair_acceptance_delta:
+    path: C2_01R1_ACCEPTANCE_TEST_DELTA_CANDIDATE__sha256_a668005a868230ac869071e496eea9da8dd07383db76c61a00e65abc2fec6d73.md
+    sha256: a668005a868230ac869071e496eea9da8dd07383db76c61a00e65abc2fec6d73
+  repair_decision_ledger:
+    path: C2_01R1_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_16be0dcbb3853399d4a55af8fb15938ab88f1193a7d16d4bb7938f01e9409ace.yaml
+    sha256: 16be0dcbb3853399d4a55af8fb15938ab88f1193a7d16d4bb7938f01e9409ace
+  repair_diffs:
+    path: C2_01R1_REPAIR_DIFFS__sha256_3114c4fc61a147507c65eed91abc2ae2a254ff31d2375a98d71a69fdeaf40ef7.md
+    sha256: 3114c4fc61a147507c65eed91abc2ae2a254ff31d2375a98d71a69fdeaf40ef7
+  construction_validation:
+    path: C2_01R1_CONSTRUCTION_VALIDATION__sha256_5ec248815125e889935ac741c2ebe306dffd15301a6883f59e26f8877bcf351c.json
+    sha256: 5ec248815125e889935ac741c2ebe306dffd15301a6883f59e26f8877bcf351c
+frozen_parent_pins:
+  C0_FROZEN: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  C0_FREEZE_SEAL: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+  C1_FREEZE_SEAL: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+  C1_FINAL_MACHINE_SCHEMA: 927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4
+  C1_05R1_INTERFACE: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  C1_05R1_REGISTRY: 422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b
+  C1_05R1_LEDGER: 47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031
+  C1_05R1_ACCEPTANCE: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+  C2_STAGE_PLAN: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+  C2_00_SCOPE: b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7
+  C2_00_REVIEW_RESULT: 6f42d8b29f0b5c15bd7cea0a053938364ddc431bd654b8601001118189a10c96
+recheck_requirements:
+  blockers:
+  - C2CAP-B01
+  - C2CAP-B02
+  predecessor_failed_acceptance_ids:
+  - C2-057
+  - C2-063
+  - C2-065
+  - C2-066
+  new_repair_acceptance_ids:
+  - C2-084
+  - C2-085
+  - C2-086
+  - C2-087
+  - C2-088
+  - C2-089
+  - C2-090
+  - C2-091
+  - C2-092
+  - C2-093
+  must_rehash_all_review_targets: true
+  must_not_reuse_construction_validation_as_semantic_verdict: true
+  self_approval_forbidden: true
+next_gate: C2.01R1 Independent Capability Re-Check

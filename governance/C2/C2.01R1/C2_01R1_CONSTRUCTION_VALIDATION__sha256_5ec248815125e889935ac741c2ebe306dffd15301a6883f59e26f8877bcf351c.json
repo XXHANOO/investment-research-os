@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0-C2-01R1-construction-validation",
+  "project": "Investment Research OS",
+  "stage": "C2.01R1",
+  "generated_at_utc": "2026-08-24T02:02:00Z",
+  "status": "PASS_MECHANICAL_CONSTRUCTION_ONLY",
+  "semantic_review_status": "NOT_PERFORMED",
+  "predecessor_review_status": "FAIL_REPAIR_REQUIRED",
+  "checks": {
+    "successor_artifacts_do_not_rewrite_predecessor": true,
+    "stable_ref_kind_domain_count": 16,
+    "stable_ref_kind_domain_contains_blocker_required_kinds": true,
+    "declared_ref_slot_contract_count": 34,
+    "required_ref_slots_covered": 34,
+    "missing_required_ref_slot_contracts": [],
+    "all_slot_permitted_kinds_exist_in_domain": true,
+    "effective_response_closure_one_hop": true,
+    "effective_response_provider_wide_auto_import": false,
+    "effective_response_transitive_discovery": false,
+    "response_closure_kind_set_exact": true,
+    "repair_decision_ids_unique": true,
+    "repair_acceptance_ids_exact_range": true,
+    "blocker_B01_state": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK",
+    "blocker_B02_state": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK",
+    "production_implementation_created": false,
+    "provider_adapter_created": false,
+    "routing_algorithm_created": false,
+    "credential_wiring_created": false,
+    "completeness_algorithm_created": false,
+    "c2_02_started": false,
+    "self_approval_or_self_freeze": false
+  },
+  "content_hashes": {
+    "integrated_registry_prose": "2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95",
+    "integrated_registry_model": "0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a",
+    "repair_acceptance_delta": "a668005a868230ac869071e496eea9da8dd07383db76c61a00e65abc2fec6d73",
+    "repair_decision_ledger": "16be0dcbb3853399d4a55af8fb15938ab88f1193a7d16d4bb7938f01e9409ace",
+    "repair_diffs": "3114c4fc61a147507c65eed91abc2ae2a254ff31d2375a98d71a69fdeaf40ef7"
+  },
+  "next_gate": "C2.01R1 Independent Capability Re-Check"
+}

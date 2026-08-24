@@ -1,0 +1,159 @@
+schema_version: 1.0.0-C2-01-decision-ledger-candidate
+project: Investment Research OS
+stage: C2.01
+generated_at_utc: '2026-08-24T01:11:00Z'
+status: CANDIDATE_NOT_REVIEWED_NOT_FROZEN
+parent_review: C2.00_INDEPENDENT_SCOPE_REVIEW_PASS
+decisions:
+- id: C2.DEC-027
+  title: Capability granularity
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: A capability is one semantic operation surface × access pattern × query
+    signature × produced observation-family set × response-semantic contract.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-001
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-044
+- id: C2.DEC-028
+  title: Vendor-neutral access-pattern taxonomy
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Use DIRECT_LOOKUP/SEARCH/ENUMERATION/SNAPSHOT_FETCH/WINDOWED_SERIES_FETCH/EVENT_COLLECTION_FETCH/DOCUMENT_DISCOVERY/DOCUMENT_RETRIEVAL/BULK_EXPORT/STREAM_SUBSCRIPTION
+    as provider-side access patterns.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-001
+  required_acceptance_tests:
+  - C2-045
+- id: C2.DEC-029
+  title: Static semantic capability boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Capability is not health, credentials, quota/cache, certification, routing
+    priority, PIT, source fitness, or side-effect authority.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.00 boundary
+  required_acceptance_tests:
+  - C2-046
+- id: C2.DEC-030
+  title: Mode-specific endpoint semantics
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Materially different request/response semantics require separate semantic
+    records/capabilities.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-047
+- id: C2.DEC-031
+  title: Explicit provider-wide semantic adoption
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider-wide semantic defaults are never implicit; endpoint profiles
+    explicitly pin adopted refs.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  - C1.05R1 replay
+  required_acceptance_tests:
+  - C2-048
+- id: C2.DEC-032
+  title: Field semantic record
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Field semantics explicitly capture provider selector, meaning, shape,
+    unit/scale, null/missing/sentinel, enum, timestamp role and grouping.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-049
+- id: C2.DEC-033
+  title: C1-facing observation-family continuity
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2 supports the exact C1.05R1 provider observation categories as interface
+    families.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1 §5
+  required_acceptance_tests:
+  - C2-050
+- id: C2.DEC-034
+  title: Additional provider observations remain non-canonical
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Additional C2 observation families remain provider-side and cannot mint
+    C1 identity.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1 identity firewall
+  required_acceptance_tests:
+  - C2-051
+- id: C2.DEC-035
+  title: Explicit request semantic profile
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Endpoint request semantics pin query slots, requirement/optionality/exclusion
+    and provider-native defaults.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-052
+- id: C2.DEC-036
+  title: Explicit response semantic profile
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Endpoint response semantics pin cardinality, grouping, fields, pagination
+    and provider-native absence/partiality signals.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-002
+  required_acceptance_tests:
+  - C2-053
+- id: C2.DEC-037
+  title: Absence signal does not equal data outcome
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider-native absence signals are descriptive only in C2.01; C2.02
+    decides NO_DATA legality.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-005
+  required_acceptance_tests:
+  - C2-054
+- id: C2.DEC-038
+  title: Partiality signal does not equal data outcome
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider-native truncation/partiality signals are descriptive only in
+    C2.01; C2.02 decides PARTIAL legality.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-005
+  required_acceptance_tests:
+  - C2-055
+- id: C2.DEC-039
+  title: Pagination does not equal completeness
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Endpoint pagination/collection semantics do not certify exhaustive coverage.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-010
+  required_acceptance_tests:
+  - C2-056
+- id: C2.DEC-040
+  title: Stable semantic ref tuple
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Load-bearing C2 semantic ref requires authority/kind/logical_id/semantic_revision/content_sha256.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  - C1.05R1 §4.1
+  required_acceptance_tests:
+  - C2-057
+- id: C2.DEC-041
+  title: No load-bearing floating aliases
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: latest/current/mutable aliases cannot be persisted as load-bearing semantic
+    refs.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1 §4.1
+  required_acceptance_tests:
+  - C2-058
+- id: C2.DEC-042

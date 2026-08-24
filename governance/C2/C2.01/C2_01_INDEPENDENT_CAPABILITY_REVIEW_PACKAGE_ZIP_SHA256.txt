@@ -1,0 +1,4 @@
+C2_01_INDEPENDENT_CAPABILITY_REVIEW_PACKAGE.zip
+sha256:2294f6d577b4fda3b902d087640d604549d7517f36cdb329f25b26060bbacdb6
+semantic_authority:false
+authoritative_members_are_individually_content_addressed:true

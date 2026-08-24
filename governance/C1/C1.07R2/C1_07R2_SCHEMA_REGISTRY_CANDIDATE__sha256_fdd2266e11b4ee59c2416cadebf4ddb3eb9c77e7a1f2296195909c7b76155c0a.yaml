@@ -1,0 +1,563 @@
+schema_version: 1.0.0-c1.07r2-candidate
+generated_at_utc: '2026-08-22T13:06:12Z'
+stage: C1.07R2
+status: CANDIDATE_FOR_C1_07R2_INDEPENDENT_REGRESSION_RECHECK
+parent_contracts:
+  C0_FROZEN: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  C0_FREEZE_SEAL: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+  C1_01R1_IDENTITY_KERNEL: 057303229ec7d169a19519edea256ce15f5a2dc92e654e820abddd9040c5b782
+  C1_02R1_IDENTIFIER_SYMBOL_MAPPING: dc5f2ec1295cf3afb9c8b585b3deca5f413de37db1a2d6c179a9e17f613531fb
+  C1_03R1_CORPORATE_ACTION_EFFECTS: ea017504558532cce5e24929047cfbb94055f0a3cc25d80b3b1844216ea6b860
+  C1_04R1_TEMPORAL_PIT: 9da9470cbb72ba4715c40fa9d7c1053f542381f0edf58b1f416a1c4be0d39118
+  C1_05R1_PROVIDER_NORMALIZATION: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  C1_05R1_NORMALIZATION_REGISTRY: 422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b
+  C1_05R1_DECISION_LEDGER: 47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031
+  C1_05R1_ACCEPTANCE_DELTA: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+standards_profile:
+  uuid: RFC_9562_UUIDV4
+  wire_json: RFC_8259_UTF8_JSON
+  schema: JSON_SCHEMA_2020_12
+  canonicalization: RFC_8785_JCS
+  digest: SHA_256_FIPS_180_4
+canonical_id_contract:
+  algorithm: UUIDv4
+  wire_text: lowercase-hyphenated-36-char
+  pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
+  nil_uuid_allowed: false
+  business_semantics_embedded: false
+  type_prefix_embedded: false
+  content_derived: false
+  timestamp_derived: false
+  recycled: false
+  allocation_scope: GLOBAL_ACROSS_ALL_C1_CANONICAL_ID_KINDS
+  collision_behavior: DETECT_AND_RETRY_BEFORE_PUBLICATION
+  collision_after_publication: HARD_ERROR_CANONICAL_ID_COLLISION
+  kind_carriage: SCHEMA_WRAPPER_NOT_ID_STRING
+  types:
+  - EntityID
+  - InstrumentID
+  - ListingID
+  - ContractID
+  - VenueID
+  - CorporateActionEventID
+governance_content_address:
+  canonicalization: RFC_8785_JCS
+  digest: SHA-256
+  serialization: sha256:<64-lowercase-hex>
+  authoritative_field: content_ref
+  human_version_label_authoritative: false
+  floating_latest_allowed: false
+  applies_to:
+  - C1 schema artifacts
+  - SchemeDefinition artifacts
+  - normalization profiles
+  - certification artifacts
+  - error/enum registries
+  does_not_apply_to:
+  - canonical Entity/Instrument/Listing/Contract/Venue/CorporateActionEvent identity
+foreign_reference_contract:
+  opaque_owners:
+  - C2
+  - C4
+  - C5
+  load_bearing_c2_requires: SnapshotStableC2Ref
+  snapshot_stability_attestation_field: stability_authority_ref
+  self_asserted_flag_is_authority: false
+  c1_defines_foreign_internal_schema: false
+  owner_specific_types:
+    provider_operation: C2Ref
+    provider_semantic_capability: SnapshotStableC2Ref
+    degradation:
+    - C2Ref
+    - C3Ref
+    temporal: C4Ref
+    evidence_verification: C5Ref
+    release_validation: C12ReleaseValidationRef
+  generic_opaque_ref_allowed_owners:
+  - C2
+  - C3
+  - C4
+  - C5
+  - C11
+  - C12
+  owner_specific_field_may_use_generic_opaque_ref: false
+enums:
+  canonical_kind:
+  - ENTITY
+  - INSTRUMENT
+  - LISTING
+  - CONTRACT
+  - VENUE
+  - CORPORATE_ACTION_EVENT
+  provider_operation_status:
+  - SUCCESS
+  - FAILED
+  - CANCELLED
+  provider_data_outcome:
+  - PRESENT
+  - NO_DATA
+  - PARTIAL
+  normalization_outcome:
+  - NOT_RUN
+  - NORMALIZED
+  - PARTIAL_NORMALIZATION
+  - NO_OBSERVATIONS
+  - REJECTED
+  resolution_outcome:
+  - RESOLVED
+  - NO_MATCH
+  - AMBIGUOUS
+  - CONFLICT
+  - CONTEXT_REQUIRED
+  - NON_EXHAUSTIVE
+  - NOT_APPLICABLE
+  reconstructability:
+  - PIT_SAFE
+  - PIT_UNVERIFIED
+  - UNRECONSTRUCTABLE
+  temporal_mode:
+  - CURRENT
+  - HISTORICAL
+  graph_projection:
+  - ACTIVE_CANONICAL_GRAPH
+  - VISIBLE_KNOWLEDGE_OVERLAY
+  - BOTH
+  pit_requirement:
+  - REQUIRE_PIT_SAFE
+  - ALLOW_PIT_UNVERIFIED
+  identity_effect_state:
+  - PROJECTED
+  - REALIZED
+  identity_effect_type:
+  - PRESERVE_IDENTITY
+  - CREATE_IDENTITY
+  - TERMINATE_IDENTITY
+  - UPDATE_EXTERNAL_MAPPING
+  - UPDATE_TERMS
+  - CREATE_CONTRACT_VENUE_ADMISSION
+  - TERMINATE_CONTRACT_VENUE_ADMISSION
+  - ADD_SUCCESSOR_RELATION
+  - ADD_CONVERSION_RELATION
+  - ADD_SPINOFF_RELATION
+  - ADD_EXCHANGE_RELATION
+error_codes:
+- AXIS_COLLAPSE_FORBIDDEN
+- C12_RELEASE_VALIDATION_REQUIRED
+- C12_RELEASE_VALIDATION_UNVERIFIED
+- CANONICAL_ID_COLLISION
+- CANONICAL_ID_NIL_FORBIDDEN
+- CANONICAL_ID_REUSE_FORBIDDEN
+- CANONICAL_ID_TYPE_MISMATCH
+- CANONICAL_ID_VERSION_MISMATCH
+- CAUSAL_STATE_POINT_AFTER_KNOWLEDGE_CUTOFF
+- COMPLETENESS_DEPENDENCY_REQUIRED
+- COMPLETENESS_SCOPE_MISMATCH
+- CONFLICT_REQUIRES_C5
+- CONTRACT_ADMISSION_INSTRUMENT_MISMATCH
+- CONTRACT_INSTRUMENT_REPARENT_FORBIDDEN
+- CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH
+- CONTRACT_PARENT_INSTRUMENT_REFERENCE_MISMATCH
+- CURRENT_ANCHOR_NOT_HISTORICAL_EVIDENCE
+- CURRENT_RESOLUTION_ANCHOR_REQUIRED
+- DEGRADATION_PROVENANCE_REQUIRED
+- DISCRIMINATOR_PAYLOAD_MISMATCH
+- DUPLICATE_CONTRACT_VENUE_ADMISSION
+- ENUM_VALUE_UNSUPPORTED
+- EXACT_RESOLUTION_CERTIFICATION_REQUIRED
+- EXTERNAL_IDENTIFIER_NOT_CANONICAL_ID
+- FOREIGN_REF_OWNER_MISMATCH
+- FUTURE_EFFECT_VISIBLE_NOT_ACTIVE
+- GOVERNANCE_REF_DIGEST_MISMATCH
+- GOVERNANCE_REF_REQUIRED
+- GROUPING_IDENTIFIER_NOT_EXACT
+- HISTORICAL_AS_OF_REQUIRED
+- IDENTIFIER_AMBIGUOUS
+- IDENTIFIER_CONFLICT
+- IDENTIFIER_RESOLUTION_ANCHOR_REQUIRED
+- IDENTIFIER_REUSE_REQUIRES_TEMPORAL_CONTEXT
+- IDENTITY_AMBIGUOUS
+- IDENTITY_EFFECT_TARGET_KIND_MISMATCH
+- IDENTITY_KIND_MISMATCH
+- IDENTITY_RELATION_KIND_MISMATCH
+- INHERITED_REGRESSION_AUTHORITY_REQUIRED
+- INVALID_CANONICAL_ID_FORMAT
+- INVALID_IDENTIFIER_FORMAT
+- INVALID_PARENT_CARDINALITY
+- INVALID_UNDERLYING_TARGET
+- LATEST_VALUE_FALLBACK_FORBIDDEN
+- LISTING_REPARENT_FORBIDDEN
+- LISTING_VENUE_REPARENT_FORBIDDEN
+- LISTING_VENUE_TRANSFER_INSTRUMENT_MISMATCH
+- LISTING_VENUE_TRANSFER_PACKAGE_INVALID
+- LISTING_VENUE_TRANSFER_SAME_VENUE_FORBIDDEN
+- NON_CANONICAL_JSON_ENCODING
+- NON_EXHAUSTIVE_PROVIDER_RESULT
+- NORMALIZATION_CONTEXT_REQUIRED
+- NORMALIZATION_ITEM_REJECTED
+- NORMALIZATION_LOSSY_COERCION_FORBIDDEN
+- NORMALIZATION_PROFILE_CONFLICT
+- NORMALIZATION_PROFILE_REQUIRED
+- NORMALIZATION_TARGET_KIND_MISMATCH
+- PIT_UNVERIFIED
+- PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN
+- PROVIDER_FIELD_SEMANTICS_REQUIRED
+- PROVIDER_NATIVE_ID_NOT_CANONICAL
+- PROVIDER_OBSERVATION_NOT_VALIDATED
+- PROVIDER_OUTCOME_CONTAINER_MISMATCH
+- PROVIDER_SYMBOL_NAMESPACE_REQUIRED
+- RAW_PROVIDER_OBJECT_NOT_CANONICAL
+- RELATED_ENDPOINT_KIND_REQUIRED
+- RELATED_ENDPOINT_REQUIRED
+- RELATION_ENDPOINT_KIND_MISMATCH
+- RELATION_FIELDS_FORBIDDEN
+- RELATION_ROLE_MISMATCH
+- RELATION_TYPE_MISMATCH
+- REPLAY_LINEAGE_REQUIRED
+- RESOLUTION_TARGET_CARDINALITY_MISMATCH
+- RETROSPECTIVE_RESULT_NON_CAUSAL
+- REVISION_NOT_VISIBLE_AS_OF
+- SCHEMA_REF_NOT_IMMUTABLE
+- SCHEMA_REF_REQUIRED
+- SCHEMA_VALIDATION_FAILED
+- SCHEME_CONTEXT_REQUIRED
+- SYMBOL_NOT_CANONICAL_ID
+- TARGET_KIND_MISMATCH
+- TEMPORAL_CONTEXT_REQUIRED
+- TEMPORAL_INTERVAL_NOT_APPLICABLE
+- TEMPORAL_MODE_REQUIRED
+- TEMPORAL_REF_REQUIRED
+- TICKER_NOT_CANONICAL_ID
+- UNKNOWN_CANONICAL_FIELD
+- UNRECONSTRUCTABLE
+- UNSTABLE_FOREIGN_SEMANTIC_REFERENCE
+- UNSUPPORTED_IDENTIFIER_SCHEME
+- UNSUPPORTED_INSTRUMENT_KIND
+- UNSUPPORTED_NORMALIZATION_PROFILE
+- UPSTREAM_OPERATION_CANCELLED
+- UPSTREAM_PROVIDER_FAILURE
+deterministic_materialization:
+  json_object_canonicalization: RFC_8785_JCS
+  set_semantic_array_order: ascending SHA-256(JCS(member)) with canonical bytes as
+    deterministic tie-breaker
+  transport_order_semantic: false
+  identity_derived_from_digest: false
+schema_file:
+  path: C1_06R2_MACHINE_SCHEMA_CANDIDATE__sha256_f14188de8d5aaa6904fd241d6502a66943d8b780278d67bdf53bec8eb7f421a0.json
+  sha256: f14188de8d5aaa6904fd241d6502a66943d8b780278d67bdf53bec8eb7f421a0
+exactness_release_authority:
+  certified_child_requires:
+  - certification_ref
+  - release_validation_ref
+  release_validation_owner: C12
+  release_validation_must_be_immutable: true
+  structural_c12_label_is_authority: false
+  trusted_resolution_required: true
+  c1_defines_c12_internal_schema: false
+  exact_resolution_allowed_true_requires:
+  - CONCRETE_CERTIFIED
+  - CERTIFIED
+  - certification_ref
+  - release_validation_ref
+  - grouping_only=false
+  unverified_exact_resolution_allowed: false
+discriminator_binding:
+  C1Envelope:
+    ENTITY: EntityRecord
+    INSTRUMENT: InstrumentRecord
+    VENUE: VenueRecord
+    LISTING: ListingRecord
+    CONTRACT: ContractRecord
+    CORPORATE_ACTION_EVENT: CorporateActionEventRecord
+    REGISTERED_IDENTIFIER_ASSIGNMENT: RegisteredIdentifierAssignment
+    SYMBOL_ASSIGNMENT: SymbolAssignment
+    CONTRACT_VENUE_ADMISSION: ContractVenueAdmission
+    IDENTITY_RELATION: IdentityRelation
+    IDENTITY_EFFECT: IdentityEffectAssertion
+    IDENTIFIER_RESOLUTION_QUERY: IdentifierResolutionQuery
+    IDENTIFIER_RESOLUTION_RESULT: IdentifierResolutionResult
+    IDENTITY_GRAPH_QUERY: IdentityGraphQuery
+    IDENTITY_GRAPH_RESULT: IdentityGraphResult
+    VALIDATED_PROVIDER_OBSERVATION: ValidatedProviderObservationEnvelope
+    NORMALIZATION_PROFILE: NormalizationProfileDefinition
+    PROVIDER_NORMALIZATION_RESULT: ProviderNormalizationResult
+    CONTRACT_ERROR: ContractError
+  NormalizedCandidate:
+    IDENTITY_RESOLUTION_CANDIDATE: IdentityResolutionCandidatePayload
+    REGISTERED_IDENTIFIER_ASSIGNMENT_CANDIDATE: RegisteredIdentifierAssignment
+    SYMBOL_ASSIGNMENT_CANDIDATE: SymbolAssignment
+    LISTING_ASSERTION_CANDIDATE: ListingRecord
+    CONTRACT_ASSERTION_CANDIDATE: ContractRecord
+    CONTRACT_VENUE_ADMISSION_CANDIDATE: ContractVenueAdmission
+    CORPORATE_ACTION_EVENT_OBSERVATION: CorporateActionEventRecord
+    IDENTITY_EFFECT_CANDIDATE: UnaryIdentityEffect
+    RELATION_EFFECT_CANDIDATE: RelationEffectAssertion
+    TERMS_UPDATE_CANDIDATE: TermsUpdateCandidatePayload
+  mismatch_policy: FAIL_CLOSED
+identity_relation_kernel:
+  relation_types:
+  - ISSUED_BY
+  - OBLIGATED_BY
+  - GUARANTEED_BY
+  - MANAGED_BY
+  - SPONSORED_BY
+  - ADMINISTERED_BY
+  - DEPOSITARY_RECEIPT_FOR
+  - UNDERLYING_INSTRUMENT
+  - UNDERLYING_CONTRACT
+  - FUNGIBLE_WITH
+  - ECONOMICALLY_EQUIVALENT_TO
+  - PARENT_OF
+  - SUBSIDIARY_OF
+  endpoint_contracts:
+    ISSUED_BY/OBLIGATED_BY/GUARANTEED_BY/MANAGED_BY/SPONSORED_BY/ADMINISTERED_BY: INSTRUMENT
+      -> ENTITY
+    DEPOSITARY_RECEIPT_FOR: INSTRUMENT -> INSTRUMENT
+    UNDERLYING_INSTRUMENT: INSTRUMENT|CONTRACT -> INSTRUMENT
+    UNDERLYING_CONTRACT: CONTRACT -> CONTRACT
+    FUNGIBLE_WITH: same-kind INSTRUMENT|CONTRACT
+    ECONOMICALLY_EQUIVALENT_TO: same-kind INSTRUMENT|CONTRACT
+    PARENT_OF/SUBSIDIARY_OF: ENTITY -> ENTITY
+  graph_cardinality_hooks:
+  - ISSUED_INSTRUMENT_REQUIRES_APPLICABLE_ISSUER_OBLIGOR_OR_VEHICLE_RELATION
+  - REFERENCE_INSTRUMENT_MAY_USE_SPONSOR_ADMIN_WITHOUT_INVENTED_ISSUER
+  equivalence_relations_change_canonical_equality: false
+identifier_resolution_contract:
+  modes:
+  - CURRENT_ONLY
+  - TEMPORAL
+  TEMPORAL_requires: C4 temporal_query_ref
+  CURRENT_ONLY_result_requires:
+  - NON_PIT_CURRENT_ONLY
+  - C4 resolution_anchor_ref
+  current_anchor_is_pit_proof: false
+  c4_owns_exact_temporal_schema: true
+  RESOLVED_target_cardinality: EXACTLY_ONE
+  NO_MATCH_target_cardinality: ZERO
+  ambiguous_conflict_auto_promote_to_resolved: false
+identity_graph_result_contract:
+  active_fields:
+  - active_identity_nodes
+  - active_relation_edges
+  overlay_field: visible_nonactive_assertions
+  CURRENT_requires: C4 result_anchor_ref
+  HISTORICAL_requires: C4 temporal_result_ref
+  reconstructability:
+  - PIT_SAFE
+  - PIT_UNVERIFIED
+  - UNRECONSTRUCTABLE
+  local_available_effective_revision_fields: false
+regression_authority:
+  manifest:
+    path: C1_06R2_INHERITED_REGRESSION_AUTHORITY__sha256_a8d93b6070a5911efd00dc69ab42b94eeccc1d38e3d172ec3f13aa9f6762b197.yaml
+    sha256: a8d93b6070a5911efd00dc69ab42b94eeccc1d38e3d172ec3f13aa9f6762b197
+  inherited_range: C1-001..C1-486
+  r2_added_range: C1-487..C1-523
+  combined_range: C1-001..C1-523
+provider_outcome_container_contract:
+  SUCCESS_NO_DATA_observations: ZERO
+  SUCCESS_NO_DATA_normalization: NO_OBSERVATIONS
+  NOT_RUN_candidates: ZERO
+  NOT_RUN_item_outcomes: ZERO
+  NO_OBSERVATIONS_candidates: ZERO
+  NO_MATCH_requires:
+  - resolution_scope
+  - '>=1 completeness_dependency'
+  - semantic scope match
+  PARTIAL_allows_NO_MATCH: false
+  PARTIAL_positive_RESOLVED_may_be_valid: true
+  orthogonal_axes_collapsed: false
+parent_r2:
+  machine_schema:
+    path: C1_06R2_MACHINE_SCHEMA_CANDIDATE__sha256_f14188de8d5aaa6904fd241d6502a66943d8b780278d67bdf53bec8eb7f421a0.json
+    sha256: f14188de8d5aaa6904fd241d6502a66943d8b780278d67bdf53bec8eb7f421a0
+  contract_tests:
+    path: C1_06R2_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_b16556b3bbce51efc75ec4b8892b59bd79fcfafcbeb42923f094488dd3c79887.yaml
+    sha256: b16556b3bbce51efc75ec4b8892b59bd79fcfafcbeb42923f094488dd3c79887
+  acceptance:
+    path: C1_06R2_ACCEPTANCE_TEST_DELTA__sha256_890db4e143025bff9ff6bad4268d2232fa6f57ce68369335a9ebd8d548c19926.md
+    sha256: 890db4e143025bff9ff6bad4268d2232fa6f57ce68369335a9ebd8d548c19926
+  selection:
+    path: C1_06R2_CANDIDATE_SELECTION__sha256_d167dd69e46d9b4ab893bed70cb76f10a0a0d0bf5357aa05577885d24c27f83d.yaml
+    sha256: d167dd69e46d9b4ab893bed70cb76f10a0a0d0bf5357aa05577885d24c27f83d
+  inherited_authority:
+    path: C1_06R2_INHERITED_REGRESSION_AUTHORITY__sha256_a8d93b6070a5911efd00dc69ab42b94eeccc1d38e3d172ec3f13aa9f6762b197.yaml
+    sha256: a8d93b6070a5911efd00dc69ab42b94eeccc1d38e3d172ec3f13aa9f6762b197
+mapping_target_family_contract:
+  REGISTERED_IDENTIFIER:
+  - ENTITY
+  - INSTRUMENT
+  - LISTING
+  - CONTRACT
+  - VENUE
+  MARKET_SYMBOL:
+  - LISTING
+  - CONTRACT
+  PROVIDER_SYMBOL:
+  - LISTING
+  - CONTRACT
+  corporate_action_event_allowed: false
+  scheme_specific_target_rules: RESOLVED_FROM_CONTENT_ADDRESSED_C1_02_SCHEME_GOVERNANCE
+  result_target_compatibility: SEMANTIC_RULE_AGAINST_EXACT_SCHEME_DEFINITION
+machine_schema:
+  path: C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json
+  sha256: 927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4
+parent_r4:
+  machine_schema:
+    path: C1_06R4_MACHINE_SCHEMA_CANDIDATE__sha256_48ecdff49cec2dbfce91a8f81e97ce7f9a0c94f23168384b9fd7aefd451251cd.json
+    sha256: 48ecdff49cec2dbfce91a8f81e97ce7f9a0c94f23168384b9fd7aefd451251cd
+  contract_tests:
+    path: C1_06R4_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_e55a8c7341083189bef7e37fb0e1cec26231168b885e62a7ab4766d5b69bcc04.yaml
+    sha256: e55a8c7341083189bef7e37fb0e1cec26231168b885e62a7ab4766d5b69bcc04
+  acceptance:
+    path: C1_06R4_ACCEPTANCE_TEST_DELTA__sha256_5f78ead46bee98e7353e8a116ff24760e5e46d8b0fdf45fb71e541c717ca2685.md
+    sha256: 5f78ead46bee98e7353e8a116ff24760e5e46d8b0fdf45fb71e541c717ca2685
+  selection:
+    path: C1_06R4_CANDIDATE_SELECTION__sha256_4d8cbc343bd516357b284b764db1b6a9ae1db6bccc0456bcbd2f2d9c3fb4c923.yaml
+    sha256: 4d8cbc343bd516357b284b764db1b6a9ae1db6bccc0456bcbd2f2d9c3fb4c923
+query_expected_target_binding:
+  result_binding_type: ResolutionQueryBinding
+  mismatch_error: TARGET_KIND_MISMATCH
+  applies_to:
+  - CURRENT_ONLY
+  - TEMPORAL
+  scheme_compatibility_remains_separate: true
+parent_r5:
+  candidate:
+    path: C1_06R5_SCHEMA_CONTRACT_TEST_CANDIDATE__sha256_dc702d87637c3c0195e711584af4c550f811e1bc9afc40f65a43c5c0919d2066.md
+    sha256: dc702d87637c3c0195e711584af4c550f811e1bc9afc40f65a43c5c0919d2066
+  machine_schema:
+    path: C1_06R5_MACHINE_SCHEMA_CANDIDATE__sha256_027878d3eaf9f52806d9667847c1ba196cd53f1a21ea12cbf2fd0dbb12fc15b9.json
+    sha256: 027878d3eaf9f52806d9667847c1ba196cd53f1a21ea12cbf2fd0dbb12fc15b9
+  registry:
+    path: C1_06R5_SCHEMA_REGISTRY_CANDIDATE__sha256_cf3db4aead3d06edc19008e5cb05476fb3384ae3a12af30212991ca5f3c53d1f.yaml
+    sha256: cf3db4aead3d06edc19008e5cb05476fb3384ae3a12af30212991ca5f3c53d1f
+  decision_ledger:
+    path: C1_06R5_EVIDENCE_DECISION_LEDGER__sha256_7d60cb76324c015209a1b5c00622483b04effab69ca9a919f7c27650e57b4d4c.yaml
+    sha256: 7d60cb76324c015209a1b5c00622483b04effab69ca9a919f7c27650e57b4d4c
+  acceptance:
+    path: C1_06R5_ACCEPTANCE_TEST_DELTA__sha256_f9c45176128cd5c76cff3f86434af3678982caf7b54f98680d7d614cd727d919.md
+    sha256: f9c45176128cd5c76cff3f86434af3678982caf7b54f98680d7d614cd727d919
+  contract_tests:
+    path: C1_06R5_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_0fddd2de9d4f6c1df2abd4c40f734a26c249ad94c3c14a6517685c096aab18c5.yaml
+    sha256: 0fddd2de9d4f6c1df2abd4c40f734a26c249ad94c3c14a6517685c096aab18c5
+  inherited_authority:
+    path: C1_06R5_INHERITED_REGRESSION_AUTHORITY__sha256_25826d6376fb8df9ee49e921eba74c6facb48123404aa3f8edcb00e40a50b53f.yaml
+    sha256: 25826d6376fb8df9ee49e921eba74c6facb48123404aa3f8edcb00e40a50b53f
+  selection:
+    path: C1_06R5_CANDIDATE_SELECTION__sha256_789c8afa3d54b87a96ab5f31e568f9c918c24c38bac2d0d89aaae2f1946ed4b8.yaml
+    sha256: 789c8afa3d54b87a96ab5f31e568f9c918c24c38bac2d0d89aaae2f1946ed4b8
+c1_07_audit_authority:
+  report:
+    path: C1_07_INDEPENDENT_RED_TEAM_AUDIT_REPORT.md
+    sha256: af7d0783aa931984b8408fc1546d69dcec83574cb9fb7a6dd6ef55031663dd25
+  result:
+    path: C1_07_INDEPENDENT_RED_TEAM_AUDIT_RESULT.yaml
+    sha256: c61b6db5d1c616bfb35710d809fd82977ead97336b7eca9f26545b9b16d854c2
+  attacks:
+    path: C1_07_INDEPENDENT_ATTACK_RESULTS.json
+    sha256: 2992cbf27c9e63ce94c9fe951159aa3a4cd58a53e160894b7ca23caaa964718f
+semantic_invariant_validators:
+  C1.SEM.SUCCESSOR_DISTINCT_ENDPOINTS:
+    input_schema_def: SuccessorDistinctEndpointValidationInput
+    owner: C1
+    rule: PREDECESSOR_OF target and related_target must have different canonical refs.
+    error_code: PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN
+  C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT:
+    input_schema_def: ContractParentKindValidationInput
+    owner: C1
+    rule: contract_record.parent_instrument_ref must equal parent_instrument_record.ref,
+      and parent_instrument_record.instrument_kind must equal DERIVATIVE_PRODUCT.
+    reference_mismatch_error: CONTRACT_PARENT_INSTRUMENT_REFERENCE_MISMATCH
+    kind_mismatch_error: CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH
+  C1.SEM.CONTRACT_PARENT_IMMUTABLE:
+    input_schema_def: ContractParentTransitionValidationInput
+    owner: C1
+    rule: When before_record.ref == after_record.ref, parent_instrument_ref must be
+      unchanged.
+    error_code: CONTRACT_INSTRUMENT_REPARENT_FORBIDDEN
+  C1.SEM.LISTING_PARENT_IMMUTABLE:
+    input_schema_def: ListingParentTransitionValidationInput
+    owner: C1
+    rule: When before_record.ref == after_record.ref, both instrument_ref and venue_ref
+      must be unchanged. Instrument mismatch -> LISTING_REPARENT_FORBIDDEN; venue
+      mismatch -> LISTING_VENUE_REPARENT_FORBIDDEN.
+    error_code: LISTING_REPARENT_FORBIDDEN
+    venue_error_code: LISTING_VENUE_REPARENT_FORBIDDEN
+  C1.SEM.CANONICAL_REPLACEMENT_PACKAGE:
+    input_schema_def: CanonicalReplacementValidationInput
+    owner: C1
+    rule: old_ref and new_ref must be distinct and same-kind; termination targets
+      old_ref, creation targets new_ref, and successor effect links old_ref -> new_ref.
+    error_code: CANONICAL_ID_REUSE_FORBIDDEN
+  C1.SEM.CURRENT_PIT_SAFE_HISTORICAL_REUSE:
+    input_schema_def: CurrentPitSafeHistoricalReuseValidationInput
+    owner: C1
+    rule: CURRENT PIT_SAFE result cannot be reused as historical evidence unless an
+      explicit C4 reconstruction-equivalence ref is present.
+    error_code: CURRENT_ANCHOR_NOT_HISTORICAL_EVIDENCE
+    classification: NON_BLOCKING_HARDENING
+  C1.SEM.ACTIVE_CONTRACT_VENUE_ADMISSION_UNIQUENESS:
+    input_schema_def: ActiveContractVenueAdmissionSetValidationInput
+    owner: C1
+    rule: Within the active_admissions set supplied by C4 for one state_ref, no duplicate
+      (contract_ref, listing_ref) endpoint tuple is permitted.
+    error_code: DUPLICATE_CONTRACT_VENUE_ADMISSION
+    classification: NON_BLOCKING_HARDENING
+    ownership_boundary: C4 determines active membership at state_ref; C1 validates
+      endpoint uniqueness; C11 owns persistence/idempotent coalescing.
+  C1.SEM.LISTING_VENUE_TRANSFER_PACKAGE:
+    input_schema_def: ListingVenueTransferValidationInput
+    owner: C1
+    rule: 'Cross-canonical-Venue transfer requires: same InstrumentID; distinct old/new
+      ListingIDs; distinct old/new VenueIDs; termination targets old ListingID; creation
+      targets new ListingID; PREDECESSOR_OF successor links old ListingID to new ListingID.'
+    instrument_mismatch_error: LISTING_VENUE_TRANSFER_INSTRUMENT_MISMATCH
+    same_venue_error: LISTING_VENUE_TRANSFER_SAME_VENUE_FORBIDDEN
+    same_id_error: CANONICAL_ID_REUSE_FORBIDDEN
+    package_error: LISTING_VENUE_TRANSFER_PACKAGE_INVALID
+    ownership_boundary: C1 owns Listing identity continuity. C4 owns effective timing/state.
+      C11 owns persistence.
+  C1.SEM.SAME_VENUE_LISTING_CONTINUITY:
+    input_schema_def: SameVenueListingContinuityValidationInput
+    owner: C1
+    rule: Same ListingID is valid when instrument_ref and venue_ref are unchanged,
+      even if non-identity tier/segment/display-label metadata changes.
+    error_code: LISTING_REPARENT_FORBIDDEN
+    ownership_boundary: Tier/segment/display-label metadata does not redefine canonical
+      Venue identity unless a separate passed contract says the canonical VenueID
+      itself changed.
+parent_r1:
+  candidate:
+    path: C1_07R1_SCHEMA_CONTRACT_TEST_CANDIDATE__sha256_ea122c96b2293f5b0120e96c3c5c30fe31f52301f46f77fd7abba782a05ccb35.md
+    sha256: ea122c96b2293f5b0120e96c3c5c30fe31f52301f46f77fd7abba782a05ccb35
+  machine_schema:
+    path: C1_07R1_MACHINE_SCHEMA_CANDIDATE__sha256_7e30026cfb60d08c4ad3ed162fa25768d17e7eb6e4a31c116efeff56db41b9c9.json
+    sha256: 7e30026cfb60d08c4ad3ed162fa25768d17e7eb6e4a31c116efeff56db41b9c9
+  registry:
+    path: C1_07R1_SCHEMA_REGISTRY_CANDIDATE__sha256_5516ec0aa6475f1069ae22876566b9a72a7e52fa33fe016725431666ebb65345.yaml
+    sha256: 5516ec0aa6475f1069ae22876566b9a72a7e52fa33fe016725431666ebb65345
+  decision_ledger:
+    path: C1_07R1_EVIDENCE_DECISION_LEDGER__sha256_efa83754184e519d670033de6309d984972ee2e0285fa1f6338f96d55151a8e9.yaml
+    sha256: efa83754184e519d670033de6309d984972ee2e0285fa1f6338f96d55151a8e9
+  acceptance:
+    path: C1_07R1_ACCEPTANCE_TEST_DELTA__sha256_eaa0917d089b1e2579bec59d7d1e917a10eb894af0fb509cf74dabcd9c585333.md
+    sha256: eaa0917d089b1e2579bec59d7d1e917a10eb894af0fb509cf74dabcd9c585333
+  contract_tests:
+    path: C1_07R1_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_fbca2f7e1cd3df5a6d9501a60c775fa5618c636935d1809d9dc358c7819ea35c.yaml
+    sha256: fbca2f7e1cd3df5a6d9501a60c775fa5618c636935d1809d9dc358c7819ea35c
+  inherited_authority:
+    path: C1_07R1_INHERITED_REGRESSION_AUTHORITY__sha256_c9a87768c4baf7b4f5dd79a2c1a34608688536ef146dbe2fdc2b754c02565d7f.yaml
+    sha256: c9a87768c4baf7b4f5dd79a2c1a34608688536ef146dbe2fdc2b754c02565d7f
+  selection:
+    path: C1_07R1_CANDIDATE_SELECTION__sha256_e0d9a54c3f050aa4b30f5efd885fdf9d45a018166e2fbdee2811abd2df5b9ec4.yaml
+    sha256: e0d9a54c3f050aa4b30f5efd885fdf9d45a018166e2fbdee2811abd2df5b9ec4
+governing_r1_recheck:
+  report:
+    path: C1_07R1_INDEPENDENT_REGRESSION_RECHECK_REPORT.md
+    sha256: 0090118a79385babc3739c4a1c16be71ff4a00904d7b4c5cb9f35fe65b128195
+  result:
+    path: C1_07R1_INDEPENDENT_REGRESSION_RECHECK_RESULT.yaml
+    sha256: b3ec779ea9b7b1d5a26b6199cefe8b0cf8091c13e3fabc99928f131046f7c3ca
+  attacks:
+    path: C1_07R1_INDEPENDENT_ATTACK_RESULTS.json
+    sha256: 811ff3491859707c11e78f8fd6043980b9fb3bd0c208be41b90f68446d0c2bdb

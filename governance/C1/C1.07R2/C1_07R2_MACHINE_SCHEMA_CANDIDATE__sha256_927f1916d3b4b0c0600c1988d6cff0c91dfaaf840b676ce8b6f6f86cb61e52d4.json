@@ -1,0 +1,4415 @@
+{
+  "$defs": {
+    "ActiveContractVenueAdmissionSetValidationInput": {
+      "additionalProperties": false,
+      "properties": {
+        "active_admissions": {
+          "items": {
+            "$ref": "#/$defs/ContractVenueAdmission"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "state_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "state_ref",
+        "active_admissions"
+      ],
+      "type": "object"
+    },
+    "C12ReleaseValidationRef": {
+      "additionalProperties": false,
+      "description": "Opaque immutable C12-owned release/validation authority reference. Structural presence is necessary, not sufficient; trust must be resolved through the trusted C12 authority root.",
+      "properties": {
+        "content_ref": {
+          "$ref": "#/$defs/ContentAddressRef"
+        },
+        "owner": {
+          "const": "C12"
+        },
+        "ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "ref",
+        "content_ref"
+      ],
+      "type": "object"
+    },
+    "C1Envelope": {
+      "description": "Exact discriminated union: payload_type is structurally bound to the corresponding payload schema.",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/EntityRecord"
+            },
+            "payload_type": {
+              "const": "ENTITY"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/InstrumentRecord"
+            },
+            "payload_type": {
+              "const": "INSTRUMENT"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/VenueRecord"
+            },
+            "payload_type": {
+              "const": "VENUE"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/ListingRecord"
+            },
+            "payload_type": {
+              "const": "LISTING"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/ContractRecord"
+            },
+            "payload_type": {
+              "const": "CONTRACT"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/CorporateActionEventRecord"
+            },
+            "payload_type": {
+              "const": "CORPORATE_ACTION_EVENT"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/RegisteredIdentifierAssignment"
+            },
+            "payload_type": {
+              "const": "REGISTERED_IDENTIFIER_ASSIGNMENT"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/SymbolAssignment"
+            },
+            "payload_type": {
+              "const": "SYMBOL_ASSIGNMENT"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/ContractVenueAdmission"
+            },
+            "payload_type": {
+              "const": "CONTRACT_VENUE_ADMISSION"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/IdentityRelation"
+            },
+            "payload_type": {
+              "const": "IDENTITY_RELATION"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/IdentityEffectAssertion"
+            },
+            "payload_type": {
+              "const": "IDENTITY_EFFECT"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/IdentifierResolutionQuery"
+            },
+            "payload_type": {
+              "const": "IDENTIFIER_RESOLUTION_QUERY"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/IdentifierResolutionResult"
+            },
+            "payload_type": {
+              "const": "IDENTIFIER_RESOLUTION_RESULT"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/IdentityGraphQuery"
+            },
+            "payload_type": {
+              "const": "IDENTITY_GRAPH_QUERY"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/IdentityGraphResult"
+            },
+            "payload_type": {
+              "const": "IDENTITY_GRAPH_RESULT"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/ValidatedProviderObservationEnvelope"
+            },
+            "payload_type": {
+              "const": "VALIDATED_PROVIDER_OBSERVATION"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/NormalizationProfileDefinition"
+            },
+            "payload_type": {
+              "const": "NORMALIZATION_PROFILE"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/ProviderNormalizationResult"
+            },
+            "payload_type": {
+              "const": "PROVIDER_NORMALIZATION_RESULT"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "payload": {
+              "$ref": "#/$defs/ContractError"
+            },
+            "payload_type": {
+              "const": "CONTRACT_ERROR"
+            },
+            "schema_ref": {
+              "$ref": "#/$defs/C1GovernanceRef"
+            }
+          },
+          "required": [
+            "schema_ref",
+            "payload_type",
+            "payload"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "C1GovernanceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "content_ref": {
+          "$ref": "#/$defs/ContentAddressRef"
+        },
+        "version_label": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_type",
+        "content_ref"
+      ],
+      "type": "object"
+    },
+    "C2Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "owner": {
+          "const": "C2"
+        },
+        "ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "ref"
+      ],
+      "type": "object"
+    },
+    "C3Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "owner": {
+          "const": "C3"
+        },
+        "ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "ref"
+      ],
+      "type": "object"
+    },
+    "C4Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "owner": {
+          "const": "C4"
+        },
+        "ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "ref"
+      ],
+      "type": "object"
+    },
+    "C5Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "owner": {
+          "const": "C5"
+        },
+        "ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "ref"
+      ],
+      "type": "object"
+    },
+    "CanonicalID": {
+      "description": "Lowercase RFC 9562 UUIDv4 canonical text; opaque, non-semantic, non-recycled.",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "CanonicalKind": {
+      "enum": [
+        "ENTITY",
+        "INSTRUMENT",
+        "LISTING",
+        "CONTRACT",
+        "VENUE",
+        "CORPORATE_ACTION_EVENT"
+      ],
+      "type": "string"
+    },
+    "CanonicalRef": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/EntityRef"
+        },
+        {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        {
+          "$ref": "#/$defs/ListingRef"
+        },
+        {
+          "$ref": "#/$defs/ContractRef"
+        },
+        {
+          "$ref": "#/$defs/VenueRef"
+        },
+        {
+          "$ref": "#/$defs/CorporateActionEventRef"
+        }
+      ]
+    },
+    "CanonicalReplacementValidationInput": {
+      "additionalProperties": false,
+      "properties": {
+        "creation_effect": {
+          "$ref": "#/$defs/UnaryIdentityEffect"
+        },
+        "new_ref": {
+          "$ref": "#/$defs/CanonicalRef"
+        },
+        "old_ref": {
+          "$ref": "#/$defs/CanonicalRef"
+        },
+        "successor_effect": {
+          "$ref": "#/$defs/SuccessorEffect"
+        },
+        "termination_effect": {
+          "$ref": "#/$defs/UnaryIdentityEffect"
+        }
+      },
+      "required": [
+        "old_ref",
+        "new_ref",
+        "termination_effect",
+        "creation_effect",
+        "successor_effect"
+      ],
+      "type": "object"
+    },
+    "CompletenessDependencyRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "c2_completeness_ref": {
+          "$ref": "#/$defs/SnapshotStableC2Ref"
+        },
+        "evidence_dependency_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "required_resolution_scope": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "temporal_dependency_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "c2_completeness_ref",
+        "required_resolution_scope"
+      ],
+      "type": "object"
+    },
+    "ContentAddressRef": {
+      "description": "Authoritative content-address reference; human version labels are non-authoritative.",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ContractError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "AXIS_COLLAPSE_FORBIDDEN",
+            "C12_RELEASE_VALIDATION_REQUIRED",
+            "C12_RELEASE_VALIDATION_UNVERIFIED",
+            "CANONICAL_ID_COLLISION",
+            "CANONICAL_ID_NIL_FORBIDDEN",
+            "CANONICAL_ID_REUSE_FORBIDDEN",
+            "CANONICAL_ID_TYPE_MISMATCH",
+            "CANONICAL_ID_VERSION_MISMATCH",
+            "CAUSAL_STATE_POINT_AFTER_KNOWLEDGE_CUTOFF",
+            "COMPLETENESS_DEPENDENCY_REQUIRED",
+            "COMPLETENESS_SCOPE_MISMATCH",
+            "CONFLICT_REQUIRES_C5",
+            "CONTRACT_ADMISSION_INSTRUMENT_MISMATCH",
+            "CONTRACT_INSTRUMENT_REPARENT_FORBIDDEN",
+            "CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH",
+            "CONTRACT_PARENT_INSTRUMENT_REFERENCE_MISMATCH",
+            "CURRENT_ANCHOR_NOT_HISTORICAL_EVIDENCE",
+            "CURRENT_RESOLUTION_ANCHOR_REQUIRED",
+            "DEGRADATION_PROVENANCE_REQUIRED",
+            "DISCRIMINATOR_PAYLOAD_MISMATCH",
+            "DUPLICATE_CONTRACT_VENUE_ADMISSION",
+            "ENUM_VALUE_UNSUPPORTED",
+            "EXACT_RESOLUTION_CERTIFICATION_REQUIRED",
+            "EXTERNAL_IDENTIFIER_NOT_CANONICAL_ID",
+            "FOREIGN_REF_OWNER_MISMATCH",
+            "FUTURE_EFFECT_VISIBLE_NOT_ACTIVE",
+            "GOVERNANCE_REF_DIGEST_MISMATCH",
+            "GOVERNANCE_REF_REQUIRED",
+            "GROUPING_IDENTIFIER_NOT_EXACT",
+            "HISTORICAL_AS_OF_REQUIRED",
+            "IDENTIFIER_AMBIGUOUS",
+            "IDENTIFIER_CONFLICT",
+            "IDENTIFIER_RESOLUTION_ANCHOR_REQUIRED",
+            "IDENTIFIER_REUSE_REQUIRES_TEMPORAL_CONTEXT",
+            "IDENTITY_AMBIGUOUS",
+            "IDENTITY_EFFECT_TARGET_KIND_MISMATCH",
+            "IDENTITY_KIND_MISMATCH",
+            "IDENTITY_RELATION_KIND_MISMATCH",
+            "INHERITED_REGRESSION_AUTHORITY_REQUIRED",
+            "INVALID_CANONICAL_ID_FORMAT",
+            "INVALID_IDENTIFIER_FORMAT",
+            "INVALID_PARENT_CARDINALITY",
+            "INVALID_UNDERLYING_TARGET",
+            "LATEST_VALUE_FALLBACK_FORBIDDEN",
+            "LISTING_REPARENT_FORBIDDEN",
+            "LISTING_VENUE_REPARENT_FORBIDDEN",
+            "LISTING_VENUE_TRANSFER_INSTRUMENT_MISMATCH",
+            "LISTING_VENUE_TRANSFER_PACKAGE_INVALID",
+            "LISTING_VENUE_TRANSFER_SAME_VENUE_FORBIDDEN",
+            "NON_CANONICAL_JSON_ENCODING",
+            "NON_EXHAUSTIVE_PROVIDER_RESULT",
+            "NORMALIZATION_CONTEXT_REQUIRED",
+            "NORMALIZATION_ITEM_REJECTED",
+            "NORMALIZATION_LOSSY_COERCION_FORBIDDEN",
+            "NORMALIZATION_PROFILE_CONFLICT",
+            "NORMALIZATION_PROFILE_REQUIRED",
+            "NORMALIZATION_TARGET_KIND_MISMATCH",
+            "PIT_UNVERIFIED",
+            "PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN",
+            "PROVIDER_FIELD_SEMANTICS_REQUIRED",
+            "PROVIDER_NATIVE_ID_NOT_CANONICAL",
+            "PROVIDER_OBSERVATION_NOT_VALIDATED",
+            "PROVIDER_OUTCOME_CONTAINER_MISMATCH",
+            "PROVIDER_SYMBOL_NAMESPACE_REQUIRED",
+            "RAW_PROVIDER_OBJECT_NOT_CANONICAL",
+            "RELATED_ENDPOINT_KIND_REQUIRED",
+            "RELATED_ENDPOINT_REQUIRED",
+            "RELATION_ENDPOINT_KIND_MISMATCH",
+            "RELATION_FIELDS_FORBIDDEN",
+            "RELATION_ROLE_MISMATCH",
+            "RELATION_TYPE_MISMATCH",
+            "REPLAY_LINEAGE_REQUIRED",
+            "RESOLUTION_TARGET_CARDINALITY_MISMATCH",
+            "RETROSPECTIVE_RESULT_NON_CAUSAL",
+            "REVISION_NOT_VISIBLE_AS_OF",
+            "SCHEMA_REF_NOT_IMMUTABLE",
+            "SCHEMA_REF_REQUIRED",
+            "SCHEMA_VALIDATION_FAILED",
+            "SCHEME_CONTEXT_REQUIRED",
+            "SYMBOL_NOT_CANONICAL_ID",
+            "TARGET_KIND_MISMATCH",
+            "TEMPORAL_CONTEXT_REQUIRED",
+            "TEMPORAL_INTERVAL_NOT_APPLICABLE",
+            "TEMPORAL_MODE_REQUIRED",
+            "TEMPORAL_REF_REQUIRED",
+            "TICKER_NOT_CANONICAL_ID",
+            "UNKNOWN_CANONICAL_FIELD",
+            "UNRECONSTRUCTABLE",
+            "UNSTABLE_FOREIGN_SEMANTIC_REFERENCE",
+            "UNSUPPORTED_IDENTIFIER_SCHEME",
+            "UNSUPPORTED_INSTRUMENT_KIND",
+            "UNSUPPORTED_NORMALIZATION_PROFILE",
+            "UPSTREAM_OPERATION_CANCELLED",
+            "UPSTREAM_PROVIDER_FAILURE"
+          ],
+          "type": "string"
+        },
+        "details_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "field_path": {
+          "pattern": "^(/([^/~]|~[01])*)*$",
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "stage": {
+          "pattern": "^C1(\\.[0-9]{2}(R1)?)?$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "stage"
+      ],
+      "type": "object"
+    },
+    "ContractID": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CanonicalID"
+        }
+      ],
+      "title": "ContractID"
+    },
+    "ContractParentKindValidationInput": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_record": {
+          "$ref": "#/$defs/ContractRecord"
+        },
+        "parent_instrument_record": {
+          "$ref": "#/$defs/InstrumentRecord"
+        }
+      },
+      "required": [
+        "contract_record",
+        "parent_instrument_record"
+      ],
+      "type": "object"
+    },
+    "ContractParentTransitionValidationInput": {
+      "additionalProperties": false,
+      "properties": {
+        "after_record": {
+          "$ref": "#/$defs/ContractRecord"
+        },
+        "before_record": {
+          "$ref": "#/$defs/ContractRecord"
+        }
+      },
+      "required": [
+        "before_record",
+        "after_record"
+      ],
+      "type": "object"
+    },
+    "ContractRecord": {
+      "additionalProperties": false,
+      "description": "C1 semantic validators require parent_instrument_ref to resolve to exactly one InstrumentRecord whose instrument_kind=DERIVATIVE_PRODUCT. For the same ContractID, parent_instrument_ref is immutable across versions.",
+      "properties": {
+        "parent_instrument_ref": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "ref": {
+          "$ref": "#/$defs/ContractRef"
+        },
+        "underlying_ref": {
+          "$ref": "#/$defs/UnderlyingRef"
+        }
+      },
+      "required": [
+        "ref",
+        "parent_instrument_ref"
+      ],
+      "type": "object"
+    },
+    "ContractRef": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ContractID"
+        },
+        "kind": {
+          "const": "CONTRACT"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "type": "object"
+    },
+    "ContractVenueAdmission": {
+      "additionalProperties": false,
+      "description": "Semantic validator enforces contract.parent_instrument_id == listing.instrument_id. At a C4-defined state, duplicate active Contract->Listing admissions for the same endpoint tuple are invalid; C4 owns active-state determination and C11 owns persistence/idempotent coalescing.",
+      "properties": {
+        "contract_ref": {
+          "$ref": "#/$defs/ContractRef"
+        },
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "listing_ref": {
+          "$ref": "#/$defs/ListingRef"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "contract_ref",
+        "listing_ref",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "ContractVenueAdmissionEffect": {
+      "additionalProperties": false,
+      "description": "Semantic validator additionally enforces same-parent-Instrument invariant.",
+      "properties": {
+        "effect_state": {
+          "enum": [
+            "PROJECTED",
+            "REALIZED"
+          ],
+          "type": "string"
+        },
+        "effect_type": {
+          "enum": [
+            "CREATE_CONTRACT_VENUE_ADMISSION",
+            "TERMINATE_CONTRACT_VENUE_ADMISSION"
+          ],
+          "type": "string"
+        },
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "related_target": {
+          "$ref": "#/$defs/ListingRef"
+        },
+        "related_target_role": {
+          "const": "LISTING"
+        },
+        "relation_direction": {
+          "const": "TARGET_TO_RELATED"
+        },
+        "relation_type": {
+          "const": "CONTRACT_VENUE_ADMISSION"
+        },
+        "target": {
+          "$ref": "#/$defs/ContractRef"
+        },
+        "target_role": {
+          "const": "CONTRACT"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "effect_type",
+        "effect_state",
+        "target",
+        "target_role",
+        "related_target",
+        "related_target_role",
+        "relation_type",
+        "relation_direction",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "ConversionEffect": {
+      "additionalProperties": false,
+      "properties": {
+        "effect_state": {
+          "enum": [
+            "PROJECTED",
+            "REALIZED"
+          ],
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "ADD_CONVERSION_RELATION"
+        },
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "related_target": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "related_target_role": {
+          "const": "TARGET_SECURITY"
+        },
+        "relation_direction": {
+          "const": "TARGET_TO_RELATED"
+        },
+        "relation_type": {
+          "const": "CONVERTS_TO"
+        },
+        "target": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "target_role": {
+          "const": "SOURCE_SECURITY"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "effect_type",
+        "effect_state",
+        "target",
+        "target_role",
+        "related_target",
+        "related_target_role",
+        "relation_type",
+        "relation_direction",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "CorporateActionEventID": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CanonicalID"
+        }
+      ],
+      "title": "CorporateActionEventID"
+    },
+    "CorporateActionEventRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "external_event_classification_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "ref": {
+          "$ref": "#/$defs/CorporateActionEventRef"
+        }
+      },
+      "required": [
+        "ref"
+      ],
+      "type": "object"
+    },
+    "CorporateActionEventRef": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/CorporateActionEventID"
+        },
+        "kind": {
+          "const": "CORPORATE_ACTION_EVENT"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "type": "object"
+    },
+    "CurrentPitSafeHistoricalReuseValidationInput": {
+      "additionalProperties": false,
+      "properties": {
+        "c4_reconstruction_equivalence_ref": {
+          "$ref": "#/$defs/C4Ref"
+        },
+        "current_result": {
+          "$ref": "#/$defs/IdentityGraphResult"
+        },
+        "historical_reuse_requested": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "current_result",
+        "historical_reuse_requested"
+      ],
+      "type": "object"
+    },
+    "DegradationRef": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/C2Ref"
+        },
+        {
+          "$ref": "#/$defs/C3Ref"
+        }
+      ]
+    },
+    "DepositaryReceiptForRelation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "relation_type": {
+          "const": "DEPOSITARY_RECEIPT_FOR"
+        },
+        "source": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "target": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "relation_type",
+        "source",
+        "target",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "EconomicallyEquivalentToRelation": {
+      "description": "ECONOMICALLY_EQUIVALENT_TO is non-identity and same-kind on the currently frozen Instrument/Contract relation surface.",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "evidence_ref": {
+              "$ref": "#/$defs/C5Ref"
+            },
+            "relation_type": {
+              "const": "ECONOMICALLY_EQUIVALENT_TO"
+            },
+            "source": {
+              "$ref": "#/$defs/InstrumentRef"
+            },
+            "target": {
+              "$ref": "#/$defs/InstrumentRef"
+            },
+            "temporal_ref": {
+              "$ref": "#/$defs/C4Ref"
+            }
+          },
+          "required": [
+            "relation_type",
+            "source",
+            "target",
+            "temporal_ref",
+            "evidence_ref"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "evidence_ref": {
+              "$ref": "#/$defs/C5Ref"
+            },
+            "relation_type": {
+              "const": "ECONOMICALLY_EQUIVALENT_TO"
+            },
+            "source": {
+              "$ref": "#/$defs/ContractRef"
+            },
+            "target": {
+              "$ref": "#/$defs/ContractRef"
+            },
+            "temporal_ref": {
+              "$ref": "#/$defs/C4Ref"
+            }
+          },
+          "required": [
+            "relation_type",
+            "source",
+            "target",
+            "temporal_ref",
+            "evidence_ref"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "EntityID": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CanonicalID"
+        }
+      ],
+      "title": "EntityID"
+    },
+    "EntityRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_kind": {
+          "enum": [
+            "LEGAL_ENTITY",
+            "FUND_OR_TRUST_VEHICLE",
+            "SOVEREIGN_OR_PUBLIC_ISSUER_BODY",
+            "OTHER_CONSTITUTED_ISSUER_OR_OBLIGOR"
+          ],
+          "type": "string"
+        },
+        "ref": {
+          "$ref": "#/$defs/EntityRef"
+        }
+      },
+      "required": [
+        "ref",
+        "entity_kind"
+      ],
+      "type": "object"
+    },
+    "EntityRef": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/EntityID"
+        },
+        "kind": {
+          "const": "ENTITY"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "type": "object"
+    },
+    "EntityRoleIdentityRelation": {
+      "additionalProperties": false,
+      "description": "Instrument-to-Entity role relation. Graph-level minimum-cardinality requirements are enforced by semantic contract rules, not by per-record JSON Schema.",
+      "properties": {
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "relation_type": {
+          "enum": [
+            "ISSUED_BY",
+            "OBLIGATED_BY",
+            "GUARANTEED_BY",
+            "MANAGED_BY",
+            "SPONSORED_BY",
+            "ADMINISTERED_BY"
+          ],
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "target": {
+          "$ref": "#/$defs/EntityRef"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "relation_type",
+        "source",
+        "target",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "ExchangeEffect": {
+      "additionalProperties": false,
+      "properties": {
+        "effect_state": {
+          "enum": [
+            "PROJECTED",
+            "REALIZED"
+          ],
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "ADD_EXCHANGE_RELATION"
+        },
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "related_target": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "related_target_role": {
+          "const": "DESTINATION_SECURITY"
+        },
+        "relation_direction": {
+          "const": "TARGET_TO_RELATED"
+        },
+        "relation_type": {
+          "const": "EXCHANGED_FOR"
+        },
+        "target": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "target_role": {
+          "const": "SOURCE_SECURITY"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "effect_type",
+        "effect_state",
+        "target",
+        "target_role",
+        "related_target",
+        "related_target_role",
+        "relation_type",
+        "relation_direction",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "FungibleWithRelation": {
+      "description": "FUNGIBLE_WITH is non-identity and same-kind on the currently frozen Instrument/Contract relation surface.",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "evidence_ref": {
+              "$ref": "#/$defs/C5Ref"
+            },
+            "relation_type": {
+              "const": "FUNGIBLE_WITH"
+            },
+            "source": {
+              "$ref": "#/$defs/InstrumentRef"
+            },
+            "target": {
+              "$ref": "#/$defs/InstrumentRef"
+            },
+            "temporal_ref": {
+              "$ref": "#/$defs/C4Ref"
+            }
+          },
+          "required": [
+            "relation_type",
+            "source",
+            "target",
+            "temporal_ref",
+            "evidence_ref"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "evidence_ref": {
+              "$ref": "#/$defs/C5Ref"
+            },
+            "relation_type": {
+              "const": "FUNGIBLE_WITH"
+            },
+            "source": {
+              "$ref": "#/$defs/ContractRef"
+            },
+            "target": {
+              "$ref": "#/$defs/ContractRef"
+            },
+            "temporal_ref": {
+              "$ref": "#/$defs/C4Ref"
+            }
+          },
+          "required": [
+            "relation_type",
+            "source",
+            "target",
+            "temporal_ref",
+            "evidence_ref"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "IdentifierResolutionQuery": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "TEMPORAL"
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "required": [
+              "temporal_query_ref"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "CURRENT_ONLY"
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "temporal_query_ref"
+              ]
+            }
+          }
+        }
+      ],
+      "properties": {
+        "expected_target_kind": {
+          "$ref": "#/$defs/CanonicalKind"
+        },
+        "market_context_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "CURRENT_ONLY",
+            "TEMPORAL"
+          ],
+          "type": "string"
+        },
+        "namespace_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "raw_value": {
+          "type": "string"
+        },
+        "scheme_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "temporal_query_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "scheme_ref",
+        "raw_value",
+        "mode"
+      ],
+      "type": "object"
+    },
+    "IdentifierResolutionResult": {
+      "description": "CURRENT_ONLY is explicitly non-PIT and anchored by C4. TEMPORAL uses a C4-owned result ref and propagated reconstructability.",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "maxItems": 1,
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resolution_outcome": {
+                    "const": "NO_MATCH"
+                  }
+                },
+                "required": [
+                  "resolution_outcome"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "ENTITY"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "ENTITY"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "INSTRUMENT"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "INSTRUMENT"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "LISTING"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "LISTING"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "CONTRACT"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "CONTRACT"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "VENUE"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "VENUE"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "CORPORATE_ACTION_EVENT"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "CORPORATE_ACTION_EVENT"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "mode": {
+              "const": "CURRENT_ONLY"
+            },
+            "query_binding": {
+              "$ref": "#/$defs/ResolutionQueryBinding"
+            },
+            "resolution_anchor_ref": {
+              "$ref": "#/$defs/C4Ref"
+            },
+            "resolution_outcome": {
+              "enum": [
+                "RESOLVED",
+                "NO_MATCH",
+                "AMBIGUOUS",
+                "CONFLICT",
+                "CONTEXT_REQUIRED",
+                "TEMPORAL_CONTEXT_REQUIRED",
+                "INVALID_FORMAT",
+                "UNSUPPORTED_SCHEME",
+                "TARGET_KIND_MISMATCH",
+                "GROUPING_IDENTIFIER_NOT_EXACT",
+                "UPSTREAM_FAILURE"
+              ],
+              "type": "string"
+            },
+            "resolution_state": {
+              "const": "NON_PIT_CURRENT_ONLY"
+            },
+            "scheme_binding": {
+              "$ref": "#/$defs/ResolutionSchemeBinding"
+            },
+            "targets": {
+              "items": {
+                "$ref": "#/$defs/CanonicalRef"
+              },
+              "type": "array"
+            },
+            "verification_ref": {
+              "$ref": "#/$defs/C5Ref"
+            }
+          },
+          "required": [
+            "mode",
+            "resolution_outcome",
+            "targets",
+            "resolution_state",
+            "resolution_anchor_ref"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "maxItems": 1,
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "resolution_outcome": {
+                    "const": "NO_MATCH"
+                  }
+                },
+                "required": [
+                  "resolution_outcome"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "ENTITY"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "ENTITY"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "INSTRUMENT"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "INSTRUMENT"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "LISTING"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "LISTING"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "CONTRACT"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "CONTRACT"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "VENUE"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "VENUE"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "query_binding": {
+                    "properties": {
+                      "expected_target_kind": {
+                        "const": "CORPORATE_ACTION_EVENT"
+                      }
+                    },
+                    "required": [
+                      "expected_target_kind"
+                    ]
+                  },
+                  "resolution_outcome": {
+                    "const": "RESOLVED"
+                  }
+                },
+                "required": [
+                  "resolution_outcome",
+                  "query_binding"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "targets": {
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/$defs/CanonicalRef"
+                        },
+                        {
+                          "properties": {
+                            "kind": {
+                              "const": "CORPORATE_ACTION_EVENT"
+                            }
+                          },
+                          "required": [
+                            "kind"
+                          ]
+                        }
+                      ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "mode": {
+              "const": "TEMPORAL"
+            },
+            "query_binding": {
+              "$ref": "#/$defs/ResolutionQueryBinding"
+            },
+            "reconstructability": {
+              "enum": [
+                "PIT_SAFE",
+                "PIT_UNVERIFIED",
+                "UNRECONSTRUCTABLE"
+              ],
+              "type": "string"
+            },
+            "resolution_outcome": {
+              "enum": [
+                "RESOLVED",
+                "NO_MATCH",
+                "AMBIGUOUS",
+                "CONFLICT",
+                "CONTEXT_REQUIRED",
+                "TEMPORAL_CONTEXT_REQUIRED",
+                "INVALID_FORMAT",
+                "UNSUPPORTED_SCHEME",
+                "TARGET_KIND_MISMATCH",
+                "GROUPING_IDENTIFIER_NOT_EXACT",
+                "UPSTREAM_FAILURE"
+              ],
+              "type": "string"
+            },
+            "scheme_binding": {
+              "$ref": "#/$defs/ResolutionSchemeBinding"
+            },
+            "targets": {
+              "items": {
+                "$ref": "#/$defs/CanonicalRef"
+              },
+              "type": "array"
+            },
+            "temporal_result_ref": {
+              "$ref": "#/$defs/C4Ref"
+            },
+            "verification_ref": {
+              "$ref": "#/$defs/C5Ref"
+            }
+          },
+          "required": [
+            "mode",
+            "resolution_outcome",
+            "targets",
+            "reconstructability",
+            "temporal_result_ref"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "IdentityEffectAssertion": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/UnaryIdentityEffect"
+        },
+        {
+          "$ref": "#/$defs/SuccessorEffect"
+        },
+        {
+          "$ref": "#/$defs/ConversionEffect"
+        },
+        {
+          "$ref": "#/$defs/SpinoffEffect"
+        },
+        {
+          "$ref": "#/$defs/ExchangeEffect"
+        },
+        {
+          "$ref": "#/$defs/ContractVenueAdmissionEffect"
+        }
+      ]
+    },
+    "IdentityGraphEdge": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/IdentityRelation"
+        },
+        {
+          "$ref": "#/$defs/SuccessorEffect"
+        },
+        {
+          "$ref": "#/$defs/ConversionEffect"
+        },
+        {
+          "$ref": "#/$defs/SpinoffEffect"
+        },
+        {
+          "$ref": "#/$defs/ExchangeEffect"
+        },
+        {
+          "$ref": "#/$defs/ContractVenueAdmission"
+        },
+        {
+          "$ref": "#/$defs/ContractVenueAdmissionEffect"
+        }
+      ]
+    },
+    "IdentityGraphQuery": {
+      "additionalProperties": false,
+      "description": "T/S/as_of/effectivity/available_from remain C4-owned inside temporal_intent_ref.",
+      "properties": {
+        "mode": {
+          "enum": [
+            "CURRENT",
+            "HISTORICAL"
+          ],
+          "type": "string"
+        },
+        "pit_requirement": {
+          "enum": [
+            "REQUIRE_PIT_SAFE",
+            "ALLOW_PIT_UNVERIFIED"
+          ],
+          "type": "string"
+        },
+        "projection": {
+          "enum": [
+            "ACTIVE_CANONICAL_GRAPH",
+            "VISIBLE_KNOWLEDGE_OVERLAY",
+            "BOTH"
+          ],
+          "type": "string"
+        },
+        "relation_scope": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "root_identity_ref": {
+          "$ref": "#/$defs/CanonicalRef"
+        },
+        "temporal_intent_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "mode",
+        "temporal_intent_ref",
+        "projection",
+        "pit_requirement"
+      ],
+      "type": "object"
+    },
+    "IdentityGraphResult": {
+      "description": "C1.04-facing result keeps active canonical state separate from visible non-active overlay. No local availability/effectivity/revision timestamps are serialized. CURRENT reconstructability=PIT_SAFE does not make the CURRENT anchor historical PIT evidence; historical reuse still requires HISTORICAL reconstruction or an explicit C4 reconstruction-equivalence proof.",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "active_identity_nodes": {
+              "items": {
+                "$ref": "#/$defs/CanonicalRef"
+              },
+              "type": "array"
+            },
+            "active_relation_edges": {
+              "items": {
+                "$ref": "#/$defs/IdentityGraphEdge"
+              },
+              "type": "array"
+            },
+            "mode": {
+              "const": "CURRENT"
+            },
+            "reconstructability": {
+              "enum": [
+                "PIT_SAFE",
+                "PIT_UNVERIFIED",
+                "UNRECONSTRUCTABLE"
+              ],
+              "type": "string"
+            },
+            "result_anchor_ref": {
+              "$ref": "#/$defs/C4Ref"
+            },
+            "verification_ref": {
+              "$ref": "#/$defs/C5Ref"
+            },
+            "visible_nonactive_assertions": {
+              "items": {
+                "$ref": "#/$defs/VisibleNonActiveAssertion"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "mode",
+            "active_identity_nodes",
+            "active_relation_edges",
+            "visible_nonactive_assertions",
+            "reconstructability",
+            "result_anchor_ref"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "active_identity_nodes": {
+              "items": {
+                "$ref": "#/$defs/CanonicalRef"
+              },
+              "type": "array"
+            },
+            "active_relation_edges": {
+              "items": {
+                "$ref": "#/$defs/IdentityGraphEdge"
+              },
+              "type": "array"
+            },
+            "mode": {
+              "const": "HISTORICAL"
+            },
+            "reconstructability": {
+              "enum": [
+                "PIT_SAFE",
+                "PIT_UNVERIFIED",
+                "UNRECONSTRUCTABLE"
+              ],
+              "type": "string"
+            },
+            "temporal_result_ref": {
+              "$ref": "#/$defs/C4Ref"
+            },
+            "verification_ref": {
+              "$ref": "#/$defs/C5Ref"
+            },
+            "visible_nonactive_assertions": {
+              "items": {
+                "$ref": "#/$defs/VisibleNonActiveAssertion"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "mode",
+            "active_identity_nodes",
+            "active_relation_edges",
+            "visible_nonactive_assertions",
+            "reconstructability",
+            "temporal_result_ref"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "IdentityRelation": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/EntityRoleIdentityRelation"
+        },
+        {
+          "$ref": "#/$defs/DepositaryReceiptForRelation"
+        },
+        {
+          "$ref": "#/$defs/UnderlyingInstrumentRelation"
+        },
+        {
+          "$ref": "#/$defs/UnderlyingContractRelation"
+        },
+        {
+          "$ref": "#/$defs/FungibleWithRelation"
+        },
+        {
+          "$ref": "#/$defs/EconomicallyEquivalentToRelation"
+        },
+        {
+          "$ref": "#/$defs/ParentSubsidiaryRelation"
+        }
+      ]
+    },
+    "IdentityResolutionCandidatePayload": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_targets": {
+          "items": {
+            "$ref": "#/$defs/CanonicalRef"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "resolution_basis_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        }
+      },
+      "required": [
+        "candidate_targets",
+        "resolution_basis_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "InstrumentID": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CanonicalID"
+        }
+      ],
+      "title": "InstrumentID"
+    },
+    "InstrumentRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "instrument_kind": {
+          "enum": [
+            "EQUITY_SHARE_CLASS",
+            "FUND_SHARE_CLASS",
+            "DEBT_SECURITY",
+            "DEPOSITARY_RECEIPT",
+            "INDEX_REFERENCE",
+            "DERIVATIVE_PRODUCT"
+          ],
+          "type": "string"
+        },
+        "ref": {
+          "$ref": "#/$defs/InstrumentRef"
+        }
+      },
+      "required": [
+        "ref",
+        "instrument_kind"
+      ],
+      "type": "object"
+    },
+    "InstrumentRef": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/InstrumentID"
+        },
+        "kind": {
+          "const": "INSTRUMENT"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "type": "object"
+    },
+    "ItemOutcome": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_refs": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/$defs/ContractError"
+          },
+          "type": "array"
+        },
+        "item_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "normalization_outcome": {
+          "enum": [
+            "NOT_RUN",
+            "NORMALIZED",
+            "PARTIAL_NORMALIZATION",
+            "NO_OBSERVATIONS",
+            "REJECTED"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "item_ref",
+        "normalization_outcome",
+        "candidate_refs",
+        "errors"
+      ],
+      "type": "object"
+    },
+    "ListingID": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CanonicalID"
+        }
+      ],
+      "title": "ListingID"
+    },
+    "ListingParentTransitionValidationInput": {
+      "additionalProperties": false,
+      "description": "Cross-version C1 identity validation input. If before_record.ref == after_record.ref, instrument_ref and venue_ref must both remain unchanged.",
+      "properties": {
+        "after_record": {
+          "$ref": "#/$defs/ListingRecord"
+        },
+        "before_record": {
+          "$ref": "#/$defs/ListingRecord"
+        }
+      },
+      "required": [
+        "before_record",
+        "after_record"
+      ],
+      "type": "object"
+    },
+    "ListingRecord": {
+      "additionalProperties": false,
+      "description": "For the same ListingID, both instrument_ref and venue_ref are immutable across versions. A cross-canonical-Venue transfer requires a distinct new ListingID with explicit termination/create/predecessor-successor semantics. Non-identity tier/segment/display-label changes inside the same canonical Venue do not by themselves remint ListingID.",
+      "properties": {
+        "instrument_ref": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "ref": {
+          "$ref": "#/$defs/ListingRef"
+        },
+        "venue_ref": {
+          "$ref": "#/$defs/VenueRef"
+        }
+      },
+      "required": [
+        "ref",
+        "instrument_ref",
+        "venue_ref"
+      ],
+      "type": "object"
+    },
+    "ListingRef": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/ListingID"
+        },
+        "kind": {
+          "const": "LISTING"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "type": "object"
+    },
+    "ListingVenueTransferValidationInput": {
+      "additionalProperties": false,
+      "properties": {
+        "creation_effect": {
+          "$ref": "#/$defs/UnaryIdentityEffect"
+        },
+        "new_listing_record": {
+          "$ref": "#/$defs/ListingRecord"
+        },
+        "old_listing_record": {
+          "$ref": "#/$defs/ListingRecord"
+        },
+        "successor_effect": {
+          "$ref": "#/$defs/SuccessorEffect"
+        },
+        "termination_effect": {
+          "$ref": "#/$defs/UnaryIdentityEffect"
+        }
+      },
+      "required": [
+        "old_listing_record",
+        "new_listing_record",
+        "termination_effect",
+        "creation_effect",
+        "successor_effect"
+      ],
+      "type": "object"
+    },
+    "NormalizationProfileDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "absence_exactness_policy": {
+          "enum": [
+            "COMPLETENESS_REQUIRED_WHEN_ABSENCE_LOAD_BEARING"
+          ],
+          "type": "string"
+        },
+        "allowed_output_assertion_kinds": {
+          "items": {
+            "enum": [
+              "IDENTITY_RESOLUTION_CANDIDATE",
+              "REGISTERED_IDENTIFIER_ASSIGNMENT_CANDIDATE",
+              "SYMBOL_ASSIGNMENT_CANDIDATE",
+              "LISTING_ASSERTION_CANDIDATE",
+              "CONTRACT_ASSERTION_CANDIDATE",
+              "CONTRACT_VENUE_ADMISSION_CANDIDATE",
+              "CORPORATE_ACTION_EVENT_OBSERVATION",
+              "IDENTITY_EFFECT_CANDIDATE",
+              "RELATION_EFFECT_CANDIDATE",
+              "TERMS_UPDATE_CANDIDATE"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "c1_scheme_profile_refs": {
+          "items": {
+            "$ref": "#/$defs/C1GovernanceRef"
+          },
+          "type": "array"
+        },
+        "deterministic_ordering_rule": {
+          "const": "JCS_SHA256_MEMBER_ORDER"
+        },
+        "governance_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "loss_policy": {
+          "enum": [
+            "LOSSLESS_REQUIRED",
+            "ITEM_REJECT_ON_LOSS"
+          ],
+          "type": "string"
+        },
+        "multiplicity_rule": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "parent_c1_contract_refs": {
+          "items": {
+            "$ref": "#/$defs/ContentAddressRef"
+          },
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "provider_field_semantic_refs": {
+          "items": {
+            "$ref": "#/$defs/SnapshotStableC2Ref"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "provider_profile_ref": {
+          "$ref": "#/$defs/SnapshotStableC2Ref"
+        },
+        "required_context_slots": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "supported_observation_kinds": {
+          "items": {
+            "enum": [
+              "IDENTITY_DESCRIPTOR_OBSERVATION",
+              "REGISTERED_IDENTIFIER_OBSERVATION",
+              "SYMBOL_OBSERVATION",
+              "LISTING_OBSERVATION",
+              "CONTRACT_OBSERVATION",
+              "CONTRACT_VENUE_ADMISSION_OBSERVATION",
+              "CORPORATE_ACTION_EVENT_OBSERVATION",
+              "CORPORATE_ACTION_RELATION_OBSERVATION",
+              "TERMS_OBSERVATION"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "transformation_policy_refs": {
+          "items": {
+            "$ref": "#/$defs/C1GovernanceRef"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "profile_id",
+        "governance_ref",
+        "parent_c1_contract_refs",
+        "provider_profile_ref",
+        "supported_observation_kinds",
+        "provider_field_semantic_refs",
+        "c1_scheme_profile_refs",
+        "required_context_slots",
+        "allowed_output_assertion_kinds",
+        "multiplicity_rule",
+        "transformation_policy_refs",
+        "loss_policy",
+        "deterministic_ordering_rule",
+        "absence_exactness_policy"
+      ],
+      "type": "object"
+    },
+    "NormalizedCandidate": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "IDENTITY_RESOLUTION_CANDIDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/IdentityResolutionCandidatePayload"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "REGISTERED_IDENTIFIER_ASSIGNMENT_CANDIDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/RegisteredIdentifierAssignment"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "SYMBOL_ASSIGNMENT_CANDIDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/SymbolAssignment"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "LISTING_ASSERTION_CANDIDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/ListingRecord"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "CONTRACT_ASSERTION_CANDIDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/ContractRecord"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "CONTRACT_VENUE_ADMISSION_CANDIDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/ContractVenueAdmission"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "CORPORATE_ACTION_EVENT_OBSERVATION"
+            },
+            "payload": {
+              "$ref": "#/$defs/CorporateActionEventRecord"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "IDENTITY_EFFECT_CANDIDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/UnaryIdentityEffect"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "RELATION_EFFECT_CANDIDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/RelationEffectAssertion"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_kind": {
+              "const": "TERMS_UPDATE_CANDIDATE"
+            },
+            "payload": {
+              "$ref": "#/$defs/TermsUpdateCandidatePayload"
+            },
+            "replay_lineage": {
+              "$ref": "#/$defs/ReplayLineage"
+            }
+          },
+          "required": [
+            "candidate_kind",
+            "payload",
+            "replay_lineage"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "OpaqueForeignRef": {
+      "additionalProperties": false,
+      "properties": {
+        "owner": {
+          "enum": [
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C11",
+            "C12"
+          ],
+          "type": "string"
+        },
+        "ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "ref"
+      ],
+      "type": "object"
+    },
+    "OutcomeAxes": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "provider_operation_status": {
+                "enum": [
+                  "FAILED",
+                  "CANCELLED"
+                ]
+              }
+            },
+            "required": [
+              "provider_operation_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "normalization_outcome": {
+                "const": "NOT_RUN"
+              },
+              "resolution_outcome": {
+                "const": "NOT_APPLICABLE"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "normalization_outcome": {
+          "enum": [
+            "NOT_RUN",
+            "NORMALIZED",
+            "PARTIAL_NORMALIZATION",
+            "NO_OBSERVATIONS",
+            "REJECTED"
+          ],
+          "type": "string"
+        },
+        "provider_data_outcome": {
+          "enum": [
+            "PRESENT",
+            "NO_DATA",
+            "PARTIAL"
+          ],
+          "type": "string"
+        },
+        "provider_operation_status": {
+          "enum": [
+            "SUCCESS",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "type": "string"
+        },
+        "reconstructability": {
+          "enum": [
+            "PIT_SAFE",
+            "PIT_UNVERIFIED",
+            "UNRECONSTRUCTABLE"
+          ],
+          "type": "string"
+        },
+        "resolution_outcome": {
+          "enum": [
+            "RESOLVED",
+            "NO_MATCH",
+            "AMBIGUOUS",
+            "CONFLICT",
+            "CONTEXT_REQUIRED",
+            "NON_EXHAUSTIVE",
+            "NOT_APPLICABLE"
+          ],
+          "type": "string"
+        },
+        "verification_ref": {
+          "$ref": "#/$defs/C5Ref"
+        }
+      },
+      "required": [
+        "provider_operation_status",
+        "provider_data_outcome",
+        "normalization_outcome",
+        "resolution_outcome",
+        "reconstructability"
+      ],
+      "type": "object"
+    },
+    "ParentSubsidiaryRelation": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "evidence_ref": {
+              "$ref": "#/$defs/C5Ref"
+            },
+            "relation_type": {
+              "const": "PARENT_OF"
+            },
+            "source": {
+              "$ref": "#/$defs/EntityRef"
+            },
+            "target": {
+              "$ref": "#/$defs/EntityRef"
+            },
+            "temporal_ref": {
+              "$ref": "#/$defs/C4Ref"
+            }
+          },
+          "required": [
+            "relation_type",
+            "source",
+            "target",
+            "temporal_ref",
+            "evidence_ref"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "evidence_ref": {
+              "$ref": "#/$defs/C5Ref"
+            },
+            "relation_type": {
+              "const": "SUBSIDIARY_OF"
+            },
+            "source": {
+              "$ref": "#/$defs/EntityRef"
+            },
+            "target": {
+              "$ref": "#/$defs/EntityRef"
+            },
+            "temporal_ref": {
+              "$ref": "#/$defs/C4Ref"
+            }
+          },
+          "required": [
+            "relation_type",
+            "source",
+            "target",
+            "temporal_ref",
+            "evidence_ref"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "ProviderNormalizationResult": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome_axes": {
+                "properties": {
+                  "normalization_outcome": {
+                    "const": "NOT_RUN"
+                  }
+                },
+                "required": [
+                  "normalization_outcome"
+                ]
+              }
+            },
+            "required": [
+              "outcome_axes"
+            ]
+          },
+          "then": {
+            "properties": {
+              "candidates": {
+                "maxItems": 0
+              },
+              "item_outcomes": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome_axes": {
+                "properties": {
+                  "normalization_outcome": {
+                    "const": "NO_OBSERVATIONS"
+                  }
+                },
+                "required": [
+                  "normalization_outcome"
+                ]
+              }
+            },
+            "required": [
+              "outcome_axes"
+            ]
+          },
+          "then": {
+            "properties": {
+              "candidates": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome_axes": {
+                "properties": {
+                  "provider_data_outcome": {
+                    "const": "NO_DATA"
+                  },
+                  "provider_operation_status": {
+                    "const": "SUCCESS"
+                  }
+                },
+                "required": [
+                  "provider_operation_status",
+                  "provider_data_outcome"
+                ]
+              }
+            },
+            "required": [
+              "outcome_axes"
+            ]
+          },
+          "then": {
+            "properties": {
+              "candidates": {
+                "maxItems": 0
+              },
+              "outcome_axes": {
+                "properties": {
+                  "normalization_outcome": {
+                    "const": "NO_OBSERVATIONS"
+                  },
+                  "resolution_outcome": {
+                    "not": {
+                      "const": "RESOLVED"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome_axes": {
+                "properties": {
+                  "resolution_outcome": {
+                    "const": "NO_MATCH"
+                  }
+                },
+                "required": [
+                  "resolution_outcome"
+                ]
+              }
+            },
+            "required": [
+              "outcome_axes"
+            ]
+          },
+          "then": {
+            "properties": {
+              "completeness_dependencies": {
+                "minItems": 1
+              }
+            },
+            "required": [
+              "resolution_scope"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome_axes": {
+                "properties": {
+                  "provider_data_outcome": {
+                    "const": "PARTIAL"
+                  }
+                },
+                "required": [
+                  "provider_data_outcome"
+                ]
+              }
+            },
+            "required": [
+              "outcome_axes"
+            ]
+          },
+          "then": {
+            "properties": {
+              "outcome_axes": {
+                "properties": {
+                  "resolution_outcome": {
+                    "not": {
+                      "const": "NO_MATCH"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome_axes": {
+                "properties": {
+                  "normalization_outcome": {
+                    "const": "PARTIAL_NORMALIZATION"
+                  }
+                },
+                "required": [
+                  "normalization_outcome"
+                ]
+              }
+            },
+            "required": [
+              "outcome_axes"
+            ]
+          },
+          "then": {
+            "properties": {
+              "item_outcomes": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "candidates": {
+          "items": {
+            "$ref": "#/$defs/NormalizedCandidate"
+          },
+          "type": "array"
+        },
+        "completeness_dependencies": {
+          "items": {
+            "$ref": "#/$defs/CompletenessDependencyRequirement"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/$defs/ContractError"
+          },
+          "type": "array"
+        },
+        "item_outcomes": {
+          "items": {
+            "$ref": "#/$defs/ItemOutcome"
+          },
+          "type": "array"
+        },
+        "outcome_axes": {
+          "$ref": "#/$defs/OutcomeAxes"
+        },
+        "resolution_scope": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        }
+      },
+      "required": [
+        "schema_ref",
+        "outcome_axes",
+        "candidates",
+        "item_outcomes",
+        "errors",
+        "completeness_dependencies"
+      ],
+      "type": "object"
+    },
+    "RegisteredIdentifierAssignment": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "namespace_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "normalized_value": {
+          "type": "string"
+        },
+        "raw_value": {
+          "type": "string"
+        },
+        "scheme_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "source_ref": {
+          "$ref": "#/$defs/OpaqueForeignRef"
+        },
+        "target": {
+          "$ref": "#/$defs/RegisteredIdentifierTarget"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "scheme_ref",
+        "raw_value",
+        "normalized_value",
+        "target",
+        "temporal_ref",
+        "evidence_ref",
+        "source_ref"
+      ],
+      "type": "object"
+    },
+    "RegisteredIdentifierTarget": {
+      "description": "C1.02 registered-identifier target family; CorporateActionEvent is intentionally excluded.",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/EntityRef"
+        },
+        {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        {
+          "$ref": "#/$defs/ListingRef"
+        },
+        {
+          "$ref": "#/$defs/ContractRef"
+        },
+        {
+          "$ref": "#/$defs/VenueRef"
+        }
+      ]
+    },
+    "RelationEffectAssertion": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/SuccessorEffect"
+        },
+        {
+          "$ref": "#/$defs/ConversionEffect"
+        },
+        {
+          "$ref": "#/$defs/SpinoffEffect"
+        },
+        {
+          "$ref": "#/$defs/ExchangeEffect"
+        },
+        {
+          "$ref": "#/$defs/ContractVenueAdmissionEffect"
+        }
+      ]
+    },
+    "ReplayLineage": {
+      "additionalProperties": false,
+      "properties": {
+        "c2_completeness_refs": {
+          "items": {
+            "$ref": "#/$defs/SnapshotStableC2Ref"
+          },
+          "type": "array"
+        },
+        "c4_dependency_refs": {
+          "items": {
+            "$ref": "#/$defs/C4Ref"
+          },
+          "type": "array"
+        },
+        "c5_dependency_refs": {
+          "items": {
+            "$ref": "#/$defs/C5Ref"
+          },
+          "type": "array"
+        },
+        "degradation_refs": {
+          "items": {
+            "$ref": "#/$defs/DegradationRef"
+          },
+          "type": "array"
+        },
+        "item_batch_context_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "normalization_profile_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "parent_c1_contract_refs": {
+          "items": {
+            "$ref": "#/$defs/ContentAddressRef"
+          },
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "provider_operation_ref": {
+          "$ref": "#/$defs/C2Ref"
+        },
+        "provider_semantic_capability_refs": {
+          "items": {
+            "$ref": "#/$defs/SnapshotStableC2Ref"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "source_group_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_record_ref": {
+          "$ref": "#/$defs/OpaqueForeignRef"
+        },
+        "validated_input_ref": {
+          "$ref": "#/$defs/SnapshotStableC2Ref"
+        }
+      },
+      "required": [
+        "validated_input_ref",
+        "source_record_ref",
+        "normalization_profile_ref",
+        "parent_c1_contract_refs",
+        "provider_operation_ref",
+        "provider_semantic_capability_refs",
+        "c4_dependency_refs",
+        "c5_dependency_refs"
+      ],
+      "type": "object"
+    },
+    "ResolutionQueryBinding": {
+      "additionalProperties": false,
+      "description": "Must echo the exact IdentifierResolutionQuery; if source query supplied expected_target_kind, this binding must carry the same value.",
+      "properties": {
+        "expected_target_kind": {
+          "$ref": "#/$defs/CanonicalKind"
+        },
+        "query_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        }
+      },
+      "required": [
+        "query_ref"
+      ],
+      "type": "object"
+    },
+    "ResolutionSchemeBinding": {
+      "additionalProperties": false,
+      "description": "C1 semantic hook: resolved_target_kind MUST be a member of the exact content-addressed SchemeDefinition.allowed_target_kinds and MUST satisfy that SchemeDefinition.category family.",
+      "properties": {
+        "resolved_target_kind": {
+          "$ref": "#/$defs/CanonicalKind"
+        },
+        "scheme_definition_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        }
+      },
+      "required": [
+        "scheme_definition_ref",
+        "resolved_target_kind"
+      ],
+      "type": "object"
+    },
+    "SameVenueListingContinuityValidationInput": {
+      "additionalProperties": false,
+      "description": "Control for same-canonical-Venue continuity. Tier/segment/display-label metadata is intentionally outside ListingRecord identity fields; changing only such metadata does not force a new ListingID when instrument_ref and venue_ref remain the same.",
+      "properties": {
+        "after_record": {
+          "$ref": "#/$defs/ListingRecord"
+        },
+        "before_record": {
+          "$ref": "#/$defs/ListingRecord"
+        },
+        "non_identity_metadata_changed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "before_record",
+        "after_record",
+        "non_identity_metadata_changed"
+      ],
+      "type": "object"
+    },
+    "SchemeDefinition": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "profile_kind": {
+                "const": "ABSTRACT_PARENT"
+              }
+            },
+            "required": [
+              "profile_kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "exact_resolution_allowed": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "exactness_certification_status": {
+                "const": "CERTIFIED"
+              }
+            },
+            "required": [
+              "exactness_certification_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "profile_kind": {
+                "const": "CONCRETE_CERTIFIED"
+              }
+            },
+            "required": [
+              "certification_ref",
+              "release_validation_ref"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "exact_resolution_allowed": {
+                "const": true
+              }
+            },
+            "required": [
+              "exact_resolution_allowed"
+            ]
+          },
+          "then": {
+            "properties": {
+              "exactness_certification_status": {
+                "const": "CERTIFIED"
+              },
+              "grouping_only": {
+                "const": false
+              },
+              "profile_kind": {
+                "const": "CONCRETE_CERTIFIED"
+              }
+            },
+            "required": [
+              "certification_ref",
+              "release_validation_ref"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "category": {
+                "const": "REGISTERED_IDENTIFIER"
+              }
+            },
+            "required": [
+              "category"
+            ]
+          },
+          "then": {
+            "properties": {
+              "allowed_target_kinds": {
+                "items": {
+                  "enum": [
+                    "ENTITY",
+                    "INSTRUMENT",
+                    "LISTING",
+                    "CONTRACT",
+                    "VENUE"
+                  ]
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "category": {
+                "const": "MARKET_SYMBOL"
+              }
+            },
+            "required": [
+              "category"
+            ]
+          },
+          "then": {
+            "properties": {
+              "allowed_target_kinds": {
+                "items": {
+                  "enum": [
+                    "LISTING",
+                    "CONTRACT"
+                  ]
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "category": {
+                "const": "PROVIDER_SYMBOL"
+              }
+            },
+            "required": [
+              "category"
+            ]
+          },
+          "then": {
+            "properties": {
+              "allowed_target_kinds": {
+                "items": {
+                  "enum": [
+                    "LISTING",
+                    "CONTRACT"
+                  ]
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "allowed_target_kinds": {
+          "items": {
+            "$ref": "#/$defs/CanonicalKind"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "category": {
+          "enum": [
+            "REGISTERED_IDENTIFIER",
+            "MARKET_SYMBOL",
+            "PROVIDER_SYMBOL"
+          ],
+          "type": "string"
+        },
+        "certification_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "exact_resolution_allowed": {
+          "type": "boolean"
+        },
+        "exactness_certification_status": {
+          "enum": [
+            "NOT_APPLICABLE",
+            "UNVERIFIED",
+            "CERTIFIED"
+          ],
+          "type": "string"
+        },
+        "governance_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "grouping_only": {
+          "type": "boolean"
+        },
+        "identity_validation_required": {
+          "type": "boolean"
+        },
+        "mutability_model": {
+          "enum": [
+            "STABLE_NONREUSED",
+            "STABLE_OR_RETIRED",
+            "MUTABLE",
+            "REUSABLE",
+            "SCHEME_DEFINED"
+          ],
+          "type": "string"
+        },
+        "normalization_profile_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "parent_scheme_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "profile_kind": {
+          "enum": [
+            "ABSTRACT_PARENT",
+            "CONCRETE_CERTIFIED"
+          ],
+          "type": "string"
+        },
+        "release_validation_ref": {
+          "$ref": "#/$defs/C12ReleaseValidationRef"
+        },
+        "required_context_fields": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "scheme_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope_model": {
+          "enum": [
+            "GLOBAL",
+            "COUNTRY",
+            "MARKET",
+            "VENUE",
+            "PROVIDER",
+            "ASSET_CLASS_DEPENDENT"
+          ],
+          "type": "string"
+        },
+        "syntax_validation_profile_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "uniqueness_claim": {
+          "enum": [
+            "GLOBAL_UNIQUE",
+            "UNIQUE_WITHIN_NAMESPACE",
+            "NOT_UNIQUE",
+            "SCHEME_DEFINED"
+          ],
+          "type": "string"
+        },
+        "usage_policy_ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "scheme_id",
+        "governance_ref",
+        "category",
+        "allowed_target_kinds",
+        "scope_model",
+        "uniqueness_claim",
+        "mutability_model",
+        "normalization_profile_ref",
+        "syntax_validation_profile_ref",
+        "required_context_fields",
+        "profile_kind",
+        "exactness_certification_status",
+        "exact_resolution_allowed",
+        "grouping_only",
+        "identity_validation_required"
+      ],
+      "type": "object"
+    },
+    "SnapshotStableC2Ref": {
+      "additionalProperties": false,
+      "description": "C1 boundary wrapper for a C2-owned ref whose semantic state is externally attested snapshot-stable. The wrapper does not define C2 internals and does not make self-asserted stability authoritative.",
+      "properties": {
+        "owner": {
+          "const": "C2"
+        },
+        "ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "stability_authority_ref": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "ref",
+        "stability_authority_ref"
+      ],
+      "type": "object"
+    },
+    "SpinoffEffect": {
+      "additionalProperties": false,
+      "description": "Semantic validator additionally requires same-kind endpoint pair.",
+      "properties": {
+        "effect_state": {
+          "enum": [
+            "PROJECTED",
+            "REALIZED"
+          ],
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "ADD_SPINOFF_RELATION"
+        },
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "related_target": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/EntityRef"
+            },
+            {
+              "$ref": "#/$defs/InstrumentRef"
+            }
+          ]
+        },
+        "related_target_role": {
+          "const": "PARENT_OBJECT"
+        },
+        "relation_direction": {
+          "const": "TARGET_TO_RELATED"
+        },
+        "relation_type": {
+          "const": "SPUN_OFF_FROM"
+        },
+        "target": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/EntityRef"
+            },
+            {
+              "$ref": "#/$defs/InstrumentRef"
+            }
+          ]
+        },
+        "target_role": {
+          "const": "SPUN_OBJECT"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "effect_type",
+        "effect_state",
+        "target",
+        "target_role",
+        "related_target",
+        "related_target_role",
+        "relation_type",
+        "relation_direction",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "SuccessorDistinctEndpointValidationInput": {
+      "additionalProperties": false,
+      "properties": {
+        "effect": {
+          "$ref": "#/$defs/SuccessorEffect"
+        }
+      },
+      "required": [
+        "effect"
+      ],
+      "type": "object"
+    },
+    "SuccessorEffect": {
+      "additionalProperties": false,
+      "description": "Semantic validators additionally require target.kind == related_target.kind and target canonical ref != related_target canonical ref for PREDECESSOR_OF.",
+      "properties": {
+        "effect_state": {
+          "enum": [
+            "PROJECTED",
+            "REALIZED"
+          ],
+          "type": "string"
+        },
+        "effect_type": {
+          "const": "ADD_SUCCESSOR_RELATION"
+        },
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "related_target": {
+          "$ref": "#/$defs/CanonicalRef"
+        },
+        "related_target_role": {
+          "const": "SUCCESSOR"
+        },
+        "relation_direction": {
+          "const": "TARGET_TO_RELATED"
+        },
+        "relation_type": {
+          "const": "PREDECESSOR_OF"
+        },
+        "target": {
+          "$ref": "#/$defs/CanonicalRef"
+        },
+        "target_role": {
+          "const": "PREDECESSOR"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "effect_type",
+        "effect_state",
+        "target",
+        "target_role",
+        "related_target",
+        "related_target_role",
+        "relation_type",
+        "relation_direction",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "SymbolAssignment": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "market_context_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "namespace_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "normalized_value": {
+          "type": "string"
+        },
+        "raw_value": {
+          "type": "string"
+        },
+        "scheme_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "source_ref": {
+          "$ref": "#/$defs/OpaqueForeignRef"
+        },
+        "target": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ListingRef"
+            },
+            {
+              "$ref": "#/$defs/ContractRef"
+            }
+          ]
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "scheme_ref",
+        "raw_value",
+        "normalized_value",
+        "target",
+        "temporal_ref",
+        "evidence_ref",
+        "source_ref"
+      ],
+      "type": "object"
+    },
+    "TemporalResolutionState": {
+      "additionalProperties": false,
+      "properties": {
+        "non_causal": {
+          "type": "boolean"
+        },
+        "reconstructability": {
+          "enum": [
+            "PIT_SAFE",
+            "PIT_UNVERIFIED",
+            "UNRECONSTRUCTABLE"
+          ],
+          "type": "string"
+        },
+        "resolution_anchor_ref": {
+          "$ref": "#/$defs/C4Ref"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "reconstructability",
+        "temporal_ref",
+        "non_causal"
+      ],
+      "type": "object"
+    },
+    "TermsUpdateCandidatePayload": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "normalized_terms_ref": {
+          "$ref": "#/$defs/ContentAddressRef"
+        },
+        "target": {
+          "$ref": "#/$defs/CanonicalRef"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        },
+        "terms_profile_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        }
+      },
+      "required": [
+        "target",
+        "normalized_terms_ref",
+        "terms_profile_ref",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "UnaryIdentityEffect": {
+      "additionalProperties": false,
+      "properties": {
+        "effect_state": {
+          "enum": [
+            "PROJECTED",
+            "REALIZED"
+          ],
+          "type": "string"
+        },
+        "effect_type": {
+          "enum": [
+            "PRESERVE_IDENTITY",
+            "CREATE_IDENTITY",
+            "TERMINATE_IDENTITY",
+            "UPDATE_EXTERNAL_MAPPING",
+            "UPDATE_TERMS"
+          ],
+          "type": "string"
+        },
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "target": {
+          "$ref": "#/$defs/CanonicalRef"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "effect_type",
+        "effect_state",
+        "target",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "UnderlyingContractRelation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "relation_type": {
+          "const": "UNDERLYING_CONTRACT"
+        },
+        "source": {
+          "$ref": "#/$defs/ContractRef"
+        },
+        "target": {
+          "$ref": "#/$defs/ContractRef"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "relation_type",
+        "source",
+        "target",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "UnderlyingInstrumentRelation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_ref": {
+          "$ref": "#/$defs/C5Ref"
+        },
+        "relation_type": {
+          "const": "UNDERLYING_INSTRUMENT"
+        },
+        "source": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/InstrumentRef"
+            },
+            {
+              "$ref": "#/$defs/ContractRef"
+            }
+          ]
+        },
+        "target": {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        "temporal_ref": {
+          "$ref": "#/$defs/C4Ref"
+        }
+      },
+      "required": [
+        "relation_type",
+        "source",
+        "target",
+        "temporal_ref",
+        "evidence_ref"
+      ],
+      "type": "object"
+    },
+    "UnderlyingRef": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/InstrumentRef"
+        },
+        {
+          "$ref": "#/$defs/ContractRef"
+        }
+      ]
+    },
+    "ValidatedObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "observation_kind": {
+          "enum": [
+            "IDENTITY_DESCRIPTOR_OBSERVATION",
+            "REGISTERED_IDENTIFIER_OBSERVATION",
+            "SYMBOL_OBSERVATION",
+            "LISTING_OBSERVATION",
+            "CONTRACT_OBSERVATION",
+            "CONTRACT_VENUE_ADMISSION_OBSERVATION",
+            "CORPORATE_ACTION_EVENT_OBSERVATION",
+            "CORPORATE_ACTION_RELATION_OBSERVATION",
+            "TERMS_OBSERVATION"
+          ],
+          "type": "string"
+        },
+        "provider_field_semantic_refs": {
+          "items": {
+            "$ref": "#/$defs/SnapshotStableC2Ref"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "semantic_fields": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "observation_kind",
+        "semantic_fields",
+        "provider_field_semantic_refs"
+      ],
+      "type": "object"
+    },
+    "ValidatedProviderObservationEnvelope": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "c2_operation_status": {
+                "enum": [
+                  "FAILED",
+                  "CANCELLED"
+                ]
+              }
+            },
+            "required": [
+              "c2_operation_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "observations": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "c2_data_outcome": {
+                "const": "NO_DATA"
+              },
+              "c2_operation_status": {
+                "const": "SUCCESS"
+              }
+            },
+            "required": [
+              "c2_operation_status",
+              "c2_data_outcome"
+            ]
+          },
+          "then": {
+            "properties": {
+              "observations": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "c2_completeness_refs": {
+          "items": {
+            "$ref": "#/$defs/SnapshotStableC2Ref"
+          },
+          "type": "array"
+        },
+        "c2_data_outcome": {
+          "enum": [
+            "PRESENT",
+            "NO_DATA",
+            "PARTIAL"
+          ],
+          "type": "string"
+        },
+        "c2_degradation_refs": {
+          "items": {
+            "$ref": "#/$defs/DegradationRef"
+          },
+          "type": "array"
+        },
+        "c2_operation_status": {
+          "enum": [
+            "SUCCESS",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "type": "string"
+        },
+        "normalization_profile_ref": {
+          "$ref": "#/$defs/C1GovernanceRef"
+        },
+        "observations": {
+          "items": {
+            "$ref": "#/$defs/ValidatedObservation"
+          },
+          "type": "array"
+        },
+        "provider_capability_ref": {
+          "$ref": "#/$defs/SnapshotStableC2Ref"
+        },
+        "provider_operation_ref": {
+          "$ref": "#/$defs/C2Ref"
+        },
+        "raw_payload_ref": {
+          "$ref": "#/$defs/OpaqueForeignRef"
+        },
+        "source_group_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_record_ref": {
+          "$ref": "#/$defs/OpaqueForeignRef"
+        }
+      },
+      "required": [
+        "provider_operation_ref",
+        "provider_capability_ref",
+        "normalization_profile_ref",
+        "source_record_ref",
+        "observations",
+        "c2_operation_status",
+        "c2_data_outcome"
+      ],
+      "type": "object"
+    },
+    "VenueID": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/CanonicalID"
+        }
+      ],
+      "title": "VenueID"
+    },
+    "VenueRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/VenueRef"
+        }
+      },
+      "required": [
+        "ref"
+      ],
+      "type": "object"
+    },
+    "VenueRef": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/VenueID"
+        },
+        "kind": {
+          "const": "VENUE"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "type": "object"
+    },
+    "VisibleNonActiveAssertion": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/RegisteredIdentifierAssignment"
+        },
+        {
+          "$ref": "#/$defs/SymbolAssignment"
+        },
+        {
+          "$ref": "#/$defs/IdentityRelation"
+        },
+        {
+          "$ref": "#/$defs/IdentityEffectAssertion"
+        },
+        {
+          "$ref": "#/$defs/ContractVenueAdmission"
+        },
+        {
+          "$ref": "#/$defs/EntityRecord"
+        },
+        {
+          "$ref": "#/$defs/InstrumentRecord"
+        },
+        {
+          "$ref": "#/$defs/ListingRecord"
+        },
+        {
+          "$ref": "#/$defs/ContractRecord"
+        }
+      ]
+    }
+  },
+  "$id": "urn:investment-research-os:c1:schema-candidate:1.0.0-c1.07r2",
+  "$ref": "#/$defs/C1Envelope",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Investment Research OS C1.07R2 Listing Venue Continuity Schema Candidate",
+  "type": "object"
+}

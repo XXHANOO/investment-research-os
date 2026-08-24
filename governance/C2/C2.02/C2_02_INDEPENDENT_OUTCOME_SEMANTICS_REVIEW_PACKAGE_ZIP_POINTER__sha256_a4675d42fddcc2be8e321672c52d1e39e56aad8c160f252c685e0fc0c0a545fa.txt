@@ -1,0 +1,5 @@
+C2.02 Independent Outcome-Semantics Review Package
+file: C2_02_INDEPENDENT_OUTCOME_SEMANTICS_REVIEW_PACKAGE.zip
+sha256: d5664da0fc303d4de27ae0eaa185f9bb86ba82f99b41ecfb4c9dcc6f8cf636f5
+semantic_authority: false
+role: convenience package pointer; authoritative members are individually content-addressed

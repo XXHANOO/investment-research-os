@@ -1,0 +1,336 @@
+schema_version: 1.0.0-C2-02-decision-ledger-candidate
+project: Investment Research OS
+stage: C2.02
+generated_at_utc: '2026-08-24T07:36:00Z'
+status: CANDIDATE_NOT_INDEPENDENTLY_REVIEWED_NOT_FROZEN
+parent_authority_pins:
+  c0_frozen_sha256: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  c1_freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+  c1_final_machine_schema_sha256: 927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4
+  c1_05r1_provider_normalization_interface_sha256: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  c1_05r1_provider_normalization_registry_sha256: 422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b
+  c1_05r1_acceptance_delta_sha256: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+  c1_final_archival_remediation_audit_result_sha256: b0cd63ee860aaae0a6b412f922ff50e31a0ab80bf7b98ee9530ba4b356b5fd73
+  c2_stage_plan_sha256: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
+  c2_00_scope_sha256: b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7
+  c2_00_independent_review_result_sha256: 6f42d8b29f0b5c15bd7cea0a053938364ddc431bd654b8601001118189a10c96
+  c2_01r1_registry_sha256: 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+  c2_01r1_registry_model_sha256: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+  c2_01r1_recheck_report_sha256: 04f8e482b697f88ad22348c3d5acd4a1ca735ecb13e3a0ec1387eaecd0e743a9
+  c2_01r1_recheck_result_sha256: e780ab10b6ed6e6108cc6fafc53ce329827b6135764b993f7a785fdd46e37937
+open_question_transitions:
+  C2.OPEN-004: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+  C2.OPEN-005: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+  C2.OPEN-006..015: OPEN_UNCHANGED
+decisions:
+- id: C2.DEC-077
+  title: Preserve top-level operation status vocabulary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Operation status remains exactly SUCCESS/FAILED/CANCELLED.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-011
+  - C2.00
+  required_acceptance_tests:
+  - C2-094
+- id: C2.DEC-078
+  title: Preserve successful data outcome vocabulary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Successful data outcome remains exactly PRESENT/NO_DATA/PARTIAL.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-011
+  - C2.00
+  required_acceptance_tests:
+  - C2-095
+- id: C2.DEC-079
+  title: Conditional axis legality
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: SUCCESS requires exactly one data outcome; FAILED/CANCELLED forbid data outcome.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-011
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-096
+  - C2-097
+  - C2-098
+- id: C2.DEC-080
+  title: Structured failure envelope
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: FAILED requires machine-detectable family/code/phase failure envelope.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-008
+  - F-13
+  required_acceptance_tests:
+  - C2-099
+  - C2-100
+  - C2-101
+- id: C2.DEC-081
+  title: Closed core failure taxonomy
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.02 defines reviewed core failure families/codes; unknown maps to explicit UNKNOWN failure.
+  authority_scope: C2.02
+  evidence_refs:
+  - C2.OPEN-004
+  required_acceptance_tests:
+  - C2-102
+  - C2-103
+- id: C2.DEC-082
+  title: Infrastructure failures never become absence
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Transport/timeouts/server/provider-upstream failures remain FAILED.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-008
+  required_acceptance_tests:
+  - C2-104
+  - C2-105
+  - C2-106
+- id: C2.DEC-083
+  title: Authentication and authorization failures never become absence
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Authentication/authorization failures remain FAILED.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-008
+  required_acceptance_tests:
+  - C2-107
+- id: C2.DEC-084
+  title: Rate limits fail loud
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Rate-limit rejection/exhaustion remain FAILED.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-009
+  required_acceptance_tests:
+  - C2-108
+- id: C2.DEC-085
+  title: 404 is endpoint-semantic, not universal absence
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: A 404-like signal may be NO_DATA only when the pinned endpoint profile classifies it as genuine absence.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-010
+  - C2.01R1
+  required_acceptance_tests:
+  - C2-109
+  - C2-110
+- id: C2.DEC-086
+  title: NO_DATA exact legality
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: NO_DATA requires success, zero admitted observations, pinned absence semantics, and no known partiality.
+  authority_scope: C2.02
+  evidence_refs:
+  - C2.OPEN-005
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-111
+  - C2-112
+  - C2-113
+- id: C2.DEC-087
+  title: PRESENT exact legality
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: PRESENT requires at least one admitted observation and no material known partiality.
+  authority_scope: C2.02
+  evidence_refs:
+  - C2.OPEN-005
+  required_acceptance_tests:
+  - C2-114
+  - C2-115
+- id: C2.DEC-088
+  title: PARTIAL exact legality
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: PARTIAL requires explicit incomplete-scope evidence and may contain zero or more admitted observations.
+  authority_scope: C2.02
+  evidence_refs:
+  - C2.OPEN-005
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-116
+  - C2-117
+- id: C2.DEC-089
+  title: Decode/semantic ambiguity fails closed
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Undecodable or semantically ambiguous responses are FAILED, not PARTIAL/NO_DATA.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-008
+  required_acceptance_tests:
+  - C2-118
+  - C2-119
+- id: C2.DEC-090
+  title: Provider error envelope overrides transport success
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: A provider error envelope carried under HTTP 2xx is still FAILED.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-008
+  required_acceptance_tests:
+  - C2-120
+- id: C2.DEC-091
+  title: Pagination/truncation partiality
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Known incomplete pagination/truncation/result caps yield PARTIAL when usable, otherwise FAILED.
+  authority_scope: C2.02
+  evidence_refs:
+  - C2.01R1
+  required_acceptance_tests:
+  - C2-121
+  - C2-122
+- id: C2.DEC-092
+  title: Cancellation is independent operation status
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: CANCELLED carries structured cancellation provenance and no data outcome.
+  authority_scope: C2.02
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-123
+  - C2-124
+- id: C2.DEC-093
+  title: Timeout distinct from cancellation
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider/client timeout is FAILED/TIMEOUT unless an external controller explicitly cancels.
+  authority_scope: C2.02
+  evidence_refs:
+  - C2.OPEN-004
+  required_acceptance_tests:
+  - C2-125
+- id: C2.DEC-094
+  title: Cancelled partial bytes cannot normalize
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Bytes received before cancellation cannot become C1 provider observations for that cancelled operation.
+  authority_scope: C2.02
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-126
+- id: C2.DEC-095
+  title: Failure/cancellation imply C1 NOT_RUN
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: FAILED and CANCELLED preserve frozen C1 normalization NOT_RUN semantics.
+  authority_scope: C2.02
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-127
+  - C2-128
+- id: C2.DEC-096
+  title: NO_DATA is not C1 NO_MATCH
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: SUCCESS+NO_DATA is provider outcome only.
+  authority_scope: C2.02
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-129
+- id: C2.DEC-097
+  title: PARTIAL cannot prove absence
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Missing data under PARTIAL cannot establish absence or uniqueness.
+  authority_scope: C2.02
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-130
+- id: C2.DEC-098
+  title: Completeness remains C2.05-owned
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Load-bearing absence/uniqueness completeness dependencies are deferred to C2.05.
+  authority_scope: C2.02
+  evidence_refs:
+  - C1.05R1
+  - C2.OPEN-010
+  required_acceptance_tests:
+  - C2-131
+  - C2-132
+- id: C2.DEC-099
+  title: Retry hint is advisory only
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2 may expose diagnostic retry hints; C3 owns retry/backoff/quota decisions.
+  authority_scope: C2.02
+  evidence_refs:
+  - C3 boundary
+  required_acceptance_tests:
+  - C2-133
+  - C2-134
+- id: C2.DEC-100
+  title: C4 temporal boundary preserved
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Operation timestamps/provider-native time do not establish C4 PIT/revision/available_from semantics.
+  authority_scope: C2.02
+  evidence_refs:
+  - C4 boundary
+  required_acceptance_tests:
+  - C2-135
+- id: C2.DEC-101
+  title: C5 verification boundary preserved
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider outcome success/presence does not establish C5 source fitness or verification.
+  authority_scope: C2.02
+  evidence_refs:
+  - C5 boundary
+  required_acceptance_tests:
+  - C2-136
+- id: C2.DEC-102
+  title: Replay semantic refs retained
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Outcome classification retains pinned registry/profile/endpoint/capability and matched signal refs.
+  authority_scope: C2.02
+  evidence_refs:
+  - C1.05R1
+  - C2.01R1
+  required_acceptance_tests:
+  - C2-137
+  - C2-138
+- id: C2.DEC-103
+  title: Material degradation lineage not erasable
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Outcome records preserve material degradation refs when applicable; C2.03 owns their routing semantics.
+  authority_scope: C2.02
+  evidence_refs:
+  - C2.00
+  - C2.03 boundary
+  required_acceptance_tests:
+  - C2-139
+- id: C2.DEC-104
+  title: Diagnostics sanitized and non-authoritative
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider-native codes/status/summary are diagnostic, secret-safe and cannot override typed semantics.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-049
+  - C2.04 boundary
+  required_acceptance_tests:
+  - C2-140
+- id: C2.DEC-105
+  title: Invalid combinations fail closed
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Validators must reject illegal outcome combinations rather than coerce them.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0-011
+  - C2.07 boundary
+  required_acceptance_tests:
+  - C2-141
+- id: C2.DEC-106
+  title: Vendor neutrality and no production adapters
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.02 selects no concrete provider and implements no production adapter.
+  authority_scope: C2.02
+  evidence_refs:
+  - C2.OPEN-015
+  required_acceptance_tests:
+  - C2-142
+- id: C2.DEC-107
+  title: No external/PAPER/LIVE authority
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.02 construction grants no external/PAPER/LIVE side-effect permission.
+  authority_scope: C2.02
+  evidence_refs:
+  - C0 boundary
+  - user authorization
+  required_acceptance_tests:
+  - C2-143

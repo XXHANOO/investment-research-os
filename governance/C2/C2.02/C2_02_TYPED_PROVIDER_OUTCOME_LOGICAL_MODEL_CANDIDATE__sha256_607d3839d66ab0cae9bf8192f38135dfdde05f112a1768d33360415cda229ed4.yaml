@@ -1,0 +1,187 @@
+schema_version: 1.0.0-C2-02-logical-model-candidate
+project: Investment Research OS
+stage: C2.02
+generated_at_utc: '2026-08-24T07:36:00Z'
+status: CANDIDATE_NOT_INDEPENDENTLY_REVIEWED_NOT_FROZEN
+production_implementation: NOT_AUTHORIZED
+operation_status:
+- SUCCESS
+- FAILED
+- CANCELLED
+successful_data_outcome:
+- PRESENT
+- NO_DATA
+- PARTIAL
+operation_phase:
+- PRE_DISPATCH
+- CONNECT
+- REQUEST_SEND
+- WAIT_RESPONSE
+- RESPONSE_HEADERS
+- RESPONSE_BODY
+- DECODE
+- SEMANTIC_VALIDATE
+- ADAPTER_POST_PROCESS
+failure_taxonomy:
+  TRANSPORT:
+  - DNS_RESOLUTION_FAILED
+  - CONNECT_FAILED
+  - TLS_FAILED
+  - CONNECTION_RESET
+  - TRANSPORT_OTHER
+  TIMEOUT:
+  - CONNECT_TIMEOUT
+  - READ_TIMEOUT
+  - TOTAL_TIMEOUT
+  - TIMEOUT_OTHER
+  AUTHENTICATION:
+  - CREDENTIAL_MISSING
+  - CREDENTIAL_INVALID
+  - CREDENTIAL_EXPIRED
+  - AUTHENTICATION_OTHER
+  AUTHORIZATION:
+  - ENTITLEMENT_INSUFFICIENT
+  - SCOPE_INSUFFICIENT
+  - ACCESS_DENIED
+  - AUTHORIZATION_OTHER
+  RATE_LIMIT:
+  - RATE_LIMIT_REJECTED
+  - RATE_LIMIT_EXHAUSTED
+  - RATE_LIMIT_OTHER
+  REQUEST_REJECTED:
+  - REQUEST_SCHEMA_REJECTED
+  - REQUEST_PARAMETER_REJECTED
+  - REQUEST_SEMANTIC_REJECTED
+  - REQUEST_REJECTED_OTHER
+  CAPABILITY_UNAVAILABLE:
+  - ENDPOINT_UNAVAILABLE
+  - CAPABILITY_NOT_SUPPORTED
+  - FEATURE_DISABLED
+  - CAPABILITY_UNAVAILABLE_OTHER
+  PROVIDER_SERVER:
+  - PROVIDER_5XX
+  - PROVIDER_MAINTENANCE
+  - PROVIDER_OVERLOADED
+  - PROVIDER_SERVER_OTHER
+  PROVIDER_UPSTREAM:
+  - PROVIDER_DEPENDENCY_FAILED
+  - PROVIDER_DEPENDENCY_TIMEOUT
+  - PROVIDER_UPSTREAM_OTHER
+  RESPONSE_PROTOCOL:
+  - UNEXPECTED_STATUS
+  - UNEXPECTED_CONTENT_TYPE
+  - MALFORMED_PROTOCOL_ENVELOPE
+  - RESPONSE_PROTOCOL_OTHER
+  RESPONSE_DECODING:
+  - BODY_DECODE_FAILED
+  - STRUCTURE_PARSE_FAILED
+  - RESPONSE_DECODING_OTHER
+  RESPONSE_SEMANTIC_INVALID:
+  - RESPONSE_SCHEMA_INVALID
+  - PROVIDER_ERROR_ENVELOPE
+  - ABSENCE_SIGNAL_AMBIGUOUS
+  - PARTIALITY_SIGNAL_AMBIGUOUS
+  - RESPONSE_SEMANTIC_OTHER
+  ADAPTER_INTERNAL:
+  - ADAPTER_BUG
+  - ADAPTER_INVARIANT_VIOLATION
+  - ADAPTER_INTERNAL_OTHER
+  UNKNOWN_PROVIDER_FAILURE:
+  - UNKNOWN_FAILURE
+cancellation_origin:
+- CALLER
+- ORCHESTRATOR
+- DEADLINE_CONTROLLER
+- SHUTDOWN
+- SUPERSEDED_REQUEST
+- UNKNOWN
+diagnostic_retry_hint:
+- UNKNOWN
+- LIKELY_TRANSIENT
+- LIKELY_PERMANENT
+- PRECONDITION_CHANGE_REQUIRED
+- PROVIDER_DIRECTED_DELAY
+provider_operation_outcome:
+  required_all:
+  - provider_operation_ref
+  - registry_snapshot_ref
+  - provider_profile_ref
+  - endpoint_semantic_profile_ref
+  - provider_capability_ref
+  - operation_status
+  - admitted_observation_count
+  - operation_phase_terminal
+  conditional:
+    SUCCESS:
+      requires:
+      - data_outcome
+      forbids:
+      - failure
+      - cancellation
+    FAILED:
+      requires:
+      - failure
+      forbids:
+      - data_outcome
+      - cancellation
+      normalization_effect: C1_NOT_RUN
+    CANCELLED:
+      requires:
+      - cancellation
+      forbids:
+      - data_outcome
+      - failure
+      normalization_effect: C1_NOT_RUN
+  optional_lineage:
+  - matched_absence_signal_refs
+  - matched_partiality_signal_refs
+  - material_degradation_refs
+  - diagnostic_retry_hint
+data_outcome_legality:
+  PRESENT:
+    min_admitted_observations: 1
+    requires_no_material_partiality: true
+  NO_DATA:
+    admitted_observation_count_exact: 0
+    requires_pinned_absence_semantics: true
+    forbids_material_partiality: true
+    does_not_imply:
+    - C1_NO_MATCH
+    - C4_PIT_SAFE_ABSENCE
+    - C5_VERIFIED
+    - C2_05_COMPLETENESS
+  PARTIAL:
+    min_admitted_observations: 0
+    requires_explicit_partiality_evidence: true
+    zero_observation_requires_explicit_partiality_evidence: true
+    missing_data_can_prove_absence: false
+failure_rules:
+  machine_detectable: true
+  family_code_pair_required: true
+  unknown_maps_to: UNKNOWN_PROVIDER_FAILURE/UNKNOWN_FAILURE
+  data_outcome_forbidden: true
+  provider_native_diagnostics_sanitized: true
+cancellation_rules:
+  data_outcome_forbidden: true
+  provider_observations_for_c1_forbidden: true
+  timeout_default: FAILED/TIMEOUT_UNLESS_EXPLICIT_EXTERNAL_CANCELLATION
+retry_boundary:
+  retry_hint_is_advisory_only: true
+  owner_of_retry_policy: C3
+stable_ref_requirements:
+- registry_snapshot_ref
+- provider_profile_ref
+- endpoint_semantic_profile_ref
+- provider_capability_ref
+- matched_absence_signal_refs[]
+- matched_partiality_signal_refs[]
+deferred:
+  C2.03: routing/fallback/degradation semantics
+  C2.04: credentials/private state/secure ingress mechanics
+  C2.05: certification/completeness/coverage attestations
+  C2.06: cross-contract wire interfaces
+  C2.07: final schema/validators/executable vectors
+open_questions:
+  C2.OPEN-004: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+  C2.OPEN-005: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+  C2.OPEN-006..015: OPEN_UNCHANGED

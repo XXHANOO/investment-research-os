@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0-C2-02-construction-validation",
+  "project": "Investment Research OS",
+  "stage": "C2.02",
+  "generated_at_utc": "2026-08-24T07:36:00Z",
+  "status": "PASS_MECHANICAL_CONSTRUCTION_ONLY",
+  "checks": {
+    "decision_count": 31,
+    "acceptance_count": 50,
+    "decision_ids_unique": true,
+    "acceptance_ids_contiguous_C2_094_to_C2_143": true,
+    "decision_to_acceptance_refs_resolve": true,
+    "acceptance_to_decision_refs_resolve": true,
+    "open_004_005_only_stage_owned_closures": true,
+    "open_006_015_unchanged": true,
+    "production_implementation_created": false,
+    "provider_instances_created": 0,
+    "external_side_effect_authority_granted": false
+  },
+  "note": "Mechanical construction validation is not Independent Outcome-Semantics Review."
+}

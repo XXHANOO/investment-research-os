@@ -1,0 +1,203 @@
+schema_version: 0.1.0-C1-05R1
+status: CANDIDATE_FOR_C1_05R1_INDEPENDENT_REGRESSION_RECHECK
+generated_at_utc: '2026-08-19T12:21:15.517079+00:00'
+authority_boundary:
+  c1_owns:
+  - C1 semantic normalization profile requirements
+  - C1 canonical assertion-candidate output families
+  - target-kind/context/cardinality semantic validation
+  - deterministic normalization semantics
+  - C1-facing completeness dependency requirement when absence is load-bearing
+  - referential stability requirement for load-bearing foreign C2 semantic/capability/completeness
+    dependencies
+  - mandatory replay-lineage sufficiency for materialized normalized candidates/results
+  c2_owns:
+  - provider routing
+  - provider credentials boundary
+  - provider capability/certification
+  - provider coverage/completeness certification
+  - typed provider operation outcomes
+  - retry/fallback provider selection
+  c3_owns:
+  - cache
+  - quota
+  - freshness
+  - coalescing
+  - last-known-good
+  c4_owns:
+  - exact temporal/PIT/revision schema
+  - available_from
+  - availability precision
+  - revision selection
+  - reconstructability
+  - effectivity/state-point representation
+  c5_owns:
+  - evidence/provenance schema
+  - source fitness
+  - verification strength
+  - source independence
+  - conflict adjudication
+  raw_provider_object_is_domain_truth: false
+input_contract:
+  name: ValidatedProviderObservationEnvelope
+  semantic_required:
+  - provider_operation_ref
+  - provider_capability_ref
+  - normalization_profile_ref
+  - source_record_ref
+  - observations
+  - c2_operation_status
+  - c2_data_outcome
+  semantic_optional:
+  - source_group_ref
+  - raw_payload_ref
+  - c2_degradation_refs
+  - c2_completeness_refs
+  unvalidated_raw_payload_direct_entry_forbidden: true
+observation_kinds:
+- IDENTITY_DESCRIPTOR_OBSERVATION
+- REGISTERED_IDENTIFIER_OBSERVATION
+- SYMBOL_OBSERVATION
+- LISTING_OBSERVATION
+- CONTRACT_OBSERVATION
+- CONTRACT_VENUE_ADMISSION_OBSERVATION
+- CORPORATE_ACTION_EVENT_OBSERVATION
+- CORPORATE_ACTION_RELATION_OBSERVATION
+- TERMS_OBSERVATION
+normalization_profile_contract:
+  version_or_content_address_required: true
+  parent_c1_contract_refs_required: true
+  provider_profile_ref_owned_by: C2
+  provider_field_semantics_refs_owned_by: C2
+  c1_scheme_profile_refs_owned_by: C1.02
+  required_context_slots_explicit: true
+  allowed_output_assertion_kinds_explicit: true
+  deterministic_ordering_rule_required: true
+  may_route_provider: false
+  may_store_credentials: false
+  may_certify_provider_coverage: false
+  may_define_available_from: false
+  may_define_verification_strength: false
+  may_change_canonical_identity_equivalence: false
+  load_bearing_c2_provider_profile_ref_must_be_snapshot_stable: true
+  load_bearing_c2_provider_field_semantic_refs_must_be_snapshot_stable: true
+  load_bearing_c2_provider_capability_ref_must_be_snapshot_stable: true
+  load_bearing_c2_completeness_refs_must_be_snapshot_stable: true
+  floating_latest_foreign_semantic_ref_audit_safe: false
+  c1_defines_c2_foreign_ref_schema: false
+output_candidate_kinds:
+- IDENTITY_RESOLUTION_CANDIDATE
+- REGISTERED_IDENTIFIER_ASSIGNMENT_CANDIDATE
+- SYMBOL_ASSIGNMENT_CANDIDATE
+- LISTING_ASSERTION_CANDIDATE
+- CONTRACT_ASSERTION_CANDIDATE
+- CONTRACT_VENUE_ADMISSION_CANDIDATE
+- CORPORATE_ACTION_EVENT_OBSERVATION
+- IDENTITY_EFFECT_CANDIDATE
+- RELATION_EFFECT_CANDIDATE
+- TERMS_UPDATE_CANDIDATE
+identity_firewall:
+  provider_native_id_is_canonical_id: false
+  provider_symbol_is_canonical_id: false
+  name_symbol_id_tuple_mints_identity: false
+  existing_canonical_ref_requires_c1_resolution_lineage: true
+transformation_rules:
+  scheme_profile_specific_only: true
+  raw_value_preserved: true
+  lexical_autodetect_forbidden: true
+  global_casefold_forbidden: true
+  global_punctuation_strip_forbidden: true
+  global_sentinel_conversion_forbidden: true
+  lossy_required_semantic_coercion_forbidden: true
+provider_outcome_rules:
+  FAILED:
+    normalization: NOT_RUN
+    empty_to_no_match_forbidden: true
+  CANCELLED:
+    normalization: NOT_RUN
+    empty_to_no_match_forbidden: true
+  SUCCESS_PRESENT:
+    normalization_allowed: true
+    coverage_exhaustiveness_implied: false
+  SUCCESS_PARTIAL:
+    normalization_allowed: true
+    batch_may_be_partial: true
+    absence_inference_forbidden: true
+  SUCCESS_NO_DATA:
+    means: NO_PROVIDER_OBSERVATIONS
+    canonical_no_match_automatic: false
+resolution_exactness:
+  positive_exact_assertion_always_requires_exhaustive_enumeration: false
+  absence_load_bearing_requires_completeness_dependency: true
+  completeness_dependency_owned_by: C2
+  c1_checks_required_scope_compatibility: true
+  historical_exactness_capped_by_c4_reconstructability: true
+  no_match_requires_successful_retrieval_and_all_load_bearing_dependencies: true
+ambiguity_conflict:
+  structural_ambiguity_owned_by: C1
+  evidence_conflict_adjudication_owned_by: C5
+  provider_order_tiebreak_forbidden: true
+  source_count_tiebreak_forbidden: true
+  model_confidence_tiebreak_forbidden: true
+  preserve_all_load_bearing_candidates: true
+temporal_evidence:
+  temporal_ref_owned_by: C4
+  available_from_invention_forbidden: true
+  temporal_precision_upgrade_forbidden: true
+  evidence_ref_owned_by: C5
+  provider_confidence_to_verification_forbidden: true
+  c1_04_t_s_semantics_preserved: true
+determinism:
+  same_validated_semantic_input_same_profile_same_parent_contracts_same_candidate_semantics: true
+  semantically_irrelevant_transport_order_changes_candidate_semantics: false
+  profile_change_requires_new_version: true
+  renormalization_overwrite_prior_lineage_forbidden: true
+  load_bearing_foreign_dependency_states_must_be_snapshot_stable: true
+  floating_foreign_semantic_ref_deterministic_replay_eligible: false
+  floating_load_bearing_completeness_ref_exact_absence_eligible: false
+  materialized_replay_lineage_required: true
+  missing_replay_critical_lineage_materializable: false
+  degraded_path_must_preserve_degradation_provenance_when_material: true
+loss_and_batch:
+  unknown_optional_provider_fields: RAW_PROVENANCE_ONLY
+  required_unrepresentable_semantics: REJECT_ITEM
+  silent_item_drop_forbidden: true
+  mixed_valid_invalid_batch: PARTIAL_NORMALIZATION_WITH_ITEM_ERRORS
+  one_source_record_to_many_candidates_preserves_source_group: true
+semantic_error_families:
+- NORMALIZATION_PROFILE_REQUIRED
+- UNSUPPORTED_NORMALIZATION_PROFILE
+- PROVIDER_OBSERVATION_NOT_VALIDATED
+- PROVIDER_FIELD_SEMANTICS_REQUIRED
+- NORMALIZATION_CONTEXT_REQUIRED
+- NORMALIZATION_TARGET_KIND_MISMATCH
+- NORMALIZATION_LOSSY_COERCION_FORBIDDEN
+- NORMALIZATION_PROFILE_CONFLICT
+- NORMALIZATION_ITEM_REJECTED
+- UPSTREAM_PROVIDER_FAILURE
+- UPSTREAM_OPERATION_CANCELLED
+- NON_EXHAUSTIVE_PROVIDER_RESULT
+- COMPLETENESS_DEPENDENCY_REQUIRED
+- COMPLETENESS_SCOPE_MISMATCH
+- RAW_PROVIDER_OBJECT_NOT_CANONICAL
+- PROVIDER_NATIVE_ID_NOT_CANONICAL
+- CONFLICT_REQUIRES_C5
+- UNSTABLE_FOREIGN_SEMANTIC_REFERENCE
+- REPLAY_LINEAGE_REQUIRED
+- DEGRADATION_PROVENANCE_REQUIRED
+serialization_freeze_stage: C1.06
+replay_lineage_contract:
+  normative_strength: MUST
+  required_semantic_lineage:
+  - validated_input_or_immutable_validated_input_ref
+  - source_record_ref_or_source_group_ref
+  - exact_normalization_profile_ref
+  - exact_parent_c1_contract_refs
+  - provider_operation_ref
+  - load_bearing_provider_semantic_capability_refs
+  - load_bearing_c2_completeness_refs
+  - load_bearing_c4_temporal_refs
+  - load_bearing_c5_evidence_provenance_refs
+  - item_batch_outcome_context_when_needed_for_partiality
+  - degradation_fallback_refs_when_materially_relevant
+  internal_foreign_schema_owned_by_c1: false

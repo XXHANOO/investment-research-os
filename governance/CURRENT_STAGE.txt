@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.02 CONSTRUCTION COMPLETE AS CANDIDATE — INDEPENDENT REVIEW REQUIRED
-Current gate: C2.02 Independent Outcome-Semantics Review
+Current stage: C2.02 Independent Outcome-Semantics Review FAIL — REPAIR REQUIRED
+Current gate: Explicit authorization for C2.02R1 scoped repair, then Independent Outcome-Semantics Re-Check
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -13,6 +13,8 @@ C1 semantic authority: UNCHANGED
 C1 lossless archival remediation: PASS
 C1 retained frozen load-bearing substantive byte equivalence: 11/11 PASS
 C1 retained frozen load-bearing substantive archive: COMPLETE
+C1 substantive development-readiness re-check: PASS
+C1 substantive development-readiness audit SHA-256: 81bf8c72b5381e5297b004bdc1b9ef9809db6492f80879b9d1d62f173dbaaf81
 C1 temporary remediation transport/workflows: REMOVED
 C1 historical external content-addressed dependencies: PRESERVED AS ORIGINALLY DISCLOSED / NOT REGENERATED
 C1 final archival remediation audit result SHA-256: b0cd63ee860aaae0a6b412f922ff50e31a0ab80bf7b98ee9530ba4b356b5fd73
@@ -35,31 +37,30 @@ C2.OPEN-001: CLOSED_AT_C2_01_CONTRACT_LEVEL
 C2.OPEN-002: CLOSED_AT_C2_01_CONTRACT_LEVEL
 C2.OPEN-003: CLOSED_AT_C2_01_CONTRACT_LEVEL
 
-C2.02: USER AUTHORIZED
 C2.02 construction: COMPLETE AS CANDIDATE
-C2.02 Independent Outcome-Semantics Review: NOT PERFORMED
-C2.02 state: CONSTRUCTED_CANDIDATE_NOT_FROZEN
-C2.OPEN-004: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
-C2.OPEN-005: CANDIDATE_CLOSED_PENDING_INDEPENDENT_REVIEW
+C2.02 Independent Outcome-Semantics Review: FAIL
+C2.02 state: REPAIR_REQUIRED_NOT_FROZEN
+C2.OPEN-004: NOT CLOSED — REPAIR REQUIRED
+C2.OPEN-005: NOT CLOSED — REPAIR REQUIRED
+C2OUT-B01: OPEN — compound terminal-condition precedence is not deterministic
+C2OUT-B02: OPEN — terminal phase duplicated without coherence invariant
+C2OUT-B03: OPEN — non-success admitted-observation semantics under-specified
+C2OUT-B04: OPEN — material partiality lacks deterministic scope predicate
+C2.02 acceptance review: 44 PASS / 6 FAIL of C2-094..C2-143
+C2.02 failed acceptance IDs: C2-101, C2-113, C2-115, C2-123, C2-125, C2-141
+C2.02 Independent Review report SHA-256: 5626d1eb030c9132516458f38a81dd2753f34641b73bbb139b3a8f7cdf028cd1
+C2.02 Independent Review result SHA-256: 192d2ff5406697fccfc475e63abfc0029cc60a6a4d59760e4ed07c17759e5216
 C2.OPEN-006..015: OPEN_UNCHANGED
-C2.02 decisions: C2.DEC-077..C2.DEC-107 (31)
-C2.02 acceptance obligations: C2-094..C2-143 (50)
 
 C2.03: NOT STARTED / NOT AUTHORIZED
 
 Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
-C2.01R1 repaired registry candidate SHA-256: 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
-C2.01R1 repaired registry model SHA-256: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
-C2.01R1 Independent Capability Re-Check result SHA-256: e780ab10b6ed6e6108cc6fafc53ce329827b6135764b993f7a785fdd46e37937
-
 C2.02 normative contract candidate SHA-256: eb7636409e2dcdfe688a089c0dabceacd300ad8dee49febfbc6cdc149b96d7ef
 C2.02 logical model candidate SHA-256: 607d3839d66ab0cae9bf8192f38135dfdde05f112a1768d33360415cda229ed4
 C2.02 acceptance delta SHA-256: 2d8233a17fa2ad2afc0ff386e4975869d138bfafdf7025a17eb2be5556fb10ed
 C2.02 decision ledger SHA-256: 9a84cda469a79b9f807a45514744fd6b905fe88ca0607ef3fd25f2b6bcd0f5ae
-C2.02 candidate selection SHA-256: 443d707a20e5c833741f5ca9c95d02d700185a560b0fba22bcd36cc787f887f6
-C2.02 stage report SHA-256: 5843e6911aed97cfc7df011221ddf1472e3f188a31e6771793f2b0851249bf6a
 
 NEXT GATE:
-C2.02 Independent Outcome-Semantics Review
+Explicit user authorization for C2.02R1 scoped repair of C2OUT-B01..B04, followed by Independent Outcome-Semantics Re-Check.

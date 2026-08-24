@@ -1,0 +1,49 @@
+schema_version: 1.0.0-C2-03-independent-routing-review
+project: Investment Research OS
+stage: C2.03
+review_type: INDEPENDENT_ROUTING_REVIEW
+status: FAIL
+candidate_state: REPAIR_REQUIRED_NOT_FROZEN
+production_implementation: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED
+c2_04: NOT_AUTHORIZED
+candidate_pins:
+  normative_routing_contract_sha256: ead5bad60bd6fd369c1165f0860ccb560fd20ae76586c59a3b7a082d275c1613
+  logical_model_sha256: 0a62b56e3abb8ff9af3ce8fba6d87cb9eb265633b329d144e360ba4dc5be954a
+  acceptance_delta_sha256: f3d2a0a942bdaf49f966c78abe038988832b9cfbdd24095b6740157244cda19f
+  decision_ledger_sha256: 3d1280c9ffe729809135e7506cad8740453efd17880adc7d124764536e9b4679
+  candidate_selection_sha256: 36482e829a8529943f76299fb9d267bb5db4008c6a0b536257c09dc024474017
+  stage_report_sha256: 320f27f028a8d13fe802c732f3fad5edd4bbaafb383db4ba818b97948f45a19d
+acceptance_review:
+  range: C2-181..C2-230
+  total: 50
+  pass: 45
+  fail: 5
+  failed_ids: [C2-204, C2-221, C2-226, C2-227, C2-228]
+blocking_findings:
+  - id: C2ROUTE-B01
+    status: OPEN
+    title: Load-bearing candidate-set and route-policy snapshot identity is not semantically closed
+    affected_acceptance_ids: [C2-221, C2-226]
+  - id: C2ROUTE-B02
+    status: OPEN
+    title: ContinuationRule matching is under-specified before deterministic tie-breaking
+    affected_acceptance_ids: [C2-226, C2-227]
+  - id: C2ROUTE-B03
+    status: OPEN
+    title: External-admission fallback lacks event-level provenance and deterministic candidate-consumption semantics
+    affected_acceptance_ids: [C2-204, C2-221, C2-228]
+  - id: C2ROUTE-B04
+    status: OPEN
+    title: Requirement downgrade conflicts with the candidate-revisit rule for the same provider candidate
+    affected_acceptance_ids: []
+    acceptance_coverage_gap: true
+open_question_disposition:
+  C2.OPEN-006: NOT_CLOSED_REPAIR_REQUIRED
+  C2.OPEN-007: NOT_CLOSED_REPAIR_REQUIRED_AT_C2_03_SEMANTIC_LEVEL
+  C2.OPEN-008..015: OPEN_UNCHANGED
+nonblocking_follow_on:
+  C2.07: enforce route-terminal conditional field invariants after semantic repair
+  C2.06: bind C3/C6/C7 external-gate refs without changing repaired ownership/provenance semantics
+next_gate: EXPLICIT_USER_AUTHORIZATION_FOR_C2_03R1_SCOPED_REPAIR
+review_report_sha256: 4852c1109ab0175715a282d125871a2cd3215097eb27ba854e1616f4a48c2a3a

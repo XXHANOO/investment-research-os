@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.02R2 INDEPENDENT OUTCOME-SEMANTICS RE-CHECK PASS — C2.02 REVIEW_PASSED_NOT_FROZEN
-Current gate: Explicit user authorization for C2.03 — Routing / Fallback / Degradation Semantics
+Current stage: C2.03 ROUTING / FALLBACK / DEGRADATION CONSTRUCTION COMPLETE — INDEPENDENT ROUTING REVIEW REQUIRED
+Current gate: C2.03 Independent Routing Review
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -40,31 +40,44 @@ C2.02R1 Independent Outcome-Semantics Re-Check: FAIL
 C2.02R2 narrow repair construction: COMPLETE AS REPAIR CANDIDATE
 C2.02R2 Independent Outcome-Semantics Re-Check: PASS
 C2.02 state after R2 re-check: REVIEW_PASSED_NOT_FROZEN
-C2OUT-B01: CLOSED
-C2OUT-B02: CLOSED
-C2OUT-B03: CLOSED
-C2OUT-B04: CLOSED
+C2OUT-B01..B04: CLOSED
 C2.OPEN-004: CLOSED_AT_C2_02_CONTRACT_LEVEL
 C2.OPEN-005: CLOSED_AT_C2_02_CONTRACT_LEVEL
-C2.OPEN-006..015: OPEN_UNCHANGED
-C2.02R2 residual R1 failed acceptance re-check: 2/2 PASS (C2-145, C2-156)
-C2.02R2 repair acceptance re-check: 13/13 PASS (C2-168..C2-180)
-C2.02R2 combined targeted re-check: 15/15 PASS
-C2.02R2 additional traceability re-check: C2-146 PASS
 C2.02R2 Independent Re-Check report SHA-256: 48eba8055fdec4be85eed5c06bd8b809e7716d937cc05cbbeb5078c7b219f509
 C2.02R2 Independent Re-Check result SHA-256: 36d9048577fbaed39f1af1ae6352fe8de9fb803a55c59fadd05ee633597c34e5
-C2.02R2 repaired normative contract SHA-256: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
-C2.02R2 repaired logical model SHA-256: 763a0c1995116a657621633bde6224df332287d76c7ce986066f2d493022d04d
-C2.02R2 repair acceptance delta SHA-256: 9867598b992419bd0481831e3bc77723b072b998fd7b8e27353da55496351a9a
-C2.02R2 repair decision ledger SHA-256: 1598b061321b561265017182dc87593f08618b45ba9fd6bae280e9eb13aaa687
 
-C2.06 mandatory carried obligation: reconcile frozen C1 OutcomeAxes serialization with C2.02 semantics without converting FAILED or CANCELLED into genuine provider NO_DATA.
-C2.07 mandatory validator obligations: replay-retain exact CapabilityRequirement R; validate exact attempted_response_semantic_refs derivation; enforce cancellation-origin invariants.
+C2.03 construction: COMPLETE AS CANDIDATE
+C2.03 Independent Routing Review: NOT PERFORMED
+C2.03 state: CONSTRUCTED_CANDIDATE_NOT_FROZEN
+C2.OPEN-006: CANDIDATE_CLOSED_PENDING_INDEPENDENT_ROUTING_REVIEW
+C2.OPEN-007: CANDIDATE_CLOSED_AT_C2_03_SEMANTIC_LEVEL_PENDING_INDEPENDENT_ROUTING_REVIEW_AND_C2_06_WIRE_BINDING
+C2.OPEN-008..015: OPEN_UNCHANGED
+C2.03 decisions: C2.DEC-130..C2.DEC-179 (50)
+C2.03 acceptance obligations: C2-181..C2-230 (50)
+C2.03 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_REVIEW
+C2.03 provider instances: 0
+C2.03 production adapters: 0
+C2.03 GitHub content-addressed candidate artifact count: 10
+C2.03 Git blob byte-equivalence against local candidate: 10/10
+C2.03 exact large-artifact materialization merge commit: aaad9cdd4fc16345796089d59c3a16168e0d4eb8
+C2.03 exact candidate archive commit: c5662703cae822730b0c9b7ba79ebb8d81060dcc
 
-C2.03: NOT STARTED / NOT AUTHORIZED
+C2.03 normative contract SHA-256: ead5bad60bd6fd369c1165f0860ccb560fd20ae76586c59a3b7a082d275c1613
+C2.03 logical model SHA-256: 0a62b56e3abb8ff9af3ce8fba6d87cb9eb265633b329d144e360ba4dc5be954a
+C2.03 acceptance delta SHA-256: f3d2a0a942bdaf49f966c78abe038988832b9cfbdd24095b6740157244cda19f
+C2.03 decision ledger SHA-256: 3d1280c9ffe729809135e7506cad8740453efd17880adc7d124764536e9b4679
+C2.03 candidate selection SHA-256: 36482e829a8529943f76299fb9d267bb5db4008c6a0b536257c09dc024474017
+C2.03 stage report SHA-256: 320f27f028a8d13fe802c732f3fad5edd4bbaafb383db4ba818b97948f45a19d
+C2.03 review manifest SHA-256: c65a2da15fbfa74b1e5ef5f1d5e9585769410a3584e70f7623324ab25b34b03a
+C2.03 convenience review ZIP SHA-256: ae630b5f93b4637877f90e8e7908e623cc3fe4221a9e239c1cab2ee4470c8b0f
+
+C2.06 carried obligations: bind C2/C3/C6/C7 opaque route/admission/authorization references and reconcile frozen C1 OutcomeAxes serialization without changing C2 semantic ownership.
+C2.07 carried validator obligations: enforce route-policy/candidate-set exactness, semantic compatibility, replay lineage, closed actions/reasons/degradation kinds, and fail-closed ref resolution.
+
+C2.04: NOT STARTED / NOT AUTHORIZED
 
 Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
 NEXT GATE:
-Explicit user authorization for C2.03 — Routing / Fallback / Degradation Semantics construction.
+C2.03 Independent Routing Review.

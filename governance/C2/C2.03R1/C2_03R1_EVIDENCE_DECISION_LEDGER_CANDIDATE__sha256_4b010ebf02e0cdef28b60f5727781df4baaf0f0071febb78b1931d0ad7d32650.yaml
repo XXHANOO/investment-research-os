@@ -1,0 +1,155 @@
+schema_version: 1.0.0-C2-03R1-decision-ledger-candidate
+project: Investment Research OS
+stage: C2.03R1
+status: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+parent_review_result_sha256: d1a46f949f42612b963b742107ef9fd819b257821b5e4bbfa0d422d3f62618ba
+decisions:
+- decision_id: C2.DEC-180
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B01
+  statement: C2.03 owns ROUTE_CANDIDATE_SET and ROUTE_POLICY_SNAPSHOT routing-ref kinds using full content-addressed identity; these do not extend the C2.01 ref-kind domain
+  acceptance_ids:
+  - C2-231
+  - C2-232
+  - C2-233
+- decision_id: C2.DEC-181
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B01
+  statement: CandidateSetDefinition body is canonicalized by route_candidate_id; duplicate IDs reject and route_candidate_ref is scoped by exact candidate_set_ref
+  acceptance_ids:
+  - C2-234
+- decision_id: C2.DEC-182
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B01
+  statement: RoutePolicySnapshot binds an exact candidate_set_ref and route decision input must use the same full-tuple set ref
+  acceptance_ids:
+  - C2-235
+- decision_id: C2.DEC-183
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B01
+  statement: Route-policy candidate permission is closed to ALL_IN_CANDIDATE_SET or exact ALLOWLIST semantics with fail-closed allowlist validation
+  acceptance_ids:
+  - C2-236
+  - C2-237
+  - C2-238
+- decision_id: C2.DEC-184
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B01
+  statement: Exact candidate/policy refs reproduce the same eligible candidate set and deterministic ordering inputs
+  acceptance_ids:
+  - C2-239
+- decision_id: C2.DEC-185
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B02
+  statement: ContinuationRule omitted qualifiers are wildcards; present qualifiers are exact constraints
+  acceptance_ids:
+  - C2-240
+  - C2-241
+- decision_id: C2.DEC-186
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B02
+  statement: Failure qualifiers are legal only for FAILED and failure_code requires failure_family; illegal/unknown qualifiers fail closed
+  acceptance_ids:
+  - C2-242
+  - C2-243
+- decision_id: C2.DEC-187
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B02
+  statement: Exact match-set construction precedes deterministic (rule_priority,rule_id) tie-break; no implicit specificity ranking exists
+  acceptance_ids:
+  - C2-244
+- decision_id: C2.DEC-188
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B02
+  statement: Closed defaults run only after an empty exact match set; SUCCESS_PRESENT and CANCELLED remain non-overridable
+  acceptance_ids:
+  - C2-245
+- decision_id: C2.DEC-189
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B03
+  statement: Every non-positive external gate creates immutable ExternalAdmissionBlockRecord even without provider dispatch
+  acceptance_ids:
+  - C2-246
+- decision_id: C2.DEC-190
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B03
+  statement: External gate action is closed to YIELD or policy-authorized NEXT_ROUTE and preserves exact gate provenance
+  acceptance_ids:
+  - C2-247
+  - C2-249
+- decision_id: C2.DEC-191
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B03
+  statement: EXTERNAL_ADMISSION_CONTINUATION FallbackEvent references the exact triggering block and never a provider attempt
+  acceptance_ids:
+  - C2-248
+- decision_id: C2.DEC-192
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B03
+  statement: RouteStateKey=(candidate_ref,effective_requirement_identity); NEXT_ROUTE consumption includes attempts and fallback-consuming external blocks
+  acceptance_ids:
+  - C2-250
+  - C2-252
+- decision_id: C2.DEC-193
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B03
+  statement: YIELD does not consume RouteStateKey and retains same pending candidate; block lineage is replay retained
+  acceptance_ids:
+  - C2-251
+  - C2-253
+- decision_id: C2.DEC-194
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: AuthorizedRequirementTransitionInput is trusted exact R->R-prime input; C2 cannot synthesize it
+  acceptance_ids:
+  - C2-254
+  - C2-255
+  - C2-269
+- decision_id: C2.DEC-195
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Applying authorized downgrade uses NOMINATE_CANDIDATE_UNDER_DOWNGRADED_REQUIREMENT outside ContinuationRule semantics
+  acceptance_ids:
+  - C2-256
+- decision_id: C2.DEC-196
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Candidate selection under R-prime re-runs exact compatibility/policy eligibility and consumption is requirement-keyed
+  acceptance_ids:
+  - C2-257
+  - C2-258
+- decision_id: C2.DEC-197
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: SAME_ROUTE_REATTEMPT remains same RouteStateKey only
+  acceptance_ids:
+  - C2-259
+- decision_id: C2.DEC-198
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Every applied downgrade emits RequirementTransitionEvent and REQUIREMENT_DOWNGRADE degradation; fallback event is conditional on candidate change
+  acceptance_ids:
+  - C2-260
+  - C2-261
+- decision_id: C2.DEC-199
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Without valid authorized R-prime no requirement transition occurs
+  acceptance_ids:
+  - C2-262
+- decision_id: C2.DEC-200
+  status: CANDIDATE
+  repair_surface: C2ROUTE-B04
+  statement: Requirement-transition lineage is mandatory for replay
+  acceptance_ids:
+  - C2-263
+- decision_id: C2.DEC-201
+  status: CANDIDATE
+  repair_surface: RECHECK
+  statement: R1 independent re-check must re-evaluate all five original failed C2.03 acceptance obligations
+  acceptance_ids:
+  - C2-264
+  - C2-265
+  - C2-266
+  - C2-267
+  - C2-268

@@ -1,0 +1,23 @@
+schema_version: 1.0.0-C2-03R1-candidate-selection
+project: Investment Research OS
+stage: C2.03R1
+status: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+selected:
+  normative_contract_sha256: 18273aced9f962a863a71a82dd538707dd68f3e234d240d4a1f8cd7d75c77fe5
+  logical_model_sha256: 620ad5a56130861c730b2c042d0cd9a79f9f738f433242553f97ce68528af082
+  acceptance_delta_sha256: e57370c527bbc0a01a5be71b0946a9acc61305d29ab6a17362367e9a4c181167
+  decision_ledger_sha256: 4b010ebf02e0cdef28b60f5727781df4baaf0f0071febb78b1931d0ad7d32650
+  repair_diffs_sha256: f43704cca6cf59d0a5540dab3075163ccb15e414faa9df477ea6111b291f3e41
+  construction_validation_sha256: 7e5c74eaa11745d52b45d3a0480f8be6c9b300864405fe516aca66f5d9528dfd
+parent:
+  c2_03_contract_sha256: ead5bad60bd6fd369c1165f0860ccb560fd20ae76586c59a3b7a082d275c1613
+  independent_review_report_sha256: 4852c1109ab0175715a282d125871a2cd3215097eb27ba854e1616f4a48c2a3a
+  independent_review_result_sha256: d1a46f949f42612b963b742107ef9fd819b257821b5e4bbfa0d422d3f62618ba
+blockers:
+  C2ROUTE-B01: ADDRESSED_NOT_CLOSED
+  C2ROUTE-B02: ADDRESSED_NOT_CLOSED
+  C2ROUTE-B03: ADDRESSED_NOT_CLOSED
+  C2ROUTE-B04: ADDRESSED_NOT_CLOSED
+next_gate: C2.03R1 Independent Routing Re-Check
+c2_04: NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED

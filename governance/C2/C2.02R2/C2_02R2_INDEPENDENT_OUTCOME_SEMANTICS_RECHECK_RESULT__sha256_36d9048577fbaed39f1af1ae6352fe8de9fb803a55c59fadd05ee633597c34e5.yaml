@@ -1,0 +1,54 @@
+schema_version: 1.0.0-C2-02R2-independent-outcome-semantics-recheck
+project: Investment Research OS
+stage: C2.02R2
+review_type: INDEPENDENT_OUTCOME_SEMANTICS_RECHECK
+status: PASS
+candidate_state: REVIEW_PASSED_NOT_FROZEN
+production_implementation: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED
+c2_03: NOT_AUTHORIZED
+candidate_pins:
+  normative_contract_sha256: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+  logical_model_sha256: 763a0c1995116a657621633bde6224df332287d76c7ce986066f2d493022d04d
+  acceptance_delta_sha256: 9867598b992419bd0481831e3bc77723b072b998fd7b8e27353da55496351a9a
+  decision_ledger_sha256: 1598b061321b561265017182dc87593f08618b45ba9fd6bae280e9eb13aaa687
+  candidate_selection_sha256: 82a73b501df2703ef8550d84e9f49fb04acc0a056509e017ae287c1d1a573f93
+  parent_r1_recheck_result_sha256: af007a9b05e3a7129d662ae7b4845efdd146d7a0804448d733a251326facc9d6
+review_report_sha256: 48eba8055fdec4be85eed5c06bd8b809e7716d937cc05cbbeb5078c7b219f509
+package_integrity:
+  manifest_entries: 16
+  exact_hash_and_size_matches: 16
+  mismatches: 0
+residual_r1_acceptance_recheck:
+  total: 2
+  pass: 2
+  fail: 0
+  pass_ids: [C2-145, C2-156]
+r2_acceptance_recheck:
+  range: C2-168..C2-180
+  total: 13
+  pass: 13
+  fail: 0
+combined_targeted_recheck:
+  total: 15
+  pass: 15
+  fail: 0
+additional_traceability_recheck:
+  C2-146: PASS
+blockers:
+  C2OUT-B01: CLOSED
+  C2OUT-B02: CLOSED
+  C2OUT-B03: CLOSED
+  C2OUT-B04: CLOSED
+open_questions:
+  C2.OPEN-004: CLOSED_AT_C2_02_CONTRACT_LEVEL
+  C2.OPEN-005: CLOSED_AT_C2_02_CONTRACT_LEVEL
+  C2.OPEN-006..015: OPEN_UNCHANGED
+nonblocking_notes:
+  - id: C2R2-NB01
+    statement: Historical R1 review mapped residual B01 to C2-145 although C2-146 is the more direct same-phase tie-break obligation; historical evidence remains immutable and C2-146 was additionally rechecked PASS.
+  - id: C2R2-NB02
+    statement: C2.07 must machine-enforce replay retention of exact R and equality of attempted_response_semantic_refs to the R2 canonical derivation.
+  - id: C2R2-NB03
+    statement: C2.06 must preserve the mandatory C1 OutcomeAxes serialization reconciliation without mapping FAILED/CANCELLED to genuine NO_DATA.
+next_gate: EXPLICIT_USER_AUTHORIZATION_FOR_C2_03

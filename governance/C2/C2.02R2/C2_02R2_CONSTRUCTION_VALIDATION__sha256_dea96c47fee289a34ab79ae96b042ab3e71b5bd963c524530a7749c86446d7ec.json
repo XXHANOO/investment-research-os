@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "acceptance_ids_unique": "PASS",
+    "c2_03_unauthorized": "PASS",
+    "content_addressed_filename_hashes": "PASS",
+    "decision_acceptance_exact_mapping": "PASS",
+    "decision_ids_unique": "PASS",
+    "parent_pins": "PASS",
+    "production_unauthorized": "PASS",
+    "residual_scope_only": "PASS",
+    "yaml_json_parse": "PASS"
+  },
+  "generated_at_utc": "2026-08-24T09:07:53Z",
+  "project": "Investment Research OS",
+  "schema_version": "1.0.0-C2-02R2-construction-validation",
+  "stage": "C2.02R2",
+  "verdict": "PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_RECHECK"
+}

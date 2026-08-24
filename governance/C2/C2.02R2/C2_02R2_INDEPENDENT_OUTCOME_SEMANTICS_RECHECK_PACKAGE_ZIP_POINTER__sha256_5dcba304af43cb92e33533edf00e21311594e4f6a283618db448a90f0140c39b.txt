@@ -1,0 +1,6 @@
+C2.02R2 Independent Outcome-Semantics Re-Check convenience ZIP
+
+SHA-256: 5d693401fc011047391c947af0b8d9a797208b8d70e6dd77560c3f8c98b1c8be
+Size: 53773 bytes
+
+This ZIP is non-authoritative. The content-addressed C2.02R2 member artifacts and review package manifest are the review authority.

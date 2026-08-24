@@ -1,0 +1,114 @@
+schema_version: 1.0.0-C2-02R2-repair-ledger
+project: Investment Research OS
+stage: C2.02R2
+generated_at_utc: '2026-08-24T09:07:53Z'
+status: NARROW_REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+parent_recheck_result_sha256: af007a9b05e3a7129d662ae7b4845efdd146d7a0804448d733a251326facc9d6
+blocking_findings:
+  C2OUT-B01: ADDRESSED_NOT_CLOSED
+  C2OUT-B02: CLOSED_BY_R1_INDEPENDENT_RECHECK
+  C2OUT-B03: CLOSED_BY_R1_INDEPENDENT_RECHECK
+  C2OUT-B04: ADDRESSED_NOT_CLOSED
+decisions:
+- id: C2.DEC-122
+  title: Closed cancellation-origin ordinal
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Freeze the six-value cancellation-origin domain and an audit-only canonical
+    ordinal; private origins are forbidden
+  authority_scope: C2.02R2
+  evidence_refs:
+  - C2.02R1 Independent Re-Check
+  - af007a9b05e3a7129d662ae7b4845efdd146d7a0804448d733a251326facc9d6
+  required_acceptance_tests:
+  - C2-168
+- id: C2.DEC-123
+  title: Primary and secondary cancellation-origin selection
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Multiple same-phase explicit cancellations use lowest known canonical
+    ordinal as primary, retain all others canonically as secondary, and use UNKNOWN
+    as primary only when no known origin exists
+  authority_scope: C2.02R2
+  evidence_refs:
+  - C2.02R1 Independent Re-Check
+  - af007a9b05e3a7129d662ae7b4845efdd146d7a0804448d733a251326facc9d6
+  required_acceptance_tests:
+  - C2-169
+  - C2-170
+- id: C2.DEC-124
+  title: Cancellation candidate-set replay determinism
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: The same pinned cancellation candidate set yields byte-equivalent primary/secondary
+    origin representation; an incomplete candidate set fails adapter invariant rather
+    than race-selecting
+  authority_scope: C2.02R2
+  evidence_refs:
+  - C2.02R1 Independent Re-Check
+  - af007a9b05e3a7129d662ae7b4845efdd146d7a0804448d733a251326facc9d6
+  required_acceptance_tests:
+  - C2-171
+  - C2-172
+- id: C2.DEC-125
+  title: Replay-retained attempt CapabilityRequirement
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Treat the exact normalized C2.01R1 CapabilityRequirement as the replay-retained
+    load-bearing request boundary; dispatch is forbidden if the pinned request semantic
+    state cannot yield one unique canonical requirement
+  authority_scope: C2.02R2
+  evidence_refs:
+  - C2.01R1 registry
+  - 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+  required_acceptance_tests:
+  - C2-173
+- id: C2.DEC-126
+  title: Exact attempted-response set derivation
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Attempted response scope is exactly canonical_set(endpoint primary response
+    semantic union capability-required response refs union concrete requirement response
+    refs), using full stable-ref identity
+  authority_scope: C2.02R2
+  evidence_refs:
+  - C2.01R1 registry
+  - 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+  - C2.02R1 Independent Re-Check
+  - af007a9b05e3a7129d662ae7b4845efdd146d7a0804448d733a251326facc9d6
+  required_acceptance_tests:
+  - C2-174
+  - C2-175
+- id: C2.DEC-127
+  title: Query-dependent response-scope materialization precondition
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Query-dependent response requirements must be materialized into R.required_response_semantic_refs
+    before dispatch; unresolved scope fails PRE_DISPATCH as typed semantic failure
+  authority_scope: C2.02R2
+  evidence_refs:
+  - C2.02R1 Independent Re-Check
+  - af007a9b05e3a7129d662ae7b4845efdd146d7a0804448d733a251326facc9d6
+  required_acceptance_tests:
+  - C2-176
+  - C2-177
+- id: C2.DEC-128
+  title: Concrete attempt scope distinct from compatibility closure
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: Do not import the broader C2.01 response satisfaction closure into attempted
+    scope except refs explicitly required by P or R; identical pinned attempt state
+    yields identical canonical scope
+  authority_scope: C2.02R2
+  evidence_refs:
+  - C2.01R1 registry
+  - 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+  required_acceptance_tests:
+  - C2-178
+  - C2-179
+- id: C2.DEC-129
+  title: R2 narrow repair boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_RECHECK
+  statement: R2 adds no C2.03+ or production authority
+  authority_scope: C2.02R2
+  evidence_refs:
+  - C2.02R1 Independent Re-Check
+  - af007a9b05e3a7129d662ae7b4845efdd146d7a0804448d733a251326facc9d6
+  required_acceptance_tests:
+  - C2-180
+residual_failed_acceptance_recheck_required:
+- C2-145
+- C2-156

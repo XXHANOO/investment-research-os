@@ -1,0 +1,19 @@
+{
+  "acceptance_obligations": 13,
+  "blockers": {
+    "C2OUT-B01": "ADDRESSED_NOT_CLOSED",
+    "C2OUT-B04": "ADDRESSED_NOT_CLOSED"
+  },
+  "c2_03": "NOT_AUTHORIZED",
+  "construction": "COMPLETE_AS_NARROW_REPAIR_CANDIDATE",
+  "decisions": 8,
+  "generated_at_utc": "2026-08-24T09:07:53Z",
+  "independent_recheck": "NOT_PERFORMED",
+  "production_implementation": "NOT_AUTHORIZED",
+  "project": "Investment Research OS",
+  "residual_prior_fail_ids": [
+    "C2-145",
+    "C2-156"
+  ],
+  "stage": "C2.02R2"
+}

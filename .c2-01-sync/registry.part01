@@ -1,0 +1,156 @@
+| `SNAPSHOT_FETCH` | Obtain provider observations presented as a current/request-boundary snapshot | Does not imply C4 PIT safety or `available_from` |
+| `WINDOWED_SERIES_FETCH` | Obtain provider-native observations constrained by a provider-native range/window | Does not establish C4 reconstructability |
+| `EVENT_COLLECTION_FETCH` | Obtain provider-native event records | Does not decide C1 identity effects or C5 truth |
+| `DOCUMENT_DISCOVERY` | Discover provider-indexed document descriptors | Does not establish document/source fitness |
+| `DOCUMENT_RETRIEVAL` | Retrieve a provider-identified document/content object | Does not authorize immutable persistence before secure ingress |
+| `BULK_EXPORT` | Obtain a provider-declared bulk dataset/export object | Does not prove exhaustive universe coverage |
+| `STREAM_SUBSCRIPTION` | Subscribe to provider-pushed observations | Does not grant orchestration or external side-effect authority |
+
+### 5.2 Observation-family dimension
+
+For the frozen C1-facing boundary, capability records may produce the exact interface categories already accepted by C1.05R1:
+
+```text
+IDENTITY_DESCRIPTOR_OBSERVATION
+REGISTERED_IDENTIFIER_OBSERVATION
+SYMBOL_OBSERVATION
+LISTING_OBSERVATION
+CONTRACT_OBSERVATION
+CONTRACT_VENUE_ADMISSION_OBSERVATION
+CORPORATE_ACTION_EVENT_OBSERVATION
+CORPORATE_ACTION_RELATION_OBSERVATION
+TERMS_OBSERVATION
+```
+
+C2 may also serve non-C1 consumers. C2.01 therefore permits additional C2 provider-observation families, but they MUST remain provider-side observation semantics and MUST NOT mint canonical C1 identity objects or C5 truth states. Initial vendor-neutral families are:
+
+```text
+MARKET_OBSERVATION
+FUNDAMENTAL_OBSERVATION
+DOCUMENT_DESCRIPTOR_OBSERVATION
+DOCUMENT_CONTENT_OBSERVATION
+PROVIDER_REFERENCE_OBSERVATION
+```
+
+Adding/changing an observation-family definition is load-bearing registry change and requires a new snapshot-stable semantic state.
+
+## 6. Exact Logical Record Model
+
+C2.01 defines logical semantic records. C2.07 remains owner of final JSON Schema/wire serialization/validator code.
+
+### 6.1 `C2StableSemanticRef`
+
+Every load-bearing C2.01 semantic reference logically contains:
+
+```text
+C2StableSemanticRef:
+  authority: C2
+  ref_kind
+  logical_id
+  semantic_revision
+  content_sha256
+```
+
+Allowed `ref_kind` values at this stage:
+
+```text
+REGISTRY_SNAPSHOT
+PROVIDER_SEMANTIC_PROFILE
+ENDPOINT_SEMANTIC_PROFILE
+FIELD_SEMANTIC
+CAPABILITY_DEFINITION
+COMPATIBILITY_RULESET
+QUERY_SEMANTIC
+RESPONSE_SEMANTIC
+PAGINATION_SEMANTIC
+PROVIDER_NATIVE_SIGNAL_SEMANTIC
+```
+
+Rules:
+
+1. `content_sha256` binds the exact semantic payload represented by the ref.
+2. `semantic_revision` is human/audit-friendly but is not sufficient without immutable content identity for load-bearing replay.
+3. A floating alias (`latest`, `current`, mutable registry key) MAY be a convenience lookup but MUST NOT be persisted as the load-bearing ref.
+4. Supersession creates a new ref; it never mutates the old semantic payload in place.
+5. Exact canonical serialization/hash-verification mechanics are deferred to C2.07, but the semantic identity tuple above is already mandatory.
+
+### 6.2 `ProviderSemanticProfileDefinition`
+
+```text
+ProviderSemanticProfileDefinition:
+  provider_profile_id
+  semantic_revision
+  provider_semantic_namespace
+  adopted_provider_wide_semantic_refs[]
+  provider_native_identifier_namespace_refs[]
+  provider_native_subject_semantic_refs[]
+  content_identity
+```
+
+Provider-wide defaults are never implicit. An endpoint profile MUST explicitly reference any provider-wide semantic ref it adopts. This prevents replay meaning from changing when a provider-wide “default” changes.
+
+The provider profile MUST NOT contain credentials, routing priority, current health, quota state, C4 `available_from`, C5 source-fitness decisions, or C2.05 completeness certification.
+
+### 6.3 `FieldSemanticDefinition`
+
+```text
+FieldSemanticDefinition:
+  field_semantic_id
+  semantic_revision
+  provider_profile_ref
+  provider_native_selector
+  provider_native_meaning
+  value_shape
+  unit_scale_semantics
+  null_missing_sentinel_semantics
+  enumeration_semantics
+  provider_native_timestamp_role
+  source_record_grouping_semantics
+  content_identity
+```
+
+`provider_native_timestamp_role` is descriptive only. Permitted candidate roles include:
+
+```text
+NOT_TEMPORAL
+PROVIDER_EVENT_TIME
+PROVIDER_OBSERVED_TIME
+PROVIDER_EFFECTIVE_TIME_CLAIM
+PROVIDER_PUBLISHED_TIME_CLAIM
+PROVIDER_RETRIEVAL_METADATA_TIME
+PROVIDER_OTHER_TIME
+```
+
+A timestamp role MUST NOT be promoted by C2 into C4 visibility, `available_from`, revision, effectivity, or PIT-safe semantics.
+
+`null_missing_sentinel_semantics` describes provider-native representation only. It does not itself authorize C2.02 `NO_DATA` or C1 `NO_MATCH`.
+
+### 6.4 `EndpointSemanticProfileDefinition`
+
+```text
+EndpointSemanticProfileDefinition:
+  endpoint_profile_id
+  semantic_revision
+  provider_profile_ref
+  endpoint_logical_id
+  adopted_provider_wide_semantic_refs[]
+  request_semantics:
+    query_semantic_refs[]
+    required_query_refs[]
+    optional_query_refs[]
+    mutually_exclusive_query_groups[]
+    provider_native_defaulting_semantic_refs[]
+  response_semantics:
+    response_semantic_ref
+    response_cardinality
+    record_grouping_semantic_refs[]
+    field_semantic_refs[]
+    pagination_semantic_ref
+    provider_native_absence_signal_refs[]
+    provider_native_partiality_signal_refs[]
+  content_identity
+```
+
+`response_cardinality` candidate values:
+
+```text

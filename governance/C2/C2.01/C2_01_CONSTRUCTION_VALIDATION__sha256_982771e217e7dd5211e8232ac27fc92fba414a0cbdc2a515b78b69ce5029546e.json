@@ -1,0 +1,137 @@
+{
+  "stage": "C2.01",
+  "generated_at_utc": "2026-08-24T01:11:00Z",
+  "content_addressed_files": "PASS",
+  "yaml_json_parse": "PASS",
+  "decision_count": 40,
+  "acceptance_count": 40,
+  "bidirectional_mapping": "PASS",
+  "provider_instances": 0,
+  "production_adapter_files": 0,
+  "parent_rehash": {
+    "C0_FROZEN": {
+      "expected_sha256": "9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f",
+      "matching_local_files": [
+        "C0_FROZEN.md"
+      ],
+      "status": "MATCH"
+    },
+    "C0_FREEZE_SEAL": {
+      "expected_sha256": "eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2",
+      "matching_local_files": [
+        "C0_FREEZE_SEAL.yaml"
+      ],
+      "status": "MATCH"
+    },
+    "C0_ACCEPTANCE_CATALOG": {
+      "expected_sha256": "8d5d7f45bd79cd3617968b6ebfbe1d0ddeb1956b7cf80cfcb285ebc4317de27c",
+      "matching_local_files": [
+        "C0_ACCEPTANCE_TEST_CATALOG.md"
+      ],
+      "status": "MATCH"
+    },
+    "C0_EVIDENCE_LEDGER": {
+      "expected_sha256": "abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155",
+      "matching_local_files": [
+        "C0_ARCHITECTURE_EVIDENCE_LEDGER__sha256_abfa03aaa200bdd355de0a37d960b040fcb44c7b52696adcbebe8028420d5155.yaml"
+      ],
+      "status": "MATCH"
+    },
+    "C1_FREEZE_SEAL": {
+      "expected_sha256": "438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5",
+      "matching_local_files": [
+        "C1_FREEZE_SEAL__sha256_438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5.yaml"
+      ],
+      "status": "MATCH"
+    },
+    "C1_FINAL_MACHINE_SCHEMA": {
+      "expected_sha256": "927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4",
+      "matching_local_files": [
+        "C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json"
+      ],
+      "status": "MATCH"
+    },
+    "C1_05R1_INTERFACE": {
+      "expected_sha256": "71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63",
+      "matching_local_files": [
+        "C1_05R1_PROVIDER_NORMALIZATION_INTERFACE_CANDIDATE__sha256_71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63.md"
+      ],
+      "status": "MATCH"
+    },
+    "C1_05R1_REGISTRY": {
+      "expected_sha256": "422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b",
+      "matching_local_files": [
+        "C1_05R1_PROVIDER_NORMALIZATION_REGISTRY_CANDIDATE__sha256_422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b.yaml"
+      ],
+      "status": "MATCH"
+    },
+    "C1_05R1_LEDGER": {
+      "expected_sha256": "47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031",
+      "matching_local_files": [
+        "C1_05R1_EVIDENCE_DECISION_LEDGER__sha256_47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031.yaml"
+      ],
+      "status": "MATCH"
+    },
+    "C1_05R1_ACCEPTANCE": {
+      "expected_sha256": "bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83",
+      "matching_local_files": [
+        "C1_05R1_ACCEPTANCE_TEST_DELTA__sha256_bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83.md"
+      ],
+      "status": "MATCH"
+    },
+    "C2_START_AUTHORITY": {
+      "expected_sha256": "316a17cda14058322999095036951647824a69bd0037e78b7eea810f6a76062d",
+      "matching_local_files": [
+        "C2_START_AUTHORITY_MANIFEST.yaml"
+      ],
+      "status": "MATCH"
+    },
+    "C2_STAGE_PLAN": {
+      "expected_sha256": "b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6",
+      "matching_local_files": [
+        "C2_PROPOSED_STAGE_PLAN.yaml"
+      ],
+      "status": "MATCH"
+    },
+    "C2_HANDOFF": {
+      "expected_sha256": "85e94ae4156279576e6e52518179fdf44392bfddd63946dbdc17cf938a44457b",
+      "matching_local_files": [
+        "PROJECT_HANDOFF_C2_START.md"
+      ],
+      "status": "MATCH"
+    },
+    "C2_00_SCOPE": {
+      "expected_sha256": "b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7",
+      "matching_local_files": [
+        "C2_00_SCOPE_AUTHORITY_VOCABULARY_CANDIDATE__sha256_b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7.md"
+      ],
+      "status": "MATCH"
+    },
+    "C2_00_ACCEPTANCE": {
+      "expected_sha256": "0e505f15eb4a13b43705c7349b81223b10d84eab4e1437f3d47a3c629f532189",
+      "matching_local_files": [
+        "C2_00_ACCEPTANCE_TEST_CATALOG_CANDIDATE__sha256_0e505f15eb4a13b43705c7349b81223b10d84eab4e1437f3d47a3c629f532189.md"
+      ],
+      "status": "MATCH"
+    },
+    "C2_00_LEDGER": {
+      "expected_sha256": "86929d743f3232029de92bc6f74b072440b3add5b3e457b623933c280c305054",
+      "matching_local_files": [
+        "C2_00_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_86929d743f3232029de92bc6f74b072440b3add5b3e457b623933c280c305054.yaml"
+      ],
+      "status": "MATCH"
+    },
+    "C2_00_REVIEW_REPORT": {
+      "expected_sha256": "4a9d85bc99a0190b4a970b0f22723b4f7914d43a262a77e91a232399b41dbdb0",
+      "actual_sha256": "4a9d85bc99a0190b4a970b0f22723b4f7914d43a262a77e91a232399b41dbdb0",
+      "status": "MATCH"
+    },
+    "C2_00_REVIEW_RESULT": {
+      "expected_sha256": "6f42d8b29f0b5c15bd7cea0a053938364ddc431bd654b8601001118189a10c96",
+      "actual_sha256": "6f42d8b29f0b5c15bd7cea0a053938364ddc431bd654b8601001118189a10c96",
+      "status": "MATCH"
+    }
+  },
+  "review_zip_sha256": "2294f6d577b4fda3b902d087640d604549d7517f36cdb329f25b26060bbacdb6",
+  "next_gate": "C2.01 Independent Capability Review"
+}

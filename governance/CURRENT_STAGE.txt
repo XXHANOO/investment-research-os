@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.03 INDEPENDENT ROUTING REVIEW FAIL — C2.03R1 SCOPED REPAIR REQUIRED
-Current gate: Explicit user authorization for C2.03R1 scoped repair, then Independent Routing Re-Check
+Current stage: C2.03R1 SCOPED REPAIR CONSTRUCTION COMPLETE — INDEPENDENT ROUTING RE-CHECK REQUIRED
+Current gate: C2.03R1 Independent Routing Re-Check
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -43,30 +43,46 @@ C2.OPEN-005: CLOSED_AT_C2_02_CONTRACT_LEVEL
 C2.02R2 Independent Re-Check report SHA-256: 48eba8055fdec4be85eed5c06bd8b809e7716d937cc05cbbeb5078c7b219f509
 C2.02R2 Independent Re-Check result SHA-256: 36d9048577fbaed39f1af1ae6352fe8de9fb803a55c59fadd05ee633597c34e5
 
-C2.03 construction: COMPLETE AS CANDIDATE
-C2.03 Independent Routing Review: FAIL
-C2.03 state: REPAIR_REQUIRED_NOT_FROZEN
-C2.03 acceptance review: 45 PASS / 5 FAIL of C2-181..C2-230
-C2.03 failed acceptance IDs: C2-204, C2-221, C2-226, C2-227, C2-228
-C2ROUTE-B01: OPEN — load-bearing candidate-set and route-policy snapshot identity / route-policy permission semantics are not closed
-C2ROUTE-B02: OPEN — ContinuationRule match predicate is under-specified before deterministic tie-break
-C2ROUTE-B03: OPEN — external-admission fallback lacks event-level gate provenance and deterministic skipped-candidate progression
-C2ROUTE-B04: OPEN — authorized requirement downgrade conflicts with same-candidate revisit semantics; acceptance coverage gap exists
-C2.OPEN-006: NOT_CLOSED — REPAIR_REQUIRED
-C2.OPEN-007: NOT_CLOSED — REPAIR_REQUIRED_AT_C2_03_SEMANTIC_LEVEL
-C2.OPEN-008..015: OPEN_UNCHANGED
-C2.03 Independent Routing Review report SHA-256: 4852c1109ab0175715a282d125871a2cd3215097eb27ba854e1616f4a48c2a3a
-C2.03 Independent Routing Review result SHA-256: d1a46f949f42612b963b742107ef9fd819b257821b5e4bbfa0d422d3f62618ba
+C2.03 original construction: COMPLETE AS CANDIDATE
+C2.03 original Independent Routing Review: FAIL
+C2.03 original acceptance review: 45 PASS / 5 FAIL of C2-181..C2-230
+C2.03 original failed acceptance IDs: C2-204, C2-221, C2-226, C2-227, C2-228
+C2.03 original Independent Routing Review report SHA-256: 4852c1109ab0175715a282d125871a2cd3215097eb27ba854e1616f4a48c2a3a
+C2.03 original Independent Routing Review result SHA-256: d1a46f949f42612b963b742107ef9fd819b257821b5e4bbfa0d422d3f62618ba
 
-C2.03 normative contract SHA-256: ead5bad60bd6fd369c1165f0860ccb560fd20ae76586c59a3b7a082d275c1613
-C2.03 logical model SHA-256: 0a62b56e3abb8ff9af3ce8fba6d87cb9eb265633b329d144e360ba4dc5be954a
-C2.03 acceptance delta SHA-256: f3d2a0a942bdaf49f966c78abe038988832b9cfbdd24095b6740157244cda19f
-C2.03 decision ledger SHA-256: 3d1280c9ffe729809135e7506cad8740453efd17880adc7d124764536e9b4679
-C2.03 candidate selection SHA-256: 36482e829a8529943f76299fb9d267bb5db4008c6a0b536257c09dc024474017
-C2.03 stage report SHA-256: 320f27f028a8d13fe802c732f3fad5edd4bbaafb383db4ba818b97948f45a19d
+C2.03R1 scoped repair construction: COMPLETE AS REPAIR CANDIDATE
+C2.03R1 Independent Routing Re-Check: NOT PERFORMED
+C2.03 state: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK / NOT_FROZEN
+C2ROUTE-B01: ADDRESSED_NOT_CLOSED — routing snapshot identity and exact candidate-permission semantics candidate added
+C2ROUTE-B02: ADDRESSED_NOT_CLOSED — exact ContinuationRule match predicate candidate added
+C2ROUTE-B03: ADDRESSED_NOT_CLOSED — external-admission event provenance and deterministic consumed-state progression candidate added
+C2ROUTE-B04: ADDRESSED_NOT_CLOSED — explicit same-candidate R→R' transition semantics and acceptance coverage candidate added
+C2.OPEN-006: REPAIRED_CANDIDATE_PENDING_INDEPENDENT_ROUTING_RECHECK
+C2.OPEN-007: REPAIRED_CANDIDATE_AT_C2_03_SEMANTIC_LEVEL_PENDING_INDEPENDENT_ROUTING_RECHECK_AND_C2_06_WIRE_BINDING
+C2.OPEN-008..015: OPEN_UNCHANGED
+C2.03R1 repair decisions: C2.DEC-180..C2.DEC-201 (22)
+C2.03R1 repair acceptance obligations: C2-231..C2-269 (39)
+C2.03R1 original failed obligations requiring re-check: C2-204, C2-221, C2-226, C2-227, C2-228
+C2.03R1 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_RECHECK
+C2.03R1 provider instances: 0
+C2.03R1 production adapters: 0
+C2.03R1 GitHub candidate artifact count: 11
+C2.03R1 Git blob byte-equivalence against local candidate: 11/11
+C2.03R1 temporary transport/workflow: REMOVED BEFORE MERGE
+C2.03R1 exact candidate archive merge commit: 0ea5ad88dde5833b9f2fed7af628aacbbf77b88b
+
+C2.03R1 repaired normative contract SHA-256: 18273aced9f962a863a71a82dd538707dd68f3e234d240d4a1f8cd7d75c77fe5
+C2.03R1 repaired logical model SHA-256: 620ad5a56130861c730b2c042d0cd9a79f9f738f433242553f97ce68528af082
+C2.03R1 repair acceptance delta SHA-256: e57370c527bbc0a01a5be71b0946a9acc61305d29ab6a17362367e9a4c181167
+C2.03R1 repair decision ledger SHA-256: 4b010ebf02e0cdef28b60f5727781df4baaf0f0071febb78b1931d0ad7d32650
+C2.03R1 repair diffs SHA-256: f43704cca6cf59d0a5540dab3075163ccb15e414faa9df477ea6111b291f3e41
+C2.03R1 candidate selection SHA-256: e27c6805e2f49ac12d594908fa03c2a455ea93fcae1a1d151bc18baad571b1d8
+C2.03R1 stage report SHA-256: cbe5713bdb882c43dd705114271a480ba8967d2157d274211fe804316e41a61b
+C2.03R1 re-check package manifest SHA-256: 696248c8b2c51b2a5b0354cfa31a3e4d301a6b68a80aa97dd38f38e10517740f
+C2.03R1 convenience re-check ZIP SHA-256: 114d2d5a3f8e5be2f7ad0be764cb51a613c123f0d39964f5a506569f48326980
 
 C2.06 carried obligations: bind C2/C3/C6/C7 route/admission/authorization references and reconcile frozen C1 OutcomeAxes serialization without changing C2 semantic ownership.
-C2.07 carried validator obligations: encode repaired route-policy/candidate-set identity, route-terminal conditional invariants, semantic compatibility, replay lineage, closed actions/reasons/degradation kinds, and fail-closed ref resolution.
+C2.07 carried validator obligations: encode repaired routing snapshot identity, permission semantics, exact continuation matching, external-admission lineage/consumption, requirement-transition invariants, semantic compatibility, replay lineage, closed actions/reasons/degradation kinds, and fail-closed ref resolution.
 
 C2.04: NOT STARTED / NOT AUTHORIZED
 
@@ -74,4 +90,4 @@ Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
 NEXT GATE:
-Explicit user authorization for C2.03R1 scoped repair limited to C2ROUTE-B01..B04, followed by Independent Routing Re-Check.
+C2.03R1 Independent Routing Re-Check.

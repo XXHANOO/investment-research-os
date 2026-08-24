@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.01R1 scoped repair construction COMPLETE — INDEPENDENT RECHECK REQUIRED
-Current gate: C2.01R1 Independent Capability Re-Check
+Current stage: C2.02 USER-AUTHORIZED — CONSTRUCTION NOT YET COMPLETED
+Current gate: C2.02 Typed Provider Outcome / Error Semantics construction
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -9,7 +9,13 @@ C0 GitHub canonical archive: COMPLETE
 C1: FROZEN
 C1 Freeze Seal SHA-256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
 C1 frozen authority navigation index: governance/C1/C1_FROZEN_INDEX.md (NON-AUTHORITATIVE)
-C1 GitHub substantive-archive completeness: UNDER REVIEW — final integrated load-bearing bytes are hash-pinned but some are not presently located in the repository; do not regenerate from hashes.
+C1 semantic authority: UNCHANGED
+C1 lossless archival remediation: PASS
+C1 retained frozen load-bearing substantive byte equivalence: 11/11 PASS
+C1 retained frozen load-bearing substantive archive: COMPLETE
+C1 temporary remediation transport/workflows: REMOVED
+C1 historical external content-addressed dependencies: PRESERVED AS ORIGINALLY DISCLOSED / NOT REGENERATED
+C1 final archival remediation audit result SHA-256: b0cd63ee860aaae0a6b412f922ff50e31a0ab80bf7b98ee9530ba4b356b5fd73
 
 C2 stage plan: USER-ADOPTED WORKFLOW / NOT INHERITED FROZEN AUTHORITY
 Adopted C2 stage-plan SHA-256: b7a4f2a3958417f155e24109edaf025c017d7fc8ac7980ff9765c90fe97e70d6
@@ -18,27 +24,26 @@ C2.00 construction: COMPLETE AS CANDIDATE
 C2.00 Independent Scope Review: PASS
 C2.00 state: REVIEW_PASSED_NOT_FROZEN
 
-C2.01 construction: COMPLETE AS CANDIDATE
-C2.01 exact GitHub construction snapshot commit: 22c85cc54fcb0a25eb2fa87ec66ca0b7728c6fbe
-C2.01 Independent Capability Review: FAIL
-C2.01 state: REPAIR_REQUIRED / NOT_FROZEN
-
-C2.01R1 scoped repair construction: COMPLETE AS REPAIR CANDIDATE
-C2.01R1 GitHub repair snapshot commit: 3d0ce1d8a9b7f2804d3070355b1146e7a9a8b90f
-C2.01R1 Independent Capability Re-Check: NOT PERFORMED
-C2.01R1 state: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK / NOT_FROZEN
-C2.02: NOT STARTED / NOT AUTHORIZED
-
-C2CAP-B01: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
-C2CAP-B02: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
-C2.OPEN-003: REPAIRED_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+C2.01 original construction: COMPLETE AS CANDIDATE
+C2.01 original Independent Capability Review: FAIL
+C2.01R1 scoped repair construction: COMPLETE
+C2.01R1 Independent Capability Re-Check: PASS
+C2.01 state after R1 re-check: REVIEW_PASSED_NOT_FROZEN
+C2CAP-B01: CLOSED
+C2CAP-B02: CLOSED
+C2.OPEN-001: CLOSED_AT_C2_01_CONTRACT_LEVEL
+C2.OPEN-002: CLOSED_AT_C2_01_CONTRACT_LEVEL
+C2.OPEN-003: CLOSED_AT_C2_01_CONTRACT_LEVEL
 C2.OPEN-004..015: OPEN
+
+C2.02: USER AUTHORIZED
+C2.02 construction: STARTING
+C2.03: NOT STARTED / NOT AUTHORIZED
 
 Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
 C2.01R1 repaired registry candidate SHA-256: 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
 C2.01R1 repaired registry model SHA-256: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
-C2.01R1 repair acceptance delta SHA-256: a668005a868230ac869071e496eea9da8dd07383db76c61a00e65abc2fec6d73
-C2.01R1 repair decision ledger SHA-256: 16be0dcbb3853399d4a55af8fb15938ab88f1193a7d16d4bb7938f01e9409ace
-C2.01R1 Independent Capability Re-Check package ZIP SHA-256: 8c572c6bdf8f2ff318a39008a44860a05b0d745c65fc7790b6d56a62f11a1e59
+C2.01R1 Independent Capability Re-Check report SHA-256: 04f8e482b697f88ad22348c3d5acd4a1ca735ecb13e3a0ec1387eaecd0e743a9
+C2.01R1 Independent Capability Re-Check result SHA-256: e780ab10b6ed6e6108cc6fafc53ce329827b6135764b993f7a785fdd46e37937

@@ -1,0 +1,17 @@
+{
+  "blockers": {
+    "C2OUT-B01": "ADDRESSED_NOT_CLOSED",
+    "C2OUT-B02": "ADDRESSED_NOT_CLOSED",
+    "C2OUT-B03": "ADDRESSED_NOT_CLOSED",
+    "C2OUT-B04": "ADDRESSED_NOT_CLOSED"
+  },
+  "c2_03": "NOT_AUTHORIZED",
+  "decisions": 14,
+  "generated_at_utc": "2026-08-24T08:36:46Z",
+  "next_gate": "INDEPENDENT_OUTCOME_SEMANTICS_RECHECK",
+  "original_failed_acceptance_recheck_count": 6,
+  "production_implementation": "NOT_AUTHORIZED",
+  "repair_acceptance_obligations": 24,
+  "stage": "C2.02R1",
+  "status": "CONSTRUCTION_COMPLETE_AS_REPAIR_CANDIDATE"
+}

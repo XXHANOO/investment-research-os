@@ -1,0 +1,28 @@
+{
+  "blocker_status": {
+    "C2ROUTE-B01": "ADDRESSED_NOT_CLOSED",
+    "C2ROUTE-B02": "ADDRESSED_NOT_CLOSED",
+    "C2ROUTE-B03": "ADDRESSED_NOT_CLOSED",
+    "C2ROUTE-B04": "ADDRESSED_NOT_CLOSED"
+  },
+  "checks": {
+    "acceptance_count": 39,
+    "contract_contains_B01_identity_and_permission": true,
+    "contract_contains_B02_exact_match": true,
+    "contract_contains_B03_block_and_consumption": true,
+    "contract_contains_B04_transition": true,
+    "decision_count": 22,
+    "original_failed_obligations_bound_for_recheck": [
+      "C2-204",
+      "C2-221",
+      "C2-226",
+      "C2-227",
+      "C2-228"
+    ],
+    "production_adapters": 0,
+    "provider_instances": 0
+  },
+  "schema_version": "1.0.0-C2-03R1-construction-validation",
+  "stage": "C2.03R1",
+  "status": "PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_RECHECK"
+}

@@ -24,11 +24,6 @@ jobs:
           from pathlib import Path
           import base64, hashlib, io, tarfile
 
-          chunks = sorted(Path('.c1-remediation').glob('chunk*.b64'))
-          assert len(chunks) == 9, f'expected 9 transport chunks, got {len(chunks)}'
-          tgz = base64.b64decode(''.join(p.read_text() for p in chunks))
-          transport_tar_sha = hashlib.sha256(tgz).hexdigest()
-
           targets = {
             'C1_05R1_ACCEPTANCE_TEST_DELTA__sha256_bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83.md': ('C1.05R1','bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83'),
             'C1_05R1_EVIDENCE_DECISION_LEDGER__sha256_47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031.yaml': ('C1.05R1','47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031'),
@@ -42,19 +37,42 @@ jobs:
             'C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json': ('C1.07R2','927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4'),
             'C1_07R2_SCHEMA_REGISTRY_CANDIDATE__sha256_fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a.yaml': ('C1.07R2','fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a'),
           }
+          extra_names = {
+            'C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json',
+            'C1_07R2_SCHEMA_REGISTRY_CANDIDATE__sha256_fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a.yaml',
+          }
+          primary_names = set(targets) - extra_names
 
-          with tarfile.open(fileobj=io.BytesIO(tgz), mode='r:gz') as tf:
-            assert set(tf.getnames()) == set(targets), f'inventory mismatch: {set(tf.getnames()) ^ set(targets)}'
-            for name,(subdir,expected) in targets.items():
-              data=tf.extractfile(name).read()
-              actual=hashlib.sha256(data).hexdigest()
-              assert actual == expected, f'{name}: {actual} != {expected}'
-              dest=Path('governance/C1')/subdir/name
-              dest.parent.mkdir(parents=True, exist_ok=True)
-              dest.write_bytes(data)
-              assert hashlib.sha256(dest.read_bytes()).hexdigest() == expected
+          def decode_chunks(directory, expected_count):
+            chunks = sorted(Path(directory).glob('chunk*.b64'))
+            assert len(chunks) == expected_count, (directory, len(chunks), expected_count)
+            return base64.b64decode(''.join(p.read_text() for p in chunks))
 
-          result=Path('governance/C1/C1_SUBSTANTIVE_ARCHIVE_REMEDIATION_RESTORE_RESULT.yaml')
+          primary = decode_chunks('.c1-remediation', 9)
+          extra = decode_chunks('.c1-remediation-extra', 3)
+          extra_tar_sha = hashlib.sha256(extra).hexdigest()
+          assert extra_tar_sha == '865782c4a0b542a48de0323605d7a704db9a24a8839e5da7f66411da6cdb60b7'
+
+          payloads = {}
+          for raw, expected_names in ((primary, primary_names), (extra, extra_names)):
+            with tarfile.open(fileobj=io.BytesIO(raw), mode='r:gz') as tf:
+              names = set(tf.getnames())
+              assert names == expected_names, f'inventory mismatch: {names ^ expected_names}'
+              for name in names:
+                data = tf.extractfile(name).read()
+                expected = targets[name][1]
+                actual = hashlib.sha256(data).hexdigest()
+                assert actual == expected, f'{name}: {actual} != {expected}'
+                payloads[name] = data
+
+          assert set(payloads) == set(targets)
+          for name,(subdir,expected) in targets.items():
+            dest = Path('governance/C1') / subdir / name
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(payloads[name])
+            assert hashlib.sha256(dest.read_bytes()).hexdigest() == expected
+
+          result = Path('governance/C1/C1_SUBSTANTIVE_ARCHIVE_REMEDIATION_RESTORE_RESULT.yaml')
           result.write_text(
             'schema_version: 1.0.0-C1-lossless-archive-restore\n'
             'project: Investment Research OS\n'
@@ -63,8 +81,9 @@ jobs:
             'semantic_authority_changed: false\n'
             'freeze_seal_changed: false\n'
             'source_c2_handoff_zip_sha256: 705624f14422f0e0ce373c5a92f90cd67198050bfa2f1f96631c2cd75f4a1f95\n'
-            f'transport_tar_sha256_observed: {transport_tar_sha}\n'
-            'transport_tar_hash_is_authority: false\n'
+            f'primary_transport_tar_sha256_observed: {hashlib.sha256(primary).hexdigest()}\n'
+            f'extra_transport_tar_sha256: {extra_tar_sha}\n'
+            'transport_container_hash_is_semantic_authority: false\n'
             'restored_count: 11\n'
             'member_inventory_exact: true\n'
             'member_sha256_exact: true\n'
@@ -78,7 +97,7 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git rm -r .c1-remediation
+          git rm -r .c1-remediation .c1-remediation-extra
           git rm governance/C1/C1_REMEDIATION_PR_TRIGGER.md || true
           git add governance/C1/C1.05R1 governance/C1/C1.07R2 governance/C1/C1_SUBSTANTIVE_ARCHIVE_REMEDIATION_RESTORE_RESULT.yaml
           git commit -m 'archive(C1): restore exact frozen substantive artifacts'

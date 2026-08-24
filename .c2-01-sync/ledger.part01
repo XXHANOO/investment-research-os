@@ -1,0 +1,168 @@
+  title: Immutable supersession
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Semantic change creates a new ref and old refs remain replay-resolvable.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1 replay
+  required_acceptance_tests:
+  - C2-059
+- id: C2.DEC-043
+  title: Registry snapshot stability
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Registry snapshot pins all entry refs and is itself immutable/snapshot-stable.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-060
+- id: C2.DEC-044
+  title: Semantic change bump rule
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Changes to request/response/field/pagination/signal meaning require new
+    content identity.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-061
+- id: C2.DEC-045
+  title: Compatibility access-pattern exactness
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Capability compatibility requires exact access-pattern family match unless
+    later contract explicitly versions a compatibility relation; no implicit substitution.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-001
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-062
+- id: C2.DEC-046
+  title: Compatibility observation subset
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Required observation families must be explicitly provided.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-063
+- id: C2.DEC-047
+  title: Compatibility query subset
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Required query semantics must be explicitly accepted.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-064
+- id: C2.DEC-048
+  title: Compatibility response/features explicit
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Required response semantics/features must be explicitly satisfied by
+    pinned records.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  required_acceptance_tests:
+  - C2-065
+- id: C2.DEC-049
+  title: Compatibility fails closed on unresolved refs
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Missing/content-mismatched semantic refs make compatibility unproven
+    and ineligible.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.OPEN-003
+  - C0-060
+  required_acceptance_tests:
+  - C2-066
+- id: C2.DEC-050
+  title: Routing cannot weaken compatibility
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: C2.03 routing may choose only from semantically compatible capabilities.
+  authority_scope: C2.01
+  evidence_refs:
+  - C2.03 boundary
+  required_acceptance_tests:
+  - C2-067
+- id: C2.DEC-051
+  title: C1 provider profile stable-ref mapping
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: provider_profile_ref maps to PROVIDER_SEMANTIC_PROFILE stable ref.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-068
+- id: C2.DEC-052
+  title: C1 field semantic stable-ref mapping
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: provider_field_semantic_refs[] map to FIELD_SEMANTIC stable refs.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-069
+- id: C2.DEC-053
+  title: C1 capability stable-ref mapping
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: provider_capability_ref maps to CAPABILITY_DEFINITION stable ref.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1
+  required_acceptance_tests:
+  - C2-070
+- id: C2.DEC-054
+  title: Completeness deferred with same stable-ref discipline
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: c2_completeness_refs[] are C2.05-owned but must obey stable-ref identity
+    later.
+  authority_scope: C2.01
+  evidence_refs:
+  - C1.05R1
+  - C2.OPEN-010
+  required_acceptance_tests:
+  - C2-071
+- id: C2.DEC-055
+  title: C4 temporal boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Provider-native timestamp roles never become C4 available_from/revision/PIT-safe
+    semantics.
+  authority_scope: C2.01
+  evidence_refs:
+  - C4 boundary
+  required_acceptance_tests:
+  - C2-072
+- id: C2.DEC-056
+  title: C5 source-fitness boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Capability/endpoint records do not encode C5 verification/source-fitness/conflict
+    state.
+  authority_scope: C2.01
+  evidence_refs:
+  - C5 boundary
+  required_acceptance_tests:
+  - C2-073
+- id: C2.DEC-057
+  title: C3 state boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Capability/endpoint records do not encode C3 cache/quota/freshness/LKG
+    policy.
+  authority_scope: C2.01
+  evidence_refs:
+  - C3 boundary
+  required_acceptance_tests:
+  - C2-074
+- id: C2.DEC-058
+  title: C6/C7 authority boundary
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Registry capabilities do not grant tool capabilities, trusted intent
+    or workflow authority.
+  authority_scope: C2.01
+  evidence_refs:
+  - C6/C7 boundary
+  required_acceptance_tests:
+  - C2-075
+- id: C2.DEC-059
+  title: Secure ingress boundary preserved
+  status: CANDIDATE_ADOPTED_PENDING_INDEPENDENT_REVIEW
+  statement: Document/bulk retrieval semantics do not authorize immutable permitted-raw

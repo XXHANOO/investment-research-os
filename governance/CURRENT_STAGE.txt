@@ -68,7 +68,7 @@ C2SEC-B03: OPEN — secure-ingress assessment-bundle completeness/replay binding
 C2SEC-B04: OPEN — operation-local credential lease lacks exact operation identity binding
 C2.04 Independent Review report SHA-256: 12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21
 C2.04 Independent Review result SHA-256: 4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78
-C2.04 exact Independent Review archive commit: 6e9608dddffdfbb3f49fb863649eb485ad4d502a
+C2.04 exact Independent Review archive commit: aa2a7b4c8c4c36cca66d6fa9cdf6f98d0866321d
 C2.04 Independent Review Git blob equivalence: 2/2 PASS
 
 C2.OPEN-008: NOT_CLOSED_REPAIR_REQUIRED

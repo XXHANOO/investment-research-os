@@ -1,0 +1,42 @@
+schema_version: 1.0.0-C2-01R1-independent-capability-recheck
+project: Investment Research OS
+stage: C2.01R1
+review: Independent Capability Re-Check
+generated_at_utc: '2026-08-24T04:57:00Z'
+status: PASS
+candidate_state: REVIEW_PASSED_NOT_FROZEN
+c2_01_frozen: false
+c2_02: NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED
+external_side_effects: NOT_AUTHORIZED
+successor_hashes:
+  registry_prose: 2cba76ffe8e308ade83778e26d24332c4ce019468a73875c36110c7bb5201e95
+  registry_model: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+  acceptance_delta: a668005a868230ac869071e496eea9da8dd07383db76c61a00e65abc2fec6d73
+  decision_ledger: 16be0dcbb3853399d4a55af8fb15938ab88f1193a7d16d4bb7938f01e9409ace
+  repair_diffs: 3114c4fc61a147507c65eed91abc2ae2a254ff31d2375a98d71a69fdeaf40ef7
+  candidate_selection: 906065e6ada74b0e39bdf75cb4d0f96daf2ee20981c4272f7bd9f31916856355
+  recheck_package_manifest: f8105b9a84f83fa4b1d7a1e62631b0627009e2a0f26dc7d68570f63c6c41dca8
+predecessor_failed_obligations:
+  C2-057: PASS
+  C2-063: PASS
+  C2-065: PASS
+  C2-066: PASS
+repair_acceptance:
+  range: C2-084..C2-093
+  count: 10
+  pass: 10
+  fail: 0
+blockers:
+  C2CAP-B01: CLOSED
+  C2CAP-B02: CLOSED
+open_item_disposition:
+  C2.OPEN-001: CLOSED_AT_C2_01_CONTRACT_LEVEL
+  C2.OPEN-002: CLOSED_AT_C2_01_CONTRACT_LEVEL
+  C2.OPEN-003: CLOSED_AT_C2_01_CONTRACT_LEVEL
+  C2.OPEN-004..015: OPEN_UNCHANGED
+boundary_regression: PASS
+non_blocking_notes:
+  - C2.07 should execute cross-record provider-profile coherence validation.
+  - C2.07 should execute registry/capability compatibility-ruleset binding validation.
+next_gate: Explicit user authorization for C2.02 Typed Provider Outcome / Error Semantics construction

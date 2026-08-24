@@ -1,0 +1,3381 @@
+schema_version: 1.0.0-c1.07r2-candidate
+stage: C1.07R2
+status: CANDIDATE_FOR_C1_07R2_INDEPENDENT_REGRESSION_RECHECK
+machine_schema:
+  path: C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json
+  sha256: 927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4
+inherited_regression_suite:
+  range: C1-001..C1-486
+  policy: CONTENT_ADDRESSED_PARENT_SUITE_MANIFEST
+  authority_manifest:
+    path: C1_06R2_INHERITED_REGRESSION_AUTHORITY__sha256_a8d93b6070a5911efd00dc69ab42b94eeccc1d38e3d172ec3f13aa9f6762b197.yaml
+    sha256: a8d93b6070a5911efd00dc69ab42b94eeccc1d38e3d172ec3f13aa9f6762b197
+  segments:
+  - stage: C1.00R1.1
+    range: C1-001..C1-034
+    count: 34
+    artifact: C1_ACCEPTANCE_CATALOG
+    sha256: b2d7b8e8587d0db116f2349b2a0b63309268ec336e43651f76ab1a4f73063a54
+    availability: EXTERNAL_CONTENT_ADDRESSED
+  - stage: C1.01R1
+    range: C1-035..C1-072
+    count: 38
+    artifact: C1_01R1_ACCEPTANCE_TEST_DELTA
+    sha256: 010863078e2d080561ecf37d221bc3d2c395a95d42d31e6079748f2bd56e2b0a
+    availability: EXTERNAL_CONTENT_ADDRESSED
+  - stage: C1.02R1
+    range: C1-073..C1-124
+    count: 52
+    artifact: C1_02R1_ACCEPTANCE_TEST_DELTA
+    sha256: c5d2c3099444894cf928867f8648bd10c218f7d9d3582b168da5f6002ee64cf3
+    availability: EXTERNAL_CONTENT_ADDRESSED
+  - stage: C1.03R1
+    range: C1-125..C1-193
+    count: 69
+    artifact: C1_03R1_ACCEPTANCE_TEST_DELTA
+    sha256: 0ae5a811c7a5291670c3bc44dcddd5fd853d69323e3a025c0c4256f6401bd6b8
+    availability: EXTERNAL_CONTENT_ADDRESSED
+  - stage: C1.04R1
+    range: C1-194..C1-256
+    count: 63
+    artifact: C1_04R1_ACCEPTANCE_TEST_DELTA
+    sha256: ae7f3bd26822206d58707c7d3b44266f5221282262c9ca3e4b8f41868c8bd790
+    availability: LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED
+  - stage: C1.05R1
+    range: C1-257..C1-337
+    count: 81
+    artifact: C1_05R1_ACCEPTANCE_TEST_DELTA
+    sha256: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+    availability: LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED
+  - stage: C1.06
+    range: C1-338..C1-430
+    count: 93
+    artifact: C1_06_ACCEPTANCE_TEST_DELTA
+    sha256: d32b0fed76d2d9c0aa4c949901fde4aba164b7f925d446e1cae61bd14409328d
+    availability: LOCAL_OR_EXTERNAL_CONTENT_ADDRESSED
+  - stage: C1.06R1
+    range: C1-431..C1-486
+    count: 56
+    artifact: C1_06R1_ACCEPTANCE_TEST_DELTA
+    sha256: cea15a5831808bff203970b045c48a509f6f28a0070cb69263c0473049f68007
+    availability: LOCAL_CONTENT_ADDRESSED
+new_suite:
+  range: C1-571..C1-585
+  count: 15
+schema_vectors:
+- test_id: C1-338
+  validator: json_schema_2020_12
+  schema_def: EntityRef
+  instance:
+    kind: ENTITY
+    id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+  expected:
+    valid: true
+- test_id: C1-339
+  validator: json_schema_2020_12
+  schema_def: EntityRef
+  instance:
+    kind: ENTITY
+    id: 6F9619FF-8B86-4E70-A4D3-0F1E7F6A1111
+  expected:
+    valid: false
+- test_id: C1-340
+  validator: json_schema_2020_12
+  schema_def: EntityRef
+  instance:
+    kind: ENTITY
+    id: 6f9619ff-8b86-5e70-a4d3-0f1e7f6a1111
+  expected:
+    valid: false
+- test_id: C1-341
+  validator: json_schema_2020_12
+  schema_def: EntityRef
+  instance:
+    kind: ENTITY
+    id: 00000000-0000-0000-0000-000000000000
+  expected:
+    valid: false
+- test_id: C1-349
+  validator: json_schema_2020_12
+  schema_def: EntityRef
+  instance:
+    kind: CONTRACT
+    id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+  expected:
+    valid: false
+- test_id: C1-350
+  validator: json_schema_2020_12
+  schema_def: SymbolAssignment
+  instance:
+    scheme_ref: &id003
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    raw_value: ABC
+    normalized_value: ABC
+    target:
+      kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    temporal_ref: &id001
+      owner: C4
+      ref: c4:snapshot:example
+    evidence_ref: &id002
+      owner: C5
+      ref: c5:evidence:example
+    source_ref: &id004
+      owner: C2
+      ref: c2:source:row1
+  expected:
+    valid: false
+- test_id: C1-351
+  validator: json_schema_2020_12
+  schema_def: ContractVenueAdmission
+  instance:
+    contract_ref:
+      kind: CONTRACT
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    listing_ref:
+      kind: LISTING
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    temporal_ref: *id001
+    evidence_ref: *id002
+  expected:
+    valid: true
+- test_id: C1-354
+  validator: json_schema_2020_12
+  schema_def: EntityRecord
+  instance:
+    ref:
+      kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    entity_kind: LEGAL_ENTITY
+    ticker: ABC
+  expected:
+    valid: false
+- test_id: C1-359
+  validator: json_schema_2020_12
+  schema_def: ContentAddressRef
+  instance: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  expected:
+    valid: true
+- test_id: C1-361
+  validator: json_schema_2020_12
+  schema_def: ContentAddressRef
+  instance: latest
+  expected:
+    valid: false
+- test_id: C1-365
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL
+    governance_ref: *id003
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    - CONTRACT
+    scope_model: VENUE
+    uniqueness_claim: SCHEME_DEFINED
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id003
+    syntax_validation_profile_ref: *id003
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: ABSTRACT_PARENT
+    exactness_certification_status: UNVERIFIED
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: false
+- test_id: C1-367
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref: *id003
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id003
+    syntax_validation_profile_ref: *id003
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref: *id003
+    exactness_certification_status: CERTIFIED
+    certification_ref: *id003
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+    release_validation_ref:
+      owner: C12
+      ref: c12:release-validation:1
+      content_ref: sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  expected:
+    valid: true
+- test_id: C1-372
+  validator: json_schema_2020_12
+  schema_def: SymbolAssignment
+  instance:
+    scheme_ref: *id003
+    raw_value: ABC
+    normalized_value: ABC
+    target:
+      kind: INSTRUMENT
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    temporal_ref: *id001
+    evidence_ref: *id002
+    source_ref: *id004
+  expected:
+    valid: false
+- test_id: C1-378
+  validator: json_schema_2020_12
+  schema_def: ContractVenueAdmission
+  instance:
+    contract_ref:
+      kind: INSTRUMENT
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    listing_ref:
+      kind: LISTING
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    temporal_ref: *id001
+    evidence_ref: *id002
+  expected:
+    valid: false
+- test_id: C1-380
+  validator: json_schema_2020_12
+  schema_def: UnderlyingRef
+  instance:
+    kind: INSTRUMENT
+    id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+  expected:
+    valid: true
+- test_id: C1-381
+  validator: json_schema_2020_12
+  schema_def: UnderlyingRef
+  instance:
+    kind: CONTRACT
+    id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+  expected:
+    valid: true
+- test_id: C1-382
+  validator: json_schema_2020_12
+  schema_def: UnderlyingRef
+  instance:
+    kind: LISTING
+    id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+  expected:
+    valid: false
+- test_id: C1-387
+  validator: json_schema_2020_12
+  schema_def: ConversionEffect
+  instance:
+    effect_type: ADD_CONVERSION_RELATION
+    effect_state: REALIZED
+    target:
+      kind: INSTRUMENT
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    target_role: SOURCE_SECURITY
+    related_target:
+      kind: LISTING
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    related_target_role: TARGET_SECURITY
+    relation_type: CONVERTS_TO
+    relation_direction: TARGET_TO_RELATED
+    temporal_ref: *id001
+    evidence_ref: *id002
+  expected:
+    valid: false
+- test_id: C1-389
+  validator: json_schema_2020_12
+  schema_def: UnaryIdentityEffect
+  instance:
+    effect_type: PRESERVE_IDENTITY
+    effect_state: REALIZED
+    target:
+      kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    related_target:
+      kind: ENTITY
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    temporal_ref: *id001
+    evidence_ref: *id002
+  expected:
+    valid: false
+- test_id: C1-391
+  validator: json_schema_2020_12
+  schema_def: IdentityGraphQuery
+  instance:
+    temporal_intent_ref: *id001
+    projection: ACTIVE_CANONICAL_GRAPH
+    pit_requirement: REQUIRE_PIT_SAFE
+  expected:
+    valid: false
+- test_id: C1-397
+  validator: json_schema_2020_12
+  schema_def: OutcomeAxes
+  instance:
+    provider_operation_status: FAILED
+    provider_data_outcome: NO_DATA
+    normalization_outcome: NOT_RUN
+    resolution_outcome: NOT_APPLICABLE
+    reconstructability: PIT_UNVERIFIED
+  expected:
+    valid: true
+- test_id: C1-399
+  validator: json_schema_2020_12
+  schema_def: OutcomeAxes
+  instance:
+    provider_operation_status: SUCCESS
+    provider_data_outcome: NO_DATA
+    normalization_outcome: NO_OBSERVATIONS
+    resolution_outcome: NON_EXHAUSTIVE
+    reconstructability: PIT_UNVERIFIED
+  expected:
+    valid: true
+- test_id: C1-404
+  validator: json_schema_2020_12
+  schema_def: SnapshotStableC2Ref
+  instance: &id005
+    owner: C2
+    ref: c2:semantic:v1
+    stability_authority_ref: c2:stability-attestation:abc
+  expected:
+    valid: true
+- test_id: C1-405
+  validator: json_schema_2020_12
+  schema_def: SnapshotStableC2Ref
+  instance:
+    owner: C2
+    ref: latest
+  expected:
+    valid: false
+- test_id: C1-409
+  validator: json_schema_2020_12
+  schema_def: ReplayLineage
+  instance:
+    source_record_ref: *id004
+    normalization_profile_ref: *id003
+    parent_c1_contract_refs:
+    - sha256:9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+    - sha256:eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+    - sha256:057303229ec7d169a19519edea256ce15f5a2dc92e654e820abddd9040c5b782
+    - sha256:dc5f2ec1295cf3afb9c8b585b3deca5f413de37db1a2d6c179a9e17f613531fb
+    - sha256:ea017504558532cce5e24929047cfbb94055f0a3cc25d80b3b1844216ea6b860
+    provider_operation_ref: *id004
+    provider_semantic_capability_refs:
+    - *id005
+    c4_dependency_refs:
+    - *id001
+    c5_dependency_refs:
+    - *id002
+  expected:
+    valid: false
+- test_id: C1-415
+  validator: json_schema_2020_12
+  schema_def: ValidatedProviderObservationEnvelope
+  instance:
+    provider_operation_ref: *id004
+    provider_capability_ref: *id005
+    normalization_profile_ref: *id003
+    source_record_ref: *id004
+    raw_payload_ref: *id004
+    observations: []
+    c2_operation_status: SUCCESS
+    c2_data_outcome: NO_DATA
+  expected:
+    valid: true
+- test_id: C1-416
+  validator: json_schema_2020_12
+  schema_def: EntityRecord
+  instance:
+    ref:
+      kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    entity_kind: LEGAL_ENTITY
+    raw_provider_object:
+      id: vendor-1
+  expected:
+    valid: false
+- test_id: C1-420
+  validator: json_schema_2020_12
+  schema_def: ContractError
+  instance:
+    code: NOT_A_REAL_CODE
+    stage: C1.06
+  expected:
+    valid: false
+- test_id: C1-422
+  validator: json_schema_2020_12
+  schema_def: ContractError
+  instance:
+    code: SCHEMA_VALIDATION_FAILED
+    stage: C1.06
+    field_path: /payload/target
+  expected:
+    valid: true
+- test_id: C1-431
+  validator: json_schema_2020_12
+  schema_def: C1Envelope
+  instance:
+    schema_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    payload_type: ENTITY
+    payload:
+      raw_provider_object:
+        id: vendor
+  expected:
+    valid: false
+- test_id: C1-432
+  validator: json_schema_2020_12
+  schema_def: C1Envelope
+  instance:
+    schema_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    payload_type: CONTRACT_ERROR
+    payload: &id006
+      kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+  expected:
+    valid: false
+- test_id: C1-433
+  validator: json_schema_2020_12
+  schema_def: C1Envelope
+  instance:
+    schema_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    payload_type: SYMBOL_ASSIGNMENT
+    payload:
+      anything: goes
+  expected:
+    valid: false
+- test_id: C1-434
+  validator: json_schema_2020_12
+  schema_def: C1Envelope
+  instance:
+    schema_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    payload_type: ENTITY
+    payload: &id007
+      ref: *id006
+      entity_kind: LEGAL_ENTITY
+  expected:
+    valid: true
+- test_id: C1-435
+  validator: json_schema_2020_12
+  schema_def: NormalizedCandidate
+  instance:
+    candidate_kind: SYMBOL_ASSIGNMENT_CANDIDATE
+    payload: *id007
+    replay_lineage: &id008
+      validated_input_ref:
+        owner: C2
+        ref: c2:validated:1
+        stability_authority_ref: c2:stability:attested:v1
+      source_record_ref:
+        owner: C2
+        ref: c2:source:row1
+      normalization_profile_ref:
+        artifact_type: C1_SCHEMA
+        content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      parent_c1_contract_refs:
+      - sha256:1111111111111111111111111111111111111111111111111111111111111111
+      - sha256:2222222222222222222222222222222222222222222222222222222222222222
+      - sha256:3333333333333333333333333333333333333333333333333333333333333333
+      - sha256:4444444444444444444444444444444444444444444444444444444444444444
+      - sha256:5555555555555555555555555555555555555555555555555555555555555555
+      provider_operation_ref:
+        owner: C2
+        ref: c2:operation:1
+      provider_semantic_capability_refs:
+      - owner: C2
+        ref: c2:semantic:v1
+        stability_authority_ref: c2:stability:attested:v1
+      c4_dependency_refs:
+      - owner: C4
+        ref: c4:temporal:1
+      c5_dependency_refs:
+      - owner: C5
+        ref: c5:evidence:1
+  expected:
+    valid: false
+- test_id: C1-436
+  validator: json_schema_2020_12
+  schema_def: NormalizedCandidate
+  instance:
+    candidate_kind: SYMBOL_ASSIGNMENT_CANDIDATE
+    payload:
+      scheme_ref:
+        artifact_type: C1_SCHEMA
+        content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      raw_value: ABC
+      normalized_value: ABC
+      target: &id011
+        kind: LISTING
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+      temporal_ref:
+        owner: C4
+        ref: c4:temporal:1
+      evidence_ref:
+        owner: C5
+        ref: c5:evidence:1
+      source_ref:
+        owner: C2
+        ref: c2:source:row1
+    replay_lineage: *id008
+  expected:
+    valid: true
+- test_id: C1-439
+  validator: json_schema_2020_12
+  schema_def: C1Envelope
+  instance:
+    schema_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    payload_type: ENTITY
+    payload:
+      ref: *id006
+      entity_kind: LEGAL_ENTITY
+      raw_provider_object:
+        id: vendor
+  expected:
+    valid: false
+- test_id: C1-440
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    syntax_validation_profile_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    exactness_certification_status: CERTIFIED
+    certification_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: false
+- test_id: C1-441
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    syntax_validation_profile_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    exactness_certification_status: CERTIFIED
+    certification_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    release_validation_ref:
+      owner: C12
+      ref: c12:release-validation:1
+      content_ref: sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: true
+- test_id: C1-442
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    syntax_validation_profile_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    exactness_certification_status: CERTIFIED
+    certification_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    release_validation_ref:
+      owner: C5
+      ref: c5:fake
+      content_ref: sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: false
+- test_id: C1-445
+  validator: json_schema_2020_12
+  schema_def: DegradationRef
+  instance:
+    owner: C3
+    ref: c3:degradation:1
+  expected:
+    valid: true
+- test_id: C1-446
+  validator: json_schema_2020_12
+  schema_def: DegradationRef
+  instance:
+    owner: C4
+    ref: c4:temporal:1
+  expected:
+    valid: false
+- test_id: C1-447
+  validator: json_schema_2020_12
+  schema_def: C2Ref
+  instance:
+    owner: C2
+    ref: c2:operation:1
+  expected:
+    valid: true
+- test_id: C1-448
+  validator: json_schema_2020_12
+  schema_def: C2Ref
+  instance:
+    owner: C4
+    ref: c4:temporal:1
+  expected:
+    valid: false
+- test_id: C1-449
+  validator: json_schema_2020_12
+  schema_def: C4Ref
+  instance:
+    owner: C2
+    ref: c2:operation:1
+  expected:
+    valid: false
+- test_id: C1-450
+  validator: json_schema_2020_12
+  schema_def: C5Ref
+  instance:
+    owner: C4
+    ref: c4:temporal:1
+  expected:
+    valid: false
+- test_id: C1-452
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance: &id013
+    relation_type: ISSUED_BY
+    source: &id009
+      kind: INSTRUMENT
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    target: *id006
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: true
+- test_id: C1-453
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance:
+    relation_type: ISSUED_BY
+    source: *id006
+    target:
+      kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: false
+- test_id: C1-454
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance:
+    relation_type: DEPOSITARY_RECEIPT_FOR
+    source: *id009
+    target:
+      kind: INSTRUMENT
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: true
+- test_id: C1-455
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance: &id014
+    relation_type: FUNGIBLE_WITH
+    source: *id009
+    target:
+      kind: INSTRUMENT
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: true
+- test_id: C1-456
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance:
+    relation_type: FUNGIBLE_WITH
+    source:
+      kind: INSTRUMENT
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    target: &id010
+      kind: CONTRACT
+      id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: false
+- test_id: C1-457
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance:
+    relation_type: ECONOMICALLY_EQUIVALENT_TO
+    source: *id010
+    target:
+      kind: CONTRACT
+      id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: true
+- test_id: C1-458
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance:
+    relation_type: PARENT_OF
+    source: *id006
+    target:
+      kind: ENTITY
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: true
+- test_id: C1-459
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance:
+    relation_type: PARENT_OF
+    source:
+      kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    target: *id009
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: false
+- test_id: C1-460
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance:
+    relation_type: UNDERLYING_INSTRUMENT
+    source: *id010
+    target: *id009
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: true
+- test_id: C1-461
+  validator: json_schema_2020_12
+  schema_def: IdentityRelation
+  instance:
+    relation_type: UNDERLYING_CONTRACT
+    source: *id010
+    target:
+      kind: CONTRACT
+      id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+    temporal_ref:
+      owner: C4
+      ref: c4:temporal:1
+    evidence_ref:
+      owner: C5
+      ref: c5:evidence:1
+  expected:
+    valid: true
+- test_id: C1-463
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionQuery
+  instance:
+    scheme_ref:
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    raw_value: ABC
+    mode: TEMPORAL
+  expected:
+    valid: false
+- test_id: C1-464
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionQuery
+  instance:
+    scheme_ref: &id012
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    raw_value: ABC
+    mode: CURRENT_ONLY
+  expected:
+    valid: true
+- test_id: C1-465
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: RESOLVED
+    targets:
+    - *id011
+    resolution_state: NON_PIT_CURRENT_ONLY
+  expected:
+    valid: false
+- test_id: C1-466
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: RESOLVED
+    targets:
+    - *id011
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref:
+      owner: C4
+      ref: c4:anchor:1
+  expected:
+    valid: true
+- test_id: C1-467
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: RESOLVED
+    targets:
+    - *id011
+    reconstructability: PIT_SAFE
+  expected:
+    valid: false
+- test_id: C1-468
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: RESOLVED
+    targets:
+    - *id011
+    reconstructability: PIT_SAFE
+    temporal_result_ref:
+      owner: C4
+      ref: c4:result:1
+    resolution_state: NON_PIT_CURRENT_ONLY
+  expected:
+    valid: false
+- test_id: C1-472
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionQuery
+  instance:
+    scheme_ref: *id012
+    raw_value: ABC
+    mode: CURRENT_ONLY
+    available_from: '2026-01-01T00:00:00Z'
+  expected:
+    valid: false
+- test_id: C1-473
+  validator: json_schema_2020_12
+  schema_def: IdentityGraphResult
+  instance:
+    mode: CURRENT
+    active_identity_nodes: &id015
+    - *id009
+    active_relation_edges: &id016
+    - *id013
+    visible_nonactive_assertions: &id017
+    - *id014
+    reconstructability: PIT_UNVERIFIED
+  expected:
+    valid: false
+- test_id: C1-474
+  validator: json_schema_2020_12
+  schema_def: IdentityGraphResult
+  instance:
+    mode: HISTORICAL
+    active_identity_nodes:
+    - *id009
+    active_relation_edges:
+    - *id013
+    visible_nonactive_assertions:
+    - *id014
+    reconstructability: PIT_SAFE
+  expected:
+    valid: false
+- test_id: C1-475
+  validator: json_schema_2020_12
+  schema_def: IdentityGraphResult
+  instance:
+    mode: CURRENT
+    active_identity_nodes: *id015
+    active_relation_edges: *id016
+    visible_nonactive_assertions: *id017
+    reconstructability: PIT_UNVERIFIED
+    result_anchor_ref: &id018
+      owner: C4
+      ref: c4:anchor:g
+  expected:
+    valid: true
+- test_id: C1-477
+  validator: json_schema_2020_12
+  schema_def: IdentityGraphEdge
+  instance: *id013
+  expected:
+    valid: true
+- test_id: C1-478
+  validator: json_schema_2020_12
+  schema_def: VisibleNonActiveAssertion
+  instance: *id014
+  expected:
+    valid: true
+- test_id: C1-479
+  validator: json_schema_2020_12
+  schema_def: IdentityGraphResult
+  instance:
+    mode: CURRENT
+    active_identity_nodes: *id015
+    active_relation_edges: *id016
+    visible_nonactive_assertions: *id017
+    reconstructability: PIT_UNVERIFIED
+    result_anchor_ref: *id018
+    available_from: '2026-01-01T00:00:00Z'
+  expected:
+    valid: false
+- test_id: C1-480
+  validator: json_schema_2020_12
+  schema_def: IdentityGraphResult
+  instance:
+    mode: CURRENT
+    active_identity_nodes: *id015
+    active_relation_edges: *id016
+    visible_nonactive_assertions: *id017
+    reconstructability: MAGIC
+    result_anchor_ref: *id018
+  expected:
+    valid: false
+- test_id: C1-487
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref: &id019
+      artifact_type: C1_SCHEMA
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id019
+    syntax_validation_profile_ref: *id019
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref: *id019
+    exactness_certification_status: UNVERIFIED
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: false
+- test_id: C1-488
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref: *id019
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id019
+    syntax_validation_profile_ref: *id019
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref: *id019
+    exactness_certification_status: CERTIFIED
+    release_validation_ref: &id020
+      owner: C12
+      ref: c12:release-validation:1
+      content_ref: sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: false
+- test_id: C1-489
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref: *id019
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id019
+    syntax_validation_profile_ref: *id019
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref: *id019
+    exactness_certification_status: CERTIFIED
+    certification_ref: *id019
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: false
+- test_id: C1-490
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref: *id019
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id019
+    syntax_validation_profile_ref: *id019
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref: *id019
+    exactness_certification_status: CERTIFIED
+    certification_ref: *id019
+    release_validation_ref: *id020
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: true
+- test_id: C1-491
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref: *id019
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id019
+    syntax_validation_profile_ref: *id019
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: ABSTRACT_PARENT
+    parent_scheme_ref: *id019
+    exactness_certification_status: CERTIFIED
+    certification_ref: *id019
+    release_validation_ref: *id020
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: false
+- test_id: C1-492
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref: *id019
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id019
+    syntax_validation_profile_ref: *id019
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref: *id019
+    exactness_certification_status: CERTIFIED
+    certification_ref: *id019
+    release_validation_ref: *id020
+    exact_resolution_allowed: true
+    grouping_only: true
+    identity_validation_required: true
+  expected:
+    valid: false
+- test_id: C1-493
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref: *id019
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id019
+    syntax_validation_profile_ref: *id019
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref: *id019
+    exactness_certification_status: UNVERIFIED
+    exact_resolution_allowed: false
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: true
+- test_id: C1-494
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQUITY
+    governance_ref: *id019
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - LISTING
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id019
+    syntax_validation_profile_ref: *id019
+    required_context_fields:
+    - venue_id
+    - security_type
+    profile_kind: CONCRETE_CERTIFIED
+    parent_scheme_ref: *id019
+    exactness_certification_status: CERTIFIED
+    certification_ref: *id019
+    release_validation_ref: *id020
+    exact_resolution_allowed: false
+    grouping_only: false
+    identity_validation_required: true
+  expected:
+    valid: true
+- test_id: C1-496
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: RESOLVED
+    targets: []
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref: &id021
+      owner: C4
+      ref: c4:anchor:1
+  expected:
+    valid: false
+- test_id: C1-497
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    - kind: ENTITY
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref: *id021
+  expected:
+    valid: false
+- test_id: C1-498
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref: *id021
+  expected:
+    valid: true
+- test_id: C1-499
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: NO_MATCH
+    targets:
+    - kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref: *id021
+  expected:
+    valid: false
+- test_id: C1-500
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: NO_MATCH
+    targets: []
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref: *id021
+  expected:
+    valid: true
+- test_id: C1-501
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: RESOLVED
+    targets: []
+    reconstructability: PIT_SAFE
+    temporal_result_ref: *id021
+  expected:
+    valid: false
+- test_id: C1-502
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    - kind: ENTITY
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    reconstructability: PIT_SAFE
+    temporal_result_ref: *id021
+  expected:
+    valid: false
+- test_id: C1-503
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: ENTITY
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    reconstructability: PIT_SAFE
+    temporal_result_ref: *id021
+  expected:
+    valid: true
+- test_id: C1-504
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: NO_MATCH
+    targets: []
+    reconstructability: PIT_SAFE
+    temporal_result_ref: *id021
+  expected:
+    valid: true
+- test_id: C1-506
+  validator: json_schema_2020_12
+  schema_def: ValidatedProviderObservationEnvelope
+  instance:
+    provider_operation_ref: &id023
+      owner: C2
+      ref: c2:op:1
+    provider_capability_ref: &id022
+      owner: C2
+      ref: c2:sem:1
+      stability_authority_ref: c2:attest:1
+    normalization_profile_ref: *id019
+    source_record_ref: &id024
+      owner: C2
+      ref: c2:row:1
+    observations:
+    - observation_kind: IDENTITY_DESCRIPTOR_OBSERVATION
+      semantic_fields:
+        name: X
+      provider_field_semantic_refs:
+      - *id022
+    c2_operation_status: SUCCESS
+    c2_data_outcome: NO_DATA
+  expected:
+    valid: false
+- test_id: C1-507
+  validator: json_schema_2020_12
+  schema_def: ValidatedProviderObservationEnvelope
+  instance:
+    provider_operation_ref: *id023
+    provider_capability_ref: *id022
+    normalization_profile_ref: *id019
+    source_record_ref: *id024
+    observations: []
+    c2_operation_status: SUCCESS
+    c2_data_outcome: NO_DATA
+  expected:
+    valid: true
+- test_id: C1-508
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: FAILED
+      provider_data_outcome: NO_DATA
+      normalization_outcome: NOT_RUN
+      resolution_outcome: NOT_APPLICABLE
+      reconstructability: PIT_UNVERIFIED
+    candidates:
+    - &id026
+      candidate_kind: IDENTITY_RESOLUTION_CANDIDATE
+      payload:
+        candidate_targets:
+        - kind: ENTITY
+          id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+        resolution_basis_ref: *id019
+        evidence_ref: &id025
+          owner: C5
+          ref: c5:evidence:1
+      replay_lineage:
+        validated_input_ref: *id022
+        source_record_ref: *id024
+        normalization_profile_ref: *id019
+        parent_c1_contract_refs:
+        - sha256:1111111111111111111111111111111111111111111111111111111111111111
+        - sha256:2222222222222222222222222222222222222222222222222222222222222222
+        - sha256:3333333333333333333333333333333333333333333333333333333333333333
+        - sha256:4444444444444444444444444444444444444444444444444444444444444444
+        - sha256:5555555555555555555555555555555555555555555555555555555555555555
+        provider_operation_ref: *id023
+        provider_semantic_capability_refs:
+        - *id022
+        c4_dependency_refs:
+        - *id021
+        c5_dependency_refs:
+        - *id025
+    item_outcomes: []
+    errors: []
+    completeness_dependencies: []
+  expected:
+    valid: false
+- test_id: C1-509
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: CANCELLED
+      provider_data_outcome: NO_DATA
+      normalization_outcome: NOT_RUN
+      resolution_outcome: NOT_APPLICABLE
+      reconstructability: PIT_UNVERIFIED
+    candidates:
+    - *id026
+    item_outcomes: []
+    errors: []
+    completeness_dependencies: []
+  expected:
+    valid: false
+- test_id: C1-510
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: SUCCESS
+      provider_data_outcome: PRESENT
+      normalization_outcome: NOT_RUN
+      resolution_outcome: NOT_APPLICABLE
+      reconstructability: PIT_UNVERIFIED
+    candidates: []
+    item_outcomes:
+    - item_ref: i1
+      normalization_outcome: NOT_RUN
+      candidate_refs: []
+      errors: []
+    errors: []
+    completeness_dependencies: []
+  expected:
+    valid: false
+- test_id: C1-511
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: SUCCESS
+      provider_data_outcome: NO_DATA
+      normalization_outcome: NO_OBSERVATIONS
+      resolution_outcome: NON_EXHAUSTIVE
+      reconstructability: PIT_UNVERIFIED
+    candidates: []
+    item_outcomes: []
+    errors: []
+    completeness_dependencies: []
+  expected:
+    valid: true
+- test_id: C1-512
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: SUCCESS
+      provider_data_outcome: NO_DATA
+      normalization_outcome: NO_OBSERVATIONS
+      resolution_outcome: NO_MATCH
+      reconstructability: PIT_UNVERIFIED
+    candidates: []
+    item_outcomes: []
+    errors: []
+    completeness_dependencies: []
+  expected:
+    valid: false
+- test_id: C1-513
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: SUCCESS
+      provider_data_outcome: NO_DATA
+      normalization_outcome: NO_OBSERVATIONS
+      resolution_outcome: NO_MATCH
+      reconstructability: PIT_UNVERIFIED
+    candidates: []
+    item_outcomes: []
+    errors: []
+    completeness_dependencies:
+    - c2_completeness_ref: *id022
+      required_resolution_scope: scheme=X|namespace=Y
+      temporal_dependency_ref: *id021
+      evidence_dependency_ref: *id025
+    resolution_scope: scheme=X|namespace=Y
+  expected:
+    valid: true
+- test_id: C1-515
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: SUCCESS
+      provider_data_outcome: PARTIAL
+      normalization_outcome: PARTIAL_NORMALIZATION
+      resolution_outcome: NO_MATCH
+      reconstructability: PIT_UNVERIFIED
+    candidates: []
+    item_outcomes:
+    - item_ref: i1
+      normalization_outcome: REJECTED
+      candidate_refs: []
+      errors: []
+    errors: []
+    completeness_dependencies: []
+  expected:
+    valid: false
+- test_id: C1-516
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: SUCCESS
+      provider_data_outcome: PARTIAL
+      normalization_outcome: PARTIAL_NORMALIZATION
+      resolution_outcome: RESOLVED
+      reconstructability: PIT_UNVERIFIED
+    candidates:
+    - *id026
+    item_outcomes:
+    - item_ref: i1
+      normalization_outcome: NORMALIZED
+      candidate_refs:
+      - cand:1
+      errors: []
+    errors: []
+    completeness_dependencies: []
+  expected:
+    valid: true
+- test_id: C1-517
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: SUCCESS
+      provider_data_outcome: PRESENT
+      normalization_outcome: PARTIAL_NORMALIZATION
+      resolution_outcome: NON_EXHAUSTIVE
+      reconstructability: PIT_UNVERIFIED
+    candidates: []
+    item_outcomes: []
+    errors: []
+    completeness_dependencies: []
+  expected:
+    valid: false
+- test_id: C1-518
+  validator: json_schema_2020_12
+  schema_def: ProviderNormalizationResult
+  instance:
+    schema_ref: *id019
+    outcome_axes:
+      provider_operation_status: SUCCESS
+      provider_data_outcome: PRESENT
+      normalization_outcome: NO_OBSERVATIONS
+      resolution_outcome: NON_EXHAUSTIVE
+      reconstructability: PIT_UNVERIFIED
+    candidates:
+    - *id026
+    item_outcomes: []
+    errors: []
+    completeness_dependencies: []
+  expected:
+    valid: false
+- test_id: C1-519
+  validator: json_schema_2020_12
+  schema_def: C1Envelope
+  instance:
+    schema_ref: *id019
+    payload_type: ENTITY
+    payload:
+      raw_provider_object:
+        id: vendor
+  expected:
+    valid: false
+- test_id: C1-520
+  validator: json_schema_2020_12
+  schema_def: DegradationRef
+  instance:
+    owner: C3
+    ref: c3:lkg:1
+  expected:
+    valid: true
+- test_id: C1-524
+  validator: json_schema_2020_12
+  schema_def: RegisteredIdentifierAssignment
+  instance:
+    scheme_ref:
+      artifact_type: C1_SCHEME
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    raw_value: EVT
+    normalized_value: EVT
+    target:
+      kind: CORPORATE_ACTION_EVENT
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    temporal_ref:
+      owner: C4
+      ref: c4:t:1
+    evidence_ref:
+      owner: C5
+      ref: c5:e:1
+    source_ref:
+      owner: C2
+      ref: c2:source:1
+  expected:
+    valid: false
+- test_id: C1-525
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQ
+    governance_ref: &id027
+      artifact_type: C1_SCHEME
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    category: MARKET_SYMBOL
+    allowed_target_kinds:
+    - ENTITY
+    scope_model: VENUE
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id027
+    syntax_validation_profile_ref: *id027
+    required_context_fields:
+    - venue
+    profile_kind: CONCRETE_CERTIFIED
+    exactness_certification_status: CERTIFIED
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+    certification_ref: *id027
+    release_validation_ref:
+      owner: C12
+      ref: c12:release:1
+      content_ref: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  expected:
+    valid: false
+- test_id: C1-526
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQ
+    governance_ref: &id028
+      artifact_type: C1_SCHEME
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    category: PROVIDER_SYMBOL
+    allowed_target_kinds:
+    - INSTRUMENT
+    scope_model: PROVIDER
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id028
+    syntax_validation_profile_ref: *id028
+    required_context_fields:
+    - venue
+    profile_kind: CONCRETE_CERTIFIED
+    exactness_certification_status: CERTIFIED
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+    certification_ref: *id028
+    release_validation_ref:
+      owner: C12
+      ref: c12:release:1
+      content_ref: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  expected:
+    valid: false
+- test_id: C1-529
+  validator: json_schema_2020_12
+  schema_def: SchemeDefinition
+  instance:
+    scheme_id: EXCHANGE_SYMBOL/X/EQ
+    governance_ref: &id029
+      artifact_type: C1_SCHEME
+      content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    category: REGISTERED_IDENTIFIER
+    allowed_target_kinds:
+    - CORPORATE_ACTION_EVENT
+    scope_model: GLOBAL
+    uniqueness_claim: UNIQUE_WITHIN_NAMESPACE
+    mutability_model: REUSABLE
+    normalization_profile_ref: *id029
+    syntax_validation_profile_ref: *id029
+    required_context_fields:
+    - venue
+    profile_kind: CONCRETE_CERTIFIED
+    exactness_certification_status: CERTIFIED
+    exact_resolution_allowed: true
+    grouping_only: false
+    identity_validation_required: true
+    certification_ref: *id029
+    release_validation_ref:
+      owner: C12
+      ref: c12:release:1
+      content_ref: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  expected:
+    valid: false
+- test_id: C1-535
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: LISTING
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    query_binding:
+      query_ref: &id030
+        artifact_type: C1_SCHEME
+        content_ref: sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      expected_target_kind: LISTING
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref: &id031
+      owner: C4
+      ref: c4:anchor:1
+  expected:
+    valid: true
+  note: 'CURRENT_ONLY: expected LISTING, resolved LISTING'
+- test_id: C1-536
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: CONTRACT
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    query_binding:
+      query_ref: *id030
+      expected_target_kind: LISTING
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref: *id031
+  expected:
+    valid: false
+  note: 'CURRENT_ONLY: expected LISTING, resolved CONTRACT'
+- test_id: C1-537
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: LISTING
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    query_binding:
+      query_ref: *id030
+      expected_target_kind: CONTRACT
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref: *id031
+  expected:
+    valid: false
+  note: 'CURRENT_ONLY: expected CONTRACT, resolved LISTING'
+- test_id: C1-538
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: CURRENT_ONLY
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: CONTRACT
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    query_binding:
+      query_ref: *id030
+      expected_target_kind: CONTRACT
+    resolution_state: NON_PIT_CURRENT_ONLY
+    resolution_anchor_ref: *id031
+  expected:
+    valid: true
+  note: 'CURRENT_ONLY: expected CONTRACT, resolved CONTRACT'
+- test_id: C1-539
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: LISTING
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    query_binding:
+      query_ref: *id030
+      expected_target_kind: LISTING
+    reconstructability: PIT_SAFE
+    temporal_result_ref: *id031
+  expected:
+    valid: true
+  note: 'TEMPORAL: expected LISTING, resolved LISTING'
+- test_id: C1-540
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: CONTRACT
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    query_binding:
+      query_ref: *id030
+      expected_target_kind: LISTING
+    reconstructability: PIT_SAFE
+    temporal_result_ref: *id031
+  expected:
+    valid: false
+  note: 'TEMPORAL: expected LISTING, resolved CONTRACT'
+- test_id: C1-541
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: LISTING
+      id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    query_binding:
+      query_ref: *id030
+      expected_target_kind: CONTRACT
+    reconstructability: PIT_SAFE
+    temporal_result_ref: *id031
+  expected:
+    valid: false
+  note: 'TEMPORAL: expected CONTRACT, resolved LISTING'
+- test_id: C1-542
+  validator: json_schema_2020_12
+  schema_def: IdentifierResolutionResult
+  instance:
+    mode: TEMPORAL
+    resolution_outcome: RESOLVED
+    targets:
+    - kind: CONTRACT
+      id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    query_binding:
+      query_ref: *id030
+      expected_target_kind: CONTRACT
+    reconstructability: PIT_SAFE
+    temporal_result_ref: *id031
+  expected:
+    valid: true
+  note: 'TEMPORAL: expected CONTRACT, resolved CONTRACT'
+semantic_vectors:
+- test_id: C1-342
+  validator: semantic_contract_rule
+  area: id semantics
+  given: ticker/provider/MIC/date/name cannot be embedded as prefix/suffix in canonical
+    ID
+  expected: INVALID_CANONICAL_ID_FORMAT
+- test_id: C1-343
+  validator: semantic_contract_rule
+  area: id semantics
+  given: content hash must not be used as canonical object ID
+  expected: schema/type rejection
+- test_id: C1-344
+  validator: semantic_contract_rule
+  area: id continuity
+  given: mutable symbol/name/provider mapping change leaves canonical UUID unchanged
+    where parent identity survives
+  expected: ID preserved
+- test_id: C1-345
+  validator: semantic_contract_rule
+  area: id uniqueness
+  given: fresh allocation collision with existing canonical ID retries before publication
+  expected: retry/no duplicate
+- test_id: C1-346
+  validator: semantic_contract_rule
+  area: id collision
+  given: published duplicate UUID across canonical kinds is hard error
+  expected: CANONICAL_ID_COLLISION
+- test_id: C1-347
+  validator: semantic_contract_rule
+  area: id reuse
+  given: terminated canonical UUID cannot be assigned to a newly created object
+  expected: CANONICAL_ID_REUSE_FORBIDDEN
+- test_id: C1-348
+  validator: semantic_contract_rule
+  area: id allocation
+  given: UUID allocation randomness is not evidence that two observations are same/different
+    governed object
+  expected: identity semantics unchanged
+- test_id: C1-352
+  validator: semantic_contract_rule
+  area: typed ref
+  given: generic CanonicalRef carries kind separately from opaque UUID string
+  expected: round-trip preserves kind
+- test_id: C1-353
+  validator: semantic_contract_rule
+  area: wire
+  given: canonical object parses as UTF-8 JSON and validates under exact schema ref
+  expected: VALID
+- test_id: C1-355
+  validator: semantic_contract_rule
+  area: wire
+  given: schema_ref is mandatory on top-level canonical envelope/result
+  expected: SCHEMA_REF_REQUIRED
+- test_id: C1-356
+  validator: semantic_contract_rule
+  area: wire
+  given: schema_ref must be immutable content address rather than latest alias
+  expected: SCHEMA_REF_NOT_IMMUTABLE
+- test_id: C1-357
+  validator: semantic_contract_rule
+  area: wire
+  given: same valid instance round-trips without changing canonical field semantics
+  expected: round-trip stable
+- test_id: C1-358
+  validator: semantic_contract_rule
+  area: wire
+  given: invalid enum spelling/case is rejected
+  expected: ENUM_VALUE_UNSUPPORTED/schema failure
+- test_id: C1-360
+  validator: semantic_contract_rule
+  area: governance
+  given: human version_label alone cannot identify load-bearing governance artifact
+  expected: GOVERNANCE_REF_REQUIRED
+- test_id: C1-362
+  validator: semantic_contract_rule
+  area: governance
+  given: same JCS semantic object yields same SHA-256 despite JSON member order
+  expected: digest equal
+- test_id: C1-363
+  validator: semantic_contract_rule
+  area: governance
+  given: semantic content change yields different governance digest
+  expected: digest differs
+- test_id: C1-364
+  validator: semantic_contract_rule
+  area: governance
+  given: governance digest is never substituted for canonical Entity/Instrument/etc
+    ID
+  expected: type boundary
+- test_id: C1-366
+  validator: semantic_contract_rule
+  area: scheme certification
+  given: CERTIFIED exactness without content-addressed certification_ref fails
+  expected: GOVERNANCE_REF_REQUIRED/schema failure
+- test_id: C1-368
+  validator: semantic_contract_rule
+  area: scheme certification
+  given: bare string CERTIFIED from input is not authority
+  expected: exactness withheld
+- test_id: C1-369
+  validator: semantic_contract_rule
+  area: scheme certification
+  given: generic EXCHANGE_SYMBOL remains non-exact
+  expected: GROUPING/CONTEXT rule preserved
+- test_id: C1-370
+  validator: semantic_contract_rule
+  area: scheme certification
+  given: generic PROVIDER_SYMBOL remains non-exact
+  expected: PROVIDER symbol exactness withheld
+- test_id: C1-371
+  validator: semantic_contract_rule
+  area: mapping
+  given: RegisteredIdentifierAssignment and SymbolAssignment validate against separate
+    schemas
+  expected: type distinction
+- test_id: C1-373
+  validator: semantic_contract_rule
+  area: mapping
+  given: raw_value and normalized_value are distinct fields
+  expected: raw preserved
+- test_id: C1-374
+  validator: semantic_contract_rule
+  area: mapping
+  given: scheme content reference is required; lexical shape cannot select scheme
+  expected: UNSUPPORTED_IDENTIFIER_SCHEME/SCHEME_CONTEXT_REQUIRED
+- test_id: C1-375
+  validator: semantic_contract_rule
+  area: mapping
+  given: ambiguous symbol context remains AMBIGUOUS rather than rank-selected
+  expected: IDENTIFIER_AMBIGUOUS
+- test_id: C1-376
+  validator: semantic_contract_rule
+  area: mapping
+  given: CONFLICT remains distinct from AMBIGUOUS and requires C5
+  expected: IDENTIFIER_CONFLICT/CONFLICT_REQUIRES_C5
+- test_id: C1-377
+  validator: semantic_contract_rule
+  area: mapping
+  given: historical/current temporal linkage remains through opaque C4 refs
+  expected: C4 boundary preserved
+- test_id: C1-379
+  validator: semantic_contract_rule
+  area: admission
+  given: ContractVenueAdmission same-parent-Instrument mismatch remains semantic hard
+    failure
+  expected: CONTRACT_ADMISSION_INSTRUMENT_MISMATCH
+- test_id: C1-383
+  validator: semantic_contract_rule
+  area: effect
+  given: PROJECTED and REALIZED serialize as separate exact values
+  expected: axis preserved
+- test_id: C1-384
+  validator: semantic_contract_rule
+  area: effect
+  given: PROJECTED effect cannot be represented as active merely by C5 verification
+    ref
+  expected: no activation
+- test_id: C1-385
+  validator: semantic_contract_rule
+  area: effect
+  given: successor relation requires second endpoint and fixed roles/direction
+  expected: typed relation
+- test_id: C1-386
+  validator: semantic_contract_rule
+  area: effect
+  given: cross-kind successor remains invalid
+  expected: RELATION_ENDPOINT_KIND_MISMATCH
+- test_id: C1-388
+  validator: semantic_contract_rule
+  area: effect
+  given: spin-off Entity->Instrument cross-kind fails
+  expected: RELATION_ENDPOINT_KIND_MISMATCH
+- test_id: C1-390
+  validator: semantic_contract_rule
+  area: temporal
+  given: IdentityGraphQuery carries C4 temporal_intent_ref rather than local available_from
+  expected: C4 authority preserved
+- test_id: C1-392
+  validator: semantic_contract_rule
+  area: temporal
+  given: projection enum keeps active graph and visible overlay distinct
+  expected: axis preserved
+- test_id: C1-393
+  validator: semantic_contract_rule
+  area: temporal
+  given: reconstructability exact enum includes PIT_SAFE/PIT_UNVERIFIED/UNRECONSTRUCTABLE
+  expected: enum preserved
+- test_id: C1-394
+  validator: semantic_contract_rule
+  area: temporal
+  given: CURRENT result anchor is C4-owned and not serialized as available_from
+  expected: current anchor boundary
+- test_id: C1-395
+  validator: semantic_contract_rule
+  area: temporal
+  given: C1 schema does not serialize a competing local as_of/effective timestamp
+    in graph query
+  expected: no C4 takeover
+- test_id: C1-396
+  validator: semantic_contract_rule
+  area: temporal
+  given: causal T/S validity remains referenced to C4; schema cannot make S>T causal
+  expected: C1.04R1 semantics preserved
+- test_id: C1-398
+  validator: semantic_contract_rule
+  area: outcome axes
+  given: provider CANCELLED serializes normalization NOT_RUN and resolution NOT_APPLICABLE
+  expected: orthogonal fail-loud
+- test_id: C1-400
+  validator: semantic_contract_rule
+  area: outcome axes
+  given: SUCCESS+PARTIAL remains distinct from PARTIAL_NORMALIZATION
+  expected: provider/data vs normalization axes distinct
+- test_id: C1-401
+  validator: semantic_contract_rule
+  area: outcome axes
+  given: AMBIGUOUS and CONFLICT remain distinct resolution values
+  expected: distinct
+- test_id: C1-402
+  validator: semantic_contract_rule
+  area: outcome axes
+  given: C5 verification/conflict is carried by opaque ref, not merged into resolution
+    enum
+  expected: C5 boundary
+- test_id: C1-403
+  validator: semantic_contract_rule
+  area: outcome axes
+  given: flat generic success/empty status replacing orthogonal axes is invalid schema
+  expected: AXIS_COLLAPSE_FORBIDDEN
+- test_id: C1-406
+  validator: semantic_contract_rule
+  area: foreign refs
+  given: snapshot-stable C2 wrapper does not define C2 internal schema
+  expected: ownership preserved
+- test_id: C1-407
+  validator: semantic_contract_rule
+  area: completeness
+  given: absence-based exactness uses snapshot-stable completeness ref
+  expected: dependency required
+- test_id: C1-408
+  validator: semantic_contract_rule
+  area: completeness
+  given: floating completeness ref cannot support NO_MATCH/uniqueness
+  expected: UNSTABLE_FOREIGN_SEMANTIC_REFERENCE
+- test_id: C1-410
+  validator: semantic_contract_rule
+  area: replay lineage
+  given: materialized candidate missing exact normalization profile ref fails
+  expected: REPLAY_LINEAGE_REQUIRED/schema failure
+- test_id: C1-411
+  validator: semantic_contract_rule
+  area: replay lineage
+  given: materialized candidate missing exact parent C1 refs fails
+  expected: REPLAY_LINEAGE_REQUIRED/schema failure
+- test_id: C1-412
+  validator: semantic_contract_rule
+  area: replay lineage
+  given: materialized candidate missing load-bearing provider semantic/capability
+    refs fails
+  expected: REPLAY_LINEAGE_REQUIRED/schema failure
+- test_id: C1-413
+  validator: semantic_contract_rule
+  area: replay lineage
+  given: partial batch materialization must retain item/batch context
+  expected: REPLAY_LINEAGE_REQUIRED when partial
+- test_id: C1-414
+  validator: semantic_contract_rule
+  area: replay lineage
+  given: material degradation/fallback path must retain degradation ref
+  expected: DEGRADATION_PROVENANCE_REQUIRED
+- test_id: C1-417
+  validator: semantic_contract_rule
+  area: raw firewall
+  given: provider-native ID string cannot satisfy canonical UUIDv4 field unless independently
+    adopted C1 UUID
+  expected: PROVIDER_NATIVE_ID_NOT_CANONICAL
+- test_id: C1-418
+  validator: semantic_contract_rule
+  area: raw firewall
+  given: retained raw reference cannot bypass normalized candidate type validation
+  expected: canonical firewall
+- test_id: C1-419
+  validator: semantic_contract_rule
+  area: errors
+  given: error code comes from closed machine registry
+  expected: machine distinguishable
+- test_id: C1-421
+  validator: semantic_contract_rule
+  area: errors
+  given: human message text does not determine machine code
+  expected: code authoritative
+- test_id: C1-423
+  validator: semantic_contract_rule
+  area: partial batch
+  given: mixed valid/invalid normalization exposes item_outcomes plus batch PARTIAL_NORMALIZATION
+  expected: partial explicit
+- test_id: C1-424
+  validator: semantic_contract_rule
+  area: partial batch
+  given: failed item omission cannot be serialized as replay-safe full success
+  expected: REPLAY_LINEAGE_REQUIRED/invalid
+- test_id: C1-425
+  validator: semantic_contract_rule
+  area: partial batch
+  given: partial output never implies exhaustive provider universe
+  expected: NON_EXHAUSTIVE unless separately proven
+- test_id: C1-426
+  validator: semantic_contract_rule
+  area: determinism
+  given: set-semantic candidate arrays order by SHA-256(JCS(member)), independent
+    of transport order
+  expected: deterministic equal materialization
+- test_id: C1-427
+  validator: semantic_contract_rule
+  area: determinism
+  given: ordering digest is not used as canonical object identity
+  expected: identity unchanged
+- test_id: C1-428
+  validator: semantic_contract_rule
+  area: contract tests
+  given: every C1.06 decision has >=1 mapped C1-338..430 obligation and every new
+    obligation is mapped
+  expected: 100% traceability
+- test_id: C1-429
+  validator: semantic_contract_rule
+  area: contract tests
+  given: inherited C1-001..337 are referenced as immutable regression parents rather
+    than silently rewritten
+  expected: parent suite preserved
+- test_id: C1-430
+  validator: semantic_contract_rule
+  area: gate
+  given: C1.OPEN-010 marked RESOLVED_CANDIDATE_C1_06; production implementation remains
+    unauthorized pending independent review
+  expected: gate enforced
+- test_id: C1-437
+  validator: semantic_contract_rule
+  area: envelope coverage
+  given: every declared C1Envelope payload_type maps to exactly one payload schema
+    branch
+  expected: exhaustive one-to-one discriminator map
+- test_id: C1-438
+  validator: semantic_contract_rule
+  area: candidate coverage
+  given: every declared NormalizedCandidate candidate_kind maps to exactly one candidate
+    payload schema branch
+  expected: exhaustive one-to-one discriminator map
+- test_id: C1-443
+  validator: semantic_contract_rule
+  area: C12 certification
+  given: syntactically valid self-supplied C12-looking ref cannot be trusted unless
+    resolved through trusted C12 release root
+  expected: C12_RELEASE_VALIDATION_UNVERIFIED
+- test_id: C1-444
+  validator: semantic_contract_rule
+  area: C12 boundary
+  given: C1 schema requires only opaque C12 authority binding and does not define
+    C12 release/promotion internals
+  expected: ownership preserved
+- test_id: C1-451
+  validator: semantic_contract_rule
+  area: foreign refs
+  given: owner-specific load-bearing fields do not fall back to generic OpaqueForeignRef
+  expected: typed ownership boundary
+- test_id: C1-462
+  validator: semantic_contract_rule
+  area: identity relation cardinality
+  given: issued Instrument requires applicable issuer/obligor/vehicle relation; reference
+    Instrument may use sponsor/admin and must not invent issuer
+  expected: C1.01R1 cardinality hooks preserved
+- test_id: C1-469
+  validator: semantic_contract_rule
+  area: identifier resolution result
+  given: CURRENT_ONLY resolution_anchor_ref is reproducibility anchor, not historical/PIT
+    evidence
+  expected: CURRENT_ANCHOR_NOT_HISTORICAL_EVIDENCE
+- test_id: C1-470
+  validator: semantic_contract_rule
+  area: identifier resolution outcome
+  given: AMBIGUOUS and CONFLICT remain distinct outcomes; conflict remains C5-adjudicated
+  expected: distinct / CONFLICT_REQUIRES_C5
+- test_id: C1-471
+  validator: semantic_contract_rule
+  area: identifier resolution failure
+  given: upstream/provider failure remains UPSTREAM_FAILURE and cannot become NO_MATCH
+  expected: fail-loud preserved
+- test_id: C1-476
+  validator: semantic_contract_rule
+  area: graph overlay
+  given: presence in visible_nonactive_assertions alone cannot mutate active canonical
+    graph
+  expected: overlay non-mutating
+- test_id: C1-481
+  validator: semantic_contract_rule
+  area: regression authority
+  given: content-addressed inherited manifest segments cover C1-001..337 gaplessly
+    with no overlap
+  expected: 337/337 resolvable
+- test_id: C1-482
+  validator: semantic_contract_rule
+  area: regression authority
+  given: each inherited segment pins exact trusted parent SHA-256 and range ownership
+  expected: hash/range authority complete
+- test_id: C1-483
+  validator: semantic_contract_rule
+  area: regression authority
+  given: inherited regression authority manifest itself is content-addressed and immutable
+  expected: manifest identity fixed
+- test_id: C1-484
+  validator: semantic_contract_rule
+  area: R1 regression
+  given: base C1-338..430 acceptance rows remain byte-identical to failed C1.06 candidate
+    while R1 tests append after 430
+  expected: base suite preserved
+- test_id: C1-485
+  validator: semantic_contract_rule
+  area: R1 traceability
+  given: combined inherited C1-001..337 + preserved base C1-338..430 + R1 C1-431..486
+    is deterministically resolvable and all new obligations map to decisions/vectors
+  expected: complete traceability
+- test_id: C1-486
+  validator: semantic_contract_rule
+  area: gate
+  given: C1.OPEN-010 remains candidate-resolved but not closed until C1.06R1 independent
+    PASS; downstream and production implementation remain unauthorized
+  expected: gate enforced
+- test_id: C1-495
+  validator: semantic_contract_rule
+  area: exactness authority
+  given: A structurally valid C12ReleaseValidationRef is necessary but authority is
+    resolved only through trusted C12 root; C1 must not infer release truth from digest
+    syntax.
+  expected: C12 ownership preserved
+- test_id: C1-505
+  validator: semantic_contract_rule
+  area: resolution cardinality
+  given: AMBIGUOUS and CONFLICT candidate sets remain typed non-resolved outcomes;
+    list ordering must not promote either to RESOLVED.
+  expected: no silent collapse
+- test_id: C1-514
+  validator: semantic_contract_rule
+  area: completeness scope
+  given: ProviderNormalizationResult resolution_scope differs from every completeness
+    dependency required_resolution_scope.
+  expected: COMPLETENESS_SCOPE_MISMATCH
+- test_id: C1-521
+  validator: semantic_contract_rule
+  area: regression authority
+  given: Resolve the R2 inherited manifest segments and verify C1-001..C1-486 exactly
+    once with no gap/overlap.
+  expected: 486/486
+- test_id: C1-522
+  validator: semantic_contract_rule
+  area: regression preservation
+  given: Compare R1 C1-338..C1-486 acceptance rows and C1.DEC-142..168 blocks to R2
+    parent portion.
+  expected: unchanged
+- test_id: C1-523
+  validator: semantic_contract_rule
+  area: governance gate
+  given: R2 construction completes before independent re-check.
+  expected: C1.OPEN-010 not closed; no downstream/implementation
+- test_id: C1-527
+  validator: semantic_contract_rule
+  area: mapping scheme/result compatibility
+  given: IdentifierResolutionResult resolved target kind is evaluated against the
+    exact content-addressed SchemeDefinition identified by the associated query/binding.
+  expected: resolved target kind MUST be in SchemeDefinition.allowed_target_kinds
+    and within that category family; otherwise TARGET_KIND_MISMATCH
+- test_id: C1-528
+  validator: semantic_contract_rule
+  area: mapping scheme/result mismatch negative
+  given: MARKET_SYMBOL SchemeDefinition allows LISTING only, while exact IdentifierResolutionResult
+    carries INSTRUMENT target.
+  expected: TARGET_KIND_MISMATCH; result cannot be exact RESOLVED
+- test_id: C1-530
+  validator: governance_contract_rule
+  area: integrated schema parent
+  given: R4 full machine schema is constructed from exact R2 schema sha256:f14188de8d5aaa6904fd241d6502a66943d8b780278d67bdf53bec8eb7f421a0
+    plus narrow B06 changes.
+  expected: exact parent pin present; no disconnected annotation-only schema
+- test_id: C1-531
+  validator: governance_contract_rule
+  area: executable vectors
+  given: C1-524..526 and C1-529 contain schema_def + instance + expected; C1-527/528
+    are named semantic vectors.
+  expected: all new test obligations are independently executable or have an explicit
+    semantic validator contract
+- test_id: C1-532
+  validator: governance_contract_rule
+  area: decision traceability
+  given: Every R4 decision maps required_tests and every C1-524..534 obligation is
+    mapped.
+  expected: 100% mapped; zero unmapped
+- test_id: C1-533
+  validator: governance_contract_rule
+  area: inherited regression authority
+  given: Inherited authority resolves C1-001..C1-523 using exact content-addressed
+    parent acceptance artifacts.
+  expected: 523/523 gapless, zero overlaps
+- test_id: C1-534
+  validator: governance_contract_rule
+  area: independent handoff self-resolution
+  given: Independent handoff includes exact R2 parent schema/tests/selection/authority
+    and R4 selected targets/selection/manifest.
+  expected: package self-resolving for R4 review; older external parents remain exact
+    content-addressed refs
+- test_id: C1-543
+  validator: semantic_contract_rule
+  area: query/result binding authenticity
+  given: Result query_binding references the exact source IdentifierResolutionQuery.
+  expected: If source query supplied expected_target_kind, binding must carry the
+    same value; mismatch/omission invalid.
+- test_id: C1-544
+  validator: semantic_contract_rule
+  area: non-resolved candidate discipline
+  given: AMBIGUOUS/CONFLICT may surface candidates while source query supplied expected_target_kind.
+  expected: Out-of-expected-kind candidates cannot be promoted to RESOLVED.
+- test_id: C1-545
+  validator: governance_contract_rule
+  area: orthogonal target guards
+  given: SchemeDefinition.allowed_target_kinds and query.expected_target_kind both
+    exist.
+  expected: Both guards remain mandatory.
+- test_id: C1-546
+  validator: C1.SEM.SUCCESSOR_DISTINCT_ENDPOINTS
+  input_schema_def: SuccessorDistinctEndpointValidationInput
+  instance:
+    effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target:
+        kind: ENTITY
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      target_role: PREDECESSOR
+      related_target:
+        kind: ENTITY
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: &id032
+        owner: C4
+        ref: c4:r1:b
+      evidence_ref: &id033
+        owner: C5
+        ref: c5:r1:evidence
+  expected:
+    valid: true
+- test_id: C1-547
+  validator: C1.SEM.SUCCESSOR_DISTINCT_ENDPOINTS
+  input_schema_def: SuccessorDistinctEndpointValidationInput
+  instance:
+    effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target:
+        kind: ENTITY
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      target_role: PREDECESSOR
+      related_target:
+        kind: ENTITY
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: *id032
+      evidence_ref: *id033
+  expected:
+    valid: false
+    error_code: PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN
+- test_id: C1-548
+  validator: C1.SEM.SUCCESSOR_DISTINCT_ENDPOINTS
+  input_schema_def: SuccessorDistinctEndpointValidationInput
+  instance:
+    effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      target_role: PREDECESSOR
+      related_target:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: *id032
+      evidence_ref: *id033
+  expected:
+    valid: false
+    error_code: PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN
+  note: Same invariant applies when SuccessorEffect is carried through IdentityEffectAssertion.
+- test_id: C1-549
+  validator: C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT
+  input_schema_def: ContractParentKindValidationInput
+  instance:
+    contract_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    parent_instrument_record:
+      ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      instrument_kind: DERIVATIVE_PRODUCT
+  expected:
+    valid: true
+- test_id: C1-550
+  validator: C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT
+  input_schema_def: ContractParentKindValidationInput
+  instance:
+    contract_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    parent_instrument_record:
+      ref:
+        kind: INSTRUMENT
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+      instrument_kind: DERIVATIVE_PRODUCT
+  expected:
+    valid: false
+    error_code: CONTRACT_PARENT_INSTRUMENT_REFERENCE_MISMATCH
+- test_id: C1-551
+  validator: C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT
+  input_schema_def: ContractParentKindValidationInput
+  instance:
+    contract_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    parent_instrument_record:
+      ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      instrument_kind: EQUITY_SHARE_CLASS
+  expected:
+    valid: false
+    error_code: CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH
+  note: Contract parent kind EQUITY_SHARE_CLASS is forbidden.
+- test_id: C1-552
+  validator: C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT
+  input_schema_def: ContractParentKindValidationInput
+  instance:
+    contract_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    parent_instrument_record:
+      ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      instrument_kind: FUND_SHARE_CLASS
+  expected:
+    valid: false
+    error_code: CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH
+  note: Contract parent kind FUND_SHARE_CLASS is forbidden.
+- test_id: C1-553
+  validator: C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT
+  input_schema_def: ContractParentKindValidationInput
+  instance:
+    contract_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    parent_instrument_record:
+      ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      instrument_kind: DEBT_SECURITY
+  expected:
+    valid: false
+    error_code: CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH
+  note: Contract parent kind DEBT_SECURITY is forbidden.
+- test_id: C1-554
+  validator: C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT
+  input_schema_def: ContractParentKindValidationInput
+  instance:
+    contract_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    parent_instrument_record:
+      ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      instrument_kind: DEPOSITARY_RECEIPT
+  expected:
+    valid: false
+    error_code: CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH
+  note: Contract parent kind DEPOSITARY_RECEIPT is forbidden.
+- test_id: C1-555
+  validator: C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT
+  input_schema_def: ContractParentKindValidationInput
+  instance:
+    contract_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    parent_instrument_record:
+      ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      instrument_kind: INDEX_REFERENCE
+  expected:
+    valid: false
+    error_code: CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH
+  note: Contract parent kind INDEX_REFERENCE is forbidden.
+- test_id: C1-556
+  validator: C1.SEM.CONTRACT_PARENT_IMMUTABLE
+  input_schema_def: ContractParentTransitionValidationInput
+  instance:
+    before_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    after_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+  expected:
+    valid: true
+- test_id: C1-557
+  validator: C1.SEM.CONTRACT_PARENT_IMMUTABLE
+  input_schema_def: ContractParentTransitionValidationInput
+  instance:
+    before_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+    after_record:
+      ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      parent_instrument_ref:
+        kind: INSTRUMENT
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+  expected:
+    valid: false
+    error_code: CONTRACT_INSTRUMENT_REPARENT_FORBIDDEN
+- test_id: C1-558
+  validator: C1.SEM.LISTING_PARENT_IMMUTABLE
+  input_schema_def: ListingParentTransitionValidationInput
+  instance:
+    before_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    after_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+  expected:
+    valid: true
+- test_id: C1-559
+  validator: C1.SEM.LISTING_PARENT_IMMUTABLE
+  input_schema_def: ListingParentTransitionValidationInput
+  instance:
+    before_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+    after_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+      venue_ref:
+        kind: VENUE
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+  expected:
+    valid: false
+    error_code: LISTING_REPARENT_FORBIDDEN
+- test_id: C1-560
+  validator: C1.SEM.CANONICAL_REPLACEMENT_PACKAGE
+  input_schema_def: CanonicalReplacementValidationInput
+  instance:
+    old_ref: &id034
+      kind: CONTRACT
+      id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+    new_ref: &id035
+      kind: CONTRACT
+      id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+    termination_effect:
+      effect_type: TERMINATE_IDENTITY
+      effect_state: REALIZED
+      target: *id034
+      temporal_ref: &id036
+        owner: C4
+        ref: c4:r1:a
+      evidence_ref: *id033
+    creation_effect:
+      effect_type: CREATE_IDENTITY
+      effect_state: REALIZED
+      target: *id035
+      temporal_ref: *id032
+      evidence_ref: *id033
+    successor_effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target: *id034
+      target_role: PREDECESSOR
+      related_target: *id035
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: *id032
+      evidence_ref: *id033
+  expected:
+    valid: true
+- test_id: C1-561
+  validator: C1.SEM.CANONICAL_REPLACEMENT_PACKAGE
+  input_schema_def: CanonicalReplacementValidationInput
+  instance:
+    old_ref: *id034
+    new_ref: *id034
+    termination_effect:
+      effect_type: TERMINATE_IDENTITY
+      effect_state: REALIZED
+      target: *id034
+      temporal_ref: *id036
+      evidence_ref: *id033
+    creation_effect:
+      effect_type: CREATE_IDENTITY
+      effect_state: REALIZED
+      target: *id034
+      temporal_ref: *id032
+      evidence_ref: *id033
+    successor_effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target: *id034
+      target_role: PREDECESSOR
+      related_target: *id034
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: *id032
+      evidence_ref: *id033
+  expected:
+    valid: false
+    error_code: CANONICAL_ID_REUSE_FORBIDDEN
+- test_id: C1-562
+  validator: C1.SEM.CURRENT_PIT_SAFE_HISTORICAL_REUSE
+  input_schema_def: CurrentPitSafeHistoricalReuseValidationInput
+  classification: NON_BLOCKING_HARDENING
+  instance:
+    current_result:
+      mode: CURRENT
+      active_identity_nodes: []
+      active_relation_edges: []
+      visible_nonactive_assertions: []
+      reconstructability: PIT_SAFE
+      result_anchor_ref: *id036
+    historical_reuse_requested: true
+  expected:
+    valid: false
+    error_code: CURRENT_ANCHOR_NOT_HISTORICAL_EVIDENCE
+- test_id: C1-563
+  validator: C1.SEM.CURRENT_PIT_SAFE_HISTORICAL_REUSE
+  input_schema_def: CurrentPitSafeHistoricalReuseValidationInput
+  classification: NON_BLOCKING_HARDENING
+  instance:
+    current_result:
+      mode: CURRENT
+      active_identity_nodes: []
+      active_relation_edges: []
+      visible_nonactive_assertions: []
+      reconstructability: PIT_SAFE
+      result_anchor_ref: *id036
+    historical_reuse_requested: true
+    c4_reconstruction_equivalence_ref: *id032
+  expected:
+    valid: true
+- test_id: C1-564
+  validator: C1.SEM.ACTIVE_CONTRACT_VENUE_ADMISSION_UNIQUENESS
+  input_schema_def: ActiveContractVenueAdmissionSetValidationInput
+  classification: NON_BLOCKING_HARDENING
+  instance:
+    state_ref: *id032
+    active_admissions:
+    - contract_ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      listing_ref:
+        kind: LISTING
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      temporal_ref: *id036
+      evidence_ref: *id033
+    - contract_ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      listing_ref:
+        kind: LISTING
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      temporal_ref: *id032
+      evidence_ref: *id033
+  expected:
+    valid: false
+    error_code: DUPLICATE_CONTRACT_VENUE_ADMISSION
+- test_id: C1-565
+  validator: C1.SEM.ACTIVE_CONTRACT_VENUE_ADMISSION_UNIQUENESS
+  input_schema_def: ActiveContractVenueAdmissionSetValidationInput
+  classification: NON_BLOCKING_HARDENING
+  instance:
+    state_ref: *id032
+    active_admissions:
+    - contract_ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      listing_ref:
+        kind: LISTING
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      temporal_ref: *id036
+      evidence_ref: *id033
+    - contract_ref:
+        kind: CONTRACT
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      listing_ref:
+        kind: LISTING
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+      temporal_ref: *id032
+      evidence_ref: *id033
+  expected:
+    valid: true
+- test_id: C1-566
+  validator: governance_contract_rule
+  area: schema regression
+  given: Independently execute every inherited R5 JSON-Schema vector against the R1
+    full schema.
+  expected: 112/112 inherited R5 schema vectors unchanged and passing
+- test_id: C1-567
+  validator: governance_contract_rule
+  area: closed blocker regression
+  given: Re-attack closed C1SCHEMA-B01..B07 surfaces after R1 additions.
+  expected: all remain closed
+- test_id: C1-568
+  validator: governance_contract_rule
+  area: inherited authority
+  given: Resolve inherited regression authority through exact R5 acceptance C1-535..545.
+  expected: C1-001..C1-545 exactly once, zero gaps/overlaps
+- test_id: C1-569
+  validator: governance_contract_rule
+  area: decision traceability
+  given: Every C1-546..C1-570 R1 obligation is mapped by an R1 decision.
+  expected: 25/25 mapped, zero unmapped
+- test_id: C1-570
+  validator: governance_contract_rule
+  area: stage gate
+  given: C1.07R1 construction completes without self-approval.
+  expected: C1RT-B01/B02/B03 remain ADDRESSED_NOT_CLOSED; C1.OPEN-010 stays CLOSED;
+    C1 overall is not freeze-eligible; next gate is C1.07R1 Independent Regression
+    Re-Check; production implementation not authorized
+- test_id: C1-571
+  validator: C1.SEM.LISTING_PARENT_IMMUTABLE
+  input_schema_def: ListingParentTransitionValidationInput
+  instance:
+    before_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+    after_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+  expected:
+    valid: true
+- test_id: C1-572
+  validator: C1.SEM.LISTING_PARENT_IMMUTABLE
+  input_schema_def: ListingParentTransitionValidationInput
+  instance:
+    before_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+    after_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: bf9619ff-8b86-4e70-a4d3-0f1e7f6a6666
+  expected:
+    valid: false
+    error_code: LISTING_VENUE_REPARENT_FORBIDDEN
+- test_id: C1-573
+  validator: C1.SEM.LISTING_PARENT_IMMUTABLE
+  input_schema_def: ListingParentTransitionValidationInput
+  instance:
+    before_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+    after_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+  expected:
+    valid: false
+    error_code: LISTING_REPARENT_FORBIDDEN
+- test_id: C1-574
+  validator: C1.SEM.LISTING_VENUE_TRANSFER_PACKAGE
+  input_schema_def: ListingVenueTransferValidationInput
+  instance:
+    old_listing_record: &id041
+      ref: &id037
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+    new_listing_record: &id043
+      ref: &id038
+        kind: LISTING
+        id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: bf9619ff-8b86-4e70-a4d3-0f1e7f6a6666
+    termination_effect:
+      effect_type: TERMINATE_IDENTITY
+      effect_state: REALIZED
+      target: *id037
+      temporal_ref: &id042
+        owner: C4
+        ref: c4:r2:a
+      evidence_ref: &id039
+        owner: C5
+        ref: c5:r2:evidence
+    creation_effect:
+      effect_type: CREATE_IDENTITY
+      effect_state: REALIZED
+      target: *id038
+      temporal_ref: &id040
+        owner: C4
+        ref: c4:r2:b
+      evidence_ref: *id039
+    successor_effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target: *id037
+      target_role: PREDECESSOR
+      related_target: *id038
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: *id040
+      evidence_ref: *id039
+  expected:
+    valid: true
+- test_id: C1-575
+  validator: C1.SEM.LISTING_VENUE_TRANSFER_PACKAGE
+  input_schema_def: ListingVenueTransferValidationInput
+  instance:
+    old_listing_record: *id041
+    new_listing_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: bf9619ff-8b86-4e70-a4d3-0f1e7f6a6666
+    termination_effect:
+      effect_type: TERMINATE_IDENTITY
+      effect_state: REALIZED
+      target: *id037
+      temporal_ref: *id042
+      evidence_ref: *id039
+    creation_effect:
+      effect_type: CREATE_IDENTITY
+      effect_state: REALIZED
+      target: *id037
+      temporal_ref: *id040
+      evidence_ref: *id039
+    successor_effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target: *id037
+      target_role: PREDECESSOR
+      related_target: *id037
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: *id040
+      evidence_ref: *id039
+  expected:
+    valid: false
+    error_code: CANONICAL_ID_REUSE_FORBIDDEN
+- test_id: C1-576
+  validator: C1.SEM.LISTING_VENUE_TRANSFER_PACKAGE
+  input_schema_def: ListingVenueTransferValidationInput
+  instance:
+    old_listing_record: *id041
+    new_listing_record:
+      ref:
+        kind: LISTING
+        id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 7f9619ff-8b86-4e70-a4d3-0f1e7f6a2222
+      venue_ref:
+        kind: VENUE
+        id: bf9619ff-8b86-4e70-a4d3-0f1e7f6a6666
+    termination_effect:
+      effect_type: TERMINATE_IDENTITY
+      effect_state: REALIZED
+      target: *id037
+      temporal_ref: *id042
+      evidence_ref: *id039
+    creation_effect:
+      effect_type: CREATE_IDENTITY
+      effect_state: REALIZED
+      target:
+        kind: LISTING
+        id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+      temporal_ref: *id040
+      evidence_ref: *id039
+    successor_effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target: *id037
+      target_role: PREDECESSOR
+      related_target:
+        kind: LISTING
+        id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: *id040
+      evidence_ref: *id039
+  expected:
+    valid: false
+    error_code: LISTING_VENUE_TRANSFER_INSTRUMENT_MISMATCH
+- test_id: C1-577
+  validator: C1.SEM.LISTING_VENUE_TRANSFER_PACKAGE
+  input_schema_def: ListingVenueTransferValidationInput
+  instance:
+    old_listing_record: *id041
+    new_listing_record:
+      ref:
+        kind: LISTING
+        id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+    termination_effect:
+      effect_type: TERMINATE_IDENTITY
+      effect_state: REALIZED
+      target: *id037
+      temporal_ref: *id042
+      evidence_ref: *id039
+    creation_effect:
+      effect_type: CREATE_IDENTITY
+      effect_state: REALIZED
+      target:
+        kind: LISTING
+        id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+      temporal_ref: *id040
+      evidence_ref: *id039
+    successor_effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target: *id037
+      target_role: PREDECESSOR
+      related_target:
+        kind: LISTING
+        id: 9f9619ff-8b86-4e70-a4d3-0f1e7f6a4444
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: *id040
+      evidence_ref: *id039
+  expected:
+    valid: false
+    error_code: LISTING_VENUE_TRANSFER_SAME_VENUE_FORBIDDEN
+- test_id: C1-578
+  validator: C1.SEM.LISTING_VENUE_TRANSFER_PACKAGE
+  input_schema_def: ListingVenueTransferValidationInput
+  instance:
+    old_listing_record: *id041
+    new_listing_record: *id043
+    termination_effect:
+      effect_type: TERMINATE_IDENTITY
+      effect_state: REALIZED
+      target: *id037
+      temporal_ref: *id042
+      evidence_ref: *id039
+    creation_effect:
+      effect_type: CREATE_IDENTITY
+      effect_state: REALIZED
+      target: *id038
+      temporal_ref: *id040
+      evidence_ref: *id039
+    successor_effect:
+      effect_type: ADD_SUCCESSOR_RELATION
+      effect_state: REALIZED
+      target: *id038
+      target_role: PREDECESSOR
+      related_target: *id037
+      related_target_role: SUCCESSOR
+      relation_type: PREDECESSOR_OF
+      relation_direction: TARGET_TO_RELATED
+      temporal_ref: *id040
+      evidence_ref: *id039
+  expected:
+    valid: false
+    error_code: LISTING_VENUE_TRANSFER_PACKAGE_INVALID
+- test_id: C1-579
+  validator: C1.SEM.SAME_VENUE_LISTING_CONTINUITY
+  input_schema_def: SameVenueListingContinuityValidationInput
+  instance:
+    before_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+    after_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+    non_identity_metadata_changed: true
+  expected:
+    valid: true
+  note: Tier/segment/display-label metadata change is outside canonical ListingRecord
+    identity fields.
+- test_id: C1-580
+  validator: C1.SEM.SAME_VENUE_LISTING_CONTINUITY
+  input_schema_def: SameVenueListingContinuityValidationInput
+  instance:
+    before_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: af9619ff-8b86-4e70-a4d3-0f1e7f6a5555
+    after_record:
+      ref:
+        kind: LISTING
+        id: 8f9619ff-8b86-4e70-a4d3-0f1e7f6a3333
+      instrument_ref:
+        kind: INSTRUMENT
+        id: 6f9619ff-8b86-4e70-a4d3-0f1e7f6a1111
+      venue_ref:
+        kind: VENUE
+        id: bf9619ff-8b86-4e70-a4d3-0f1e7f6a6666
+    non_identity_metadata_changed: true
+  expected:
+    valid: false
+    error_code: LISTING_VENUE_REPARENT_FORBIDDEN
+- test_id: C1-581
+  validator: governance_contract_rule
+  area: R1 semantic regression
+  given: Re-execute all 20 executable C1.07R1 semantic vectors under the R2 validator
+    definitions.
+  expected: 20/20 passing
+- test_id: C1-582
+  validator: governance_contract_rule
+  area: machine schema regression
+  given: Re-execute every inherited R1/R5 JSON-Schema vector against the full R2 schema.
+  expected: 112/112 passing
+- test_id: C1-583
+  validator: governance_contract_rule
+  area: closed blocker regression
+  given: Re-attack C1RT-B01/B02/B03 and C1SCHEMA-B01..B07.
+  expected: all previously closed blockers remain closed
+- test_id: C1-584
+  validator: governance_contract_rule
+  area: authority and traceability
+  given: Inherited authority covers C1-001..C1-570 and every C1-571..C1-585 obligation
+    is decision-mapped.
+  expected: 570/570 inherited; 15/15 new mapped; zero gaps/overlaps
+- test_id: C1-585
+  validator: governance_contract_rule
+  area: stage gate
+  given: R2 construction completes without self-approval.
+  expected: C1RT-B04 ADDRESSED_NOT_CLOSED; C1.OPEN-010 remains CLOSED; C1.07 remains
+    FAIL pending independent re-check; production implementation NOT AUTHORIZED.
+execution_contract:
+  schema_vector_execution: 'Validate instance against #/$defs/<schema_def>; compare
+    boolean to expected.valid.'
+  semantic_vector_execution: Future independent contract harness evaluates the named
+    inherited/new semantic rule; this file defines expected outcome but is not production
+    domain implementation.
+  production_implementation_included: false
+  r1_gate: STOP_AT_C1_06R1_INDEPENDENT_REGRESSION_RECHECK
+base_c1_06_suite:
+  range: C1-338..C1-430
+  policy: PRESERVED_FROM_C1_06
+base_c1_06r1_suite:
+  range: C1-431..C1-486
+  policy: PRESERVED_FROM_C1_06R1
+parent_test_vector:
+  path: C1_07R1_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_fbca2f7e1cd3df5a6d9501a60c775fa5618c636935d1809d9dc358c7819ea35c.yaml
+  sha256: fbca2f7e1cd3df5a6d9501a60c775fa5618c636935d1809d9dc358c7819ea35c
+semantic_validator_contract:
+  C1.SEM.SUCCESSOR_DISTINCT_ENDPOINTS:
+    input_schema_def: SuccessorDistinctEndpointValidationInput
+    owner: C1
+    rule: PREDECESSOR_OF target and related_target must have different canonical refs.
+    error_code: PREDECESSOR_SUCCESSOR_SELF_LOOP_FORBIDDEN
+  C1.SEM.CONTRACT_PARENT_DERIVATIVE_PRODUCT:
+    input_schema_def: ContractParentKindValidationInput
+    owner: C1
+    rule: contract_record.parent_instrument_ref must equal parent_instrument_record.ref,
+      and parent_instrument_record.instrument_kind must equal DERIVATIVE_PRODUCT.
+    reference_mismatch_error: CONTRACT_PARENT_INSTRUMENT_REFERENCE_MISMATCH
+    kind_mismatch_error: CONTRACT_PARENT_INSTRUMENT_KIND_MISMATCH
+  C1.SEM.CONTRACT_PARENT_IMMUTABLE:
+    input_schema_def: ContractParentTransitionValidationInput
+    owner: C1
+    rule: When before_record.ref == after_record.ref, parent_instrument_ref must be
+      unchanged.
+    error_code: CONTRACT_INSTRUMENT_REPARENT_FORBIDDEN
+  C1.SEM.LISTING_PARENT_IMMUTABLE:
+    input_schema_def: ListingParentTransitionValidationInput
+    owner: C1
+    rule: When before_record.ref == after_record.ref, both instrument_ref and venue_ref
+      must be unchanged. Instrument mismatch -> LISTING_REPARENT_FORBIDDEN; venue
+      mismatch -> LISTING_VENUE_REPARENT_FORBIDDEN.
+    error_code: LISTING_REPARENT_FORBIDDEN
+    venue_error_code: LISTING_VENUE_REPARENT_FORBIDDEN
+  C1.SEM.CANONICAL_REPLACEMENT_PACKAGE:
+    input_schema_def: CanonicalReplacementValidationInput
+    owner: C1
+    rule: old_ref and new_ref must be distinct and same-kind; termination targets
+      old_ref, creation targets new_ref, and successor effect links old_ref -> new_ref.
+    error_code: CANONICAL_ID_REUSE_FORBIDDEN
+  C1.SEM.CURRENT_PIT_SAFE_HISTORICAL_REUSE:
+    input_schema_def: CurrentPitSafeHistoricalReuseValidationInput
+    owner: C1
+    rule: CURRENT PIT_SAFE result cannot be reused as historical evidence unless an
+      explicit C4 reconstruction-equivalence ref is present.
+    error_code: CURRENT_ANCHOR_NOT_HISTORICAL_EVIDENCE
+    classification: NON_BLOCKING_HARDENING
+  C1.SEM.ACTIVE_CONTRACT_VENUE_ADMISSION_UNIQUENESS:
+    input_schema_def: ActiveContractVenueAdmissionSetValidationInput
+    owner: C1
+    rule: Within the active_admissions set supplied by C4 for one state_ref, no duplicate
+      (contract_ref, listing_ref) endpoint tuple is permitted.
+    error_code: DUPLICATE_CONTRACT_VENUE_ADMISSION
+    classification: NON_BLOCKING_HARDENING
+    ownership_boundary: C4 determines active membership at state_ref; C1 validates
+      endpoint uniqueness; C11 owns persistence/idempotent coalescing.
+  C1.SEM.LISTING_VENUE_TRANSFER_PACKAGE:
+    input_schema_def: ListingVenueTransferValidationInput
+    owner: C1
+    rule: 'Cross-canonical-Venue transfer requires: same InstrumentID; distinct old/new
+      ListingIDs; distinct old/new VenueIDs; termination targets old ListingID; creation
+      targets new ListingID; PREDECESSOR_OF successor links old ListingID to new ListingID.'
+    instrument_mismatch_error: LISTING_VENUE_TRANSFER_INSTRUMENT_MISMATCH
+    same_venue_error: LISTING_VENUE_TRANSFER_SAME_VENUE_FORBIDDEN
+    same_id_error: CANONICAL_ID_REUSE_FORBIDDEN
+    package_error: LISTING_VENUE_TRANSFER_PACKAGE_INVALID
+    ownership_boundary: C1 owns Listing identity continuity. C4 owns effective timing/state.
+      C11 owns persistence.
+  C1.SEM.SAME_VENUE_LISTING_CONTINUITY:
+    input_schema_def: SameVenueListingContinuityValidationInput
+    owner: C1
+    rule: Same ListingID is valid when instrument_ref and venue_ref are unchanged,
+      even if non-identity tier/segment/display-label metadata changes.
+    error_code: LISTING_REPARENT_FORBIDDEN
+    ownership_boundary: Tier/segment/display-label metadata does not redefine canonical
+      Venue identity unless a separate passed contract says the canonical VenueID
+      itself changed.

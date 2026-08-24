@@ -1,0 +1,71 @@
+schema_version: 1.0.0-C1-remediation-pr-byte-equivalence-audit
+project: Investment Research OS
+audit_scope: PR_BRANCH_RETAINED_FROZEN_SUBSTANTIVE_SURFACE
+status: PASS
+branch: governance/c1-lossless-remediation
+checked_artifact_count: 11
+exact_git_blob_matches: 11
+mismatches: 0
+semantic_authority_changed: false
+freeze_authority_changed: false
+c1_freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+freeze_seal_expected_git_blob: 42e1cbf696e9e552f1d920a6eedec1618a285ea2
+freeze_seal_observed_git_blob: 42e1cbf696e9e552f1d920a6eedec1618a285ea2
+historical_external_dependencies: PRESERVED_AS_ORIGINALLY_DISCLOSED_NOT_REGENERATED
+final_main_recheck_required: true
+artifacts:
+- path: governance/C1/C1.05R1/C1_05R1_ACCEPTANCE_TEST_DELTA__sha256_bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83.md
+  sha256: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+  expected_git_blob: 96fca06f3ddd888b27ab1cecd103845001f6bb6b
+  observed_git_blob: 96fca06f3ddd888b27ab1cecd103845001f6bb6b
+  status: PASS
+- path: governance/C1/C1.05R1/C1_05R1_EVIDENCE_DECISION_LEDGER__sha256_47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031.yaml
+  sha256: 47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031
+  expected_git_blob: 87269943edbb36a6e4b2776162248e81da59688c
+  observed_git_blob: 87269943edbb36a6e4b2776162248e81da59688c
+  status: PASS
+- path: governance/C1/C1.05R1/C1_05R1_INDEPENDENT_REGRESSION_RECHECK_REPORT.md
+  sha256: 58a6b0b2782fc431c5d389e874f38b494c24363d4575c90d929cf11c81b0f751
+  expected_git_blob: 1666c56f50af1be251402430a10a7ba957840dfd
+  observed_git_blob: 1666c56f50af1be251402430a10a7ba957840dfd
+  status: PASS
+- path: governance/C1/C1.05R1/C1_05R1_PROVIDER_NORMALIZATION_INTERFACE_CANDIDATE__sha256_71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63.md
+  sha256: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  expected_git_blob: 4ffa001dc03e789d8ea68b7340e2be21dfae0cb3
+  observed_git_blob: 4ffa001dc03e789d8ea68b7340e2be21dfae0cb3
+  status: PASS
+- path: governance/C1/C1.05R1/C1_05R1_PROVIDER_NORMALIZATION_REGISTRY_CANDIDATE__sha256_422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b.yaml
+  sha256: 422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b
+  expected_git_blob: 495154857ce70a3dce2016a1b3aac21af4e017df
+  observed_git_blob: 495154857ce70a3dce2016a1b3aac21af4e017df
+  status: PASS
+- path: governance/C1/C1.07R2/C1_07R2_ACCEPTANCE_TEST_DELTA__sha256_ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78.md
+  sha256: ede22bb7e55e08d27172828004462c7d4a9931d16d90e6b59e54227b429abc78
+  expected_git_blob: cb9fee93d5489f37bd5d6a3732e931c976503890
+  observed_git_blob: cb9fee93d5489f37bd5d6a3732e931c976503890
+  status: PASS
+- path: governance/C1/C1.07R2/C1_07R2_CANDIDATE_SELECTION__sha256_def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231.yaml
+  sha256: def89198ba3251fd9dcdb0d36f99f5172249a673433cde778f811d3d75ae1231
+  expected_git_blob: 3e36009c00759c487155ef747d3421ef77baaf77
+  observed_git_blob: 3e36009c00759c487155ef747d3421ef77baaf77
+  status: PASS
+- path: governance/C1/C1.07R2/C1_07R2_CONTRACT_TEST_VECTOR_CANDIDATE__sha256_a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247.yaml
+  sha256: a17a9510a9ae2f363b40b3a6a5774526b954282be2074b087dcfed0ee6f2a247
+  expected_git_blob: 0e9e9a1187738c2e15824749d518360a9d7078d2
+  observed_git_blob: 0e9e9a1187738c2e15824749d518360a9d7078d2
+  status: PASS
+- path: governance/C1/C1.07R2/C1_07R2_EVIDENCE_DECISION_LEDGER__sha256_ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486.yaml
+  sha256: ad125220011be81b8a1cad41ebfb6a97890940ce1ee8ed9d8fa1934cbefae486
+  expected_git_blob: 5cb73531e6450ee39ffe8ce3d7c2053a738a166b
+  observed_git_blob: 5cb73531e6450ee39ffe8ce3d7c2053a738a166b
+  status: PASS
+- path: governance/C1/C1.07R2/C1_07R2_MACHINE_SCHEMA_CANDIDATE__sha256_927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4.json
+  sha256: 927f1916d3b4b0c0600c1988d6cff0c91dfaaf840b676ce8b6f6f86cb61e52d4
+  expected_git_blob: 8c076236d0c018f64d4f27cc3c3203e40dc2fbae
+  observed_git_blob: 8c076236d0c018f64d4f27cc3c3203e40dc2fbae
+  status: PASS
+- path: governance/C1/C1.07R2/C1_07R2_SCHEMA_REGISTRY_CANDIDATE__sha256_fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a.yaml
+  sha256: fdd2266e11b4ee59c2416cadebf4ddb3eb9c77e7a1f2296195909c7b76155c0a
+  expected_git_blob: a92b8c4fb300dd2d2755dec3694dc136d57e2f50
+  observed_git_blob: a92b8c4fb300dd2d2755dec3694dc136d57e2f50
+  status: PASS

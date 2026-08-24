@@ -1,0 +1,983 @@
+schema_version: 1.0.0-c1.07r2-candidate
+stage: C1.07R2
+generated_at_utc: '2026-08-23T19:38:29Z'
+parent_contracts:
+  C0_FROZEN: 9585df6c0fbdb2cc40bc38571f8452b51f8ca69c9fd9432b10b87490b08a3b6f
+  C0_FREEZE_SEAL: eb2e11d4c425fee121feedc7ea6c4270722c85398afdab35917cbd6f667d93a2
+  C1_01R1_IDENTITY_KERNEL: 057303229ec7d169a19519edea256ce15f5a2dc92e654e820abddd9040c5b782
+  C1_02R1_IDENTIFIER_SYMBOL_MAPPING: dc5f2ec1295cf3afb9c8b585b3deca5f413de37db1a2d6c179a9e17f613531fb
+  C1_03R1_CORPORATE_ACTION_EFFECTS: ea017504558532cce5e24929047cfbb94055f0a3cc25d80b3b1844216ea6b860
+  C1_04R1_TEMPORAL_PIT: 9da9470cbb72ba4715c40fa9d7c1053f542381f0edf58b1f416a1c4be0d39118
+  C1_05R1_PROVIDER_NORMALIZATION: 71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+  C1_05R1_NORMALIZATION_REGISTRY: 422010036a00ad0d1fbfa4176ae27f107fec4761a92c0f0ad5b7db29eed2379b
+  C1_05R1_DECISION_LEDGER: 47315933c5369aa1aa3a9719874dee31348335efa1a2120677747ab7c9a47031
+  C1_05R1_ACCEPTANCE_DELTA: bbf23c97dbab72844956fd6a751c63ba13eba2857fcf4bb62faa875709bc5b83
+external_contract_evidence:
+  RFC_9562:
+    role: SERIALIZATION_STANDARD
+    scope: UUID syntax/version semantics only
+    url: https://www.rfc-editor.org/rfc/rfc9562
+  RFC_8259:
+    role: SERIALIZATION_STANDARD
+    scope: JSON wire syntax only
+    url: https://www.rfc-editor.org/rfc/rfc8259
+  JSON_SCHEMA_2020_12:
+    role: SCHEMA_STANDARD
+    scope: machine schema validation only
+    url: https://json-schema.org/draft/2020-12
+  RFC_8785:
+    role: CANONICALIZATION_STANDARD
+    scope: governance hashing and deterministic member ordering only
+    url: https://www.rfc-editor.org/rfc/rfc8785
+  FIPS_180_4:
+    role: DIGEST_STANDARD
+    scope: SHA-256 digest only
+    url: https://csrc.nist.gov/pubs/fips/180-4/upd1/final
+resolved_questions:
+- question_id: C1.OPEN-010
+  status: RESOLVED_CANDIDATE_C1_06R2_NOT_CLOSED
+  summary: Opaque UUIDv4/content-address design remains the candidate resolution;
+    closure is gated on C1.06R2 independent PASS.
+still_open_questions:
+- question_id: C1RT-B04
+  status: ADDRESSED_NOT_CLOSED_PENDING_C1_07R2_RECHECK
+decisions:
+- decision_id: C1.DEC-142
+  decision_status: ADOPTED_CANDIDATE
+  statement: Canonical IDs serialize as lowercase RFC 9562 UUIDv4 values with no business/type/time/provider
+    semantics embedded; UUIDv4 randomness is allocation only, never identity equivalence.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1.OPEN-010_ID_ENCODING
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  - RFC_9562
+  required_tests:
+  - C1-338
+  - C1-339
+  - C1-340
+  - C1-341
+  - C1-342
+  - C1-343
+  - C1-344
+- decision_id: C1.DEC-143
+  decision_status: ADOPTED_CANDIDATE
+  statement: Canonical ID allocation is globally collision-checked across C1 canonical
+    kinds, IDs are non-recycled, and canonical kind is carried by typed schema/ref
+    wrappers rather than the UUID text.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: CANONICAL_ID_TYPE_AND_UNIQUENESS
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  - RFC_9562
+  required_tests:
+  - C1-345
+  - C1-346
+  - C1-347
+  - C1-348
+  - C1-349
+  - C1-350
+  - C1-351
+  - C1-352
+- decision_id: C1.DEC-144
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1 canonical wire objects use UTF-8 JSON conforming to RFC 8259 and are
+    validated against an explicit JSON Schema Draft 2020-12 content-addressed schema;
+    unknown canonical fields fail closed.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: WIRE_AND_SCHEMA_FORMAT
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  - RFC_8259
+  - JSON_SCHEMA_2020_12
+  required_tests:
+  - C1-353
+  - C1-354
+  - C1-355
+  - C1-356
+  - C1-357
+  - C1-358
+- decision_id: C1.DEC-145
+  decision_status: ADOPTED_CANDIDATE
+  statement: Load-bearing C1 governance/schema/profile artifacts are content-addressed
+    as SHA-256 over RFC 8785 JCS canonical JSON semantics; mutable latest aliases
+    and human version labels are non-authoritative.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: CONTENT_ADDRESSED_GOVERNANCE
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  - RFC_8785
+  - FIPS_180_4
+  required_tests:
+  - C1-359
+  - C1-360
+  - C1-361
+  - C1-362
+  - C1-363
+  - C1-364
+- decision_id: C1.DEC-146
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1.02 SchemeDefinition exactness certification is serialized only through
+    immutable/content-addressed governance references; a bare CERTIFIED field or abstract
+    parent profile cannot grant exact resolution.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: SCHEME_CERTIFICATION_SERIALIZATION
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-365
+  - C1-366
+  - C1-367
+  - C1-368
+  - C1-369
+  - C1-370
+- decision_id: C1.DEC-147
+  decision_status: ADOPTED_CANDIDATE
+  statement: RegisteredIdentifierAssignment and SymbolAssignment remain separate schemas;
+    SymbolAssignment targets only Listing or Contract and required profile/context
+    semantics cannot be guessed from lexical shape.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: MAPPING_SCHEMA
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-371
+  - C1-372
+  - C1-373
+  - C1-374
+  - C1-375
+  - C1-376
+  - C1-377
+- decision_id: C1.DEC-148
+  decision_status: ADOPTED_CANDIDATE
+  statement: ContractVenueAdmission and UnderlyingRef use explicit typed endpoint
+    wrappers; schema structure cannot create a fifth identity layer or bypass the
+    Contract/List same-parent-Instrument semantic invariant.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: ADMISSION_AND_UNDERLYING_SCHEMA
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-378
+  - C1-379
+  - C1-380
+  - C1-381
+  - C1-382
+- decision_id: C1.DEC-149
+  decision_status: ADOPTED_CANDIDATE
+  statement: IdentityEffectAssertion serializes PROJECTED/REALIZED independently from
+    effect type and fixes relational endpoint kinds, roles, relation type and TARGET_TO_RELATED
+    direction by effect family.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: IDENTITY_EFFECT_SCHEMA
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-383
+  - C1-384
+  - C1-385
+  - C1-386
+  - C1-387
+  - C1-388
+  - C1-389
+- decision_id: C1.DEC-150
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1.04-facing temporal schema carries opaque C4-owned references and exact
+    C1-facing mode/projection/PIT-reconstructability enums without serializing competing
+    local available_from/effective-time authorities.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: TEMPORAL_INTERFACE_SERIALIZATION
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-390
+  - C1-391
+  - C1-392
+  - C1-393
+  - C1-394
+  - C1-395
+  - C1-396
+- decision_id: C1.DEC-151
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider operation, provider data, normalization, resolution, PIT reconstructability
+    and C5 verification/conflict references are serialized as orthogonal axes; FAILED/CANCELLED
+    cannot collapse to NO_MATCH.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: ORTHOGONAL_OUTCOME_AXES
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-397
+  - C1-398
+  - C1-399
+  - C1-400
+  - C1-401
+  - C1-402
+  - C1-403
+- decision_id: C1.DEC-152
+  decision_status: ADOPTED_CANDIDATE
+  statement: Load-bearing C2 semantic/capability/completeness dependencies serialize
+    through a snapshot-stable C2 boundary wrapper with an opaque C2 stability-authority
+    reference; C1 does not define or self-certify C2 internals.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: FOREIGN_REFERENCE_STABILITY_SCHEMA
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-404
+  - C1-405
+  - C1-406
+  - C1-407
+  - C1-408
+- decision_id: C1.DEC-153
+  decision_status: ADOPTED_CANDIDATE
+  statement: Every replay-safe materialized normalized candidate/result serializes
+    mandatory replay lineage including validated input/source, exact profile/parents,
+    load-bearing foreign dependencies, C4/C5 refs, partiality context when needed,
+    and material degradation provenance.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: REPLAY_LINEAGE_SCHEMA
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-409
+  - C1-410
+  - C1-411
+  - C1-412
+  - C1-413
+  - C1-414
+- decision_id: C1.DEC-154
+  decision_status: ADOPTED_CANDIDATE
+  statement: Provider-normalization envelopes may retain raw payload only by opaque
+    reference; normalized canonical candidate payloads cannot contain raw provider
+    objects or provider-native IDs as canonical IDs.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: RAW_PROVIDER_FIREWALL_SCHEMA
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-415
+  - C1-416
+  - C1-417
+  - C1-418
+- decision_id: C1.DEC-155
+  decision_status: ADOPTED_CANDIDATE
+  statement: Exact C1 error serialization uses a machine-distinguishable closed error-code
+    registry plus a strict error envelope; human messages never determine machine
+    semantics.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: ERROR_REGISTRY_SERIALIZATION
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-419
+  - C1-420
+  - C1-421
+  - C1-422
+- decision_id: C1.DEC-156
+  decision_status: ADOPTED_CANDIDATE
+  statement: Partial normalization serializes item-level outcomes/errors separately
+    from batch-level axes; omitted failed items cannot be presented as full success.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: PARTIAL_BATCH_SERIALIZATION
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-423
+  - C1-424
+  - C1-425
+- decision_id: C1.DEC-157
+  decision_status: ADOPTED_CANDIDATE
+  statement: Deterministic replay materialization orders set-semantic arrays by SHA-256
+    of RFC 8785 JCS member form with canonical bytes as tie-breaker; this digest controls
+    ordering only and never canonical identity.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: DETERMINISTIC_MATERIALIZATION_ORDER
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  - RFC_8785
+  - FIPS_180_4
+  required_tests:
+  - C1-426
+  - C1-427
+- decision_id: C1.DEC-158
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1.06 contract-test candidate is additive to C1-001..C1-337, maps every
+    new C1.06 decision to executable/schema or semantic vectors, and includes round-trip/type-confusion/regression-negative
+    cases.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: CONTRACT_TEST_TRACEABILITY
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-428
+  - C1-429
+- decision_id: C1.DEC-159
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1.OPEN-010 is candidate-resolved by the UUIDv4 opaque ID and content-addressed
+    governance schema design; no production implementation is authorized until independent
+    C1.06 review passes.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: OPEN_010_RESOLUTION_AND_GATE
+  evidence_refs:
+  - C0_FROZEN
+  - C1_01R1_KERNEL
+  - C1_02R1_MAPPING
+  - C1_03R1_CA
+  - C1_04R1_TEMPORAL
+  - C1_05R1_NORMALIZATION
+  required_tests:
+  - C1-430
+- decision_id: C1.DEC-160
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1Envelope.payload_type and NormalizedCandidate.candidate_kind are exact
+    structural discriminators bound one-to-one to payload schemas; mismatched or raw/arbitrary
+    payload bypasses fail closed.
+  classification: INFERRED
+  reasoning_basis: C1SCHEMA-B01_REPAIR
+  evidence_refs:
+  - C1_06_INDEPENDENT_REVIEW
+  - C1_06_BASE_SCHEMA
+  required_tests:
+  - C1-431
+  - C1-432
+  - C1-433
+  - C1-434
+  - C1-435
+  - C1-436
+  - C1-437
+  - C1-438
+  - C1-439
+- decision_id: C1.DEC-161
+  decision_status: ADOPTED_CANDIDATE
+  statement: A CERTIFIED concrete symbol/identifier child profile requires both immutable
+    C1 certification content and an opaque immutable C12 release/validation authority
+    reference; structural owner/content syntax never self-confers C12 trust.
+  classification: INFERRED
+  reasoning_basis: C1SCHEMA-B02_C12_AUTHORITY_REPAIR
+  evidence_refs:
+  - C1_02R1_HARDENING
+  - C1_06_INDEPENDENT_REVIEW
+  required_tests:
+  - C1-440
+  - C1-441
+  - C1-442
+  - C1-443
+  - C1-444
+- decision_id: C1.DEC-162
+  decision_status: ADOPTED_CANDIDATE
+  statement: Load-bearing foreign references use owner-specific C2/C3/C4/C5 boundary
+    types; provider-operation semantics are C2-owned and degradation/fallback provenance
+    admits only C2 or C3 where parent contracts allow.
+  classification: INFERRED
+  reasoning_basis: C1SCHEMA-B03_FOREIGN_OWNER_REPAIR
+  evidence_refs:
+  - C1_05R1_PROVIDER_NORMALIZATION
+  - C1_06_INDEPENDENT_REVIEW
+  required_tests:
+  - C1-445
+  - C1-446
+  - C1-447
+  - C1-448
+  - C1-449
+  - C1-450
+  - C1-451
+- decision_id: C1.DEC-163
+  decision_status: ADOPTED_CANDIDATE
+  statement: The C1.01R1 Identity Relation Kernel is machine-serialized as typed C1
+    relations with explicit endpoint-kind contracts and graph-level cardinality semantic
+    hooks; FUNGIBLE_WITH and ECONOMICALLY_EQUIVALENT_TO remain non-identity.
+  classification: ADAPTED
+  reasoning_basis: C1SCHEMA-B04_IDENTITY_RELATION_SURFACE
+  evidence_refs:
+  - C1_01R1_IDENTITY_KERNEL
+  - C1_06_INDEPENDENT_REVIEW
+  required_tests:
+  - C1-452
+  - C1-453
+  - C1-454
+  - C1-455
+  - C1-456
+  - C1-457
+  - C1-458
+  - C1-459
+  - C1-460
+  - C1-461
+  - C1-462
+- decision_id: C1.DEC-164
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1.02R1 IdentifierResolutionQuery/Result is machine-serialized with CURRENT_ONLY
+    versus TEMPORAL, C4-owned temporal query/result refs, mandatory CURRENT_ONLY resolution
+    anchor, and explicit NON_PIT current semantics.
+  classification: ADAPTED
+  reasoning_basis: C1SCHEMA-B04_IDENTIFIER_RESOLUTION_SURFACE
+  evidence_refs:
+  - C1_02R1_IDENTIFIER_SYMBOL_MAPPING
+  - C1_06_INDEPENDENT_REVIEW
+  required_tests:
+  - C1-463
+  - C1-464
+  - C1-465
+  - C1-466
+  - C1-467
+  - C1-468
+  - C1-469
+  - C1-470
+  - C1-471
+  - C1-472
+- decision_id: C1.DEC-165
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1.04R1 IdentityGraphResult is machine-serialized with active identity
+    nodes/typed edges, a separate visible non-active overlay, propagated reconstructability,
+    and C4-owned current/historical result anchors without local temporal authority.
+  classification: ADAPTED
+  reasoning_basis: C1SCHEMA-B04_IDENTITY_GRAPH_RESULT_SURFACE
+  evidence_refs:
+  - C1_04R1_TEMPORAL_PIT
+  - C1_06_INDEPENDENT_REVIEW
+  required_tests:
+  - C1-473
+  - C1-474
+  - C1-475
+  - C1-476
+  - C1-477
+  - C1-478
+  - C1-479
+  - C1-480
+- decision_id: C1.DEC-166
+  decision_status: ADOPTED_CANDIDATE
+  statement: The inherited C1-001..C1-337 regression authority is a gapless content-addressed
+    manifest pinning every parent acceptance segment by exact SHA-256 and range; missing/tampered
+    parent bytes fail closed.
+  classification: INFERRED
+  reasoning_basis: C1TEST-B01_CONTENT_ADDRESSED_REGRESSION_AUTHORITY
+  evidence_refs:
+  - C1_00_ACCEPTANCE
+  - C1_01R1_ACCEPTANCE
+  - C1_02R1_ACCEPTANCE
+  - C1_03R1_ACCEPTANCE
+  - C1_04R1_ACCEPTANCE
+  - C1_05R1_ACCEPTANCE
+  - C1_06_INDEPENDENT_REVIEW
+  required_tests:
+  - C1-481
+  - C1-482
+  - C1-483
+- decision_id: C1.DEC-167
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1.06R1 preserves the base C1-338..C1-430 acceptance rows and original
+    C1.DEC-142..159 semantics while adding only blocker-targeted repair obligations/decisions;
+    combined test authority remains deterministic and fully mapped.
+  classification: INFERRED
+  reasoning_basis: R1_NARROW_REGRESSION_PRESERVATION
+  evidence_refs:
+  - C1_06_BASE_ACCEPTANCE
+  - C1_06_BASE_LEDGER
+  - C1_06_INDEPENDENT_REVIEW
+  required_tests:
+  - C1-484
+  - C1-485
+- decision_id: C1.DEC-168
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1.OPEN-010 remains candidate-resolved by the UUIDv4/content-address
+    design but is not closed until C1.06R1 independently passes; no downstream C1
+    stage or production implementation is authorized by repair construction.
+  classification: INFERRED
+  reasoning_basis: C1_06R1_GATE_DISCIPLINE
+  evidence_refs:
+  - C1_06_INDEPENDENT_REVIEW
+  required_tests:
+  - C1-486
+- decision_id: C1.DEC-169
+  decision_status: ADOPTED_CANDIDATE
+  statement: 'Exact-resolution eligibility is closed under implication: exact_resolution_allowed=true
+    requires a concrete certified non-grouping child plus immutable certification_ref
+    and opaque immutable C12 release_validation_ref; UNVERIFIED/NOT_APPLICABLE profiles
+    cannot exact-resolve.'
+  classification: REPAIR_CANDIDATE
+  reasoning_basis: C1SCHEMA-B02 residual
+  evidence_refs:
+  - C1_02R1_MAPPING
+  - C1_06R1_RECHECK
+  required_tests:
+  - C1-487
+  - C1-488
+  - C1-489
+  - C1-490
+  - C1-491
+  - C1-492
+  - C1-493
+  - C1-494
+  - C1-495
+- decision_id: C1.DEC-170
+  decision_status: ADOPTED_CANDIDATE
+  statement: 'IdentifierResolutionResult binds exact outcome to target cardinality:
+    RESOLVED has exactly one target and NO_MATCH has zero targets, while AMBIGUOUS
+    and CONFLICT remain distinct non-resolved outcomes under both CURRENT_ONLY and
+    TEMPORAL modes.'
+  classification: REPAIR_CANDIDATE
+  reasoning_basis: C1SCHEMA-B04 residual
+  evidence_refs:
+  - C1_02R1_MAPPING
+  - C1_06R1_RECHECK
+  required_tests:
+  - C1-496
+  - C1-497
+  - C1-498
+  - C1-499
+  - C1-500
+  - C1-501
+  - C1-502
+  - C1-503
+  - C1-504
+  - C1-505
+- decision_id: C1.DEC-171
+  decision_status: ADOPTED_CANDIDATE
+  statement: 'Provider normalization container state is cross-field consistent without
+    collapsing orthogonal axes: NOT_RUN/NO_OBSERVATIONS cannot materialize candidates,
+    SUCCESS+NO_DATA has zero observations, NO_MATCH requires scoped completeness evidence,
+    and PARTIAL cannot prove absence.'
+  classification: REPAIR_CANDIDATE
+  reasoning_basis: C1SCHEMA-B05 new blocker
+  evidence_refs:
+  - C1_05R1_NORMALIZATION
+  - C1_06R1_RECHECK
+  required_tests:
+  - C1-506
+  - C1-507
+  - C1-508
+  - C1-509
+  - C1-510
+  - C1-511
+  - C1-512
+  - C1-513
+  - C1-514
+  - C1-515
+  - C1-516
+  - C1-517
+  - C1-518
+- decision_id: C1.DEC-172
+  decision_status: ADOPTED_CANDIDATE
+  statement: C1.06R2 preserves closed B01/B03/C1TEST-B01 repairs and the entire C1-001..486
+    regression authority; C1.OPEN-010 remains candidate-resolved but cannot close
+    before independent R2 PASS and no production implementation is authorized.
+  classification: GOVERNANCE_REPAIR_CANDIDATE
+  reasoning_basis: R2 regression/gate discipline
+  evidence_refs:
+  - C1_06R1_RECHECK
+  required_tests:
+  - C1-519
+  - C1-520
+  - C1-521
+  - C1-522
+  - C1-523
+- decision_id: C1.DEC-173
+  decision_status: ADOPTED_CANDIDATE
+  statement: RegisteredIdentifierAssignment uses the C1.02 registered target family
+    Entity/Instrument/Listing/Contract/Venue and excludes CorporateActionEvent.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1SCHEMA-B06_REGISTERED_TARGET_FAMILY
+  evidence_refs:
+  - C1_02R1_MAPPING
+  - C1_06R2_SCHEMA
+  - C1_06R3_RECHECK
+  required_tests:
+  - C1-524
+  - C1-529
+- decision_id: C1.DEC-174
+  decision_status: ADOPTED_CANDIDATE
+  statement: MARKET_SYMBOL SchemeDefinition allowed_target_kinds is restricted to
+    Listing/Contract.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1SCHEMA-B06_MARKET_SYMBOL_FAMILY
+  evidence_refs:
+  - C1_02R1_MAPPING
+  - C1_06R3_RECHECK
+  required_tests:
+  - C1-525
+  - C1-528
+- decision_id: C1.DEC-175
+  decision_status: ADOPTED_CANDIDATE
+  statement: PROVIDER_SYMBOL SchemeDefinition allowed_target_kinds is restricted to
+    Listing/Contract.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1SCHEMA-B06_PROVIDER_SYMBOL_FAMILY
+  evidence_refs:
+  - C1_02R1_MAPPING
+  - C1_06R3_RECHECK
+  required_tests:
+  - C1-526
+- decision_id: C1.DEC-176
+  decision_status: ADOPTED_CANDIDATE
+  statement: IdentifierResolutionResult exact target kind must be compatible with
+    the exact content-addressed SchemeDefinition target family; cross-artifact compatibility
+    is a named semantic contract.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1SCHEMA-B06_RESULT_SCHEME_COMPATIBILITY
+  evidence_refs:
+  - C1_02R1_MAPPING
+  - C1_06R3_RECHECK
+  required_tests:
+  - C1-527
+  - C1-528
+- decision_id: C1.DEC-177
+  decision_status: ADOPTED_CANDIDATE
+  statement: R4 is a full integrated repair over the exact R2 schema/test authority;
+    annotation-only schema deltas are not independent review targets.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1GOV-B01_INTEGRATED_CANDIDATE
+  evidence_refs:
+  - C1_06R2_SCHEMA
+  - C1_06R2_TESTS
+  - C1_06R3_RECHECK
+  required_tests:
+  - C1-530
+  - C1-534
+- decision_id: C1.DEC-178
+  decision_status: ADOPTED_CANDIDATE
+  statement: R4 B06 test obligations must be executable schema vectors or explicitly
+    named semantic/governance contract vectors.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1TEST-B02_EXECUTABILITY
+  evidence_refs:
+  - C1_06R2_TESTS
+  - C1_06R3_RECHECK
+  required_tests:
+  - C1-531
+- decision_id: C1.DEC-179
+  decision_status: ADOPTED_CANDIDATE
+  statement: R4 decision-to-test traceability is complete for every new obligation.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1TEST-B02_TRACEABILITY
+  evidence_refs:
+  - C1_06R3_RECHECK
+  required_tests:
+  - C1-532
+- decision_id: C1.DEC-180
+  decision_status: ADOPTED_CANDIDATE
+  statement: R4 inherited regression authority covers C1-001..C1-523 exactly once
+    and pins exact parent acceptance artifacts.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1GOV-B01_REGRESSION_AUTHORITY
+  evidence_refs:
+  - C1_06R2_AUTHORITY
+  - C1_06R2_ACCEPTANCE
+  required_tests:
+  - C1-533
+  - C1-534
+- decision_id: C1.DEC-181
+  decision_status: ADOPTED_CANDIDATE
+  statement: CURRENT_ONLY RESOLVED target kind equals supplied expected_target_kind.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: B07_CURRENT
+  evidence_refs:
+  - C1_02R1_MAPPING
+  - C1_06R4_RECHECK
+  required_tests:
+  - C1-535
+  - C1-536
+  - C1-537
+  - C1-538
+- decision_id: C1.DEC-182
+  decision_status: ADOPTED_CANDIDATE
+  statement: TEMPORAL RESOLVED target kind equals supplied expected_target_kind.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: B07_TEMPORAL
+  evidence_refs:
+  - C1_02R1_MAPPING
+  - C1_06R4_RECHECK
+  required_tests:
+  - C1-539
+  - C1-540
+  - C1-541
+  - C1-542
+- decision_id: C1.DEC-183
+  decision_status: ADOPTED_CANDIDATE
+  statement: query_binding must authentically echo the exact source query expected
+    target.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: B07_AUTH
+  evidence_refs:
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-543
+- decision_id: C1.DEC-184
+  decision_status: ADOPTED_CANDIDATE
+  statement: Non-resolved candidates cannot bypass expected-target exactness.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: B07_NONRESOLVED
+  evidence_refs:
+  - C1_02R1_MAPPING
+  required_tests:
+  - C1-544
+- decision_id: C1.DEC-185
+  decision_status: ADOPTED_CANDIDATE
+  statement: SchemeDefinition and query expected-target guards are orthogonal and
+    both mandatory.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: B07_ORTHOGONAL
+  evidence_refs:
+  - C1_06R4_SCHEMA
+  required_tests:
+  - C1-545
+- decision_id: C1.DEC-186
+  decision_status: ADOPTED_CANDIDATE
+  statement: PREDECESSOR_OF successor edges require distinct canonical endpoints.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-B01_AND_INHERITED_C1-028
+  evidence_refs:
+  - C1_01R1
+  - C1_07_RED_TEAM
+  required_tests:
+  - C1-546
+  - C1-547
+  - C1-548
+- decision_id: C1.DEC-187
+  decision_status: ADOPTED_CANDIDATE
+  statement: Contract parent reference must resolve to the exact referenced InstrumentRecord.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-B02_PARENT_REFERENCE_BINDING
+  evidence_refs:
+  - C1_01R1
+  - C1_07_RED_TEAM
+  required_tests:
+  - C1-549
+  - C1-550
+- decision_id: C1.DEC-188
+  decision_status: ADOPTED_CANDIDATE
+  statement: Every ContractRecord parent InstrumentRecord must have instrument_kind=DERIVATIVE_PRODUCT.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-B02_AND_C1.DEC-031
+  evidence_refs:
+  - C1_01R1
+  - C1_07_RED_TEAM
+  required_tests:
+  - C1-549
+  - C1-551
+  - C1-552
+  - C1-553
+  - C1-554
+  - C1-555
+- decision_id: C1.DEC-189
+  decision_status: ADOPTED_CANDIDATE
+  statement: For a stable ContractID, parent_instrument_ref is immutable across versions.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-B03_CONTRACT_PARENT_IMMUTABILITY
+  evidence_refs:
+  - C1_01R1
+  - C1_07_RED_TEAM
+  required_tests:
+  - C1-556
+  - C1-557
+- decision_id: C1.DEC-190
+  decision_status: ADOPTED_CANDIDATE
+  statement: For a stable ListingID, instrument_ref is immutable across versions.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-B03_LISTING_PARENT_IMMUTABILITY
+  evidence_refs:
+  - C1_01R1
+  - C1_07_RED_TEAM
+  required_tests:
+  - C1-558
+  - C1-559
+- decision_id: C1.DEC-191
+  decision_status: ADOPTED_CANDIDATE
+  statement: A genuine canonical replacement uses distinct IDs with explicit termination,
+    creation, and predecessor/successor semantics.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-B03_REPLACEMENT_PATH
+  evidence_refs:
+  - C1_01R1
+  - C1_03R1
+  - C1_07_RED_TEAM
+  required_tests:
+  - C1-560
+  - C1-561
+- decision_id: C1.DEC-192
+  decision_status: ADOPTED_CANDIDATE
+  statement: CURRENT reconstructability=PIT_SAFE does not itself authorize historical
+    reuse; explicit C4 reconstruction equivalence is required.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-H01_PIT_HARDENING
+  evidence_refs:
+  - C1_04R1
+  - C1_07_RED_TEAM
+  required_tests:
+  - C1-562
+  - C1-563
+- decision_id: C1.DEC-193
+  decision_status: ADOPTED_CANDIDATE
+  statement: Within a C4-supplied active-state admission set, duplicate Contract/Listing
+    endpoint tuples are invalid; C11 persistence remains out of C1.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-H02_ADMISSION_UNIQUENESS_HARDENING
+  evidence_refs:
+  - C1_01R1
+  - C1_03R1
+  - C1_07_RED_TEAM
+  required_tests:
+  - C1-564
+  - C1-565
+- decision_id: C1.DEC-194
+  decision_status: ADOPTED_CANDIDATE
+  statement: R1 preserves inherited schema/blocker regressions, authority, traceability,
+    and the independent-review gate.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1_07R1_GOVERNANCE
+  evidence_refs:
+  - C1_06R5
+  - C1_07_RED_TEAM
+  required_tests:
+  - C1-566
+  - C1-567
+  - C1-568
+  - C1-569
+  - C1-570
+- decision_id: C1.DEC-195
+  decision_status: ADOPTED_CANDIDATE
+  statement: For a stable ListingID, venue_ref is immutable in addition to instrument_ref.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-B04_AND_C1.03R1_VENUE_TRANSFER
+  evidence_refs:
+  - C1_03R1
+  - C1_07R1_RECHECK
+  required_tests:
+  - C1-571
+  - C1-572
+  - C1-573
+  - C1-580
+- decision_id: C1.DEC-196
+  decision_status: ADOPTED_CANDIDATE
+  statement: Cross-canonical-Venue transfer preserves InstrumentID but requires distinct
+    old/new ListingIDs and explicit terminate/create/successor semantics.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1RT-B04_TRANSFER_PACKAGE
+  evidence_refs:
+  - C1_03R1
+  - C1_07R1_RECHECK
+  required_tests:
+  - C1-574
+  - C1-575
+  - C1-576
+  - C1-577
+  - C1-578
+- decision_id: C1.DEC-197
+  decision_status: ADOPTED_CANDIDATE
+  statement: Same-canonical-Venue tier/segment/display-label-only metadata changes
+    do not force a new ListingID when InstrumentID and VenueID remain unchanged.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1.03R1_SAME_VENUE_CONTINUITY
+  evidence_refs:
+  - C1_03R1
+  - C1_07R1_RECHECK
+  required_tests:
+  - C1-579
+  - C1-580
+- decision_id: C1.DEC-198
+  decision_status: ADOPTED_CANDIDATE
+  statement: R2 preserves all R1/C1.06 closures, inherited authority, traceability,
+    and independent-review gating.
+  classification: INFERRED_OR_ADAPTED
+  reasoning_basis: C1_07R2_GOVERNANCE
+  evidence_refs:
+  - C1_07R1
+  - C1_07R1_RECHECK
+  required_tests:
+  - C1-581
+  - C1-582
+  - C1-583
+  - C1-584
+  - C1-585
+closed_questions:
+- question_id: C1.OPEN-010
+  status: CLOSED
+- question_id: C1RT-B01
+  status: CLOSED
+- question_id: C1RT-B02
+  status: CLOSED
+- question_id: C1RT-B03
+  status: CLOSED

@@ -1,0 +1,4 @@
+C2.02R1 Independent Outcome-Semantics Re-Check convenience package
+ZIP filename: C2_02R1_INDEPENDENT_OUTCOME_SEMANTICS_RECHECK_PACKAGE.zip
+SHA-256: f0e356ef1b08465b387a755c69662db6abc0181ce2bea5217f25f43369eea5d1
+The ZIP container is convenience-only; semantic authority resides in individually content-addressed artifacts.

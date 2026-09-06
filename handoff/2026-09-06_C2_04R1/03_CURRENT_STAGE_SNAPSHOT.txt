@@ -22,8 +22,9 @@ C2.04 canonical GitHub archive: COMPLETE
 C2.04 canonical artifact count: 10
 C2.04 exact Git blob byte equivalence: 10/10 PASS
 C2.04 Independent Security-Boundary Review: FAIL
-C2.04 Independent Review report SHA-256: 7d59025d15f8e0549353c304fc3b51af5c4bb662665452cb6f5bf58805718203
-C2.04 Independent Review result SHA-256: 203eba631b3dea79c07cb7ae5c169b3a1e3d14d687ed1982c3c917b24119fccf
+C2.04 authoritative Independent Review archive commit: aa2a7b4c8c4c36cca66d6fa9cdf6f98d0866321d
+C2.04 authoritative Independent Review report SHA-256: 12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21
+C2.04 authoritative Independent Review result SHA-256: 4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78
 C2.04 state: REPAIR_REQUIRED_NOT_FROZEN
 C2SEC-B01: OPEN
 C2SEC-B02: OPEN

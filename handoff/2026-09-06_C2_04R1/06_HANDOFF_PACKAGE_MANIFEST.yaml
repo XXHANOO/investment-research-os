@@ -1,0 +1,38 @@
+package: handoff/2026-09-06_C2_04R1
+purpose: new-chat continuity after explicit user stop request
+created_for_stage: C2.04
+current_state: REPAIR_REQUIRED_NOT_FROZEN
+next_gate: C2.04R1 scoped repair
+
+handoff_files:
+  - 00_README_FIRST.md
+  - 01_NEW_CHAT_BOOTSTRAP_PROMPT.txt
+  - 02_PROJECT_HANDOFF_CURRENT_STATE.md
+  - 03_CURRENT_STAGE_SNAPSHOT.txt
+  - 04_CANONICAL_ARTIFACT_INDEX.yaml
+  - 05_STOP_STATE.yaml
+  - 06_HANDOFF_PACKAGE_MANIFEST.yaml
+
+canonical_state_sources:
+  current_stage: governance/CURRENT_STAGE.txt
+  c2_04_candidate_directory: governance/C2/C2.04/
+  c2_04_review_report: governance/C2/C2.04/C2_04_INDEPENDENT_SECURITY_BOUNDARY_REVIEW_REPORT__sha256_12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21.md
+  c2_04_review_result: governance/C2/C2.04/C2_04_INDEPENDENT_SECURITY_BOUNDARY_REVIEW_RESULT__sha256_4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78.yaml
+
+canonical_commits:
+  c2_04_candidate_archive: 8abaf5956b342780b85dc17fbb8ecf4142b12f8b
+  c2_04_review_archive: aa2a7b4c8c4c36cca66d6fa9cdf6f98d0866321d
+
+continuity_rules:
+  - Existing content-addressed C0/C1/C2 canonical artifacts stay in their original paths and are not duplicated or rewritten by the handoff package.
+  - C0 and C1 frozen authority must not be changed.
+  - C2.04 construction mechanical PASS is not review PASS.
+  - C2SEC-B01..B04 remain OPEN until C2.04R1 Independent Security-Boundary Re-Check closes them.
+  - C2.05 is not authorized.
+  - Production implementation is not authorized.
+  - External/PAPER/LIVE side effects are not authorized.
+
+local_convenience_archive:
+  filename: INVESTMENT_RESEARCH_OS_HANDOFF_2026-09-06_C2_04R1.zip
+  sha256: ed11a602de23dfe3f5ffeec0773dfa36f2fcc19be2a308d7adb0a3beeac1fa47
+  note: This local convenience ZIP mirrors extensive local stage artifacts for the user; the GitHub handoff directory plus canonical governance paths are the repository authority.

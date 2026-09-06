@@ -1,0 +1,48 @@
+Investment Research OS — transfer package index
+Generated: 2026-09-06
+
+Purpose: final STOP/TRANSFER snapshot for a new ChatGPT conversation. No development authorization is implied.
+
+Authoritative repository:
+  XXHANOO/investment-research-os
+  branch: main
+
+Handoff directory:
+  governance/handoffs/C2_04R1_2026-09-06/
+
+Files:
+  PROJECT_HANDOFF_C2_04R1.md
+  NEW_CHAT_BOOTSTRAP_PROMPT_C2_04R1.txt
+  PACKAGE_INDEX.txt
+
+Authoritative C2.04 independent review already archived in GitHub:
+  report SHA-256: 12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21
+  result SHA-256: 4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78
+  archive commit: aa2a7b4c8c4c36cca66d6fa9cdf6f98d0866321d
+  Git blob equivalence: 2/2 PASS
+
+Current stop state:
+  C0 FROZEN
+  C1 FROZEN
+  C2.00 REVIEW_PASSED_NOT_FROZEN
+  C2.01 REVIEW_PASSED_NOT_FROZEN
+  C2.02 REVIEW_PASSED_NOT_FROZEN
+  C2.03 REVIEW_PASSED_NOT_FROZEN
+  C2.04 Independent Security-Boundary Review FAIL
+  C2.04 REPAIR_REQUIRED_NOT_FROZEN
+  C2SEC-B01..B04 OPEN
+  C2.05 NOT STARTED / NOT AUTHORIZED
+  Production implementation NOT AUTHORIZED
+  External/PAPER/LIVE side effects NOT AUTHORIZED
+
+Convenience local full snapshot produced in the previous chat:
+  INVESTMENT_RESEARCH_OS_HANDOFF_2026-09-06_C2_04R1.zip
+  SHA-256: b478acb714b21b463053742f49feae86a13417182ab952e1ae85c23c4f9f2876
+  size: 878953 bytes
+  local snapshot file count: 92
+
+The convenience ZIP is not a new source of authority. GitHub content-addressed stage artifacts and governance/CURRENT_STAGE.txt remain authoritative.
+
+Next permitted gate only after explicit user authorization in the new chat:
+  C2.04R1 scoped repair limited to C2SEC-B01..B04
+  -> C2.04R1 Independent Security-Boundary Re-Check

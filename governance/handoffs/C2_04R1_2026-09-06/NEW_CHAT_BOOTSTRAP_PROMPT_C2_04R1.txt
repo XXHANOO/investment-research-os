@@ -1,0 +1,7 @@
+We are continuing the Investment Research OS governance project in a NEW chat.
+
+FIRST: read `governance/handoffs/C2_04R1_2026-09-06/PROJECT_HANDOFF_C2_04R1.md`, `governance/CURRENT_STAGE.txt`, and the exact C2.04 construction/review artifacts referenced there. Treat frozen C0/C1 and previously reviewed C2 stages as authority.
+
+Current stop state: C2.04 Independent Security-Boundary Review = FAIL; C2.04 = REPAIR_REQUIRED_NOT_FROZEN; C2.05 NOT AUTHORIZED.
+
+Do not continue automatically. Confirm the handoff state first. If I authorize the next stage, perform only C2.04R1 scoped repair for C2SEC-B01..B04, then stop for Independent Security-Boundary Re-Check. Do not implement production adapters, secret stores, vendor choices, or PAPER/LIVE side effects. Preserve exact hashes, independent-review separation, and the Human + ChatGPT + Codex governance workflow.

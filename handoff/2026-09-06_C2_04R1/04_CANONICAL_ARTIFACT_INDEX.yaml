@@ -70,10 +70,12 @@ C2_04:
     zip_pointer_sha256: 5b09444eed4c7eb63e966026df1642397558f9f36b52c1c019fc9c7d61eb8e74
   independent_security_review:
     status: FAIL
-    report_sha256: 7d59025d15f8e0549353c304fc3b51af5c4bb662665452cb6f5bf58805718203
-    report_path: governance/C2/C2.04/C2_04_INDEPENDENT_SECURITY_BOUNDARY_REVIEW_REPORT__sha256_7d59025d15f8e0549353c304fc3b51af5c4bb662665452cb6f5bf58805718203.md
-    result_sha256: 203eba631b3dea79c07cb7ae5c169b3a1e3d14d687ed1982c3c917b24119fccf
-    result_path: governance/C2/C2.04/C2_04_INDEPENDENT_SECURITY_BOUNDARY_REVIEW_RESULT__sha256_203eba631b3dea79c07cb7ae5c169b3a1e3d14d687ed1982c3c917b24119fccf.yaml
+    archive_commit: aa2a7b4c8c4c36cca66d6fa9cdf6f98d0866321d
+    exact_git_blob_equivalence: 2/2 PASS
+    report_sha256: 12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21
+    report_path: governance/C2/C2.04/C2_04_INDEPENDENT_SECURITY_BOUNDARY_REVIEW_REPORT__sha256_12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21.md
+    result_sha256: 4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78
+    result_path: governance/C2/C2.04/C2_04_INDEPENDENT_SECURITY_BOUNDARY_REVIEW_RESULT__sha256_4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78.yaml
     acceptance_total: 60
     acceptance_pass: 58
     acceptance_fail: 2

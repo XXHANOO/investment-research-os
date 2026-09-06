@@ -60,8 +60,9 @@ At that point 10/10 canonical C2.04 Git blobs matched the local exact bytes and 
 
 Verdict: **FAIL — C2.04R1 scoped repair required.**
 
-Review report SHA-256: `7d59025d15f8e0549353c304fc3b51af5c4bb662665452cb6f5bf58805718203`  
-Machine-readable result SHA-256: `203eba631b3dea79c07cb7ae5c169b3a1e3d14d687ed1982c3c917b24119fccf`
+Authoritative review archive commit: `aa2a7b4c8c4c36cca66d6fa9cdf6f98d0866321d`  
+Authoritative review report SHA-256: `12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21`  
+Authoritative machine-readable result SHA-256: `4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78`
 
 Acceptance reviewed: `C2-289..C2-348` = 60 obligations.
 
@@ -105,4 +106,4 @@ R1 must be limited to B01-B04 plus acceptance additions/re-checks. C2.05 remains
 
 ## 7. New-chat protocol
 
-The new conversation should begin from `01_NEW_CHAT_BOOTSTRAP_PROMPT.txt`, then inspect the exact C2.04 candidate and review report/result. Do not begin C2.05. Do not treat construction mechanical PASS as review PASS. Do not change C0/C1 frozen authority.
+The new conversation should begin from `01_NEW_CHAT_BOOTSTRAP_PROMPT.txt`, then inspect the exact C2.04 candidate and the authoritative review report/result named in `04_CANONICAL_ARTIFACT_INDEX.yaml`. Do not begin C2.05. Do not treat construction mechanical PASS as review PASS. Do not change C0/C1 frozen authority.

@@ -12,6 +12,7 @@ handoff_files:
   - 04_CANONICAL_ARTIFACT_INDEX.yaml
   - 05_STOP_STATE.yaml
   - 06_HANDOFF_PACKAGE_MANIFEST.yaml
+  - 07_AUTHORITATIVE_REVIEW_POINTER.txt
 
 canonical_state_sources:
   current_stage: governance/CURRENT_STAGE.txt
@@ -34,5 +35,5 @@ continuity_rules:
 
 local_convenience_archive:
   filename: INVESTMENT_RESEARCH_OS_HANDOFF_2026-09-06_C2_04R1.zip
-  sha256: ed11a602de23dfe3f5ffeec0773dfa36f2fcc19be2a308d7adb0a3beeac1fa47
-  note: This local convenience ZIP mirrors extensive local stage artifacts for the user; the GitHub handoff directory plus canonical governance paths are the repository authority.
+  sha256: 234ba0c885ee57b6d5b123e96838a7fbf8f359710e1c4cf256de96462bfa1740
+  note: This local convenience ZIP mirrors extensive local stage artifacts for the user and intentionally omits non-authoritative draft C2.04 review copies. The GitHub handoff directory plus canonical governance paths are repository authority.

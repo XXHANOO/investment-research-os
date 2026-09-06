@@ -1,0 +1,92 @@
+repository: XXHANOO/investment-research-os
+handoff_date: 2026-09-06
+stop_state: C2.04 Independent Security-Boundary Review FAIL; C2.04R1 scoped repair is next gate
+
+C0:
+  state: FROZEN
+  canonical_archive: COMPLETE
+
+C1:
+  state: FROZEN
+  freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+  substantive_archive: COMPLETE
+  exact_byte_equivalence: 11/11 PASS
+  development_readiness_recheck_sha256: 81bf8c72b5381e5297b004bdc1b9ef9809db6492f80879b9d1d62f173dbaaf81
+  key_paths:
+    - governance/C1/C1.05R1/
+    - governance/C1/C1.07R2/
+
+C2_00:
+  state: REVIEW_PASSED_NOT_FROZEN
+  path: governance/C2/C2.00/
+
+C2_01:
+  state: REVIEW_PASSED_NOT_FROZEN
+  original_review: FAIL
+  repair: C2.01R1
+  independent_recheck: PASS
+  path: governance/C2/C2.01R1/
+
+C2_02:
+  state: REVIEW_PASSED_NOT_FROZEN
+  original_review: FAIL
+  R1_recheck: FAIL
+  R2_recheck: PASS
+  path: governance/C2/C2.02R2/
+
+C2_03:
+  state: REVIEW_PASSED_NOT_FROZEN
+  original_review: FAIL
+  R1_recheck: FAIL
+  R2_recheck: PASS
+  path: governance/C2/C2.03R2/
+
+C2_04:
+  construction_state: COMPLETE_AS_CANDIDATE
+  current_state: REPAIR_REQUIRED_NOT_FROZEN
+  canonical_path: governance/C2/C2.04/
+  canonical_archive_commit: 8abaf5956b342780b85dc17fbb8ecf4142b12f8b
+  canonical_tree: c3bb470c85f02eeebf7a222a8e2a46f7829a7ce7
+  canonical_artifact_count: 10
+  exact_git_blob_equivalence: 10/10 PASS
+  artifacts:
+    normative_contract:
+      sha256: 198d194fbb3814676f1cb74aec5d56f19f8b1f9b081c6d77c16b4e66fd762cda
+      path: governance/C2/C2.04/C2_04_CREDENTIAL_PRIVATE_STATE_SECURE_INGRESS_CONTRACT_CANDIDATE__sha256_198d194fbb3814676f1cb74aec5d56f19f8b1f9b081c6d77c16b4e66fd762cda.md
+    logical_model:
+      sha256: 9d3609c775967fe374c1e1007828540d893852834bece09986148bf5a8aad5af
+      path: governance/C2/C2.04/C2_04_SECURITY_BOUNDARY_LOGICAL_MODEL_CANDIDATE__sha256_9d3609c775967fe374c1e1007828540d893852834bece09986148bf5a8aad5af.yaml
+    acceptance_delta:
+      sha256: 2a0b24c0f9d67a03c565f16e2985d0a5ecbaaff090c4715b2b7ea9b8491c0b8a
+      path: governance/C2/C2.04/C2_04_ACCEPTANCE_TEST_DELTA_CANDIDATE__sha256_2a0b24c0f9d67a03c565f16e2985d0a5ecbaaff090c4715b2b7ea9b8491c0b8a.md
+    decision_ledger:
+      sha256: 719018dd73c1e80e9633d0468972e253dae4f77a3ffda75e1c0169c16c9aeac4
+      path: governance/C2/C2.04/C2_04_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_719018dd73c1e80e9633d0468972e253dae4f77a3ffda75e1c0169c16c9aeac4.yaml
+    candidate_selection_sha256: 43ed6936cf36435303edd0a4df2847da1af10816d2b51e431b8885496eba60f4
+    construction_summary_sha256: 69008bf5827bf300b77b0a3fa003faca9ce96766913d69470413f49eb6e60dd8
+    construction_validation_sha256: 6a6c45ae2d9785a81f130b5142361d125ad40cb499962517d320f379200b176c
+    stage_report_sha256: afd19deeaeafd98ae9e10fa0c6ba953e4c8a2008dcc5652cab3c054f7619a55f
+    review_package_manifest_sha256: e3495ee44dd266fdaf9fbd2f5d9f3cb0f1e361f578c284b822fe8f9d512c5b28
+    zip_pointer_sha256: 5b09444eed4c7eb63e966026df1642397558f9f36b52c1c019fc9c7d61eb8e74
+  independent_security_review:
+    status: FAIL
+    report_sha256: 7d59025d15f8e0549353c304fc3b51af5c4bb662665452cb6f5bf58805718203
+    report_path: governance/C2/C2.04/C2_04_INDEPENDENT_SECURITY_BOUNDARY_REVIEW_REPORT__sha256_7d59025d15f8e0549353c304fc3b51af5c4bb662665452cb6f5bf58805718203.md
+    result_sha256: 203eba631b3dea79c07cb7ae5c169b3a1e3d14d687ed1982c3c917b24119fccf
+    result_path: governance/C2/C2.04/C2_04_INDEPENDENT_SECURITY_BOUNDARY_REVIEW_RESULT__sha256_203eba631b3dea79c07cb7ae5c169b3a1e3d14d687ed1982c3c917b24119fccf.yaml
+    acceptance_total: 60
+    acceptance_pass: 58
+    acceptance_fail: 2
+    failed_obligations:
+      - C2-313
+      - C2-319
+    blockers:
+      - C2SEC-B01
+      - C2SEC-B02
+      - C2SEC-B03
+      - C2SEC-B04
+
+next_gate: C2.04R1 scoped repair -> C2.04R1 Independent Security-Boundary Re-Check
+C2_05: NOT_STARTED_NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED

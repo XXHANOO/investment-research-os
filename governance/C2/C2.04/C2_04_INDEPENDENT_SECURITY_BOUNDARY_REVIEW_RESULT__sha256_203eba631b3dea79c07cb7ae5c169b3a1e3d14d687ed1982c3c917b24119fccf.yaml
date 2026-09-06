@@ -1,0 +1,48 @@
+stage: C2.04
+review_type: INDEPENDENT_SECURITY_BOUNDARY_REVIEW
+status: FAIL
+candidate_state: REPAIR_REQUIRED_NOT_FROZEN
+next_gate: C2.04R1 scoped repair -> Independent Security-Boundary Re-Check
+acceptance_review:
+  range: C2-289..C2-348
+  total: 60
+  pass: 58
+  fail: 2
+  failed:
+  - C2-313
+  - C2-319
+blocking_findings:
+  C2SEC-B01:
+    status: OPEN
+    title: redirect_forwarding_semantics required but semantically undefined
+    repair_scope: closed redirect-forwarding vocabulary and exact deterministic predicate,
+      including same-authority and cross-authority redirect behavior
+  C2SEC-B02:
+    status: OPEN
+    title: Private-state least-scope asserted but not machine-closed
+    repair_scope: stable private-state scope refs, actual operation-local scope, canonical
+      subset predicate, fail-closed scope resolution, public-projection binding
+  C2SEC-B03:
+    status: OPEN
+    title: Secure-ingress decision formula lacks a closed assessment-bundle integrity contract
+    repair_scope: SecureIngressAssessmentRecord or equivalent with exactly one result
+      per axis, one ingress candidate, exact profile/policy refs, fail-closed completeness/conflict
+      handling
+  C2SEC-B04:
+    status: OPEN
+    title: Operation-local credential lease is not bound to an exact operation identity
+    repair_scope: bind lease descriptor to exact provider operation/route-attempt identity
+      and forbid cross-operation reuse
+open_questions:
+  C2.OPEN-008: NOT_CLOSED_REPAIR_REQUIRED
+  C2.OPEN-009: OPEN_UNCHANGED
+  C2.OPEN-010: OPEN_UNCHANGED
+  C2.OPEN-011: OPEN_UNCHANGED
+  C2.OPEN-012: OPEN_UNCHANGED
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+  C2.OPEN-014: OPEN_UNCHANGED
+  C2.OPEN-015: OPEN_UNCHANGED
+authorizations:
+  C2.05: NOT_AUTHORIZED
+  production_implementation: NOT_AUTHORIZED
+  external_paper_live_side_effects: NOT_AUTHORIZED

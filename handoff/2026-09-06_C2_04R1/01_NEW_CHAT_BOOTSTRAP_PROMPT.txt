@@ -1,0 +1,53 @@
+We are continuing development of my Investment Research OS project in a NEW ChatGPT conversation created deliberately at a stage boundary / handoff checkpoint.
+
+AUTHORITATIVE HANDOFF PACKAGE
+=============================
+Use the GitHub repository XXHANOO/investment-research-os and the handoff directory handoff/2026-09-06_C2_04R1 as authority. Do not reconstruct or rewrite frozen/canonical artifacts from prose if exact bytes already exist.
+
+CURRENT STATE
+=============
+- C0 FROZEN.
+- C1 FROZEN; Freeze Seal SHA-256 = 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5.
+- C1 retained frozen load-bearing substantive archive COMPLETE; 11/11 byte-equivalence PASS.
+- C2.00 REVIEW_PASSED_NOT_FROZEN.
+- C2.01 REVIEW_PASSED_NOT_FROZEN after C2.01R1 Independent Capability Re-Check PASS.
+- C2.02 REVIEW_PASSED_NOT_FROZEN after C2.02R2 Independent Outcome-Semantics Re-Check PASS.
+- C2.03 REVIEW_PASSED_NOT_FROZEN after C2.03R2 Independent Routing Re-Check PASS.
+- C2.04 construction COMPLETE AS CANDIDATE and exact GitHub archive COMPLETE (10/10 exact Git blob byte-equivalence PASS).
+- C2.04 Independent Security-Boundary Review = FAIL.
+- C2.04 = REPAIR_REQUIRED_NOT_FROZEN.
+- C2.05 NOT STARTED / NOT AUTHORIZED.
+- Production implementation NOT AUTHORIZED.
+- External/PAPER/LIVE side effects NOT AUTHORIZED.
+
+OPEN C2.04 BLOCKERS
+====================
+C2SEC-B01: redirect_forwarding_semantics is required but semantically undefined. R1 must freeze a closed vocabulary and deterministic redirect credential-forward/rebind predicate, including same-authority and cross-authority behavior.
+
+C2SEC-B02: private-state least-scope is asserted but not machine-closed. R1 must freeze stable private-state scope refs, exact operation-local actual scope, canonical set/subset semantics, fail-closed scope resolution, and public_projection_rule binding.
+
+C2SEC-B03: secure-ingress decision formula lacks a closed assessment-bundle integrity contract. R1 must define SecureIngressAssessmentRecord (or equivalent) binding exactly one result for each secret/privacy/licensing/retention axis to one ingress candidate and exact pinned profile/policy refs; missing/duplicate/conflicting/mismatched inputs fail closed.
+
+C2SEC-B04: operation-local CredentialLease lacks exact operation identity. R1 must bind each lease descriptor to one exact provider operation / route-attempt identity and forbid reuse across another operation identity.
+
+C2.04 REVIEW COUNTS
+==================
+Acceptance C2-289..C2-348: 60 total; 58 PASS; 2 FAIL.
+Failed existing obligations: C2-313, C2-319.
+Two additional blocker classes require new R1 adversarial obligations.
+
+NEXT AUTHORIZED WORK
+====================
+Do NOT start C2.05.
+The next stage is C2.04R1 scoped repair only, limited to B01-B04 and corresponding acceptance additions/re-checks. After construction, stop at C2.04R1 Independent Security-Boundary Re-Check unless I explicitly authorize the re-check.
+
+WORKFLOW DISCIPLINE
+===================
+1. Preserve exact content-addressed artifacts and hashes.
+2. Never self-approve construction; blockers are ADDRESSED_NOT_CLOSED until independent re-check.
+3. Do not absorb C3 retry/quota/cache/freshness, C4 PIT/revision/available_from, C5 evidence verification/source fitness/conflict, C6 capability/policy/trusted-intent authority, C7 orchestration/budgets/cancellation, or C11 persistence authority into C2.
+4. Keep production provider adapters, real credentials, provider instances, vendor selections, and PAPER/LIVE side effects unauthorized.
+5. Current work is contract/governance architecture, not production implementation.
+6. Read 02_PROJECT_HANDOFF_CURRENT_STATE.md and 04_CANONICAL_ARTIFACT_INDEX.yaml before continuing.
+
+First action in the new chat: verify CURRENT_STAGE and the C2.04 review artifacts against GitHub, then wait for or follow my instruction to begin C2.04R1 scoped repair.

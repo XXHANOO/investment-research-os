@@ -1,0 +1,128 @@
+We are continuing development of my Investment Research OS project in a NEW ChatGPT Work page created deliberately after a stop-state archival checkpoint.
+
+AUTHORITATIVE HANDOFF PACKAGE
+=============================
+Use the GitHub repository XXHANOO/investment-research-os and the handoff directory handoff/2026-09-07_C2_05R3 as authority.
+
+Read, in order:
+1. 00_README_FIRST.md
+2. 02_PROJECT_HANDOFF_CURRENT_STATE.md
+3. 03_CURRENT_STAGE_SNAPSHOT.txt
+4. 04_CANONICAL_ARTIFACT_INDEX.yaml
+5. 05_STOP_STATE.yaml
+6. 08_FINAL_SYNC_VERIFICATION.yaml
+
+Do not reconstruct, rewrite, or normalize frozen/content-addressed canonical artifacts from prose when exact GitHub bytes already exist.
+
+CURRENT AUTHORITATIVE STATE
+===========================
+- C0 FROZEN.
+- C1 FROZEN; Freeze Seal SHA-256 = 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5.
+- C2.00 REVIEW_PASSED_NOT_FROZEN.
+- C2.01 REVIEW_PASSED_NOT_FROZEN after C2.01R1 Independent Capability Re-Check PASS.
+- C2.02 REVIEW_PASSED_NOT_FROZEN after C2.02R2 Independent Outcome-Semantics Re-Check PASS.
+- C2.03 REVIEW_PASSED_NOT_FROZEN after C2.03R2 Independent Routing Re-Check PASS.
+- C2.04 REVIEW_PASSED_NOT_FROZEN after C2.04R1 Independent Security-Boundary Re-Check PASS.
+- C2.05 original Independent Certification Review = FAIL.
+- C2.05R1 Independent Certification Re-Check = FAIL.
+- C2.05R2 Independent Certification Re-Check = FAIL.
+- C2.05R3 scoped repair construction = COMPLETE AS CANDIDATE.
+- C2.05R3 Independent Certification Re-Check = NOT RUN / NOT AUTHORIZED.
+- C2.06 NOT STARTED / NOT AUTHORIZED.
+- Production implementation NOT AUTHORIZED.
+- Provider/vendor configuration NOT AUTHORIZED.
+- External/PAPER/LIVE side effects NOT AUTHORIZED.
+
+C2.05R2 REVIEW STATE THAT R3 REPAIRS
+====================================
+C2CERT-B01 = CLOSED_UNCHANGED.
+C2CERT-B02 = CLOSED_UNCHANGED.
+C2CERT-B03 = OPEN at R2 review due to:
+  - NATIVE_SCOPE_COMMITMENT_NOT_EXECUTION_BOUND
+  - PROVENANCE_UNIQUENESS_DOMAIN_NOT_PINNED
+C2CERT-B04 = OPEN at R2 review due to:
+  - COMPOSITE_ROOT_UNMATCHABLE_TO_ATTEMPT_RESPONSE_SCOPE
+C2CERT-B05 = CLOSED_UNCHANGED.
+
+Effective acceptance through R2:
+C2-402..C2-590 = 183/189 PASS; 6 FAIL.
+Residual FAIL:
+C2-471, C2-481, C2-540, C2-557, C2-584, C2-585.
+
+C2.05R3 CANDIDATE
+=================
+Exact candidate archive commit:
+aae0d92d9695af9ddb9c93ce5d3680649e8692c5
+
+Exact candidate subtree:
+bf10f4fd1cf271ea5dd23d124c74a80a65e670cd
+
+Construction artifacts:
+11 total; 11/11 exact Git blob byte equivalence PASS.
+
+R3 repair contract SHA-256:
+0c8169e33a1f57bce7c987a8aa8f29d3eee22abea635960b52207739c7861760
+
+R3 logical model SHA-256:
+0858d9a0ca503b186351a596fa8216fefd05e14655351fd9cbfa8c6d5e334e94
+
+R3 acceptance delta SHA-256:
+d56f78b087136b4404a499abe56f27e295d4a4198f615eabd3b9bfb3f7a188af
+
+R3 decisions:
+C2.DEC-380..C2.DEC-405 = 26.
+
+R3 new acceptance:
+C2-591..C2-640 = 50, NOT independently reviewed.
+
+R3 residual obligations that must be independently re-run:
+C2-471, C2-481, C2-540, C2-557, C2-584, C2-585.
+
+R3 must also adversarially re-evaluate:
+C2-567, C2-568, C2-569, C2-570, C2-571.
+
+R3 REPAIR SEMANTICS
+===================
+B03:
+- EXECUTED_REQUEST_SEMANTIC_STATE is the exact replay-retained coverage-relevant state consumed by actual request construction/dispatch.
+- Native subject, identifier namespace, partition, constraint, and temporal scope dimensions must project from that executed state.
+- Any coverage-relevant request dimension not represented in the executed state makes the attempt coverage-ineligible.
+- Coverage-capable certification profiles require REQUEST_SCOPE_CONFORMANCE.
+- OPERATION_COVERAGE_AUTHORITY_BINDING is the singular exact attempt-retained provenance authority domain.
+- Mutable/global provenance scans are forbidden; later unreferenced claims cannot change historical replay.
+- R2 exact CapabilityRequirement R and C2.02R2 attempted-response provenance are preserved.
+
+B04:
+- R3 selects an explicit immutable COMPOSITE_SCOPE_DECOMPOSITION_RELATION model.
+- R2's forced-empty composite-root query/response rule is superseded.
+- Composite root query/response sets must match the consuming operation.
+- Root response set must equal exact C2.02R2 attempted-response set A and therefore include the endpoint primary response semantic.
+- Root-to-component query/response decomposition must be exact, machine-checkable, total, and fail-closed.
+- Inferred equivalence from provider names, labels, request text, schema similarity, or human judgment is forbidden.
+- R2 exact component-scope and partition closure remain mandatory in addition to decomposition closure.
+
+WORKFLOW DISCIPLINE
+===================
+1. Preserve exact content-addressed artifacts and hashes.
+2. Construction never self-approves; B03/B04 remain ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK.
+3. Do not absorb C3 retry/quota/cache/freshness, C4 PIT/revision/available_from, C5 verification/source-fitness/conflict, C6 capability/policy/trusted-intent/side-effect authority, C7 orchestration/budgets/cancellation, C11 persistence, or C12 release authority into C2.05.
+4. C2.06 owns final cross-contract wire placement and C2->C11 handoff.
+5. C2.07 owns machine schema/validator encoding and may encode but not invent semantics.
+6. Keep provider/vendor selections, production adapters, real credentials, and PAPER/LIVE side effects unauthorized.
+7. Do not treat R3 mechanical validation PASS as Independent Certification Re-Check PASS.
+
+NEXT GATE
+=========
+Do not start work automatically.
+
+First action in the new Work page:
+- verify `governance/CURRENT_STAGE.txt`,
+- verify the C2.05R2 Independent Certification Re-Check report/result,
+- verify the exact C2.05R3 candidate artifacts and archive commit,
+- verify `08_FINAL_SYNC_VERIFICATION.yaml`,
+then wait for my explicit authorization.
+
+When I explicitly authorize it, the next stage is:
+C2.05R3 Independent Certification Re-Check.
+
+Do NOT start C2.06 before that re-check returns PASS and I separately authorize C2.06.

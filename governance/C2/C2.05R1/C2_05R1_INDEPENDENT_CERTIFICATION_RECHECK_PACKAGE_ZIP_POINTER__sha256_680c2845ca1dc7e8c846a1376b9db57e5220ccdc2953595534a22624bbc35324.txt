@@ -1,0 +1,8 @@
+C2.05R1 Independent Certification Re-Check package is repository-native.
+
+Authoritative package manifest SHA-256:
+868fee6e7e75825818818574b6e6bffed3ca18577feb28a72e8dec6ed0a0add4
+
+No binary ZIP is required for authority. The exact content-addressed GitHub files named by the manifest are the review package. Any convenience ZIP generated later is transport-only and must byte-match those files before use.
+
+Independent Certification Re-Check is NOT YET AUTHORIZED by construction.

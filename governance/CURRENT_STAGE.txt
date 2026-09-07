@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.04R1 SCOPED REPAIR CONSTRUCTION COMPLETE AS CANDIDATE — NOT INDEPENDENTLY RECHECKED
-Current gate: Explicit user authorization for C2.04R1 Independent Security-Boundary Re-Check
+Current stage: C2.04R1 INDEPENDENT SECURITY-BOUNDARY RE-CHECK PASS — C2.04 REVIEW_PASSED_NOT_FROZEN
+Current gate: Explicit user authorization for C2.05 — Provider Certification / Completeness / Coverage Attestations
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -46,7 +46,7 @@ C2.OPEN-007: CLOSED_AT_C2_03_SEMANTIC_LEVEL_PENDING_C2_06_WIRE_BINDING
 C2.03R2 Independent Re-Check report SHA-256: 968db1fb83eca0e77c51a017ec12c5bcb5e43440cd0a25a7e971b9c00f5ef11a
 C2.03R2 Independent Re-Check result SHA-256: f8db42b0dce59cb021dfa12f5913fb3f79918808d73f5fbc853656a8b7633d43
 
-C2.04 construction: COMPLETE AS CANDIDATE
+C2.04 original construction: COMPLETE AS CANDIDATE
 C2.04 canonical GitHub archive: COMPLETE
 C2.04 canonical artifact count: 10
 C2.04 exact Git blob byte equivalence: 10/10 PASS
@@ -58,22 +58,21 @@ C2.04 logical model SHA-256: 9d3609c775967fe374c1e1007828540d893852834bece099861
 C2.04 acceptance delta SHA-256: 2a0b24c0f9d67a03c565f16e2985d0a5ecbaaff090c4715b2b7ea9b8491c0b8a
 C2.04 evidence/decision ledger SHA-256: 719018dd73c1e80e9633d0468972e253dae4f77a3ffda75e1c0169c16c9aeac4
 
-C2.04 Independent Security-Boundary Review: FAIL
-C2.04 parent state after review: REPAIR_REQUIRED_NOT_FROZEN
-C2.04 acceptance review: 58/60 PASS; 2 FAIL
-C2.04 failed existing obligations: C2-313, C2-319
+C2.04 original Independent Security-Boundary Review: FAIL
+C2.04 parent state after original review: REPAIR_REQUIRED_NOT_FROZEN
+C2.04 original acceptance review: 58/60 PASS; 2 FAIL
+C2.04 original failed obligations: C2-313, C2-319
 C2.04 Independent Review report SHA-256: 12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21
 C2.04 Independent Review result SHA-256: 4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78
 C2.04 exact Independent Review archive commit: aa2a7b4c8c4c36cca66d6fa9cdf6f98d0866321d
 C2.04 Independent Review Git blob equivalence: 2/2 PASS
 
-C2.04R1 user authorization: GRANTED
+C2.04R1 scoped-repair authorization: GRANTED
 C2.04R1 scope: B01-B04 ONLY + corresponding acceptance additions/re-checks
 C2.04R1 construction: COMPLETE AS SCOPED REPAIR CANDIDATE
-C2.04R1 independent security re-check: NOT RUN / NOT AUTHORIZED YET
 C2.04R1 canonical candidate path: governance/C2/C2.04R1/
-C2.04R1 canonical candidate artifact count: 11
-C2.04R1 exact Git blob byte equivalence: 11/11 PASS
+C2.04R1 construction artifact count: 11
+C2.04R1 construction exact Git blob byte equivalence: 11/11 PASS
 C2.04R1 exact candidate archive commit: 3c68da71384829248f30aeec584cca499c86ccd3
 C2.04R1 exact candidate subtree: d33998b0fd896ccf6ef035093a370724ac86da00
 
@@ -90,16 +89,19 @@ C2.04R1 independent re-check package manifest SHA-256: 4ceed3baba3c98b207fda1ba3
 C2.04R1 package ZIP pointer SHA-256: a12f89fa13145e846f9dd8e243175268ac0e1d6f7d8e240efc5dce44508a134d
 C2.04R1 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_SECURITY_RECHECK
 
-C2.04R1 repair decisions: C2.DEC-263..C2.DEC-287 = 25
-C2.04R1 acceptance additions: C2-349..C2-401 = 53
-C2.04R1 parent failed obligations pending independent re-check: C2-313, C2-319
+C2.04R1 Independent Security-Boundary Re-Check: PASS
+C2.04 state after R1 re-check: REVIEW_PASSED_NOT_FROZEN
+C2.04R1 parent failed obligation re-check: C2-313 PASS; C2-319 PASS
+C2.04R1 new acceptance re-check: C2-349..C2-401 = 53/53 PASS
+C2.04 effective acceptance after repair: C2-289..C2-401 = 113/113 PASS
+C2.04R1 parent PASS surface non-regression: PASS
+C2SEC-B01..B04: CLOSED
+C2.OPEN-008: CLOSED_AT_C2_04_SECURITY_BOUNDARY_CONTRACT_LEVEL
+C2.04R1 Independent Re-Check report SHA-256: 90290428615103f7e22571bf13f46b94b8d0287a8de9303e51f84c09056677af
+C2.04R1 Independent Re-Check result SHA-256: d1af240f4e6eff32b087295ef259fd4485c13fc0775f8abc24fa630993104f47
+C2.04R1 exact Independent Re-Check archive commit: f0a07d8329374caef8d1bf3ca8439ac8b1323303
+C2.04R1 Independent Re-Check artifact count: 2
 
-C2SEC-B01: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK — closed redirect-forwarding vocabulary and deterministic provider/authority/capability/endpoint predicate constructed
-C2SEC-B02: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK — stable atomic private-state scopes, canonical set/subset predicate, operation-local actual scope, and pinned public-projection rule constructed
-C2SEC-B03: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK — replayable exactly-one-per-axis SecureIngressAssessmentRecord with candidate/profile/policy coherence and fail-closed invalid-bundle handling constructed
-C2SEC-B04: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK — CredentialLease exact provider-operation/route-attempt binding and cross-operation reuse rejection constructed
-
-C2.OPEN-008: NOT_CLOSED_REPAIR_CANDIDATE_PENDING_RECHECK
 C2.OPEN-009..012: OPEN_UNCHANGED
 C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
 C2.OPEN-014..015: OPEN_UNCHANGED
@@ -119,6 +121,6 @@ Production implementation: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT AUTHORIZED
 
 NEXT GATE:
-Explicit user authorization for C2.04R1 Independent Security-Boundary Re-Check.
+Explicit user authorization for C2.05 — Provider Certification / Completeness / Coverage Attestations.
 
-DO NOT start C2.05 before that re-check is explicitly authorized and completed under the project workflow.
+DO NOT start C2.05 before explicit user authorization.

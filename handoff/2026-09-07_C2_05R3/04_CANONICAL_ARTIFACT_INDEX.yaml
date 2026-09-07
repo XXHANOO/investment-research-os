@@ -123,7 +123,18 @@ C2_05R3:
     C2CERT-B04: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
     C2CERT-B05: CLOSED_UNCHANGED
 
-next_gate: C2.05R3 Independent Certification Re-Check only after explicit user authorization in the new Work page
+startup_audit:
+  required: true
+  mode: READ_ONLY
+  scope: ALL_AUTHORITATIVE_WORK_C0_THROUGH_C2_05R3
+  purpose: CONFIRM_PRIOR_DIRECTION_AND_CONTENT_BEFORE_NEW_WORK
+  repository_mutation_allowed: false
+  independent_recheck_allowed_during_audit: false
+  stop_after_audit: true
+  explicit_user_authorization_required_after_audit: true
+
+immediate_next_action: COMPREHENSIVE_PRIOR_WORK_AUDIT_READ_ONLY
+next_development_review_gate_after_audit: C2.05R3 Independent Certification Re-Check only after audit confirmation and explicit user authorization
 C2_06: NOT_STARTED_NOT_AUTHORIZED
 production_implementation: NOT_AUTHORIZED
 provider_vendor_configuration: NOT_AUTHORIZED

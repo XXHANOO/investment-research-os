@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0-C2-05-construction-summary",
+  "stage": "C2.05",
+  "generated_at_utc": "2026-09-07T06:01:18Z",
+  "status": "COMPLETE_AS_CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW",
+  "core_pins": {
+    "provider_certification_completeness_coverage_contract": "3642588dcc22a7564d55a9a72d3e6e328b007649005c866e7831dfa4b8571d4c",
+    "logical_model": "0a6d7c4037c04ca04f87994507afb722661dbd9450a115492238b9d5dd9c776c",
+    "acceptance_delta": "62714c720e2a9d6f24f066533ddac9c84f3360a6bff2cbe4d9aacbb9617cff6f",
+    "evidence_decision_ledger": "519cfd630f8f60772fe649b98297c2e32c2a912f9b36b2c59567d1e56fc57366",
+    "construction_validation": "67fd40ac13e9c7399a2a3300f747fb55696bdcb010a61305476018fa273fce76"
+  },
+  "decision_count": 44,
+  "decision_range": "C2.DEC-288..C2.DEC-331",
+  "acceptance_count": 86,
+  "acceptance_range": "C2-402..C2-487",
+  "open_questions_candidate_addressed": [
+    "C2.OPEN-009",
+    "C2.OPEN-010",
+    "C2.OPEN-011"
+  ],
+  "open_questions_deferred": [
+    "C2.OPEN-012",
+    "C2.OPEN-013",
+    "C2.OPEN-014",
+    "C2.OPEN-015"
+  ],
+  "provider_instances": 0,
+  "production_adapters": 0,
+  "production_implementation": "NOT_AUTHORIZED",
+  "external_paper_live_side_effects": "NOT_AUTHORIZED",
+  "next_gate": "C2.05 Independent Certification Review"
+}

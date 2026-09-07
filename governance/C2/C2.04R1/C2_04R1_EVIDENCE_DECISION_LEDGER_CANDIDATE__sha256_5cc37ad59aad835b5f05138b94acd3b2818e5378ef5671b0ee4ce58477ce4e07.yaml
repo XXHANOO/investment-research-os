@@ -52,8 +52,8 @@ decisions:
   closure_status: ADDRESSED_NOT_CLOSED
 - decision_id: C2.DEC-266
   code: REDIRECT_CROSS_AUTHORITY_BLOCK
-  decision: Cross-authority redirect always blocks use of the existing credential lease;
-    any new destination requires a separate trusted operation.
+  decision: Cross-authority redirect always blocks use of the existing credential
+    lease; any new destination requires a separate trusted operation.
   blocker: C2SEC-B01
   decision_classification: REPAIR_CONTRACT_SEMANTIC
   strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
@@ -177,8 +177,8 @@ decisions:
   closure_status: ADDRESSED_NOT_CLOSED
 - decision_id: C2.DEC-275
   code: PRIVATE_SCOPE_CANONICAL_SET
-  decision: Scope sets resolve exactly, reject conflicting revisions, deduplicate exact
-    duplicates, and sort by a closed bytewise key.
+  decision: Scope sets resolve exactly, reject conflicting revisions, deduplicate
+    exact duplicates, and sort by a closed bytewise key.
   blocker: C2SEC-B02
   decision_classification: REPAIR_CONTRACT_SEMANTIC
   strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
@@ -207,8 +207,8 @@ decisions:
   closure_status: ADDRESSED_NOT_CLOSED
 - decision_id: C2.DEC-277
   code: PRIVATE_SCOPE_TRUSTED_OPERATION_LOCAL
-  decision: actual_private_state_scope_refs are operation-local trusted inputs and external
-    content cannot expand them.
+  decision: actual_private_state_scope_refs are operation-local trusted inputs and
+    external content cannot expand them.
   blocker: C2SEC-B02
   decision_classification: REPAIR_CONTRACT_SEMANTIC
   strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
@@ -281,8 +281,8 @@ decisions:
   closure_status: ADDRESSED_NOT_CLOSED
 - decision_id: C2.DEC-282
   code: INGRESS_PROFILE_POLICY_COHERENCE
-  decision: All axis results must share the exact ingress profile and corresponding exact
-    pinned policy refs.
+  decision: All axis results must share the exact ingress profile and corresponding
+    exact pinned policy refs.
   blocker: C2SEC-B03
   decision_classification: REPAIR_CONTRACT_SEMANTIC
   strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
@@ -344,8 +344,8 @@ decisions:
   closure_status: ADDRESSED_NOT_CLOSED
 - decision_id: C2.DEC-286
   code: REDACTED_CANDIDATE_NEW_BUNDLE
-  decision: A redacted candidate receives a new ingress identity and complete fresh assessment;
-    old results are lineage only.
+  decision: A redacted candidate receives a new ingress identity and complete fresh
+    assessment; old results are lineage only.
   blocker: C2SEC-B03
   decision_classification: REPAIR_CONTRACT_SEMANTIC
   strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT

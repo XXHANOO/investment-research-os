@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0-C2-05R1-construction-validation",
+  "project": "Investment Research OS",
+  "stage": "C2.05R1",
+  "generated_at_utc": "2026-09-07T06:31:00Z",
+  "status": "PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_CERTIFICATION_RECHECK",
+  "checks": {
+    "scope_exactly_B01_B05": true,
+    "coverage_evidence_ref_kind_closed": true,
+    "coverage_evidence_carrier_defined": true,
+    "coverage_check_and_role_vocabularies_closed": true,
+    "termination_and_truncation_rules_closed": true,
+    "certification_decision_total_precedence_defined": true,
+    "required_optional_check_sets_disjoint_rule_defined": true,
+    "parent_registry_snapshot_binding_defined": true,
+    "operation_scope_binding_total_predicate_defined": true,
+    "partition_component_bijection_defined": true,
+    "composite_gap_closure_predicate_defined": true,
+    "nested_composite_behavior_defined": true,
+    "coverage_classification_total_precedence_defined": true,
+    "stored_vs_recomputed_classification_rule_defined": true,
+    "parent_failed_obligations_listed_for_recheck": 8,
+    "new_acceptance_count": 68,
+    "new_decision_count": 30,
+    "c2_04_security_non_regression_declared": true,
+    "ownership_boundaries_preserved": true,
+    "provider_instances_zero": true,
+    "production_adapters_zero": true,
+    "c2_06_not_started": true,
+    "construction_self_approval": false
+  },
+  "core_artifact_sha256": {
+    "contract": "267c83480aa909e74cb5d87c54512878c3c9c7128fce8a394fb63f39c6ed2bcb",
+    "logical_model": "777b7ddc3530a088a127f3becb74bd1f644fc25f83703cb27799423671752262",
+    "acceptance": "24819163ea5c835ffcee5610f8d37bc8268a3621c62cf582aed85deaf339b749",
+    "decision_ledger": "19e6bd0a48b153de04a957b7176052af2947ec8e9bf7f7bf9f1c0ab05cbe5566",
+    "repair_diffs": "1c6b61d9a5e12374aac04e365b614b061723284b0e74bde85718316630bbdf9d"
+  },
+  "blocker_state": {
+    "C2CERT-B01": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK",
+    "C2CERT-B02": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK",
+    "C2CERT-B03": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK",
+    "C2CERT-B04": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK",
+    "C2CERT-B05": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK"
+  },
+  "independent_recheck_required": true
+}

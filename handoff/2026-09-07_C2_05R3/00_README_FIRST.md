@@ -23,4 +23,10 @@ Stop state:
 - C2.06 = NOT STARTED / NOT AUTHORIZED.
 - Production implementation, provider/vendor configuration, and external/PAPER/LIVE side effects remain NOT AUTHORIZED.
 
-The next gate, only after explicit authorization in the new work page, is `C2.05R3 Independent Certification Re-Check`.
+Mandatory new-Work-page startup rule:
+- First perform the comprehensive READ-ONLY prior-work audit defined in `01_NEW_CHAT_BOOTSTRAP_PROMPT.txt`.
+- Audit all authoritative work from C0 through the current C2.05R3 candidate, including architecture direction, cross-stage consistency, ownership boundaries, acceptance/review adequacy, open risks, and the technical appropriateness of the R3 direction.
+- Do not mutate GitHub or perform new development/review work during this startup audit.
+- After presenting the audit, STOP and wait for explicit user authorization.
+
+Only after the audit confirms the prior direction/content are acceptable and the user explicitly authorizes continuation may the next work gate begin: `C2.05R3 Independent Certification Re-Check`.

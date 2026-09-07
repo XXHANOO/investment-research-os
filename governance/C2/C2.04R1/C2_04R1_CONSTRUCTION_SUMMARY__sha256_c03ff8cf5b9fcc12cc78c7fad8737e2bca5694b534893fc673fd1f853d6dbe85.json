@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0-C2-04R1-construction-summary",
+  "project": "Investment Research OS",
+  "stage": "C2.04R1",
+  "generated_at_utc": "2026-09-07T05:36:00Z",
+  "status": "COMPLETE_AS_SCOPED_REPAIR_CANDIDATE_NOT_INDEPENDENTLY_RECHECKED",
+  "parent_review_status": "FAIL",
+  "repair_scope": [
+    "C2SEC-B01",
+    "C2SEC-B02",
+    "C2SEC-B03",
+    "C2SEC-B04"
+  ],
+  "repair_decision_range": "C2.DEC-263..C2.DEC-287",
+  "repair_decision_count": 25,
+  "acceptance_addition_range": "C2-349..C2-401",
+  "acceptance_addition_count": 53,
+  "parent_failed_obligations_to_recheck": [
+    "C2-313",
+    "C2-319"
+  ],
+  "provider_instances": 0,
+  "production_adapters": 0,
+  "c2_05": "NOT_AUTHORIZED",
+  "next_gate": "C2.04R1 Independent Security-Boundary Re-Check"
+}

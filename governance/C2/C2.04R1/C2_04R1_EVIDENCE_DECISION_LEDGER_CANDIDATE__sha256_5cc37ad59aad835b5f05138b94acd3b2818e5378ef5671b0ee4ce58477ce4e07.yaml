@@ -1,0 +1,378 @@
+schema_version: 1.0.0-C2-04R1-security-repair-decision-ledger
+project: Investment Research OS
+stage: C2.04R1
+generated_at_utc: '2026-09-07T05:36:00Z'
+status: REPAIR_CANDIDATE_PENDING_INDEPENDENT_SECURITY_BOUNDARY_RECHECK
+parent_pins:
+  c2_04_contract: 198d194fbb3814676f1cb74aec5d56f19f8b1f9b081c6d77c16b4e66fd762cda
+  c2_04_model: 9d3609c775967fe374c1e1007828540d893852834bece09986148bf5a8aad5af
+  c2_04_acceptance: 2a0b24c0f9d67a03c565f16e2985d0a5ecbaaff090c4715b2b7ea9b8491c0b8a
+  c2_04_decision_ledger: 719018dd73c1e80e9633d0468972e253dae4f77a3ffda75e1c0169c16c9aeac4
+  c2_04_review_report: 12aead5a1d4fc5eea0813cedbf360fd68616b432f34100db341367d96405fe21
+  c2_04_review_result: 4eb3daf2cecb0478731b814dd7749f06e990b5748f9301b8792c84dff9c22f78
+decisions:
+- decision_id: C2.DEC-263
+  code: REDIRECT_MODE_CLOSED
+  decision: redirect_forwarding_semantics uses a closed three-value R1 vocabulary;
+    unknown values fail closed.
+  blocker: C2SEC-B01
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-349
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-264
+  code: REDIRECT_TRUSTED_IDENTITY_INPUTS
+  decision: Redirect forwarding compares exact trusted provider/endpoint/capability/destination-authority
+    identities; raw redirect content is not authority.
+  blocker: C2SEC-B01
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-350
+  - C2-359
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-265
+  code: REDIRECT_CROSS_PROVIDER_BLOCK
+  decision: Cross-provider redirect always blocks use of the existing credential lease.
+  blocker: C2SEC-B01
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-351
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-266
+  code: REDIRECT_CROSS_AUTHORITY_BLOCK
+  decision: Cross-authority redirect always blocks use of the existing credential lease;
+    any new destination requires a separate trusted operation.
+  blocker: C2SEC-B01
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-352
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-267
+  code: REDIRECT_UNBOUND_ENDPOINT_BLOCK
+  decision: Same-authority redirect to an endpoint outside allowed_endpoint_profile_refs
+    blocks.
+  blocker: C2SEC-B01
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-353
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-268
+  code: REDIRECT_SAME_AUTHORITY_EXACT_PREDICATE
+  decision: Same-authority forwarding/rebind/block is determined solely by the closed
+    R1 predicate and pinned mode.
+  blocker: C2SEC-B01
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-354
+  - C2-355
+  - C2-356
+  - C2-357
+  - C2-358
+  - C2-360
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-269
+  code: LEASE_BINDS_PROVIDER_OPERATION
+  decision: CredentialLease requires exact provider_operation_ref.
+  blocker: C2SEC-B04
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-361
+  - C2-364
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-270
+  code: LEASE_BINDS_ROUTE_ATTEMPT
+  decision: CredentialLease requires exact route_attempt_ref.
+  blocker: C2SEC-B04
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-362
+  - C2-365
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-271
+  code: LEASE_EXACT_USE_MATCH
+  decision: Adapter credential use requires exact equality of all issued operation/attempt/provider/endpoint/capability/binding/credential
+    identity fields.
+  blocker: C2SEC-B04
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-363
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-272
+  code: LEASE_CROSS_OPERATION_REUSE_INVALID
+  decision: A lease ID cannot span provider-operation or route-attempt identities;
+    new operation/rebind requires a fresh lease ID.
+  blocker: C2SEC-B04
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-366
+  - C2-367
+  - C2-369
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-273
+  code: LEASE_IDENTITY_NOT_CAPABILITY
+  decision: Operation/attempt identity is binding/audit state only and never grants
+    C6 or side-effect authority.
+  blocker: C2SEC-B04
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-368
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-274
+  code: PRIVATE_SCOPE_STABLE_ATOM
+  decision: Private-state scopes are exact C2 PRIVATE_STATE_SCOPE stable refs with
+    no wildcard/hierarchy implication.
+  blocker: C2SEC-B02
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-370
+  - C2-377
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-275
+  code: PRIVATE_SCOPE_CANONICAL_SET
+  decision: Scope sets resolve exactly, reject conflicting revisions, deduplicate exact
+    duplicates, and sort by a closed bytewise key.
+  blocker: C2SEC-B02
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-371
+  - C2-372
+  - C2-373
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-276
+  code: PRIVATE_SCOPE_EXACT_SUBSET
+  decision: Actual provider-bound private scope must be an exact canonical subset
+    of the declared scope; extra scope blocks.
+  blocker: C2SEC-B02
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-374
+  - C2-375
+  - C2-376
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-277
+  code: PRIVATE_SCOPE_TRUSTED_OPERATION_LOCAL
+  decision: actual_private_state_scope_refs are operation-local trusted inputs and external
+    content cannot expand them.
+  blocker: C2SEC-B02
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-378
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-278
+  code: PUBLIC_PROJECTION_PINNED_RULE
+  decision: Private-state public projection uses an exact PUBLIC_PROJECTION_RULE stable
+    ref; free-form/unresolved rules are not load-bearing.
+  blocker: C2SEC-B02
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-379
+  - C2-380
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-279
+  code: PUBLIC_PROJECTION_CLOSED_ALLOWLIST
+  decision: Projection modes and metadata allowlist are closed; private handles/values/credentials
+    remain forbidden.
+  blocker: C2SEC-B02
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-381
+  - C2-382
+  - C2-383
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-280
+  code: INGRESS_ASSESSMENT_REPLAY_RECORD
+  decision: Secure ingress is bound to one replayable SecureIngressAssessmentRecord
+    for one candidate and provider operation.
+  blocker: C2SEC-B03
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-384
+  - C2-388
+  - C2-389
+  - C2-395
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-281
+  code: INGRESS_EXACTLY_ONE_AXIS
+  decision: A valid assessment record has exactly one result for each SECRET/PRIVACY/LICENSING/RETENTION
+    axis.
+  blocker: C2SEC-B03
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-384
+  - C2-385
+  - C2-386
+  - C2-400
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-282
+  code: INGRESS_PROFILE_POLICY_COHERENCE
+  decision: All axis results must share the exact ingress profile and corresponding exact
+    pinned policy refs.
+  blocker: C2SEC-B03
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-390
+  - C2-391
+  - C2-392
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-283
+  code: INGRESS_INVALID_BUNDLE_QUARANTINE
+  decision: Invalid assessment bundles do not enter precedence; they deterministically
+    QUARANTINE with retention NONE.
+  blocker: C2SEC-B03
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-385
+  - C2-386
+  - C2-387
+  - C2-388
+  - C2-389
+  - C2-390
+  - C2-391
+  - C2-392
+  - C2-399
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-284
+  code: INGRESS_VALID_PRECEDENCE_UNCHANGED
+  decision: Valid bundles retain parent precedence, with INDETERMINATE yielding QUARANTINE.
+  blocker: C2SEC-B03
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-393
+  - C2-398
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-285
+  code: INGRESS_DECISION_MUST_RECOMPUTE_AND_LINK
+  decision: Stored decision/retention must recompute exactly and ingress_decision_ref
+    must resolve to the assessment record.
+  blocker: C2SEC-B03
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-394
+  - C2-395
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-286
+  code: REDACTED_CANDIDATE_NEW_BUNDLE
+  decision: A redacted candidate receives a new ingress identity and complete fresh assessment;
+    old results are lineage only.
+  blocker: C2SEC-B03
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-396
+  - C2-397
+  closure_status: ADDRESSED_NOT_CLOSED
+- decision_id: C2.DEC-287
+  code: R1_NON_REGRESSION_SCOPE
+  decision: R1 changes only B01-B04 closure semantics and does not weaken the parent
+    PASS surface or absorb C3/C4/C5/C6/C7/C11 authority.
+  blocker: REPAIR_SCOPE
+  decision_classification: REPAIR_CONTRACT_SEMANTIC
+  strongest_evidence_strength: AUTHORITATIVE_INDEPENDENT_REVIEW_FINDING_PLUS_PINNED_PARENT
+  evidence_refs:
+  - C2_04_PINNED_PARENT
+  - C2_04_INDEPENDENT_SECURITY_REVIEW
+  required_tests:
+  - C2-401
+  closure_status: ADDRESSED_NOT_CLOSED
+blocker_status:
+  C2SEC-B01: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2SEC-B02: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2SEC-B03: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2SEC-B04: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+c2_05: NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED

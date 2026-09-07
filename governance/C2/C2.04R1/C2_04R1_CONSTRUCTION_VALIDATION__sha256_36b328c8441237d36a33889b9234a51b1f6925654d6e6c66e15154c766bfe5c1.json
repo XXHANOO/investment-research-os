@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0-C2-04R1-construction-validation",
+  "stage": "C2.04R1",
+  "status": "PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_SECURITY_RECHECK",
+  "blocker_status": {
+    "C2SEC-B01": "ADDRESSED_NOT_CLOSED",
+    "C2SEC-B02": "ADDRESSED_NOT_CLOSED",
+    "C2SEC-B03": "ADDRESSED_NOT_CLOSED",
+    "C2SEC-B04": "ADDRESSED_NOT_CLOSED"
+  },
+  "checks": {
+    "repair_scope_blocker_count": 4,
+    "repair_decision_count": 25,
+    "acceptance_addition_count": 53,
+    "acceptance_ids_contiguous_C2_349_through_C2_401": true,
+    "b01_closed_redirect_mode_enum": true,
+    "b01_exact_ordered_redirect_predicate": true,
+    "b01_same_authority_exact_endpoint_behavior_closed": true,
+    "b01_cross_authority_existing_lease_forwarding_forbidden": true,
+    "b02_stable_private_state_scope_ref_kind": true,
+    "b02_operation_local_actual_scope_record": true,
+    "b02_canonical_scope_set_and_exact_subset_predicate": true,
+    "b02_fail_closed_scope_resolution": true,
+    "b02_public_projection_rule_stable_ref_and_closed_payload": true,
+    "b03_secure_ingress_assessment_record_defined": true,
+    "b03_exactly_one_result_each_axis": true,
+    "b03_candidate_operation_profile_policy_coherence": true,
+    "b03_invalid_bundle_quarantine_none": true,
+    "b03_decision_recompute_and_record_linkage": true,
+    "b04_lease_provider_operation_ref_required": true,
+    "b04_lease_route_attempt_ref_required": true,
+    "b04_cross_operation_reuse_invalid": true,
+    "parent_failed_obligations_bound_for_recheck": [
+      "C2-313",
+      "C2-319"
+    ],
+    "non_repair_parent_semantics_declared_inherited": true,
+    "provider_instances": 0,
+    "production_adapters": 0,
+    "external_paper_live_side_effects_authorized": false
+  }
+}

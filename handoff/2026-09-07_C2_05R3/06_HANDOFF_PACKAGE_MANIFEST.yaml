@@ -1,0 +1,46 @@
+package: handoff/2026-09-07_C2_05R3
+purpose: new-Work-page continuity after explicit user stop/archive/sync request
+created_for_stage: C2.05R3
+current_state: SCOPED_REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+next_gate: C2.05R3 Independent Certification Re-Check
+
+handoff_files:
+  - 00_README_FIRST.md
+  - 01_NEW_CHAT_BOOTSTRAP_PROMPT.txt
+  - 02_PROJECT_HANDOFF_CURRENT_STATE.md
+  - 03_CURRENT_STAGE_SNAPSHOT.txt
+  - 04_CANONICAL_ARTIFACT_INDEX.yaml
+  - 05_STOP_STATE.yaml
+  - 06_HANDOFF_PACKAGE_MANIFEST.yaml
+  - 07_AUTHORITATIVE_REVIEW_AND_CANDIDATE_POINTERS.txt
+  - 08_FINAL_SYNC_VERIFICATION.yaml
+
+canonical_state_sources:
+  current_stage: governance/CURRENT_STAGE.txt
+  c2_05_directory: governance/C2/C2.05/
+  c2_05r1_directory: governance/C2/C2.05R1/
+  c2_05r2_directory: governance/C2/C2.05R2/
+  c2_05r3_candidate_directory: governance/C2/C2.05R3/
+  c2_05r2_review_report: governance/C2/C2.05R2/C2_05R2_INDEPENDENT_CERTIFICATION_RECHECK_REPORT__sha256_80e81deb17a1693daeebee0c59d40e7b7ad3cbc462dc0558a0d2413398e66128.md
+  c2_05r2_review_result: governance/C2/C2.05R2/C2_05R2_INDEPENDENT_CERTIFICATION_RECHECK_RESULT__sha256_12a4eb9bf451d91ba40fb0922a8d4704e109369c736127c9c474284e856998e8.yaml
+
+canonical_commits:
+  c2_05r1_review_archive: a932548cd76e7520045d41f44fe40c21c726d53a
+  c2_05r2_review_archive: 6f193d5d6f7c888ba4c4180cfa5fc6b03b187e38
+  c2_05r3_candidate_archive: aae0d92d9695af9ddb9c93ce5d3680649e8692c5
+  pre_handoff_main: c91a314ed253da8f27e21cb80c0b59996cbaa371
+
+continuity_rules:
+  - Existing content-addressed C0/C1/C2 canonical artifacts remain in original paths and are not rewritten by this handoff.
+  - C0/C1 frozen authority must not change.
+  - C2.04R1 security acceptance remains authoritative and must not regress.
+  - C2.05R3 construction mechanical PASS is not Independent Certification Re-Check PASS.
+  - C2CERT-B03/B04 remain ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK.
+  - C2.05R3 Independent Certification Re-Check must not start without explicit user authorization in the new Work page.
+  - C2.06 remains unauthorized until R3 re-check passes and the user separately authorizes C2.06.
+  - Production implementation, provider/vendor configuration, and external/PAPER/LIVE side effects remain unauthorized.
+
+archive_policy:
+  canonical_bytes: ORIGINAL_PATHS_ARE_AUTHORITY
+  handoff_package_role: SNAPSHOT_INDEX_CONTINUITY_ONLY
+  frozen_artifact_rewrite: FORBIDDEN

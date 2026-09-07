@@ -1,0 +1,294 @@
+schema_version: 1.0.0-C2-05R1-certification-coverage-repair-ledger
+project: Investment Research OS
+stage: C2.05R1
+generated_at_utc: '2026-09-07T06:31:00Z'
+status: SCOPED_REPAIR_CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_RECHECK
+parent:
+  c2_05_contract_sha256: 3642588dcc22a7564d55a9a72d3e6e328b007649005c866e7831dfa4b8571d4c
+  independent_review_report_sha256: 17853fd3e93d9a7d0cb611564004e85865d2fda20e05ee1ad885a249f2705c04
+  independent_review_result_sha256: 8edddb75c2fa556ecb1d688b1f543057e99171441e7ea3ec4466c02c7ddb0a10
+scope:
+  blockers:
+    - C2CERT-B01
+    - C2CERT-B02
+    - C2CERT-B03
+    - C2CERT-B04
+    - C2CERT-B05
+  unrelated_scope_expansion_allowed: false
+decisions:
+- decision_id: C2.DEC-332
+  code: COVERAGE_EVIDENCE_STABLE_KIND
+  blocker: B01
+  decision: Add closed COVERAGE_EVIDENCE_BUNDLE stable-ref kind; coverage_evidence_bundle_ref must resolve only to it.
+  required_tests:
+    - C2-488
+    - C2-489
+    - C2-499
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-333
+  code: OPERATION_SCOPE_BINDING_STABLE_KIND
+  blocker: B03
+  decision: Add closed OPERATION_COVERAGE_SCOPE_BINDING kind for replay-retained semantic scope binding.
+  required_tests:
+    - C2-511
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-334
+  code: COVERAGE_CHECK_CLASSES_CLOSED
+  blocker: B01
+  decision: Freeze closed CoverageMethodCheckClass vocabulary and method minimum required checks.
+  required_tests:
+    - C2-491
+    - C2-492
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-335
+  code: COVERAGE_EVIDENCE_ROLES_CLOSED
+  blocker: B01
+  decision: Freeze closed CoverageEvidenceRole vocabulary and require each method-required role to resolve in the bundle.
+  required_tests:
+    - C2-493
+    - C2-494
+    - C2-495
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-336
+  code: METHOD_TERMINATION_RULE_TOTAL
+  blocker: B01
+  decision: Each coverage method maps to one exact termination rule; truncation rule has one closed value.
+  required_tests:
+    - C2-496
+    - C2-497
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-337
+  code: COVERAGE_EVIDENCE_SUBJECT_BINDING
+  blocker: B01
+  decision: Coverage evidence bundle binds exact registry/certification/scope/method/component attestation subject without recursive ref cycle.
+  required_tests:
+    - C2-490
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-338
+  code: COVERAGE_EVIDENCE_INGRESS_NONREGRESSION
+  blocker: B01
+  decision: Provider-derived coverage evidence remains subordinate to C2.04R1 secure ingress.
+  required_tests:
+    - C2-498
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-339
+  code: CERT_PROFILE_CLASS_SETS_NORMALIZED
+  blocker: B02
+  decision: Required/optional certification class sets are canonical, duplicate-free, disjoint, and closed.
+  required_tests:
+    - C2-500
+    - C2-501
+    - C2-502
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-340
+  code: CERT_STRUCTURAL_INVALID_PRECEDENCE
+  blocker: B02
+  decision: Structural invalidity deterministically yields INDETERMINATE before evaluating required result values.
+  required_tests:
+    - C2-503
+    - C2-505
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-341
+  code: CERT_FAIL_PRECEDENCE
+  blocker: B02
+  decision: For structurally valid bundles, any required FAIL yields NOT_CERTIFIED before required INDETERMINATE.
+  required_tests:
+    - C2-504
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-342
+  code: CERT_ALL_PASS_AND_OPTIONAL_DIAGNOSTIC
+  blocker: B02
+  decision: All required PASS yields CERTIFIED; optional results are diagnostic only.
+  required_tests:
+    - C2-506
+    - C2-507
+    - C2-508
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-343
+  code: CERT_DECISION_ORDER_INVARIANT
+  blocker: B02
+  decision: Certification decision is invariant under check-result ordering.
+  required_tests:
+    - C2-509
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-344
+  code: COVERAGE_SCOPE_PARENT_REGISTRY_PIN
+  blocker: B03
+  decision: CoverageScopeDefinition binds one exact parent C2.01 REGISTRY_SNAPSHOT.
+  required_tests:
+    - C2-510
+    - C2-512
+    - C2-513
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-345
+  code: OPERATION_SCOPE_BINDING_TOTAL
+  blocker: B03
+  decision: OperationCoverageScopeBinding freezes exact field-by-field operation-to-scope validation.
+  required_tests:
+    - C2-514
+    - C2-515
+    - C2-516
+    - C2-517
+    - C2-518
+    - C2-519
+    - C2-520
+    - C2-521
+    - C2-522
+    - C2-523
+    - C2-524
+    - C2-525
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-346
+  code: OPERATION_SCOPE_SET_CANONICAL
+  blocker: B03
+  decision: Operation scope list comparison uses canonical stable-ref set semantics and is order-invariant.
+  required_tests:
+    - C2-526
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-347
+  code: PARTITION_COMPONENT_SINGLETON_MAP
+  blocker: B04
+  decision: PARTITION_EXHAUSTION maps each component to exactly one root partition.
+  required_tests:
+    - C2-527
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-348
+  code: PARTITION_CLOSURE_BIJECTION
+  blocker: B04
+  decision: Partition closure is exact bijection with no duplicate, missing, or extra partitions.
+  required_tests:
+    - C2-528
+    - C2-529
+    - C2-530
+    - C2-531
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-349
+  code: COMPONENT_REF_INTEGRITY
+  blocker: B04
+  decision: Repeated or unresolved component attestation/scope refs fail closed.
+  required_tests:
+    - C2-532
+    - C2-533
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-350
+  code: COMPOSITE_COMPONENT_SCOPE_BIJECTION
+  blocker: B04
+  decision: Composite closure requires exactly one complete active certified attestation for each explicit component scope.
+  required_tests:
+    - C2-534
+    - C2-535
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-351
+  code: COMPOSITE_PARTITION_GAP_CLOSURE
+  blocker: B04
+  decision: Composite partition closure requires pairwise disjoint union exactly equal to root partition set.
+  required_tests:
+    - C2-536
+    - C2-537
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-352
+  code: NESTED_COMPOSITE_FORBIDDEN
+  blocker: B04
+  decision: Nested COMPOSITE_EXPLICIT_CLOSURE components are structurally invalid in C2.05R1.
+  required_tests:
+    - C2-538
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-353
+  code: COMPOSITE_SCOPE_COMPATIBILITY_EXACT
+  blocker: B04
+  decision: Composite compatibility is exact explicit component-scope membership plus frozen equality dimensions; no inferred label path.
+  required_tests:
+    - C2-539
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-354
+  code: COMPOSITE_EMPTY_PARTITION_RULE
+  blocker: B04
+  decision: If root partition set is empty, all components must also be empty-partition and exact component-scope bijection closes the gap.
+  required_tests:
+    - C2-540
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-355
+  code: COVERAGE_CLASSIFIER_INVALID_PRECEDENCE
+  blocker: B05
+  decision: Structural invalidity has highest coverage-classification precedence and returns INVALID.
+  required_tests:
+    - C2-541
+    - C2-546
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-356
+  code: COVERAGE_CLASSIFIER_INDETERMINATE_PRECEDENCE
+  blocker: B05
+  decision: Unresolved/indeterminate required dependencies return INDETERMINATE before partial/non-exhaustive states.
+  required_tests:
+    - C2-542
+    - C2-547
+    - C2-555
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-357
+  code: COVERAGE_CLASSIFIER_PARTIAL_PRECEDENCE
+  blocker: B05
+  decision: Known material partiality returns PARTIAL_KNOWN before known non-exhaustive conditions.
+  required_tests:
+    - C2-543
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-358
+  code: COVERAGE_CLASSIFIER_NONEXHAUSTIVE
+  blocker: B05
+  decision: Known deterministic completeness failure returns NON_EXHAUSTIVE absent higher-precedence state.
+  required_tests:
+    - C2-544
+    - C2-550
+    - C2-551
+    - C2-552
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-359
+  code: COVERAGE_CLASSIFIER_COMPLETE_ONLY_ALL_TRUE
+  blocker: B05
+  decision: COMPLETE_FOR_SCOPE is emitted only when every exact complete predicate is true.
+  required_tests:
+    - C2-545
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-360
+  code: COVERAGE_CLASSIFIER_REPLAY_CONSISTENCY
+  blocker: B05
+  decision: Coverage classification is permutation-invariant and stored classification must equal recomputed classification.
+  required_tests:
+    - C2-548
+    - C2-549
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-361
+  code: REPAIRED_C1_ELIGIBILITY_BOUNDARY
+  blocker: B05
+  decision: Complete NO_DATA/PRESENT remain only C2 eligibility signals and never C1 conclusions.
+  required_tests:
+    - C2-553
+    - C2-554
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+blocker_state:
+  C2CERT-B01: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B02: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B03: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B04: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B05: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+parent_failed_obligations_recheck_required:
+  - C2-402
+  - C2-411
+  - C2-412
+  - C2-437
+  - C2-438
+  - C2-459
+  - C2-471
+  - C2-481
+new_acceptance_range: C2-488..C2-555
+new_acceptance_total: 68
+open_questions:
+  C2.OPEN-009: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-010: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-011: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-012: OPEN_UNCHANGED_C2_06
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+  C2.OPEN-014: OPEN_UNCHANGED_C2_07
+  C2.OPEN-015: OPEN_UNCHANGED_POST_CONTRACT_CONFIGURATION
+next_gate: EXPLICIT_USER_AUTHORIZATION_FOR_C2_05R1_INDEPENDENT_CERTIFICATION_RECHECK
+production_implementation: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED

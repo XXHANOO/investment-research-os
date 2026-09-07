@@ -1,0 +1,8 @@
+C2.05 Independent Certification Review package is repository-native.
+
+Authoritative package manifest SHA-256:
+8285be12eac6353ef070367aae3aaee64f58980c401abbca793e150a2fd57b62
+
+No binary ZIP is required for authority. The exact content-addressed GitHub files named by the manifest are the review package. Any convenience ZIP generated later is transport-only and must byte-match those files before use.
+
+Independent Certification Review is NOT YET AUTHORIZED by construction.

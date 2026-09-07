@@ -1,0 +1,130 @@
+repository: XXHANOO/investment-research-os
+handoff_date: 2026-09-07
+stop_state: C2.05R3 construction complete as candidate; Independent Certification Re-Check not run
+pre_handoff_main_head: c91a314ed253da8f27e21cb80c0b59996cbaa371
+
+C0:
+  state: FROZEN
+  canonical_archive: COMPLETE
+
+C1:
+  state: FROZEN
+  freeze_seal_sha256: 438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+
+C2_00:
+  state: REVIEW_PASSED_NOT_FROZEN
+  path: governance/C2/C2.00/
+
+C2_01:
+  state: REVIEW_PASSED_NOT_FROZEN
+  repair: C2.01R1
+  independent_recheck: PASS
+  key_sha256:
+    registry_model: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+  path: governance/C2/C2.01R1/
+
+C2_02:
+  state: REVIEW_PASSED_NOT_FROZEN
+  repair: C2.02R2
+  independent_recheck: PASS
+  key_sha256:
+    contract: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+  path: governance/C2/C2.02R2/
+
+C2_03:
+  state: REVIEW_PASSED_NOT_FROZEN
+  repair: C2.03R2
+  independent_recheck: PASS
+  key_sha256:
+    contract: e04158428fc030ca72d297b2cb3fd4226dccaba0aa35224b14fc4de89e039b6b
+    review_result: f8db42b0dce59cb021dfa12f5913fb3f79918808d73f5fbc853656a8b7633d43
+  path: governance/C2/C2.03R2/
+
+C2_04:
+  state: REVIEW_PASSED_NOT_FROZEN
+  repair: C2.04R1
+  independent_recheck: PASS
+  acceptance: 113/113 PASS
+  key_sha256:
+    repair_contract: 4023224a9b0f23cd006279c217600412376588eced9c62010861ccddf065a548
+    review_result: d1af240f4e6eff32b087295ef259fd4485c13fc0775f8abc24fa630993104f47
+  path: governance/C2/C2.04R1/
+
+C2_05:
+  original_review: FAIL
+  path: governance/C2/C2.05/
+  key_sha256:
+    contract: 3642588dcc22a7564d55a9a72d3e6e328b007649005c866e7831dfa4b8571d4c
+    logical_model: 0a6d7c4037c04ca04f87994507afb722661dbd9450a115492238b9d5dd9c776c
+    acceptance_delta: 62714c720e2a9d6f24f066533ddac9c84f3360a6bff2cbe4d9aacbb9617cff6f
+    decision_ledger: 519cfd630f8f60772fe649b98297c2e32c2a912f9b36b2c59567d1e56fc57366
+    review_result: 8edddb75c2fa556ecb1d688b1f543057e99171441e7ea3ec4466c02c7ddb0a10
+
+C2_05R1:
+  independent_recheck: FAIL
+  path: governance/C2/C2.05R1/
+  key_sha256:
+    repair_contract: 267c83480aa909e74cb5d87c54512878c3c9c7128fce8a394fb63f39c6ed2bcb
+    logical_model: 777b7ddc3530a088a127f3becb74bd1f644fc25f83703cb27799423671752262
+    acceptance_delta: 24819163ea5c835ffcee5610f8d37bc8268a3621c62cf582aed85deaf339b749
+    review_report: 2b829b9a3af45eade91efee1fea786a9b26128c39be0f4662953897bea0635f8
+    review_result: 59578acccb8906637360f24c7fe190a3a6e6b92098ddf03c30a5133b9d5767bf
+  review_archive_commit: a932548cd76e7520045d41f44fe40c21c726d53a
+
+C2_05R2:
+  independent_recheck: FAIL
+  path: governance/C2/C2.05R2/
+  key_sha256:
+    repair_contract: b68943c7773ba5abb596eafd2a572398d172ed3d0bd08cea1b12bdd5b51c29ff
+    logical_model: 129657e705dad194691e48edd09274297856e11a2e0b44d075392da9942e7437
+    acceptance_delta: a91d701743ca84d50e827ef149ae60493dacb88183458f4b90f9e4fd4c016ad0
+    decision_ledger: 1af30d88c3bd02793e22bd3f4d2ccd026af6b2f26562e06c4b079621d692bbb9
+    review_report: 80e81deb17a1693daeebee0c59d40e7b7ad3cbc462dc0558a0d2413398e66128
+    review_result: 12a4eb9bf451d91ba40fb0922a8d4704e109369c736127c9c474284e856998e8
+  review_archive_commit: 6f193d5d6f7c888ba4c4180cfa5fc6b03b187e38
+  effective_acceptance:
+    range: C2-402..C2-590
+    pass: 183
+    fail: 6
+    failed:
+      - C2-471
+      - C2-481
+      - C2-540
+      - C2-557
+      - C2-584
+      - C2-585
+
+C2_05R3:
+  construction_state: COMPLETE_AS_SCOPED_REPAIR_CANDIDATE
+  independent_recheck: NOT_RUN_NOT_AUTHORIZED
+  path: governance/C2/C2.05R3/
+  candidate_archive_commit: aae0d92d9695af9ddb9c93ce5d3680649e8692c5
+  candidate_subtree: bf10f4fd1cf271ea5dd23d124c74a80a65e670cd
+  artifact_count: 11
+  exact_git_blob_equivalence: 11/11 PASS
+  artifacts:
+    repair_contract_sha256: 0c8169e33a1f57bce7c987a8aa8f29d3eee22abea635960b52207739c7861760
+    logical_model_sha256: 0858d9a0ca503b186351a596fa8216fefd05e14655351fd9cbfa8c6d5e334e94
+    acceptance_delta_sha256: d56f78b087136b4404a499abe56f27e295d4a4198f615eabd3b9bfb3f7a188af
+    decision_ledger_sha256: 95eb30bb7d0043aef0d6dea592153862bd8912d490c39a127eb874bbc1c3590c
+    repair_diffs_sha256: 7a103056f8239bdfd19d0943edec5720f246d26c076aa601055f32c6e5f20ede
+    construction_summary_sha256: d2da0a2c568cfd0a7c24e8f40a2b213c1d7d237fcf9a2f24342d56cb31b39210
+    construction_validation_sha256: 9b77e9252befe7465a16efdeaaa7dfcf361c14d982733f226b2d48d79512554e
+    candidate_selection_sha256: 636c56840ffde7c9f14e5ff136abd7e4d2efaa1900a58db4277ce9fc43337823
+    stage_report_sha256: 21eada9504f89a9a095132e90a8cf321ecead3ba5fac82e04d0d3ccb2e498ff7
+    recheck_package_manifest_sha256: c1bd42a7dc497855fc3d4c9e62cba3129028b3b08cb0789ab60e08c362818086
+    zip_pointer_sha256: 516d647594aeb8223875a2410b059d6b0b9ae708e3a38e09d67c844131d603c4
+  repair_decisions: C2.DEC-380..C2.DEC-405
+  new_acceptance: C2-591..C2-640
+  blockers:
+    C2CERT-B01: CLOSED_UNCHANGED
+    C2CERT-B02: CLOSED_UNCHANGED
+    C2CERT-B03: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+    C2CERT-B04: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+    C2CERT-B05: CLOSED_UNCHANGED
+
+next_gate: C2.05R3 Independent Certification Re-Check only after explicit user authorization in the new Work page
+C2_06: NOT_STARTED_NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED
+provider_vendor_configuration: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED

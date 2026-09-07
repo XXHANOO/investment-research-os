@@ -1,0 +1,311 @@
+schema_version: 1.0.0-C2-05R1-certification-coverage-repair-candidate
+project: Investment Research OS
+stage: C2.05R1
+generated_at_utc: '2026-09-07T06:31:00Z'
+status: SCOPED_REPAIR_CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_RECHECK
+
+authority:
+  parent_c2_05_contract_sha256: 3642588dcc22a7564d55a9a72d3e6e328b007649005c866e7831dfa4b8571d4c
+  parent_c2_05_logical_model_sha256: 0a6d7c4037c04ca04f87994507afb722661dbd9450a115492238b9d5dd9c776c
+  independent_review_report_sha256: 17853fd3e93d9a7d0cb611564004e85865d2fda20e05ee1ad885a249f2705c04
+  independent_review_result_sha256: 8edddb75c2fa556ecb1d688b1f543057e99171441e7ea3ec4466c02c7ddb0a10
+  repair_scope:
+    - C2CERT-B01
+    - C2CERT-B02
+    - C2CERT-B03
+    - C2CERT-B04
+    - C2CERT-B05
+  unrelated_scope_expansion_allowed: false
+  production_implementation: NOT_AUTHORIZED
+  external_paper_live_side_effects: NOT_AUTHORIZED
+  self_approval: false
+
+stable_ref_extension:
+  new_ref_kinds:
+    - COVERAGE_EVIDENCE_BUNDLE
+    - OPERATION_COVERAGE_SCOPE_BINDING
+  field_kind_contract:
+    CoverageAttestationRecord.coverage_evidence_bundle_ref:
+      - COVERAGE_EVIDENCE_BUNDLE
+    OperationCoverageScopeBinding.operation_coverage_scope_binding_ref:
+      - OPERATION_COVERAGE_SCOPE_BINDING
+    OperationCoverageScopeBinding.parent_semantic_registry_snapshot_ref:
+      - REGISTRY_SNAPSHOT
+  invalid_ref_policy: FAIL_CLOSED_NO_LOAD_BEARING_SUPPORT
+
+coverage_evidence:
+  check_classes:
+    - SCOPE_BINDING_INTEGRITY
+    - METHOD_ACCESS_PATTERN_CONFORMANCE
+    - REQUIRED_EVIDENCE_ROLE_COMPLETENESS
+    - TERMINATION_CLOSURE
+    - TRUNCATION_ABSENCE
+    - PARTITION_COMPONENT_CLOSURE
+    - COMPOSITE_GAP_CLOSURE
+    - SECURE_INGRESS_EVIDENCE_CONFORMANCE
+  all_method_required_checks:
+    - SCOPE_BINDING_INTEGRITY
+    - METHOD_ACCESS_PATTERN_CONFORMANCE
+    - REQUIRED_EVIDENCE_ROLE_COMPLETENESS
+    - TERMINATION_CLOSURE
+    - TRUNCATION_ABSENCE
+    - SECURE_INGRESS_EVIDENCE_CONFORMANCE
+  partition_additional_required:
+    - PARTITION_COMPONENT_CLOSURE
+  composite_additional_required:
+    - COMPOSITE_GAP_CLOSURE
+  evidence_roles:
+    - REQUEST_SCOPE_BINDING
+    - RESPONSE_SCOPE_BINDING
+    - TERMINAL_SIGNAL
+    - CONTINUATION_EDGE
+    - TRUNCATION_SIGNAL
+    - PARTITION_MEMBERSHIP
+    - BULK_MANIFEST
+    - BULK_SEGMENT
+    - WINDOW_BOUNDARY
+    - COMPONENT_ATTESTATION
+    - GAP_CLOSURE
+    - SECURE_INGRESS_DECISION
+  result_enum:
+    - PASS
+    - FAIL
+    - INDETERMINATE
+    - NOT_APPLICABLE
+  required_check_exactly_once: true
+  required_role_at_least_once: true
+  duplicate_required_check: STRUCTURAL_INVALID
+  undeclared_or_unknown_check: STRUCTURAL_INVALID
+  required_not_applicable: STRUCTURAL_INVALID
+  unknown_or_private_role: STRUCTURAL_INVALID
+  provider_material_secure_ingress_required: true
+
+coverage_method_rule_closure:
+  termination_rule_by_method:
+    EXACT_KEY_SINGLETON: EXACT_KEY_NO_CONTINUATION
+    PAGINATION_EXHAUSTION: PAGINATION_PINNED_TERMINAL_REACHED
+    PARTITION_EXHAUSTION: PARTITION_REQUIRED_SET_BIJECTION
+    BULK_MANIFEST_EXHAUSTION: BULK_MANIFEST_SEGMENT_SET_CLOSED
+    WINDOW_BOUNDARY_EXHAUSTION: WINDOW_EXACT_BOUNDARIES_CLOSED
+    COMPOSITE_EXPLICIT_CLOSURE: COMPOSITE_REQUIRED_SCOPE_SET_BIJECTION
+  truncation_failure_rule: ANY_MATERIAL_PARTIALITY_OR_TRUNCATION_PREVENTS_COMPLETE
+  any_other_rule_value: INVALID_METHOD_PROFILE
+
+CoverageEvidenceBundle:
+  required:
+    - coverage_evidence_bundle_ref
+    - certification_registry_snapshot_ref
+    - parent_semantic_registry_snapshot_ref
+    - provider_certification_ref
+    - coverage_scope_ref
+    - coverage_method_profile_ref
+    - operation_coverage_scope_binding_ref
+    - attestation_subject_binding
+    - check_results
+    - evidence_items
+    - component_bindings
+  attestation_subject_binding_fields:
+    - certification_registry_snapshot_ref
+    - provider_certification_ref
+    - coverage_scope_ref
+    - coverage_method_profile_ref
+    - canonical_component_attestation_refs
+  consumer_attestation_subject_exact_equality_required: true
+  recursive_content_ref_cycle_used: false
+
+certification_profile_normalization:
+  required_set_duplicates: INVALID_PROFILE
+  optional_set_duplicates: INVALID_PROFILE
+  required_optional_overlap: INVALID_PROFILE
+  unknown_or_private_class: INVALID_PROFILE
+  bundle_undeclared_class: STRUCTURAL_INVALID
+  optional_result_affects_decision: false
+
+certification_decision_total_function:
+  ordered_precedence:
+    - when: certification_bundle_structurally_invalid
+      result: INDETERMINATE
+    - when: any_required_FAIL
+      result: NOT_CERTIFIED
+    - when: any_required_INDETERMINATE
+      result: INDETERMINATE
+    - when: otherwise_all_required_PASS
+      result: CERTIFIED
+  examples:
+    FAIL_PLUS_INDETERMINATE: NOT_CERTIFIED
+    FAIL_PLUS_STRUCTURAL_INVALID: INDETERMINATE
+    INDETERMINATE_PLUS_STRUCTURAL_INVALID: INDETERMINATE
+    ALL_REQUIRED_PASS_PLUS_OPTIONAL_FAIL: CERTIFIED
+    ALL_REQUIRED_PASS_PLUS_OPTIONAL_INDETERMINATE: CERTIFIED
+  check_result_order_invariant: true
+
+CoverageScopeDefinition_R1_amendment:
+  additional_required:
+    - parent_semantic_registry_snapshot_ref
+  optional:
+    - composite_component_scope_refs
+  parent_snapshot_kind: REGISTRY_SNAPSHOT
+  all_participating_c2_semantic_refs_same_parent_snapshot: true
+  composite_component_scope_refs:
+    canonical_exact_set: true
+    must_be_empty_for_non_composite_method: true
+
+OperationCoverageScopeBinding:
+  required:
+    - operation_coverage_scope_binding_ref
+    - provider_operation_ref
+    - route_attempt_ref
+    - parent_semantic_registry_snapshot_ref
+    - provider_profile_ref
+    - endpoint_profile_ref
+    - provider_capability_ref
+    - access_pattern_family
+    - required_observation_family_refs
+    - required_query_semantic_refs
+    - attempted_response_semantic_refs
+    - required_semantic_feature_refs
+    - provider_native_subject_semantic_refs
+    - provider_native_identifier_namespace_refs
+    - coverage_partition_refs
+    - scope_constraint_refs
+    - required_coverage_scope_ref
+  optional:
+    - temporal_scope_dependency_ref
+  canonical_list_semantics: FULL_STABLE_REF_SET_CANONICALIZATION
+  validation_predicate:
+    - required_coverage_scope_ref_exactly_resolves
+    - parent_semantic_registry_snapshot_ref_equals_scope_parent_snapshot
+    - all_participating_semantic_refs_resolve_under_same_parent_snapshot
+    - provider_profile_ref_exact_equality
+    - endpoint_profile_ref_exact_equality
+    - provider_capability_ref_exact_equality
+    - access_pattern_family_exact_equality
+    - required_observation_family_refs_exact_set_equality
+    - required_query_semantic_refs_exact_set_equality
+    - attempted_response_semantic_refs_equals_scope_required_response_semantic_refs
+    - required_semantic_feature_refs_exact_set_equality
+    - provider_native_subject_semantic_refs_exact_set_equality
+    - provider_native_identifier_namespace_refs_exact_set_equality
+    - coverage_partition_refs_exact_set_equality
+    - scope_constraint_refs_exact_set_equality
+    - temporal_dependency_both_absent_or_exact_same_ref
+    - provider_operation_and_route_attempt_exact_identity
+  any_false_or_unresolved: INVALID_FOR_COVERAGE_SUPPORT
+
+CoverageComponentBinding:
+  fields:
+    - component_attestation_ref
+    - component_scope_ref
+    - covered_partition_refs
+  repeated_component_attestation_ref: STRUCTURAL_INVALID
+  unresolved_component_ref: FAIL_CLOSED
+
+partition_exhaustion_closure:
+  root_partition_set_nonempty: true
+  partitions_per_component_binding: EXACTLY_ONE
+  component_attestation_required_state:
+    coverage_classification: COMPLETE_FOR_SCOPE
+    registry_coverage_state: ACTIVE
+    provider_certification_state: CERTIFIED
+  component_scope_ref_equals_attestation_scope_ref: true
+  mapping: BIJECTION_COMPONENTS_TO_ROOT_REQUIRED_PARTITIONS
+  duplicate_partition_mapping: INVALID
+  missing_partition: NONEXHAUSTIVE
+  extra_partition: INVALID
+  compatibility:
+    same_parent_semantic_registry_snapshot: true
+    same_access_pattern_family: true
+    exact_equal_observation_query_response_feature_subject_identifier_sets: true
+    exact_equal_scope_constraints: true
+    exact_equal_temporal_dependency: true
+    component_partition_set_exactly_single_mapped_partition: true
+  human_label_compatibility: false
+
+composite_explicit_closure:
+  root_composite_component_scope_refs_nonempty: true
+  exact_one_component_attestation_per_component_scope: true
+  repeated_component_attestation_or_scope: STRUCTURAL_INVALID
+  nested_composite: FORBIDDEN_STRUCTURAL_INVALID
+  every_component_complete_active_certified: true
+  component_attestation_scope_equals_bound_scope: true
+  same_parent_semantic_registry_snapshot: true
+  non_partition_compatibility_exact_equal:
+    - required_observation_family_refs
+    - required_semantic_feature_refs
+    - provider_native_subject_semantic_refs
+    - provider_native_identifier_namespace_refs
+    - scope_constraint_refs
+    - temporal_scope_dependency_ref
+  query_response_compatibility: EXPLICIT_COMPONENT_SCOPE_MEMBERSHIP_ONLY_NO_INFERENCE
+  with_root_partitions:
+    each_component_binding_partition_set_equals_component_scope_partition_set: true
+    pairwise_disjoint: true
+    canonical_union_equals_root_partition_set: true
+  without_root_partitions:
+    all_component_partition_sets_empty: true
+    gap_closure: EXACT_COMPONENT_SCOPE_SET_BIJECTION
+  duplicate_overlap_missing_extra_unresolved_incompatible: FAIL_CLOSED
+
+coverage_classification_total_function:
+  ordered_precedence:
+    - when: STRUCTURAL_INVALID
+      result: INVALID
+    - when: HAS_INDETERMINATE
+      result: INDETERMINATE
+    - when: HAS_KNOWN_PARTIALITY
+      result: PARTIAL_KNOWN
+    - when: HAS_KNOWN_NONEXHAUSTIVE
+      result: NON_EXHAUSTIVE
+    - when: ALL_COMPLETE
+      result: COMPLETE_FOR_SCOPE
+    - when: otherwise
+      result: INDETERMINATE
+  examples:
+    invalid_ref_plus_partiality: INVALID
+    unresolved_continuation_plus_partiality: INDETERMINATE
+    known_partiality_plus_page_cap: PARTIAL_KNOWN
+    known_page_cap_only: NON_EXHAUSTIVE
+    failed_or_cancelled: NON_EXHAUSTIVE
+    all_complete_predicates_true: COMPLETE_FOR_SCOPE
+  permutation_invariant: true
+  stored_classification_must_equal_recomputed: true
+  stored_mismatch: INVALID_FOR_LOAD_BEARING_USE
+
+repaired_coverage_support_valid_additions:
+  - exact_operation_coverage_scope_binding_ref_resolves
+  - operation_scope_binding_valid
+  - exact_COVERAGE_EVIDENCE_BUNDLE_resolves
+  - evidence_bundle_subject_binding_matches_attestation
+  - recomputed_classification_COMPLETE_FOR_SCOPE
+  - stored_classification_equals_recomputed
+
+blocker_state:
+  C2CERT-B01: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B02: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B03: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B04: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B05: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+
+open_questions:
+  C2.OPEN-009: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-010: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-011: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-012: OPEN_UNCHANGED_C2_06
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+  C2.OPEN-014: OPEN_UNCHANGED_C2_07
+  C2.OPEN-015: OPEN_UNCHANGED_POST_CONTRACT_CONFIGURATION
+
+ownership_non_regression:
+  C1: final_normalization_identity_resolution_no_match_uniqueness
+  C3: retry_quota_cache_freshness_coalescing_lkg
+  C4: pit_revision_available_from_temporal_reconstructability
+  C5: verification_source_fitness_independence_conflict
+  C6: capability_policy_trusted_intent_destination_side_effect_authority
+  C7: orchestration_budgets_cancellation_durable_continuation
+  C11: persistence_implementation
+  C12: validation_promotion_release
+  C2_06: exact_cross_contract_wire_binding_and_c2_to_c11_handoff
+  C2_07: machine_schema_validators_encode_repaired_semantics
+  C2_04R1_security_boundary: UNCHANGED
+
+next_gate: EXPLICIT_USER_AUTHORIZATION_FOR_C2_05R1_INDEPENDENT_CERTIFICATION_RECHECK

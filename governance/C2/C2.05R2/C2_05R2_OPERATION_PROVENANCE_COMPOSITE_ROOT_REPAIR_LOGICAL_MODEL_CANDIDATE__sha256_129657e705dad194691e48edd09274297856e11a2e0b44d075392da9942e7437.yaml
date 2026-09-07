@@ -1,0 +1,182 @@
+schema_version: 1.0.0-C2-05R2-operation-provenance-composite-root-repair-candidate
+project: Investment Research OS
+stage: C2.05R2
+generated_at_utc: '2026-09-07T07:10:00Z'
+status: SCOPED_REPAIR_CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_RECHECK
+
+authority:
+  parent_c2_05_contract_sha256: 3642588dcc22a7564d55a9a72d3e6e328b007649005c866e7831dfa4b8571d4c
+  parent_c2_05r1_contract_sha256: 267c83480aa909e74cb5d87c54512878c3c9c7128fce8a394fb63f39c6ed2bcb
+  parent_c2_05r1_independent_result_sha256: 59578acccb8906637360f24c7fe190a3a6e6b92098ddf03c30a5133b9d5767bf
+  c2_01r1_registry_model_sha256: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+  c2_02r2_outcome_contract_sha256: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+  repair_scope:
+    - C2CERT-B03
+    - C2CERT-B04
+  unrelated_scope_expansion_allowed: false
+  self_approval: false
+  production_implementation: NOT_AUTHORIZED
+  provider_vendor_configuration: NOT_AUTHORIZED
+  external_paper_live_side_effects: NOT_AUTHORIZED
+
+stable_ref_extension:
+  new_ref_kinds:
+    - OPERATION_COVERAGE_PROVENANCE
+  field_kind_contract:
+    OperationCoverageProvenance.operation_coverage_provenance_ref:
+      - OPERATION_COVERAGE_PROVENANCE
+    OperationCoverageScopeBinding.operation_coverage_provenance_ref:
+      - OPERATION_COVERAGE_PROVENANCE
+  invalid_ref_policy: FAIL_CLOSED_NO_LOAD_BEARING_SUPPORT
+
+OperationCoverageProvenance:
+  required:
+    - operation_coverage_provenance_ref
+    - provider_operation_ref
+    - route_attempt_ref
+    - parent_semantic_registry_snapshot_ref
+    - provider_profile_ref
+    - endpoint_profile_ref
+    - provider_capability_ref
+    - capability_requirement_R
+    - capability_requirement_R_content_sha256
+    - attempted_response_semantic_refs
+    - provider_native_subject_semantic_refs
+    - provider_native_identifier_namespace_refs
+    - coverage_partition_refs
+    - scope_constraint_refs
+    - provenance_commitment_state
+  optional:
+    - temporal_scope_dependency_ref
+  commitment_state:
+    - SEALED_FOR_COVERAGE_BEFORE_DISPATCH
+  canonical_lists: FULL_STABLE_REF_SET_CANONICALIZATION
+  load_bearing_uniqueness:
+    exact_one_provenance_ref_per_operation_attempt_for_coverage: true
+    multiple_claiming_refs: INVALID
+    absent_provenance: NO_COMPLETE_FOR_SCOPE_SUPPORT
+  c2_01_capability_requirement_R:
+    exact_replay_retained_value_required: true
+    canonical_fields:
+      - access_pattern_family
+      - required_observation_family_refs
+      - required_query_semantic_refs
+      - required_response_semantic_refs
+      - required_semantic_feature_refs
+    canonical_sha256_required: true
+  c2_02_attempted_response:
+    exact_stored_attempted_response_set_required: true
+    recompute_under_c2_02r2_required: true
+    mismatch: INVALID_FOR_COVERAGE_SUPPORT
+  c2_05_native_scope_dimensions:
+    authoritative_only_when_same_committed_provenance_ref: true
+    fields:
+      - provider_native_subject_semantic_refs
+      - provider_native_identifier_namespace_refs
+      - coverage_partition_refs
+      - scope_constraint_refs
+      - temporal_scope_dependency_ref
+    post_dispatch_replacement_allowed: false
+    inferred_wildcard_or_human_label_allowed: false
+
+OperationCoverageScopeBinding_R2:
+  additional_required:
+    - operation_coverage_provenance_ref
+  projection_equality:
+    access_pattern_family: provenance.capability_requirement_R.access_pattern_family
+    required_observation_family_refs: provenance.capability_requirement_R.required_observation_family_refs
+    required_query_semantic_refs: provenance.capability_requirement_R.required_query_semantic_refs
+    required_semantic_feature_refs: provenance.capability_requirement_R.required_semantic_feature_refs
+    attempted_response_semantic_refs: provenance.attempted_response_semantic_refs
+    provider_native_subject_semantic_refs: provenance.provider_native_subject_semantic_refs
+    provider_native_identifier_namespace_refs: provenance.provider_native_identifier_namespace_refs
+    coverage_partition_refs: provenance.coverage_partition_refs
+    scope_constraint_refs: provenance.scope_constraint_refs
+    temporal_scope_dependency_ref: provenance.temporal_scope_dependency_ref
+  identity_equality:
+    - provider_operation_ref
+    - route_attempt_ref
+    - parent_semantic_registry_snapshot_ref
+    - provider_profile_ref
+    - endpoint_profile_ref
+    - provider_capability_ref
+  total_predicate:
+    - provenance_valid
+    - binding_exactly_projects_provenance
+    - binding_exactly_matches_required_coverage_scope
+  matching_scope_ref_alone_sufficient: false
+  self_consistent_binding_alone_sufficient: false
+  post_hoc_minting_success_path: false
+
+composite_root_universe_R2:
+  method_family: COMPOSITE_EXPLICIT_CLOSURE
+  root_required_query_semantic_refs: MUST_BE_EMPTY
+  root_required_response_semantic_refs: MUST_BE_EMPTY
+  root_composite_component_scope_refs: MUST_BE_NONEMPTY_CANONICAL_EXACT_SET
+  authoritative_query_response_universe: EXACT_CANONICAL_COMPONENT_SCOPE_SET
+  human_or_inferred_equivalence_allowed: false
+  component_scope_query_response_semantics_retained: true
+  with_root_partitions:
+    requires:
+      - exact_component_scope_bijection
+      - exact_partition_closure
+    partition_closure_alone_sufficient: false
+  without_root_partitions:
+    requires:
+      - all_component_scope_partition_sets_empty
+      - all_component_binding_partition_sets_empty
+      - exact_component_scope_bijection
+  retained_r1_component_requirements:
+    - component_complete_for_scope
+    - component_active
+    - component_certified
+    - component_attestation_scope_equals_bound_scope
+    - repeated_component_attestation_invalid
+    - repeated_component_scope_invalid
+    - nested_composite_forbidden
+    - same_parent_semantic_registry_snapshot
+    - exact_non_query_response_compatibility
+    - unresolved_refs_fail_closed
+
+effective_coverage_support_additions:
+  - exact_operation_coverage_provenance_ref_resolves
+  - provenance_commitment_state_sealed_before_dispatch
+  - provenance_matches_exact_operation_attempt
+  - provenance_R_equals_replay_retained_R
+  - provenance_attempted_response_equals_c2_02r2_exact_set
+  - binding_exactly_projects_provenance
+  - binding_exactly_matches_required_coverage_scope
+  - composite_root_universe_R2_passes_when_applicable
+
+closed_blocker_non_regression:
+  C2CERT-B01: CLOSED_UNCHANGED
+  C2CERT-B02: CLOSED_UNCHANGED
+  C2CERT-B05: CLOSED_UNCHANGED
+
+repair_blocker_state:
+  C2CERT-B03: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B04: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+
+open_questions:
+  C2.OPEN-009: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-010: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-011: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-012: OPEN_UNCHANGED_C2_06
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+  C2.OPEN-014: OPEN_UNCHANGED_C2_07
+  C2.OPEN-015: OPEN_UNCHANGED_POST_CONTRACT_CONFIGURATION
+
+ownership_non_regression:
+  C1: final_normalization_identity_resolution_no_match_uniqueness
+  C3: retry_quota_cache_freshness_coalescing_lkg
+  C4: pit_revision_available_from_temporal_reconstructability
+  C5: verification_source_fitness_independence_conflict
+  C6: capability_policy_trusted_intent_destination_side_effect_authority
+  C7: orchestration_budgets_cancellation_durable_continuation
+  C11: persistence_implementation
+  C12: validation_promotion_release
+  C2_06: exact_cross_contract_wire_binding_and_c2_to_c11_handoff
+  C2_07: machine_schema_validators_encode_repaired_semantics
+  C2_04R1_security_boundary: UNCHANGED
+
+next_gate: EXPLICIT_USER_AUTHORIZATION_FOR_C2_05R2_INDEPENDENT_CERTIFICATION_RECHECK

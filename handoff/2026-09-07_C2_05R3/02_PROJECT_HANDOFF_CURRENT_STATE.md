@@ -138,7 +138,7 @@ R2 component-scope bijection and partition closure remain mandatory in addition 
 
 ## 7. Independent Re-Check requirements
 
-The next Independent Certification Re-Check must:
+The next Independent Certification Re-Check, if later authorized, must:
 
 - re-run the six residual failed obligations:
   `C2-471`, `C2-481`, `C2-540`, `C2-557`, `C2-584`, `C2-585`;
@@ -163,10 +163,31 @@ C2.OPEN-014 = OPEN_UNCHANGED_C2_07
 C2.OPEN-015 = OPEN_UNCHANGED_POST_CONTRACT_CONFIGURATION
 ```
 
-## 9. Next-work-page protocol
+## 9. Mandatory new-Work-page startup audit
 
-Start by reading `01_NEW_CHAT_BOOTSTRAP_PROMPT.txt`, then verify the R2 review artifacts, the R3 exact candidate archive, `governance/CURRENT_STAGE.txt`, and `08_FINAL_SYNC_VERIFICATION.yaml`.
+Before any new development or review work, the new Work page MUST perform the comprehensive READ-ONLY prior-work audit defined in `01_NEW_CHAT_BOOTSTRAP_PROMPT.txt`.
 
-Do not automatically resume. Wait for explicit user authorization.
+That audit must cover the full authoritative project history from C0 through the current C2.05R3 candidate and must check:
 
-The next gate is `C2.05R3 Independent Certification Re-Check`. C2.06 remains unauthorized until that gate passes and the user separately authorizes C2.06.
+- authoritative GitHub state, commits, hashes, stage/review status, and handoff integrity;
+- overall architectural direction and whether the project remains technically coherent rather than merely accumulating local patches;
+- cross-stage semantic consistency and ownership boundaries;
+- review quality, acceptance-test adequacy, blocker closure evidence, and non-regression;
+- open questions, deferred bindings, technical debt, contradictions, and hidden prerequisites;
+- whether the current C2.05R3 approach is the correct system-level direction before its Independent Certification Re-Check.
+
+The startup audit is strictly READ ONLY. It must not modify GitHub, change governance state, execute C2.05R3 Independent Certification Re-Check, or begin C2.06.
+
+After presenting the audit findings, STOP and wait for explicit user authorization.
+
+## 10. Next-work-page protocol
+
+Start by reading `01_NEW_CHAT_BOOTSTRAP_PROMPT.txt`, verifying `governance/CURRENT_STAGE.txt`, the R2 review artifacts, the R3 exact candidate archive, and `08_FINAL_SYNC_VERIFICATION.yaml`, then perform the mandatory comprehensive prior-work audit.
+
+Do not automatically resume development after the audit.
+
+Only if the audit concludes that the direction/content are sufficiently coherent to proceed, and the user explicitly authorizes continuation, may the next work gate begin:
+
+`C2.05R3 Independent Certification Re-Check`.
+
+C2.06 remains unauthorized until the R3 re-check passes and the user separately authorizes C2.06.

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0-C2-05R3-construction-summary",
+  "project": "Investment Research OS",
+  "stage": "C2.05R3",
+  "generated_at_utc": "2026-09-07T16:27:00Z",
+  "status": "COMPLETE_AS_SCOPED_REPAIR_CANDIDATE_NOT_INDEPENDENTLY_RECHECKED",
+  "authorized_scope": [
+    "C2CERT-B03",
+    "C2CERT-B04"
+  ],
+  "parent_independent_result_sha256": "12a4eb9bf451d91ba40fb0922a8d4704e109369c736127c9c474284e856998e8",
+  "artifacts": {
+    "repair_contract_sha256": "0c8169e33a1f57bce7c987a8aa8f29d3eee22abea635960b52207739c7861760",
+    "logical_model_sha256": "0858d9a0ca503b186351a596fa8216fefd05e14655351fd9cbfa8c6d5e334e94",
+    "acceptance_delta_sha256": "d56f78b087136b4404a499abe56f27e295d4a4198f615eabd3b9bfb3f7a188af",
+    "decision_ledger_sha256": "95eb30bb7d0043aef0d6dea592153862bd8912d490c39a127eb874bbc1c3590c",
+    "repair_diffs_sha256": "7a103056f8239bdfd19d0943edec5720f246d26c076aa601055f32c6e5f20ede"
+  },
+  "construction_volume": {
+    "repair_decisions": "C2.DEC-380..C2.DEC-405",
+    "repair_decision_total": 26,
+    "new_acceptance_range": "C2-591..C2-640",
+    "new_acceptance_total": 50,
+    "residual_failed_obligations_scheduled_for_recheck": [
+      "C2-471",
+      "C2-481",
+      "C2-540",
+      "C2-557",
+      "C2-584",
+      "C2-585"
+    ],
+    "provider_instances": 0,
+    "production_adapters": 0
+  },
+  "repair_design": {
+    "B03": [
+      "executed request semantic state is exact dispatch input and replay-retained state",
+      "all C2.05-native scope dimensions project from executed request semantic state",
+      "coverage-capable certification requires REQUEST_SCOPE_CONFORMANCE",
+      "single attempt-retained coverage authority binding is sole provenance authority domain",
+      "later unreferenced provenance claims cannot alter historical replay",
+      "R2 exact CapabilityRequirement R and C2.02R2 attempted-response provenance preserved"
+    ],
+    "B04": [
+      "explicit immutable machine-checkable root-to-component semantic-decomposition relation selected",
+      "R2 empty composite root query/response rule superseded",
+      "composite root response set equals exact C2.02R2 attempted-response set A",
+      "endpoint primary response semantic therefore remains present",
+      "exact query/response decomposition relation is mandatory in addition to exact component and partition closure"
+    ]
+  },
+  "blocker_state": {
+    "C2CERT-B01": "CLOSED_UNCHANGED",
+    "C2CERT-B02": "CLOSED_UNCHANGED",
+    "C2CERT-B03": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK",
+    "C2CERT-B04": "ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK",
+    "C2CERT-B05": "CLOSED_UNCHANGED"
+  },
+  "mechanical_validation": "PENDING_SEPARATE_CONSTRUCTION_VALIDATION_ARTIFACT",
+  "candidate_archive_commit": "TO_BE_RECORDED_AFTER_GITHUB_MATERIALIZATION",
+  "candidate_subtree": "TO_BE_RECORDED_AFTER_GITHUB_MATERIALIZATION",
+  "next_gate": "EXPLICIT_USER_AUTHORIZATION_FOR_C2_05R3_INDEPENDENT_CERTIFICATION_RECHECK",
+  "c2_06": "NOT_STARTED_NOT_AUTHORIZED",
+  "production_implementation": "NOT_AUTHORIZED",
+  "provider_vendor_configuration": "NOT_AUTHORIZED",
+  "external_paper_live_side_effects": "NOT_AUTHORIZED"
+}

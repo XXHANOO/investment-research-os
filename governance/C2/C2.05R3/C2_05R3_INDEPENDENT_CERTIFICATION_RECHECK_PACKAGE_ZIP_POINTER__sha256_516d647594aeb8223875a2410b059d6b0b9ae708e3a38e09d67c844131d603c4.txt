@@ -1,0 +1,10 @@
+C2.05R3 Independent Certification Re-Check Package ZIP Pointer
+
+No binary ZIP archive is committed by this governance construction stage.
+The authoritative review package is the content-addressed repository subtree:
+  governance/C2/C2.05R3/
+
+Package manifest SHA-256:
+  c1bd42a7dc497855fc3d4c9e62cba3129028b3b08cb0789ab60e08c362818086
+
+Future independent review must consume the exact content-addressed artifacts and parent pins named by that manifest. Construction does not self-approve.

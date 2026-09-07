@@ -1,0 +1,76 @@
+schema_version: 1.0.0-C2-05R3-independent-certification-recheck-package-manifest
+project: Investment Research OS
+stage: C2.05R3
+generated_at_utc: '2026-09-07T16:27:00Z'
+status: PACKAGE_MANIFEST_FOR_FUTURE_INDEPENDENT_CERTIFICATION_RECHECK
+
+candidate_path: governance/C2/C2.05R3/
+
+parent_authority:
+  c2_05_contract_sha256: 3642588dcc22a7564d55a9a72d3e6e328b007649005c866e7831dfa4b8571d4c
+  c2_05r1_contract_sha256: 267c83480aa909e74cb5d87c54512878c3c9c7128fce8a394fb63f39c6ed2bcb
+  c2_05r2_contract_sha256: b68943c7773ba5abb596eafd2a572398d172ed3d0bd08cea1b12bdd5b51c29ff
+  c2_05r2_independent_report_sha256: 80e81deb17a1693daeebee0c59d40e7b7ad3cbc462dc0558a0d2413398e66128
+  c2_05r2_independent_result_sha256: 12a4eb9bf451d91ba40fb0922a8d4704e109369c736127c9c474284e856998e8
+  c2_01r1_registry_model_sha256: 0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+  c2_02r2_outcome_contract_sha256: 901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+  c2_04r1_security_recheck_result_sha256: d1af240f4e6eff32b087295ef259fd4485c13fc0775f8abc24fa630993104f47
+
+candidate_artifacts:
+  - role: repair_contract
+    sha256: 0c8169e33a1f57bce7c987a8aa8f29d3eee22abea635960b52207739c7861760
+    path_basename: C2_05R3_EXECUTED_REQUEST_SCOPE_COMPOSITE_DECOMPOSITION_REPAIR_CONTRACT_CANDIDATE__sha256_0c8169e33a1f57bce7c987a8aa8f29d3eee22abea635960b52207739c7861760.md
+  - role: logical_model
+    sha256: 0858d9a0ca503b186351a596fa8216fefd05e14655351fd9cbfa8c6d5e334e94
+    path_basename: C2_05R3_EXECUTED_REQUEST_SCOPE_COMPOSITE_DECOMPOSITION_REPAIR_LOGICAL_MODEL_CANDIDATE__sha256_0858d9a0ca503b186351a596fa8216fefd05e14655351fd9cbfa8c6d5e334e94.yaml
+  - role: acceptance_delta
+    sha256: d56f78b087136b4404a499abe56f27e295d4a4198f615eabd3b9bfb3f7a188af
+    path_basename: C2_05R3_ACCEPTANCE_TEST_DELTA_CANDIDATE__sha256_d56f78b087136b4404a499abe56f27e295d4a4198f615eabd3b9bfb3f7a188af.md
+  - role: decision_ledger
+    sha256: 95eb30bb7d0043aef0d6dea592153862bd8912d490c39a127eb874bbc1c3590c
+    path_basename: C2_05R3_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_95eb30bb7d0043aef0d6dea592153862bd8912d490c39a127eb874bbc1c3590c.yaml
+  - role: repair_diffs
+    sha256: 7a103056f8239bdfd19d0943edec5720f246d26c076aa601055f32c6e5f20ede
+    path_basename: C2_05R3_REPAIR_DIFFS__sha256_7a103056f8239bdfd19d0943edec5720f246d26c076aa601055f32c6e5f20ede.md
+  - role: construction_summary
+    sha256: d2da0a2c568cfd0a7c24e8f40a2b213c1d7d237fcf9a2f24342d56cb31b39210
+    path_basename: C2_05R3_CONSTRUCTION_SUMMARY__sha256_d2da0a2c568cfd0a7c24e8f40a2b213c1d7d237fcf9a2f24342d56cb31b39210.json
+  - role: construction_validation
+    sha256: 9b77e9252befe7465a16efdeaaa7dfcf361c14d982733f226b2d48d79512554e
+    path_basename: C2_05R3_CONSTRUCTION_VALIDATION__sha256_9b77e9252befe7465a16efdeaaa7dfcf361c14d982733f226b2d48d79512554e.json
+  - role: candidate_selection
+    sha256: 636c56840ffde7c9f14e5ff136abd7e4d2efaa1900a58db4277ce9fc43337823
+    path_basename: C2_05R3_CANDIDATE_SELECTION__sha256_636c56840ffde7c9f14e5ff136abd7e4d2efaa1900a58db4277ce9fc43337823.yaml
+  - role: stage_report
+    sha256: 21eada9504f89a9a095132e90a8cf321ecead3ba5fac82e04d0d3ccb2e498ff7
+    path_basename: C2_05R3_STAGE_REPORT__sha256_21eada9504f89a9a095132e90a8cf321ecead3ba5fac82e04d0d3ccb2e498ff7.md
+
+required_independent_recheck:
+  blocker_families:
+    - C2CERT-B03
+    - C2CERT-B04
+  residual_obligations:
+    - C2-471
+    - C2-481
+    - C2-540
+    - C2-557
+    - C2-584
+    - C2-585
+  new_acceptance_range: C2-591..C2-640
+  prior_adequacy_revisit:
+    - C2-567
+    - C2-568
+    - C2-569
+    - C2-570
+    - C2-571
+  preserve_non_regression:
+    - C2CERT-B01
+    - C2CERT-B02
+    - C2CERT-B05
+    - C2-289..C2-401
+    - all previously passing C2.05/R1/R2 obligations
+
+construction_validation_status: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_CERTIFICATION_RECHECK
+independent_recheck_performed: false
+self_approval: false
+next_gate: EXPLICIT_USER_AUTHORIZATION_FOR_C2_05R3_INDEPENDENT_CERTIFICATION_RECHECK

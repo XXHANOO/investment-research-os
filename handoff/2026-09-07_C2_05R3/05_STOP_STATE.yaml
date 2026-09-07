@@ -22,7 +22,23 @@ candidate_subtree: bf10f4fd1cf271ea5dd23d124c74a80a65e670cd
 candidate_artifact_count: 11
 candidate_git_blob_equivalence: 11/11_PASS
 
-next_gate: C2.05R3 Independent Certification Re-Check
+startup_audit:
+  required: true
+  mode: READ_ONLY
+  scope: ALL_AUTHORITATIVE_WORK_C0_THROUGH_C2_05R3
+  must_check_architecture_direction: true
+  must_check_cross_stage_consistency: true
+  must_check_ownership_boundaries: true
+  must_check_review_acceptance_adequacy: true
+  must_check_open_risks_and_debt: true
+  must_check_C2_05R3_direction: true
+  repository_mutation_allowed: false
+  independent_recheck_allowed_during_audit: false
+  stop_after_audit: true
+  explicit_user_authorization_required_after_audit: true
+
+immediate_next_action: COMPREHENSIVE_PRIOR_WORK_AUDIT_READ_ONLY
+next_development_review_gate_after_audit: C2.05R3 Independent Certification Re-Check
 next_gate_requires_explicit_user_authorization: true
 
 C2_06: NOT_STARTED_NOT_AUTHORIZED

@@ -39,6 +39,19 @@ R3 status:
 CONSTRUCTION COMPLETE AS CANDIDATE
 INDEPENDENT CERTIFICATION RE-CHECK NOT RUN / NOT AUTHORIZED
 
-NEXT GATE
-=========
-C2.05R3 Independent Certification Re-Check, only after explicit user authorization in the new Work page.
+MANDATORY STARTUP AUDIT
+=======================
+Before any new development or review work in the new Work page, perform the comprehensive READ-ONLY prior-work audit defined in:
+handoff/2026-09-07_C2_05R3/01_NEW_CHAT_BOOTSTRAP_PROMPT.txt
+
+The audit must cover all authoritative work from C0 through the current C2.05R3 candidate, confirm architecture direction and cross-stage consistency, identify any material problem, and then STOP for explicit user authorization.
+
+No repository mutation and no C2.05R3 Independent Certification Re-Check are allowed during the startup audit.
+
+IMMEDIATE NEXT ACTION
+=====================
+Mandatory comprehensive READ-ONLY prior-work audit.
+
+NEXT DEVELOPMENT/REVIEW GATE AFTER AUDIT
+========================================
+C2.05R3 Independent Certification Re-Check, only if the startup audit confirms the direction/content are sufficiently coherent and the user explicitly authorizes continuation.

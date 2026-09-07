@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: DEVELOPMENT STOPPED / HANDOFF SEALED — C2.05R3 SCOPED REPAIR CANDIDATE AWAITS INDEPENDENT CERTIFICATION RE-CHECK
-Current gate: Explicit user authorization in a new work page for C2.05R3 Independent Certification Re-Check
+Current stage: DEVELOPMENT STOPPED / HANDOFF SEALED — C2.05R3 SCOPED REPAIR CANDIDATE AWAITS MANDATORY PRIOR-WORK AUDIT BEFORE ANY CONTINUATION
+Current gate: Mandatory comprehensive READ-ONLY prior-work audit in the new Work page; then explicit user authorization before any new work
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -154,13 +154,23 @@ Development stop / handoff:
 - No C2.06 work has started.
 - No production implementation, provider/vendor configuration, or external/PAPER/LIVE side effect is authorized.
 
+Mandatory new-Work-page startup audit:
+- REQUIRED before any new development/review/governance work.
+- Scope: comprehensive read-only audit of all authoritative work from C0 through the current C2.05R3 candidate.
+- Must verify GitHub authority, architecture direction, cross-stage consistency, ownership boundaries, review/acceptance adequacy, blocker closure evidence, open risks/debt, and whether the C2.05R3 direction remains appropriate at the system level.
+- Must not mutate GitHub or execute C2.05R3 Independent Certification Re-Check.
+- After presenting the audit, STOP and wait for explicit user authorization.
+
 C2.05R3 Independent Certification Re-Check: NOT RUN / NOT AUTHORIZED
 C2.06: NOT STARTED / NOT AUTHORIZED
 Production implementation: NOT AUTHORIZED
 Provider/vendor configuration: NOT_AUTHORIZED
 External/PAPER/LIVE side effects: NOT_AUTHORIZED
 
-NEXT GATE:
-Explicit user authorization in the new work page for C2.05R3 Independent Certification Re-Check.
+IMMEDIATE NEXT ACTION IN NEW WORK PAGE:
+Mandatory comprehensive READ-ONLY prior-work audit.
 
-DO NOT start the Independent Certification Re-Check, C2.06, production implementation, provider/vendor configuration, or external/PAPER/LIVE side effects before explicit authorization.
+NEXT DEVELOPMENT/REVIEW GATE AFTER AUDIT:
+Only if the audit confirms the direction/content are sufficiently coherent AND the user explicitly authorizes continuation: C2.05R3 Independent Certification Re-Check.
+
+DO NOT start the Independent Certification Re-Check, C2.06, production implementation, provider/vendor configuration, or external/PAPER/LIVE side effects before the startup audit is completed and explicit user authorization is received.

@@ -84,7 +84,7 @@ C2-567, C2-568, C2-569, C2-570, C2-571.
 R3 REPAIR SEMANTICS
 ===================
 B03:
-- EXECUTED_REQUEST_SEMANTIC_STATE is the exact replay-retained coverage-relevant state consumed by actual request construction/dispatch.
+- EXECUTED_REQUEST_SEMANTIC_STATE is the exact replay-retained coverage-relevant semantic state consumed by actual request construction/dispatch.
 - Native subject, identifier namespace, partition, constraint, and temporal scope dimensions must project from that executed state.
 - Any coverage-relevant request dimension not represented in the executed state makes the attempt coverage-ineligible.
 - Coverage-capable certification profiles require REQUEST_SCOPE_CONFORMANCE.
@@ -111,18 +111,63 @@ WORKFLOW DISCIPLINE
 6. Keep provider/vendor selections, production adapters, real credentials, and PAPER/LIVE side effects unauthorized.
 7. Do not treat R3 mechanical validation PASS as Independent Certification Re-Check PASS.
 
+MANDATORY NEW-WORK-PAGE STARTUP AUDIT — READ ONLY
+==================================================
+Before any new development, repair, independent re-check, stage transition, schema work, provider configuration, implementation work, or governance mutation, perform a comprehensive read-only audit of ALL prior authoritative project work from C0 through the current C2.05R3 candidate.
+
+This audit is mandatory and is NOT itself authorization to continue development.
+
+The audit must, at minimum:
+
+1. Reconstruct and verify the authoritative stage history from GitHub, including C0, frozen C1, C2.00, C2.01/R1, C2.02/R1/R2, C2.03/R1/R2, C2.04/R1, C2.05, C2.05R1, C2.05R2, and the current C2.05R3 candidate.
+2. Verify `governance/CURRENT_STAGE.txt`, the handoff package, canonical paths, relevant archive commits, content-addressed filenames/hashes, and all recorded PASS/FAIL/review states against GitHub rather than trusting this prompt alone.
+3. Check that each repair actually answers the blocker found by the immediately preceding independent review, and that later repairs do not silently invalidate earlier closed obligations.
+4. Audit the overall architecture and development direction for internal consistency, technical soundness, unnecessary complexity, missing abstractions, circular authority, hidden coupling, contradictory contracts, premature commitments, semantic gaps, test inadequacy, and accidental scope expansion.
+5. Audit ownership boundaries across C1/C2/C3/C4/C5/C6/C7/C11/C12 and identify any authority drift or responsibility duplication.
+6. Audit acceptance coverage and governance discipline, including whether construction was ever treated as review, whether a PASS surface lacks adequate adversarial coverage, whether failed obligations were properly carried forward, and whether any declared CLOSED blocker is unsupported by its independent review evidence.
+7. Audit the C2.05 line specifically for whether provider certification/completeness/coverage semantics remain conceptually correct and proportionate to the system goal, rather than merely locally patching successive review findings.
+8. Re-evaluate the current C2.05R3 proposed direction at a system level: executed-request binding, singular provenance authority, and composite semantic decomposition. Confirm that these are the right architectural direction before doing the R3 Independent Certification Re-Check.
+9. Identify all remaining open questions, deferred wire bindings, technical debt, or decisions that could materially affect C2.05R3, C2.06, C2.07, or later stages.
+10. Check that no current contract accidentally authorizes production adapters, real credentials, concrete provider/vendor selection, C6 side effects, PAPER/LIVE execution, or external effects.
+
+AUDIT OUTPUT CONTRACT
+=====================
+Produce a structured audit report in the new Work page with:
+
+- `AUTHORITATIVE_STATE_VERIFICATION`: PASS / FAIL, with discrepancies if any.
+- `ARCHITECTURE_DIRECTION`: SOUND / SOUND_WITH_CONCERNS / NEEDS_CORRECTION.
+- `PRIOR_STAGE_INTEGRITY`: stage-by-stage findings.
+- `CROSS_STAGE_CONSISTENCY`: findings on contracts, refs, ownership, and deferred interfaces.
+- `REVIEW_AND_ACCEPTANCE_ADEQUACY`: findings on review quality and test coverage.
+- `C2.05R3_DIRECTION_CHECK`: whether the current repair approach is technically appropriate before re-check.
+- `OPEN_RISKS_AND_DEBT`: prioritized list.
+- `RECOMMENDED_NEXT_ACTION`: exactly one recommended next action and why.
+
+If ANY material contradiction, authority drift, missing prerequisite, unsupported closure claim, architectural-direction problem, or governance inconsistency is found, explicitly say so and recommend correction before proceeding.
+
+If no material problem is found, explicitly state that the project direction and prior work are sufficiently coherent to proceed to the next gate, but DO NOT proceed automatically.
+
+STARTUP AUDIT STOP RULE
+=======================
+The startup audit is READ ONLY.
+
+During the audit:
+- do not create, modify, delete, rename, normalize, or re-pin repository artifacts;
+- do not update `governance/CURRENT_STAGE.txt`;
+- do not close blockers or open questions;
+- do not perform C2.05R3 Independent Certification Re-Check;
+- do not start C2.06 or later work.
+
+After presenting the audit report, STOP and wait for my explicit authorization.
+
+Only after I review the comprehensive audit and explicitly authorize continuation may you enter new work content.
+
 NEXT GATE
 =========
-Do not start work automatically.
+The immediate next action in the new Work page is the mandatory comprehensive read-only prior-work audit described above.
 
-First action in the new Work page:
-- verify `governance/CURRENT_STAGE.txt`,
-- verify the C2.05R2 Independent Certification Re-Check report/result,
-- verify the exact C2.05R3 candidate artifacts and archive commit,
-- verify `08_FINAL_SYNC_VERIFICATION.yaml`,
-then wait for my explicit authorization.
-
-When I explicitly authorize it, the next stage is:
+Only after that audit is completed, the direction/content are confirmed acceptable, and I explicitly authorize continuation, the next development/review gate is:
 C2.05R3 Independent Certification Re-Check.
 
-Do NOT start C2.06 before that re-check returns PASS and I separately authorize C2.06.
+Do NOT start C2.05R3 Independent Certification Re-Check automatically.
+Do NOT start C2.06 before the R3 re-check returns PASS and I separately authorize C2.06.

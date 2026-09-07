@@ -1,0 +1,44 @@
+AUTHORITATIVE C2.05R2 REVIEW
+===========================
+Report:
+governance/C2/C2.05R2/C2_05R2_INDEPENDENT_CERTIFICATION_RECHECK_REPORT__sha256_80e81deb17a1693daeebee0c59d40e7b7ad3cbc462dc0558a0d2413398e66128.md
+
+Result:
+governance/C2/C2.05R2/C2_05R2_INDEPENDENT_CERTIFICATION_RECHECK_RESULT__sha256_12a4eb9bf451d91ba40fb0922a8d4704e109369c736127c9c474284e856998e8.yaml
+
+Exact review archive commit:
+6f193d5d6f7c888ba4c4180cfa5fc6b03b187e38
+
+R2 verdict:
+FAIL — C2.05R2 REPAIR_REQUIRED_NOT_FROZEN
+
+AUTHORITATIVE C2.05R3 CANDIDATE
+===============================
+Directory:
+governance/C2/C2.05R3/
+
+Exact candidate archive commit:
+aae0d92d9695af9ddb9c93ce5d3680649e8692c5
+
+Exact candidate subtree:
+bf10f4fd1cf271ea5dd23d124c74a80a65e670cd
+
+Repair contract SHA-256:
+0c8169e33a1f57bce7c987a8aa8f29d3eee22abea635960b52207739c7861760
+
+Logical model SHA-256:
+0858d9a0ca503b186351a596fa8216fefd05e14655351fd9cbfa8c6d5e334e94
+
+Acceptance delta SHA-256:
+d56f78b087136b4404a499abe56f27e295d4a4198f615eabd3b9bfb3f7a188af
+
+Decision ledger SHA-256:
+95eb30bb7d0043aef0d6dea592153862bd8912d490c39a127eb874bbc1c3590c
+
+R3 status:
+CONSTRUCTION COMPLETE AS CANDIDATE
+INDEPENDENT CERTIFICATION RE-CHECK NOT RUN / NOT AUTHORIZED
+
+NEXT GATE
+=========
+C2.05R3 Independent Certification Re-Check, only after explicit user authorization in the new Work page.

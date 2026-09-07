@@ -2,7 +2,8 @@ package: handoff/2026-09-07_C2_05R3
 purpose: new-Work-page continuity after explicit user stop/archive/sync request
 created_for_stage: C2.05R3
 current_state: SCOPED_REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
-next_gate: C2.05R3 Independent Certification Re-Check
+immediate_next_action: MANDATORY_COMPREHENSIVE_PRIOR_WORK_AUDIT_READ_ONLY
+next_development_review_gate_after_audit: C2.05R3 Independent Certification Re-Check
 
 handoff_files:
   - 00_README_FIRST.md
@@ -30,13 +31,33 @@ canonical_commits:
   c2_05r3_candidate_archive: aae0d92d9695af9ddb9c93ce5d3680649e8692c5
   pre_handoff_main: c91a314ed253da8f27e21cb80c0b59996cbaa371
 
+startup_audit_contract:
+  required: true
+  mode: READ_ONLY
+  scope: ALL_AUTHORITATIVE_WORK_C0_THROUGH_C2_05R3
+  verify_authoritative_state: true
+  verify_architecture_direction: true
+  verify_cross_stage_consistency: true
+  verify_ownership_boundaries: true
+  verify_review_and_acceptance_adequacy: true
+  verify_blocker_closure_evidence: true
+  verify_open_risks_and_debt: true
+  verify_C2_05R3_system_level_direction: true
+  repository_mutation_during_audit: FORBIDDEN
+  C2_05R3_independent_recheck_during_audit: FORBIDDEN
+  later_stage_work_during_audit: FORBIDDEN
+  stop_after_audit: REQUIRED
+  explicit_user_authorization_after_audit: REQUIRED
+
 continuity_rules:
   - Existing content-addressed C0/C1/C2 canonical artifacts remain in original paths and are not rewritten by this handoff.
   - C0/C1 frozen authority must not change.
   - C2.04R1 security acceptance remains authoritative and must not regress.
   - C2.05R3 construction mechanical PASS is not Independent Certification Re-Check PASS.
   - C2CERT-B03/B04 remain ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK.
-  - C2.05R3 Independent Certification Re-Check must not start without explicit user authorization in the new Work page.
+  - The new Work page must complete the mandatory comprehensive read-only prior-work audit before any new work.
+  - After the startup audit, the assistant must stop and wait for explicit user authorization.
+  - C2.05R3 Independent Certification Re-Check must not start automatically or during the startup audit.
   - C2.06 remains unauthorized until R3 re-check passes and the user separately authorizes C2.06.
   - Production implementation, provider/vendor configuration, and external/PAPER/LIVE side effects remain unauthorized.
 

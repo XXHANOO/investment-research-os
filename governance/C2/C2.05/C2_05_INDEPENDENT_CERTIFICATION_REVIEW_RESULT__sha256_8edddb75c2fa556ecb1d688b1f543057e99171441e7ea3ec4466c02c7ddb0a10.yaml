@@ -1,0 +1,74 @@
+schema_version: 1.0.0-C2-05-independent-certification-review-result
+project: Investment Research OS
+stage: C2.05
+generated_at_utc: '2026-09-07T06:25:34Z'
+review_type: INDEPENDENT_CERTIFICATION_REVIEW
+status: FAIL
+candidate_state: REPAIR_REQUIRED_NOT_FROZEN
+reviewed_candidate:
+  contract_sha256: 3642588dcc22a7564d55a9a72d3e6e328b007649005c866e7831dfa4b8571d4c
+  logical_model_sha256: 0a6d7c4037c04ca04f87994507afb722661dbd9450a115492238b9d5dd9c776c
+  acceptance_delta_sha256: 62714c720e2a9d6f24f066533ddac9c84f3360a6bff2cbe4d9aacbb9617cff6f
+  decision_ledger_sha256: 519cfd630f8f60772fe649b98297c2e32c2a912f9b36b2c59567d1e56fc57366
+  review_package_manifest_sha256: 8285be12eac6353ef070367aae3aaee64f58980c401abbca793e150a2fd57b62
+  candidate_archive_commit: 2a7f867f4a9c2cee3958d33292c4674ff9c34906
+  candidate_subtree: 339c0d0113b57832fb80417bcdf0bc9cd2f28631
+blockers:
+  C2CERT-B01:
+    status: OPEN
+    finding: COVERAGE_EVIDENCE_CARRIER_NOT_TYPE_CLOSED
+  C2CERT-B02:
+    status: OPEN
+    finding: CERTIFICATION_DECISION_NOT_TOTAL_FOR_MIXED_FAILURE_STATES
+  C2CERT-B03:
+    status: OPEN
+    finding: OPERATION_TO_COVERAGE_SCOPE_BINDING_NOT_MACHINE_CLOSED
+  C2CERT-B04:
+    status: OPEN
+    finding: PARTITION_COMPOSITE_CLOSURE_PREDICATE_UNDERDEFINED
+  C2CERT-B05:
+    status: OPEN
+    finding: NON_COMPLETE_COVERAGE_CLASSIFICATION_NOT_TOTAL
+acceptance_review:
+  range: C2-402..C2-487
+  total: 86
+  pass: 78
+  fail: 8
+  failed:
+    - C2-402
+    - C2-411
+    - C2-412
+    - C2-437
+    - C2-438
+    - C2-459
+    - C2-471
+    - C2-481
+parent_c2_04_non_regression:
+  range: C2-289..C2-401
+  total: 113
+  pass: 113
+  fail: 0
+  status: PASS
+open_questions:
+  C2.OPEN-009: NOT_CLOSED_REPAIR_REQUIRED
+  C2.OPEN-010: NOT_CLOSED_REPAIR_REQUIRED
+  C2.OPEN-011: NOT_CLOSED_REPAIR_REQUIRED
+  C2.OPEN-012: OPEN_UNCHANGED_C2_06
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+  C2.OPEN-014: OPEN_UNCHANGED_C2_07
+  C2.OPEN-015: OPEN_UNCHANGED_POST_CONTRACT_CONFIGURATION
+repair_scope:
+  next_stage: C2.05R1
+  allowed:
+    - coverage evidence type/ref/check closure
+    - total certification decision precedence
+    - exact operation-to-coverage-scope derivation and parent semantic-snapshot binding
+    - exact partition/composite closure predicates
+    - total non-complete coverage classification
+    - corresponding acceptance additions and re-checks
+  unrelated_scope_expansion_allowed: false
+next_gate: EXPLICIT_USER_AUTHORIZATION_FOR_C2_05R1_SCOPED_REPAIR
+c2_06: NOT_STARTED_NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED
+review_report_sha256: 17853fd3e93d9a7d0cb611564004e85865d2fda20e05ee1ad885a249f2705c04

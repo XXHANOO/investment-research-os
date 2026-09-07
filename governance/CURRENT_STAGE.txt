@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.05R2 SCOPED REPAIR CONSTRUCTION COMPLETE AS CANDIDATE — NOT INDEPENDENTLY RECHECKED
-Current gate: Explicit user authorization for C2.05R2 Independent Certification Re-Check
+Current stage: C2.05R2 INDEPENDENT CERTIFICATION RE-CHECK FAIL — C2.05R3 REPAIR_REQUIRED_NOT_FROZEN
+Current gate: Explicit user authorization for C2.05R3 scoped repair
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -65,17 +65,6 @@ C2.05R1 Independent Re-Check report SHA-256: 2b829b9a3af45eade91efee1fea786a9b26
 C2.05R1 Independent Re-Check result SHA-256: 59578acccb8906637360f24c7fe190a3a6e6b92098ddf03c30a5133b9d5767bf
 C2.05R1 exact Independent Re-Check archive commit: a932548cd76e7520045d41f44fe40c21c726d53a
 
-C2.05R1 blocker state after re-check:
-C2CERT-B01: CLOSED
-C2CERT-B02: CLOSED
-C2CERT-B03: OPEN — OPERATION_SCOPE_BINDING_PROVENANCE_NOT_MACHINE_CLOSED
-C2CERT-B04: OPEN — COMPOSITE_ROOT_COMPONENT_SCOPE_RELATION_NOT_CLOSED
-C2CERT-B05: CLOSED
-
-C2.05 + R1 effective acceptance before R2: C2-402..C2-555 = 147/154 PASS; 7 FAIL
-Residual failed obligations before R2: C2-437, C2-438, C2-471, C2-481, C2-525, C2-539, C2-540
-C2.04 non-regression after R1 re-check: C2-289..C2-401 = 113/113 PASS
-
 C2.05R2 scoped-repair authorization: GRANTED
 C2.05R2 scope: C2CERT-B03..B04 ONLY + corresponding acceptance additions/re-checks
 C2.05R2 construction: COMPLETE AS SCOPED REPAIR CANDIDATE
@@ -89,44 +78,58 @@ C2.05R2 repair contract SHA-256: b68943c7773ba5abb596eafd2a572398d172ed3d0bd08ce
 C2.05R2 logical model SHA-256: 129657e705dad194691e48edd09274297856e11a2e0b44d075392da9942e7437
 C2.05R2 acceptance delta SHA-256: a91d701743ca84d50e827ef149ae60493dacb88183458f4b90f9e4fd4c016ad0
 C2.05R2 evidence/decision ledger SHA-256: 1af30d88c3bd02793e22bd3f4d2ccd026af6b2f26562e06c4b079621d692bbb9
-C2.05R2 repair diffs SHA-256: 77330be2434966e91722742fe08bdff1145d38e8b8c6110f0c0034e506dda794
-C2.05R2 construction summary SHA-256: f8d6880e4c3a7c8ad0eadb1e5b7de1d33f5fd141f9c847873dd993af23677f0b
-C2.05R2 construction validation SHA-256: 95525f7aae1264b38731485dd0b8602eabbe9795e44a28fdc82e75f7022a1c02
-C2.05R2 candidate selection SHA-256: a64155a32099dd420a932ac851b9e8d348b5a2c56f1ef6efa17e9ddaba76620d
-C2.05R2 stage report SHA-256: 8f91c15fa009cb2e07867aa398472ad189c69873771b0014db871e1ee5a4980e
-C2.05R2 independent re-check package manifest SHA-256: beb65d3f7f5565834df486c2ef337ed3ea84146942e9317c2cab42f6fb2b24e3
-C2.05R2 package ZIP pointer SHA-256: 414089a85cee2d6dbb27f04a2c8536619341a94424965c3317172b18e56aa448
 C2.05R2 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_CERTIFICATION_RECHECK
 
-C2.05R2 repair decisions: C2.DEC-362..C2.DEC-379 = 18
-C2.05R2 new acceptance obligations: C2-556..C2-590 = 35
-C2.05R2 residual failed obligations scheduled for independent re-check:
-C2-437, C2-438, C2-471, C2-481, C2-525, C2-539, C2-540
+C2.05R2 Independent Certification Re-Check: FAIL
+C2.05R2 state after independent re-check: REPAIR_REQUIRED_NOT_FROZEN
+C2.05R2 Independent Re-Check report SHA-256: 80e81deb17a1693daeebee0c59d40e7b7ad3cbc462dc0558a0d2413398e66128
+C2.05R2 Independent Re-Check result SHA-256: 12a4eb9bf451d91ba40fb0922a8d4704e109369c736127c9c474284e856998e8
+C2.05R2 exact Independent Re-Check archive commit: 6f193d5d6f7c888ba4c4180cfa5fc6b03b187e38
 
 C2CERT-B01: CLOSED_UNCHANGED
 C2CERT-B02: CLOSED_UNCHANGED
-C2CERT-B03: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
-C2CERT-B04: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+C2CERT-B03: OPEN — NATIVE_SCOPE_COMMITMENT_NOT_EXECUTION_BOUND + PROVENANCE_UNIQUENESS_DOMAIN_NOT_PINNED
+C2CERT-B04: OPEN — COMPOSITE_ROOT_UNMATCHABLE_TO_ATTEMPT_RESPONSE_SCOPE
 C2CERT-B05: CLOSED_UNCHANGED
 
-C2.05R2 repaired semantic surface:
-- B03: OPERATION_COVERAGE_PROVENANCE is the exact replay bridge from actual operation semantics to coverage scope.
-- B03: exact replay-retained C2.01 CapabilityRequirement R and canonical SHA-256 are bound to provenance.
-- B03: exact C2.02R2 attempted-response semantic set is bound and recomputed under the parent contract.
-- B03: native subject, identifier namespace, partitions, constraints, and temporal dependency are committed in the exact pre-dispatch provenance ref; post-hoc replacement cannot support completeness.
-- B03: OperationCoverageScopeBinding must exactly project provenance before matching CoverageScopeDefinition.
-- B04: COMPOSITE_EXPLICIT_CLOSURE roots must have empty root query/response semantic sets.
-- B04: exact canonical composite_component_scope_refs[] is the authoritative composite query/response universe.
-- B04: partitioned composites require both exact component-scope closure and exact partition closure.
-- B04: non-partition composites close only by exact component-scope bijection with empty partition sets.
+C2.05R2 residual failed-obligation re-check:
+PASS: C2-437, C2-438, C2-525, C2-539
+FAIL: C2-471, C2-481, C2-540
 
-C2.OPEN-009: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
-C2.OPEN-010: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
-C2.OPEN-011: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+C2.05 + R1 effective acceptance after R2 re-check:
+C2-402..C2-555 = 151/154 PASS; 3 FAIL
+
+C2.05R2 new acceptance review:
+C2-556..C2-590 = 32/35 PASS; 3 FAIL
+Failed new obligations: C2-557, C2-584, C2-585
+
+C2.05 effective acceptance through R2:
+C2-402..C2-590 = 183/189 PASS; 6 FAIL
+Failed effective obligations: C2-471, C2-481, C2-540, C2-557, C2-584, C2-585
+
+C2.05R2 acceptance adequacy note:
+C2-567..C2-571 = PASS_AS_WRITTEN_BUT_INSUFFICIENT_FOR_B03_CLOSURE because pre-dispatch coverage provenance is not machine-bound to the executed provider request semantic state.
+
+C2.04 non-regression after C2.05R2 re-check:
+C2-289..C2-401 = 113/113 PASS
+
+C2.OPEN-009: NOT_CLOSED_REPAIR_REQUIRED
+C2.OPEN-010: NOT_CLOSED_REPAIR_REQUIRED
+C2.OPEN-011: NOT_CLOSED_REPAIR_REQUIRED
 C2.OPEN-012: OPEN_UNCHANGED_C2_06
 C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
 C2.OPEN-014: OPEN_UNCHANGED_C2_07
 C2.OPEN-015: OPEN_UNCHANGED_POST_CONTRACT_CONFIGURATION
+
+C2.05R3 required scoped repair only:
+- B03: machine-bind native subject / identifier namespace / partition / constraint / temporal scope dimensions to replay-retained executed request semantic state, not merely a coverage-only pre-dispatch assertion.
+- B03: freeze the exact provenance uniqueness authority domain so later unrelated provenance claims cannot change historical replay.
+- B03: preserve R2 exact CapabilityRequirement R and C2.02R2 attempted-response provenance improvements.
+- B04: remove the composite-root / per-operation attempted-response contradiction.
+- B04: choose either aggregate-root support semantics or an explicit immutable machine-checkable root-to-component decomposition/equivalence relation.
+- B04: add adversarial tests that include the C2.02R2 invariant that attempted_response_semantic_refs contains the endpoint primary response semantic.
+- Preserve C2CERT-B01, B02, B05 and all unrelated parent PASS surfaces.
+- Corresponding acceptance additions and independent re-checks only.
 
 Inherited ownership boundaries:
 - C1 owns final normalization/identity/resolution/NO_MATCH/uniqueness semantics.
@@ -142,13 +145,13 @@ Inherited ownership boundaries:
 - C2.04R1 secure-ingress semantics remain unchanged.
 - Concrete provider/vendor configuration remains deferred under C2.OPEN-015.
 
-C2.05R2 Independent Certification Re-Check: NOT RUN / NOT AUTHORIZED YET
+C2.05R3: NOT STARTED / NOT AUTHORIZED
 C2.06: NOT STARTED / NOT AUTHORIZED
 Production implementation: NOT AUTHORIZED
 Provider/vendor configuration: NOT AUTHORIZED
 External/PAPER/LIVE side effects: NOT_AUTHORIZED
 
 NEXT GATE:
-Explicit user authorization for C2.05R2 Independent Certification Re-Check.
+Explicit user authorization for C2.05R3 scoped repair.
 
-DO NOT start the Independent Certification Re-Check, C2.06, production implementation, provider/vendor configuration, or external/PAPER/LIVE side effects before explicit authorization.
+DO NOT start C2.05R3, C2.06, production implementation, provider/vendor configuration, or external/PAPER/LIVE side effects before explicit authorization.

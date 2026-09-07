@@ -1,32 +1,45 @@
-sync_status: VERIFIED_READY_FOR_FINAL_FAST_FORWARD
+sync_status: VERIFIED_READY_FOR_FINAL_FAST_FORWARD_AFTER_STARTUP_AUDIT_APPEND
 verification_date: 2026-09-07
 repository: XXHANOO/investment-research-os
 handoff_branch: handoff/2026-09-07-c2-05r3-stop
 handoff_package: handoff/2026-09-07_C2_05R3
 
-pre_handoff_main_head: c91a314ed253da8f27e21cb80c0b59996cbaa371
-handoff_checkpoint_commit_before_this_record: a506e4b18a552fbccb7833bb3e74a20f40c2454c
+pre_original_handoff_main_head: c91a314ed253da8f27e21cb80c0b59996cbaa371
+main_head_before_startup_audit_append: 18fb9accd65ec604d4c6a043b5d042166169a53d
+handoff_checkpoint_commit_before_this_record: 674ab94623d5fd8e3846ce4e56e77613172d3c71
 branch_compare_before_this_record:
   status: ahead
   ahead_by: 9
   behind_by: 0
-  merge_base: c91a314ed253da8f27e21cb80c0b59996cbaa371
+  merge_base: 18fb9accd65ec604d4c6a043b5d042166169a53d
   fast_forward_safe: true
 
+startup_audit_append:
+  requested_by_user: true
+  bootstrap_prompt_updated: true
+  comprehensive_prior_work_audit_required: true
+  audit_mode: READ_ONLY
+  audit_scope: ALL_AUTHORITATIVE_WORK_C0_THROUGH_C2_05R3
+  must_confirm_direction_and_content_before_new_work: true
+  stop_after_audit: true
+  explicit_user_authorization_required_after_audit: true
+  C2_05R3_independent_recheck_allowed_during_audit: false
+  repository_mutation_allowed_during_audit: false
+
 current_stage_integrity:
-  governance_current_stage_blob_sha: a6cb5bb27de9573b7d66e2dae4b5d1c0581fcd19
-  handoff_current_stage_snapshot_blob_sha: a6cb5bb27de9573b7d66e2dae4b5d1c0581fcd19
+  governance_current_stage_blob_sha: 231c6111c4bb87f97c28f6aefcae691f97179472
+  handoff_current_stage_snapshot_blob_sha: 231c6111c4bb87f97c28f6aefcae691f97179472
   exact_blob_identity: true
 
 handoff_core_files:
-  00_README_FIRST.md: a0bea02daf20d1bcf8d2d32d337df7f925098702
-  01_NEW_CHAT_BOOTSTRAP_PROMPT.txt: 910fc674e7843047ddc04a6448147afb92b5a18e
-  02_PROJECT_HANDOFF_CURRENT_STATE.md: eb249555e1078202aca7d3b210b63cf82a875dac
-  03_CURRENT_STAGE_SNAPSHOT.txt: a6cb5bb27de9573b7d66e2dae4b5d1c0581fcd19
-  04_CANONICAL_ARTIFACT_INDEX.yaml: 1b274f414630317f6bb7d736cf903bb2459dc5c4
-  05_STOP_STATE.yaml: 708c8bf9637e834a5206afe0fc7631b4c97868e5
-  06_HANDOFF_PACKAGE_MANIFEST.yaml: 6540b360afd168c78f6450f1c5e8ec04d9a7c217
-  07_AUTHORITATIVE_REVIEW_AND_CANDIDATE_POINTERS.txt: fd5d77c1e889ffaac5ed34d26eb68bf3a7ef4a38
+  00_README_FIRST.md: f291f7a746acdacd95f53d52bd2ed60e4873053f
+  01_NEW_CHAT_BOOTSTRAP_PROMPT.txt: 240f314dc8d31468ba87e5fa42dbe94a5bd190f2
+  02_PROJECT_HANDOFF_CURRENT_STATE.md: 4099ac291efd20a92340920ae1e38d6b457656ec
+  03_CURRENT_STAGE_SNAPSHOT.txt: 231c6111c4bb87f97c28f6aefcae691f97179472
+  04_CANONICAL_ARTIFACT_INDEX.yaml: 653d2e566b090d023632cf8ebcf61e392c0d6b45
+  05_STOP_STATE.yaml: 70920c755404eb63a731380970f54b514e131030
+  06_HANDOFF_PACKAGE_MANIFEST.yaml: 854b68f179dffdb43febefdad98d62ef040a9c10
+  07_AUTHORITATIVE_REVIEW_AND_CANDIDATE_POINTERS.txt: ca7fc48d154c2bb7092c69b0c15bfa21182e2306
 
 c2_05r3_candidate_integrity:
   candidate_archive_commit: aae0d92d9695af9ddb9c93ce5d3680649e8692c5
@@ -48,6 +61,8 @@ finalization_rule:
   - Fast-forward main only; no merge commit and no force update.
   - After fast-forward, verify main points to this record's containing commit.
   - Align the active C2.05R3 governance branch to final main by fast-forward only.
+  - Verify the handoff branch and main are identical after finalization.
   - Do not perform any C2.05R3 Independent Certification Re-Check or later-stage work during archival.
 
-next_gate: C2.05R3 Independent Certification Re-Check only after explicit user authorization in the new Work page
+immediate_next_action_in_new_work_page: MANDATORY_COMPREHENSIVE_PRIOR_WORK_AUDIT_READ_ONLY
+next_development_review_gate_after_audit: C2.05R3 Independent Certification Re-Check only after audit confirmation and explicit user authorization

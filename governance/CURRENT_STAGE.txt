@@ -1,7 +1,7 @@
 Project: Investment Research OS
 
-Current stage: C2.05 CONSTRUCTION COMPLETE AS CANDIDATE — NOT INDEPENDENTLY REVIEWED
-Current gate: Explicit user authorization for C2.05 Independent Certification Review
+Current stage: C2.05 INDEPENDENT CERTIFICATION REVIEW FAIL — C2.05 REPAIR_REQUIRED_NOT_FROZEN
+Current gate: Explicit user authorization for C2.05R1 scoped repair
 
 C0: FROZEN
 C0 GitHub canonical archive: COMPLETE
@@ -59,7 +59,6 @@ C2.04R1 exact Independent Re-Check archive commit: f0a07d8329374caef8d1bf3ca8439
 C2.05 user authorization: GRANTED
 C2.05 scope: Provider Certification / Completeness / Coverage Attestations
 C2.05 construction: COMPLETE AS CANDIDATE
-C2.05 independent certification review: NOT RUN / NOT AUTHORIZED YET
 C2.05 canonical candidate path: governance/C2/C2.05/
 C2.05 canonical candidate artifact count: 10
 C2.05 exact Git blob byte equivalence: 10/10 PASS
@@ -77,33 +76,37 @@ C2.05 stage report SHA-256: 248d67e79463139cb823974b7e7b23cce109ba44251f1ab3b0c8
 C2.05 independent review package manifest SHA-256: 8285be12eac6353ef070367aae3aaee64f58980c401abbca793e150a2fd57b62
 C2.05 package ZIP pointer SHA-256: 6692941fdf1d8cb430bfeed00e9f6f2d42fe4ce8ecc9bd1c8579a78b32b729f6
 C2.05 mechanical validation: PASS_MECHANICAL_ONLY_NOT_INDEPENDENT_CERTIFICATION_REVIEW
-
 C2.05 construction decisions: C2.DEC-288..C2.DEC-331 = 44
 C2.05 construction acceptance obligations: C2-402..C2-487 = 86
 
-C2.OPEN-009: CANDIDATE_CLOSED_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
-C2.OPEN-010: CANDIDATE_CLOSED_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
-C2.OPEN-011: CANDIDATE_CLOSED_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+C2.05 Independent Certification Review: FAIL
+C2.05 state after independent review: REPAIR_REQUIRED_NOT_FROZEN
+C2.05 independent acceptance review: C2-402..C2-487 = 78/86 PASS; 8 FAIL
+C2.05 failed obligations: C2-402, C2-411, C2-412, C2-437, C2-438, C2-459, C2-471, C2-481
+C2.05 parent C2.04 non-regression: C2-289..C2-401 = 113/113 PASS
+C2CERT-B01: OPEN — COVERAGE_EVIDENCE_CARRIER_NOT_TYPE_CLOSED
+C2CERT-B02: OPEN — CERTIFICATION_DECISION_NOT_TOTAL_FOR_MIXED_FAILURE_STATES
+C2CERT-B03: OPEN — OPERATION_TO_COVERAGE_SCOPE_BINDING_NOT_MACHINE_CLOSED
+C2CERT-B04: OPEN — PARTITION_COMPOSITE_CLOSURE_PREDICATE_UNDERDEFINED
+C2CERT-B05: OPEN — NON_COMPLETE_COVERAGE_CLASSIFICATION_NOT_TOTAL
+C2.05 Independent Review report SHA-256: 17853fd3e93d9a7d0cb611564004e85865d2fda20e05ee1ad885a249f2705c04
+C2.05 Independent Review result SHA-256: 8edddb75c2fa556ecb1d688b1f543057e99171441e7ea3ec4466c02c7ddb0a10
+
+C2.OPEN-009: NOT_CLOSED_REPAIR_REQUIRED
+C2.OPEN-010: NOT_CLOSED_REPAIR_REQUIRED
+C2.OPEN-011: NOT_CLOSED_REPAIR_REQUIRED
 C2.OPEN-012: OPEN_UNCHANGED_C2_06
 C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
 C2.OPEN-014: OPEN_UNCHANGED_C2_07
 C2.OPEN-015: OPEN_UNCHANGED_POST_CONTRACT_CONFIGURATION
 
-C2.05 candidate invariants:
-- provider certification and completeness/coverage are separate claims;
-- only exact immutable registry snapshots and stable refs may be load-bearing;
-- only CERTIFIED provider certification and ACTIVE COMPLETE_FOR_SCOPE coverage can support absence/uniqueness eligibility;
-- SUCCESS+NO_DATA/PRESENT alone do not establish absence/uniqueness;
-- PARTIAL/FAILED/CANCELLED cannot support absence/uniqueness;
-- ABSENCE_SUPPORT_ELIGIBLE is not C1 NO_MATCH;
-- UNIQUENESS_SUPPORT_ELIGIBLE is not C1 RESOLVED;
-- exact coverage scope identity is required; wildcard/human-label broadening is forbidden;
-- method-specific exhaustion is required for exact-key/pagination/partition/bulk/window/composite closure;
-- multiple partial/non-exhaustive providers cannot be silently unioned into completeness;
-- C2 completeness does not imply C4 PIT safety;
-- C2 certification does not imply C5 verification;
-- C2 certification grants no C6 capability or PAPER/LIVE authority;
-- C2.04 secure-ingress boundary remains unchanged.
+C2.05R1 required scoped repair only:
+- B01 coverage-evidence type/ref/check closure.
+- B02 total certification-decision precedence for mixed invalid/fail/indeterminate states.
+- B03 exact operation-to-coverage-scope derivation/validation and parent semantic-registry snapshot binding.
+- B04 exact partition/composite component mapping and machine-closed gap predicates.
+- B05 total non-complete coverage-classification semantics.
+- corresponding acceptance additions and re-checks only.
 
 C2.05 inherited ownership boundaries:
 - C1 owns final normalization/identity/resolution/NO_MATCH/uniqueness semantics.
@@ -113,15 +116,17 @@ C2.05 inherited ownership boundaries:
 - C6 owns capability/policy/trusted-intent/destination/side-effect authority.
 - C7 owns orchestration/budgets/cancellation/durable continuation.
 - C11 owns persistence implementation.
+- C12 owns validation/promotion/release.
 - C2.06 retains exact C1/C3/C4/C5/C6/C7/C11 wire bindings and C2->C11 handoff.
-- C2.07 retains machine schema/validators/executable contract tests.
+- C2.07 retains machine schema/validators and must encode repaired semantics, not invent them.
 - Concrete provider/vendor configuration remains deferred under C2.OPEN-015.
 
+C2.05R1: NOT STARTED / NOT AUTHORIZED
 C2.06: NOT STARTED / NOT AUTHORIZED
 Production implementation: NOT AUTHORIZED
-External/PAPER/LIVE side effects: NOT AUTHORIZED
+External/PAPER/LIVE side effects: NOT_AUTHORIZED
 
 NEXT GATE:
-Explicit user authorization for C2.05 Independent Certification Review.
+Explicit user authorization for C2.05R1 scoped repair.
 
-DO NOT start the Independent Certification Review or C2.06 before explicit user authorization.
+DO NOT start C2.05R1, C2.06, production implementation, or external/PAPER/LIVE side effects before explicit authorization.

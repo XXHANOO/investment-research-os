@@ -1,0 +1,158 @@
+schema_version: 1.0.0-C2-05R2-operation-provenance-composite-root-repair-ledger
+project: Investment Research OS
+stage: C2.05R2
+generated_at_utc: '2026-09-07T07:10:00Z'
+status: SCOPED_REPAIR_CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_RECHECK
+
+parent:
+  c2_05r1_independent_review_report_sha256: 2b829b9a3af45eade91efee1fea786a9b26128c39be0f4662953897bea0635f8
+  c2_05r1_independent_review_result_sha256: 59578acccb8906637360f24c7fe190a3a6e6b92098ddf03c30a5133b9d5767bf
+
+scope:
+  blockers:
+    - C2CERT-B03
+    - C2CERT-B04
+  unrelated_scope_expansion_allowed: false
+
+decisions:
+- decision_id: C2.DEC-362
+  code: OPERATION_COVERAGE_PROVENANCE_KIND
+  blocker: B03
+  decision: Add closed OPERATION_COVERAGE_PROVENANCE stable-ref kind.
+  required_tests: [C2-556]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-363
+  code: EXACT_ONE_ATTEMPT_PROVENANCE
+  blocker: B03
+  decision: Load-bearing completeness requires exactly one provenance ref bound to the exact provider operation and route attempt.
+  required_tests: [C2-557, C2-575]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-364
+  code: CAPABILITY_REQUIREMENT_R_PROVENANCE
+  blocker: B03
+  decision: Provenance embeds the exact replay-retained C2.01 CapabilityRequirement R and its canonical SHA-256.
+  required_tests: [C2-558, C2-559]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-365
+  code: R_DERIVED_BINDING_FIELDS
+  blocker: B03
+  decision: Access pattern, observation, query, and feature fields in the scope binding must exactly project authoritative R.
+  required_tests: [C2-560, C2-561, C2-562, C2-563]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-366
+  code: C2_02_ATTEMPTED_RESPONSE_PROVENANCE
+  blocker: B03
+  decision: Provenance attempted-response set must equal the exact C2.02R2 stored and recomputed attempted-response set.
+  required_tests: [C2-564, C2-565]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-367
+  code: OPERATION_IDENTITY_PROVENANCE
+  blocker: B03
+  decision: Provider, endpoint, capability, operation, attempt and parent snapshot identities must match the actual attempt exactly.
+  required_tests: [C2-566, C2-576]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-368
+  code: PRE_DISPATCH_NATIVE_SCOPE_COMMITMENT
+  blocker: B03
+  decision: Native-subject and identifier-namespace scope dimensions are authoritative only from the exact replay-retained pre-dispatch provenance commitment.
+  required_tests: [C2-567, C2-568]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-369
+  code: PRE_DISPATCH_PARTITION_CONSTRAINT_COMMITMENT
+  blocker: B03
+  decision: Partition and scope-constraint dimensions are authoritative only from the exact pre-dispatch provenance commitment.
+  required_tests: [C2-569, C2-570]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-370
+  code: PRE_DISPATCH_TEMPORAL_DEPENDENCY_COMMITMENT
+  blocker: B03
+  decision: Temporal dependency is absent or an exact committed ref; later replacement cannot support completeness.
+  required_tests: [C2-571]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-371
+  code: BINDING_IS_PROVENANCE_PROJECTION
+  blocker: B03
+  decision: OperationCoverageScopeBinding is valid only as an exact deterministic projection of OperationCoverageProvenance and then an exact match to CoverageScopeDefinition.
+  required_tests: [C2-572, C2-574]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-372
+  code: NO_POST_HOC_PROVENANCE
+  blocker: B03
+  decision: A later-minted provenance/binding pair cannot retroactively make an uncommitted operation complete.
+  required_tests: [C2-573]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-373
+  code: PROVENANCE_CANONICAL_REPLAY
+  blocker: B03
+  decision: Provenance list/value canonicalization makes validation order-invariant and replayable.
+  required_tests: [C2-577]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-374
+  code: COMPOSITE_ROOT_QUERY_RESPONSE_NEUTRALIZED
+  blocker: B04
+  decision: Composite roots must carry empty required query/response sets.
+  required_tests: [C2-578, C2-579, C2-581, C2-582]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-375
+  code: COMPOSITE_ROOT_UNIVERSE_IS_COMPONENT_SET
+  blocker: B04
+  decision: The exact canonical component-scope set is the authoritative composite root query/response decomposition universe.
+  required_tests: [C2-580, C2-583]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-376
+  code: COMPOSITE_NO_PARTITION_EXACT_SCOPE_PROOF
+  blocker: B04
+  decision: Empty-partition composite gap closure is exact component-scope bijection because the root universe is that set.
+  required_tests: [C2-584]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-377
+  code: COMPOSITE_PARTITION_DUAL_CLOSURE
+  blocker: B04
+  decision: Partitioned composites require both exact component-scope closure and exact partition closure; neither substitutes for the other.
+  required_tests: [C2-585, C2-586]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-378
+  code: NO_PARALLEL_ROOT_OR_INFERRED_EQUIVALENCE
+  blocker: B04
+  decision: Conflicting root query/response refs and inferred human/provider semantic equivalence are forbidden.
+  required_tests: [C2-587, C2-588]
+  closure_status: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+- decision_id: C2.DEC-379
+  code: R2_NON_REGRESSION
+  blocker: NON_REGRESSION
+  decision: Preserve B01/B02/B05 closures, C2.04R1 security acceptance, and inherited ownership boundaries.
+  required_tests: [C2-589, C2-590]
+  closure_status: CONSTRUCTION_NON_REGRESSION_ASSERTED_PENDING_INDEPENDENT_RECHECK
+
+blocker_state:
+  C2CERT-B01: CLOSED_UNCHANGED
+  C2CERT-B02: CLOSED_UNCHANGED
+  C2CERT-B03: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B04: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+  C2CERT-B05: CLOSED_UNCHANGED
+
+residual_failed_obligations_recheck_required:
+  - C2-437
+  - C2-438
+  - C2-471
+  - C2-481
+  - C2-525
+  - C2-539
+  - C2-540
+
+new_acceptance_range: C2-556..C2-590
+new_acceptance_total: 35
+
+open_questions:
+  C2.OPEN-009: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-010: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-011: REPAIR_CANDIDATE_PENDING_INDEPENDENT_RECHECK
+  C2.OPEN-012: OPEN_UNCHANGED_C2_06
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+  C2.OPEN-014: OPEN_UNCHANGED_C2_07
+  C2.OPEN-015: OPEN_UNCHANGED_POST_CONTRACT_CONFIGURATION
+
+next_gate: EXPLICIT_USER_AUTHORIZATION_FOR_C2_05R2_INDEPENDENT_CERTIFICATION_RECHECK
+production_implementation: NOT_AUTHORIZED
+provider_vendor_configuration: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED

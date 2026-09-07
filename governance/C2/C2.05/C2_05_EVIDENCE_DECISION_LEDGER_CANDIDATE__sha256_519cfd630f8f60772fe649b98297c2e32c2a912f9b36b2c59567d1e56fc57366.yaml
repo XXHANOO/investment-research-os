@@ -1,0 +1,342 @@
+schema_version: 1.0.0-C2-05-certification-coverage-decision-ledger
+project: Investment Research OS
+stage: C2.05
+generated_at_utc: '2026-09-07T06:01:18Z'
+status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+common_evidence_refs:
+- C1_FREEZE_SEAL_438274542570f7398af8622fdb511b85d69fc4c403b246b93a8a593b5d8070a5
+- C1_05R1_PROVIDER_NORMALIZATION_71d472e63044b9a7be2c6cc831705ed80dc6a06ccd0ef03e71a0618794bdef63
+- C2_00_SCOPE_b504211651839b1cd9c79a9706f05e1ad9c072f66bfb887aec2a0d65c9b17cf7
+- C2_01R1_REGISTRY_0bcdd0c48d8cd614ee7a1cb6ee6519df8fb33731bcafd535f3313978dca4343a
+- C2_02R2_OUTCOME_901445ca8f0f3f1a8cd04331d3def83f4a29ae3984e5917e723e2402f858f57d
+- C2_03R2_ROUTING_e04158428fc030ca72d297b2cb3fd4226dccaba0aa35224b14fc4de89e039b6b
+- C2_04_SECURITY_198d194fbb3814676f1cb74aec5d56f19f8b1f9b081c6d77c16b4e66fd762cda
+- C2_04R1_REPAIR_4023224a9b0f23cd006279c217600412376588eced9c62010861ccddf065a548
+- C2_04R1_RECHECK_PASS_d1af240f4e6eff32b087295ef259fd4485c13fc0775f8abc24fa630993104f47
+decisions:
+- decision_id: C2.DEC-288
+  code: CERTIFICATION_COMPLETENESS_DISTINCT
+  decision: Provider certification and query/scope completeness are independent C2 claims; certification alone never implies complete coverage.
+  required_tests:
+  - C2-445
+  - C2-449
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-289
+  code: C2_05_STABLE_REF_EXTENSION
+  decision: C2.05 extends the C2 stable-ref domain with closed certification/coverage ref kinds and exact full-tuple equality.
+  required_tests:
+  - C2-402
+  - C2-403
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-290
+  code: IMMUTABLE_CERTIFICATION_REGISTRY_SNAPSHOT
+  decision: Operational certification applicability is pinned by one immutable ProviderCertificationRegistrySnapshot, never a mutable current alias.
+  required_tests:
+  - C2-404
+  - C2-480
+  - C2-482
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-291
+  code: CLOSED_CERTIFICATION_STATES
+  decision: Certification registry state uses the closed six-value vocabulary and only CERTIFIED is load-bearing.
+  required_tests:
+  - C2-405
+  - C2-406
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-292
+  code: CLOSED_COVERAGE_STATES
+  decision: Coverage registry state uses the closed five-value vocabulary and only ACTIVE is load-bearing.
+  required_tests:
+  - C2-407
+  - C2-408
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-293
+  code: CERTIFICATION_CHECK_CLASSES_CLOSED
+  decision: Certification profiles use a closed check-class vocabulary; unknown/private extensions invalidate the profile/bundle.
+  required_tests:
+  - C2-414
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-294
+  code: CERTIFICATION_BUNDLE_EXACT_REQUIRED_CHECKS
+  decision: Every required certification check appears exactly once and must PASS; missing/duplicate/FAIL/INDETERMINATE/required-N-A fail closed.
+  required_tests:
+  - C2-409
+  - C2-410
+  - C2-411
+  - C2-412
+  - C2-413
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-295
+  code: CERTIFICATION_EVIDENCE_EXACT_BINDING
+  decision: Evidence/check results must resolve immutably and bind the exact provider/endpoint/capability/profile subject.
+  required_tests:
+  - C2-415
+  - C2-416
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-296
+  code: NO_SCORE_SUBSTITUTION
+  decision: Percentage, majority, reputation, or informal confidence cannot substitute for complete required certification checks.
+  required_tests:
+  - C2-417
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-297
+  code: PROVIDER_DOCS_NOT_EXHAUSTION_PROOF
+  decision: Provider documentation may be evidence input but is never sufficient by itself to certify completeness.
+  required_tests:
+  - C2-418
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-298
+  code: CERTIFICATION_NOT_C5
+  decision: C2 certification is conformance state, not C5 verification/source fitness/independence/conflict.
+  required_tests:
+  - C2-419
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-299
+  code: CERTIFICATION_NOT_C6
+  decision: Certification grants no C6 capability, trusted intent, destination, WRITE/PAPER/LIVE, or side-effect authority.
+  required_tests:
+  - C2-420
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-300
+  code: CERTIFICATION_NOT_ROUTE_PRIORITY
+  decision: Certification/completeness does not create or reorder C2.03 route priority.
+  required_tests:
+  - C2-421
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-301
+  code: CERTIFICATION_NOT_CURRENT_HEALTH
+  decision: Certification state is not uptime, latency, quota, freshness, cache, or current-health state.
+  required_tests:
+  - C2-422
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-302
+  code: SEMANTIC_SUCCESSOR_REQUIRES_RECERTIFICATION
+  decision: New provider/endpoint/capability stable refs never inherit old certification automatically.
+  required_tests:
+  - C2-423
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-303
+  code: MATERIAL_DRIFT_FAILS_CLOSED
+  decision: Schema, absence, partiality, pagination/exhaustion, limit/truncation, and unknown material drift suspend/invalidate load-bearing use.
+  required_tests:
+  - C2-424
+  - C2-425
+  - C2-426
+  - C2-427
+  - C2-428
+  - C2-429
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-304
+  code: REVOCATION_SUPERSESSION_REPLAY
+  decision: Revoked/superseded records are non-load-bearing in successor snapshots while old pinned snapshots remain replayable.
+  required_tests:
+  - C2-430
+  - C2-431
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-305
+  code: EXACT_COVERAGE_SCOPE_REF
+  decision: Every load-bearing completeness claim binds one immutable CoverageScopeDefinition and exact coverage_scope_ref equality is required.
+  required_tests:
+  - C2-432
+  - C2-435
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-306
+  code: COVERAGE_SCOPE_CANONICAL_SET
+  decision: Coverage scope ref lists use exact resolution, deduplication, conflict rejection, deterministic ordering, and no wildcard/hierarchy implication.
+  required_tests:
+  - C2-433
+  - C2-434
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-307
+  code: COVERAGE_SCOPE_PROVIDER_SEMANTIC_MATCH
+  decision: Provider/endpoint/capability/query/response/partition dimensions must match the exact attested scope.
+  required_tests:
+  - C2-436
+  - C2-437
+  - C2-438
+  - C2-439
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-308
+  code: OPAQUE_C4_TEMPORAL_DEPENDENCY
+  decision: Historical/time-bounded coverage carries an opaque temporal_scope_dependency_ref; C2.05 does not define C4 semantics.
+  required_tests:
+  - C2-440
+  - C2-441
+  - C2-442
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-309
+  code: CLOSED_COVERAGE_CLASSIFICATION
+  decision: Coverage classification is closed and only COMPLETE_FOR_SCOPE is load-bearing for absence/uniqueness eligibility.
+  required_tests:
+  - C2-443
+  - C2-444
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-310
+  code: COMPLETE_REQUIRES_CERTIFIED_ACTIVE_STATE
+  decision: A complete attestation is load-bearing only when provider certification is CERTIFIED and the attestation is ACTIVE in the same pinned registry snapshot.
+  required_tests:
+  - C2-445
+  - C2-446
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-311
+  code: CLOSED_COVERAGE_METHOD_FAMILIES
+  decision: Coverage completeness can arise only from the six closed method families under exact method rules.
+  required_tests:
+  - C2-447
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-312
+  code: ACCESS_PATTERN_NOT_COMPLETENESS
+  decision: C2.01 access-pattern labels such as ENUMERATION, DIRECT_LOOKUP, or BULK_EXPORT never certify completeness by themselves.
+  required_tests:
+  - C2-448
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-313
+  code: OUTCOME_NOT_COMPLETENESS
+  decision: SUCCESS+NO_DATA/PRESENT alone do not prove absence/uniqueness; PARTIAL/FAILED/CANCELLED cannot support exact absence/uniqueness.
+  required_tests:
+  - C2-449
+  - C2-450
+  - C2-451
+  - C2-452
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-314
+  code: EXACT_KEY_SINGLETON_METHOD
+  decision: EXACT_KEY_SINGLETON requires exact key scope, absence semantics, cardinality closure, and no unresolved continuation/partiality, and proves only that scope.
+  required_tests:
+  - C2-453
+  - C2-454
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-315
+  code: PAGINATION_EXHAUSTION_METHOD
+  decision: PAGINATION_EXHAUSTION requires complete continuation-to-terminal traversal with no ambiguity, cycle, page cap, timeout/manual stop, or truncation.
+  required_tests:
+  - C2-455
+  - C2-456
+  - C2-457
+  - C2-458
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-316
+  code: PARTITION_EXHAUSTION_METHOD
+  decision: PARTITION_EXHAUSTION requires exact required-partition closure with every component complete and no gap.
+  required_tests:
+  - C2-459
+  - C2-460
+  - C2-461
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-317
+  code: BULK_MANIFEST_EXHAUSTION_METHOD
+  decision: BULK completeness requires exact manifest/segment/count closure; one bulk object alone is insufficient.
+  required_tests:
+  - C2-462
+  - C2-463
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-318
+  code: WINDOW_BOUNDARY_EXHAUSTION_METHOD
+  decision: Window completeness is limited to exact provider-native boundaries and cannot leak outside the attested window.
+  required_tests:
+  - C2-464
+  - C2-465
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-319
+  code: SEARCH_STREAM_DEFAULT_NONEXHAUSTIVE
+  decision: Ranked/fuzzy search and open-ended streams are non-exhaustive by default absent exact closed-method proof.
+  required_tests:
+  - C2-466
+  - C2-467
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-320
+  code: NO_IMPLICIT_UNION_OF_PARTIALS
+  decision: Multiple partial/non-exhaustive providers cannot be unioned into COMPLETE without an explicit composite closure attestation.
+  required_tests:
+  - C2-468
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-321
+  code: COMPOSITE_EXPLICIT_CLOSURE
+  decision: Composite completeness requires exact component refs, complete/active/certified components, and machine-closed gap proof.
+  required_tests:
+  - C2-469
+  - C2-470
+  - C2-471
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-322
+  code: SECURE_INGRESS_EVIDENCE_NON_REGRESSION
+  decision: Provider-derived certification evidence remains subordinate to C2.04 secure-ingress and cannot use quarantine/reject/unsafe material.
+  required_tests:
+  - C2-472
+  - C2-473
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-323
+  code: EPHEMERAL_PUBLIC_SECURITY_BOUNDARY
+  decision: Certification cannot force EPHEMERAL_ONLY persistence or expose secret/private material in public artifacts.
+  required_tests:
+  - C2-474
+  - C2-475
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-324
+  code: ABSENCE_ELIGIBILITY_NOT_C1_CONCLUSION
+  decision: SUCCESS+NO_DATA+valid complete coverage may emit only ABSENCE_SUPPORT_ELIGIBLE, not C1 NO_MATCH.
+  required_tests:
+  - C2-476
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-325
+  code: UNIQUENESS_ELIGIBILITY_NOT_C1_CONCLUSION
+  decision: SUCCESS+PRESENT+valid complete coverage may emit only UNIQUENESS_SUPPORT_ELIGIBLE, not C1 RESOLVED.
+  required_tests:
+  - C2-477
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-326
+  code: POSITIVE_MAPPING_NOT_UNIVERSALLY_COMPLETE
+  decision: Positive exact mappings that do not depend on absence do not universally require C2 completeness.
+  required_tests:
+  - C2-478
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-327
+  code: COVERAGE_CANNOT_OVERRIDE_PARTIALITY
+  decision: A complete coverage attestation cannot upgrade material C2.02 PARTIAL to exhaustive.
+  required_tests:
+  - C2-479
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-328
+  code: EXACT_REPLAY_BINDING
+  decision: Operations/replay retain exact certification registry snapshot, certification, and coverage attestation refs; no mutable current lookup is allowed.
+  required_tests:
+  - C2-480
+  - C2-481
+  - C2-482
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-329
+  code: NO_CONCRETE_PROVIDER_SELECTION
+  decision: C2.05 remains vendor/provider-instance/adaptor neutral and authorizes no production or side effects.
+  required_tests:
+  - C2-483
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-330
+  code: OPEN_009_011_CANDIDATE_ONLY
+  decision: C2.OPEN-009..011 are candidate-closed pending independent review, never self-closed by construction.
+  required_tests:
+  - C2-484
+  - C2-485
+  - C2-486
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+- decision_id: C2.DEC-331
+  code: LATER_STAGE_WIRES_REMAIN_DEFERRED
+  decision: C2.OPEN-012..015 remain assigned to C2.06/C2.07/post-contract configuration and are not absorbed by C2.05.
+  required_tests:
+  - C2-487
+  closure_status: CANDIDATE_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+decision_range: C2.DEC-288..C2.DEC-331
+decision_count: 44
+acceptance_range: C2-402..C2-487
+acceptance_count: 86
+open_question_state:
+  C2.OPEN-009: CANDIDATE_CLOSED_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+  C2.OPEN-010: CANDIDATE_CLOSED_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+  C2.OPEN-011: CANDIDATE_CLOSED_PENDING_INDEPENDENT_CERTIFICATION_REVIEW
+  C2.OPEN-012: OPEN_UNCHANGED_C2_06
+  C2.OPEN-013: OPEN_UNCHANGED_C2_06_PERMITTED_RAW_HANDOFF
+  C2.OPEN-014: OPEN_UNCHANGED_C2_07
+  C2.OPEN-015: OPEN_UNCHANGED_POST_CONTRACT_CONFIGURATION
+next_gate: C2.05 Independent Certification Review
+c2_06: NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED

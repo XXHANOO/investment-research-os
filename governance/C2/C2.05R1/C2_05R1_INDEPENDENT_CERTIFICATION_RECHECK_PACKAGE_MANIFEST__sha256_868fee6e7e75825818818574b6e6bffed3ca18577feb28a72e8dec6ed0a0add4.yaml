@@ -1,0 +1,50 @@
+schema_version: 1.0.0-C2-05R1-independent-certification-recheck-package
+project: Investment Research OS
+stage: C2.05R1
+generated_at_utc: '2026-09-07T06:31:00Z'
+package_status: READY_FOR_EXPLICITLY_AUTHORIZED_INDEPENDENT_CERTIFICATION_RECHECK
+authority_rule: GITHUB_CONTENT_ADDRESSED_FILES_LISTED_HERE
+parent:
+  c2_05_contract_sha256: 3642588dcc22a7564d55a9a72d3e6e328b007649005c866e7831dfa4b8571d4c
+  c2_05_logical_model_sha256: 0a6d7c4037c04ca04f87994507afb722661dbd9450a115492238b9d5dd9c776c
+  c2_05_acceptance_sha256: 62714c720e2a9d6f24f066533ddac9c84f3360a6bff2cbe4d9aacbb9617cff6f
+  c2_05_decision_ledger_sha256: 519cfd630f8f60772fe649b98297c2e32c2a912f9b36b2c59567d1e56fc57366
+  independent_review_report_sha256: 17853fd3e93d9a7d0cb611564004e85865d2fda20e05ee1ad885a249f2705c04
+  independent_review_result_sha256: 8edddb75c2fa556ecb1d688b1f543057e99171441e7ea3ec4466c02c7ddb0a10
+repair_artifacts:
+  C2_05R1_PROVIDER_CERTIFICATION_COMPLETENESS_COVERAGE_REPAIR_CONTRACT_CANDIDATE__sha256_267c83480aa909e74cb5d87c54512878c3c9c7128fce8a394fb63f39c6ed2bcb.md: 267c83480aa909e74cb5d87c54512878c3c9c7128fce8a394fb63f39c6ed2bcb
+  C2_05R1_CERTIFICATION_COVERAGE_REPAIR_LOGICAL_MODEL_CANDIDATE__sha256_777b7ddc3530a088a127f3becb74bd1f644fc25f83703cb27799423671752262.yaml: 777b7ddc3530a088a127f3becb74bd1f644fc25f83703cb27799423671752262
+  C2_05R1_ACCEPTANCE_TEST_DELTA_CANDIDATE__sha256_24819163ea5c835ffcee5610f8d37bc8268a3621c62cf582aed85deaf339b749.md: 24819163ea5c835ffcee5610f8d37bc8268a3621c62cf582aed85deaf339b749
+  C2_05R1_EVIDENCE_DECISION_LEDGER_CANDIDATE__sha256_19e6bd0a48b153de04a957b7176052af2947ec8e9bf7f7bf9f1c0ab05cbe5566.yaml: 19e6bd0a48b153de04a957b7176052af2947ec8e9bf7f7bf9f1c0ab05cbe5566
+  C2_05R1_REPAIR_DIFFS__sha256_1c6b61d9a5e12374aac04e365b614b061723284b0e74bde85718316630bbdf9d.md: 1c6b61d9a5e12374aac04e365b614b061723284b0e74bde85718316630bbdf9d
+  C2_05R1_CONSTRUCTION_SUMMARY__sha256_2d4b219e94faab4ba3d088392aae0ccbccf97a8af90a49519e73c04e5bfb9309.json: 2d4b219e94faab4ba3d088392aae0ccbccf97a8af90a49519e73c04e5bfb9309
+  C2_05R1_CONSTRUCTION_VALIDATION__sha256_d1d0398a3ab9f3df35d880f6b7d354833b10bc7599e0e91e0415a568b6e33ad5.json: d1d0398a3ab9f3df35d880f6b7d354833b10bc7599e0e91e0415a568b6e33ad5
+  C2_05R1_CANDIDATE_SELECTION__sha256_a63b06e1ea0d015f7d721c624373e0a61e271c332786f1b400c8823e886361f4.yaml: a63b06e1ea0d015f7d721c624373e0a61e271c332786f1b400c8823e886361f4
+  C2_05R1_STAGE_REPORT__sha256_c7128dc84b1038666eb0ce753a3f26f2b9e7579d144aa89c0a875a769cf9627e.md: c7128dc84b1038666eb0ce753a3f26f2b9e7579d144aa89c0a875a769cf9627e
+review_requirements:
+  blockers:
+    - C2CERT-B01
+    - C2CERT-B02
+    - C2CERT-B03
+    - C2CERT-B04
+    - C2CERT-B05
+  parent_failed_obligations:
+    - C2-402
+    - C2-411
+    - C2-412
+    - C2-437
+    - C2-438
+    - C2-459
+    - C2-471
+    - C2-481
+  new_acceptance_range: C2-488..C2-555
+  new_acceptance_total: 68
+  parent_pass_surface_non_regression_required: true
+  parent_c2_04_non_regression_required: true
+  deterministic_replay_required: true
+  ownership_boundary_non_regression_required: true
+construction_mechanical_pass_is_recheck_pass: false
+blocker_state_before_recheck: ADDRESSED_NOT_CLOSED_PENDING_INDEPENDENT_RECHECK
+c2_06: NOT_AUTHORIZED
+production_implementation: NOT_AUTHORIZED
+external_paper_live_side_effects: NOT_AUTHORIZED
